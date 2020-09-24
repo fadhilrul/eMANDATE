@@ -15,7 +15,8 @@
         "laravel-frontend-presets/tall": "^2.0",
         "laravel/framework": "^8.0",
         "laravel/tinker": "^2.0",
-        "livewire/livewire": "^2.2"
+        "livewire/livewire": "^2.2",
+        "yajra/laravel-oci8": "8"
     },
     "require-dev": {
         "facade/ignition": "^2.3.6",
