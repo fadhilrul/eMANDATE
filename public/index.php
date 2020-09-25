@@ -874,7 +874,7 @@
                   <p
                     class="mb-2 text-sm font-medium text-gray-600 dark:text-gray-400"
                   >
-                    Bilangan Usahawan Daftar eMandate
+                    Bilangan Usahawan Daftar
                   </p>
                   <p
                     class="text-lg font-semibold text-gray-700 dark:text-gray-200"
@@ -902,7 +902,7 @@
                   <p
                     class="mb-2 text-sm font-medium text-gray-600 dark:text-gray-400"
                   >
-                    Account balance
+                    Bilangan Usahawan Lulus
                   </p>
                   <p
                     class="text-lg font-semibold text-gray-700 dark:text-gray-200"
@@ -928,7 +928,7 @@
                   <p
                     class="mb-2 text-sm font-medium text-gray-600 dark:text-gray-400"
                   >
-                    New sales
+                    Bilangan Usahawan Gagal Attempt
                   </p>
                   <p
                     class="text-lg font-semibold text-gray-700 dark:text-gray-200"
@@ -956,7 +956,7 @@
                   <p
                     class="mb-2 text-sm font-medium text-gray-600 dark:text-gray-400"
                   >
-                    Pending contacts
+                    Bilangan Usahawan bawah 15000
                   </p>
                   <p
                     class="text-lg font-semibold text-gray-700 dark:text-gray-200"
@@ -987,7 +987,7 @@
                     <tr class="text-gray-700 dark:text-gray-400">
                       <td class="px-4 py-3">
                         <div class="flex items-center text-sm">
-                          Avatar with inset shadow
+                          <!-- Avatar with inset shadow -->
                           <div
                             class="relative hidden w-8 h-8 mr-3 rounded-full md:block"
                           >
