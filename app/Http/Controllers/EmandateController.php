@@ -12,8 +12,8 @@ class EmandateController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
-        $NERPS = EMANDATE_ENRP::paginate(10);
+    {   
+        $NERPS = EMANDATE_ENRP::WHERE('SECTION','BLOCK2')-> paginate(5);
         return view('pages.ENRPFileList',compact('NERPS'));
     }
 
