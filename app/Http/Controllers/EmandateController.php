@@ -47,7 +47,9 @@ class EmandateController extends Controller
     public function show($id)
     {
         // $NERPS = EMANDATE_ENRP::paginate(10);
-        return view('pages.maklumatlengkap');
+        // $NERPS = EMANDATE_ENRP::find($id);
+        // $NERPS = EMANDATE_ENRP::where('payrefnum',$id);
+        // return view('pages.ENRPFileListDetails');
     }
 
     /**
