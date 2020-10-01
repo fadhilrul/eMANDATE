@@ -16,7 +16,7 @@
         </tr>
       </thead>
       <tbody>
-        @foreach ($NERPS as $item)
+        @foreach ($NERPS_details as $item)
         <tr>
           <td>
             {{ $item->filename }}
@@ -46,7 +46,7 @@
       </thead>
       <tbody
         class="bg-white divide-y dark:divide-gray-700 dark:bg-gray-800">
-        @foreach ($NERPS as $item)
+        @foreach ($NERPS_details as $item)
         <tr class="text-gray-700 dark:text-gray-400">
           <td class="px-4 py-3">
             <div class="flex items-center text-sm">
@@ -71,7 +71,7 @@
       </tbody>
     </table>
   </div>
-  {{ $NERPS->links() }}
+  {{ $NERPS_details->links() }}
 </div> --}}
 {{-- @endsection --}}
 
@@ -119,13 +119,13 @@
             <tr
               class="text-xs font-semibold tracking-wide text-left text-gray-500 uppercase border-b dark:border-gray-700 bg-gray-50 dark:text-gray-400 dark:bg-gray-800"
             >
-              <th class="px-4 py-3">Nama File</th>
-              <th class="px-4 py-3">IC No</th>
+              <th class="px-4 py-3">Client</th>
+              <th class="px-4 py-3">Amount</th>
             </tr>
           </thead>
           <tbody
             class="bg-white divide-y dark:divide-gray-700 dark:bg-gray-800">
-          @foreach ($NERPS as $item)
+          @foreach ($NERPS_details as $item)
          
             <tr class="text-gray-700 dark:text-gray-400">
               <td class="px-4 py-3 font-serif text-gray-800 ">
@@ -139,7 +139,7 @@
           </tbody>
         </table>
       </div>
-      {{ $NERPS->links() }}
+      {{ $NERPS_details->links() }}
       <div
         class="grid px-4 py-3 text-xs font-semibold tracking-wide text-gray-500 uppercase border-t dark:border-gray-700 bg-gray-50 sm:grid-cols-9 dark:text-gray-400 dark:bg-gray-800"
       >

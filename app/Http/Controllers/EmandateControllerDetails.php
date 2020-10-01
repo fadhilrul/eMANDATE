@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\EMANDATE_ENRP;
 class EmandateControllerDetails extends Controller
+
 {
     /**
      * Display a listing of the resource.
@@ -13,14 +14,15 @@ class EmandateControllerDetails extends Controller
      */
     public function index()
     {   
-       
+        
         /* have 2 condition (just for testing later on confirm back) */
-        $NERPS_details = EMANDATE_ENRP::where('payrefnum', '=', '66011115000785      ')
-                        -> where(function ($query) {
-                            $query->where('section', '=', 'BLOCK2'); }) -> paginate(5);
+        // $NERPS_details = EMANDATE_ENRP::where('payrefnum', '=', '66011115000785      ')
+        //                 -> where(function ($query) {
+        //                     $query->where('section', '=', 'BLOCK2'); }) -> paginate(5);
+        
 
-
-        return view('pages.ENRPFileListDetails',compact('NERPS_details'));
+         return view('pages.ENRPFileListDetails');  //  ,compact('NERPS_details')
+        
     }
 
   
@@ -55,7 +57,19 @@ class EmandateControllerDetails extends Controller
     public function show($id)
     {
         // $NERPS = EMANDATE_ENRP::paginate(10);
-        return view('pages.maklumatlengkap');
+        // $NERPS = EMANDATE_ENRP::find($id);
+        $NERPS_details = EMANDATE_ENRP::where('payrefnum','like','%'.$id.'%')->whereSection('BLOCK2')->paginate(5);
+
+        // dd($NERPS);
+
+        // $NERPS_details = EMANDATE_ENRP::where('payrefnum', '=', $NERPS)->whereOr()
+        //                 -> where(function ($query) {
+        //                     $query->where('section', '=', 'BLOCK2'); }) -> paginate(5);
+
+        //   dd($NERPS_details);
+        
+        return view('pages.ENRPFileListDetails',compact('NERPS_details'));
+        
     }
 
     /**
