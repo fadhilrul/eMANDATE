@@ -1,15 +1,3 @@
-@extends('pages.layout.app')
-@section('content')
-
-
-<style>
-    @media (min-width: 1280px){
-      .container {
-      max-width: 100vw !important;
-     }
-    }
-  
-  </style>
 
 <div class="container">
     <div class="row">
@@ -19,12 +7,12 @@
 
             <table class="table table-bordered" style="margin: 10px 0 10px 0;">
                 <tr>
-                    <th>Nama</th>
+                    <th>{{ $message }}</th>
                     <th>No Kad Pengenalan</th>
                     <th>No Akaun</th>
                     <th>Status</th>
                 </tr>
-                @foreach ($NERPS_search as $item)
+                @foreach ($EMANDATE_ENRP as $item)
                 <tr>
                     <td>
                         {{ $item->buyername }}
@@ -41,9 +29,8 @@
                 </tr>
                 @endforeach
             </table>
-            {{ $NERPS_search->links() }}
+            {{ $EMANDATE_ENRP->links() }}
         </div>
     </div>
 </div>
-@endsection
 

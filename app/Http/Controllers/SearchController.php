@@ -13,9 +13,7 @@ class SearchController extends Controller
      */
     public function index()
     {   
-        $NERPS_search = EMANDATE_ENRP::paginate(5);
-        // $NERPS = EMANDATE_ENRP::WHERE('SECTION','BLOCK2')-> paginate(5);
-         return view('pages.search',compact('NERPS_search'));
+         return view('searchbox');
     }
 
     /**
