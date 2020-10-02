@@ -45,11 +45,12 @@
           <p
             class="mb-2 text-sm font-medium text-gray-600 dark:text-gray-400"
           >
-            Bilangan Usahawan Daftar
+          <a href=""> Bilangan Usahawan Daftar</a>
           </p>
           <p
             class="text-lg font-semibold text-gray-700 dark:text-gray-200"
           >
+          {{($daftarCount->count())}}
           
           </p>
         </div>
@@ -74,12 +75,12 @@
           <p
             class="mb-2 text-sm font-medium text-gray-600 dark:text-gray-400"
           >
-            Bilangan Usahawan Lulus
+          <a href=""> Bilangan Usahawan Lulus</a>
           </p>
           <p
             class="text-lg font-semibold text-gray-700 dark:text-gray-200"
           >
-           0000
+          {{($lulusCount->count())}}
           </p>
         </div>
       </div>
@@ -101,18 +102,18 @@
           <p
             class="mb-2 text-sm font-medium text-gray-600 dark:text-gray-400"
           >
-            Bilangan Usahawan Gagal Attempt
+           <a href=""> Bilangan Usahawan Gagal</a>
           </p>
           <p
             class="text-lg font-semibold text-gray-700 dark:text-gray-200"
           >
-            0000
+          {{($gagalCount->count())}}
           </p>
         </div>
       </div>
       <!-- Card -->
       <!-- Card -->
-      <div
+      {{-- <div
         class="flex items-center p-4 bg-white rounded-lg shadow-xs dark:bg-gray-800"
       >
         
@@ -139,7 +140,7 @@
             0000
           </p>
         </div>
-      </div>
+      </div> --}}
       </div>
 
     
