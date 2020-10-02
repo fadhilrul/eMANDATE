@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use DB;
 use Illuminate\Http\Request;
 use App\Models\EMANDATE_ENRP;
-class EmandateController extends Controller
+
+class ViewDashboardDataController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,9 +15,13 @@ class EmandateController extends Controller
      */
     public function index()
     {   
-        $NERPS = EMANDATE_ENRP::WHERE('SECTION','BLOCK2')-> paginate(5);
-         return view('pages.ENRPFileList',compact('NERPS'));
+       
+        $daftar_count = DB::select('select count(*) from emandate_enrp');
+
+        return view('pages.test',compact('daftar_count'));
     }
+
+  
 
     /**
      * Show the form for creating a new resource.
@@ -47,9 +53,7 @@ class EmandateController extends Controller
     public function show($id)
     {
         // $NERPS = EMANDATE_ENRP::paginate(10);
-        // $NERPS = EMANDATE_ENRP::find($id);
-        // $NERPS = EMANDATE_ENRP::where('payrefnum',$id);
-        // return view('pages.ENRPFileListDetails');
+       // return view('pages.maklumatlengkap');
     }
 
     /**
@@ -86,3 +90,4 @@ class EmandateController extends Controller
         //
     }
 }
+
