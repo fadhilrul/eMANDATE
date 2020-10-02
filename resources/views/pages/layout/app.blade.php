@@ -216,7 +216,6 @@
 	   
 	   
       <!-- Backdrop    -->
-	  <!--   izzah just commented whole section of backdrop (need to check this section untuk apa sebab macam sama as above)
 	  <div
         x-show="isSideMenuOpen"
         x-transition:enter="transition ease-in-out duration-150"
@@ -496,7 +495,7 @@
           </div>
         </div>
       </aside>
-	-->  
+	
 	  
 	 
 	<!-- remarks -  program at the top browser (search, notification, profile  -->

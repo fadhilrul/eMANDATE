@@ -1,14 +1,14 @@
 @extends('pages.layout.app')
 @section('content')
 
-@foreach ($daftar_count as $item)
+{{-- @foreach ($daftar_count as $item) --}}
 
 
 <div>
     <label class="block text-sm font-semibold leading-5 text-gray-700">
-           // izzah nak test db
+            izzah nak test db
 
-            {{ $item -> item}}
+            {{-- {{ $item -> item}} --}}
            
         </label>
 
@@ -21,6 +21,6 @@
 </div>
 
 
-@endforeach
+{{-- @endforeach --}}
 
 @endsection
