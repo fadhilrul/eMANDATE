@@ -14,18 +14,19 @@
                 </tr>
                 @foreach ($EMANDATE_ENRP as $item)
                 <tr>
-                    <td>
-                        {{ $item->buyername }}
-                    </td>
-                    <td>
-                        {{ $item->idnum }}
-                    </td>
-                    <td>
-                        {{ $item->payrefnm }}
-                    </td>
-                    <td>
-                        {{ $item->processflag }}
-                    </td>
+                    
+                        <td>
+                            <a href="">   {{ $item->buyername }} </a>
+                        </td>
+                        <td>
+                            <a href="">   {{ $item->idnum }} </a>
+                        </td>
+                        <td>
+                            <a href="">   {{ $item->payrefnm }} </a>
+                        </td>
+                        <td>
+                            <a href="">   {{ $item->processflag }} </a>
+                        </td>
                 </tr>
                 @endforeach
             </table>
