@@ -1,11 +1,5 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title></title>
-    @livewireStyles
-    <link rel="stylesheet" href="{{ asset('css/app.css') }}">
-</head>
-<body>
+@extends('pages.layout.app')
+@section('content')
 <div class="container mt-4">
     <div class="row">
       <div class="col-md-8 offset-2">
@@ -20,7 +14,4 @@
       </div>
     </div>
 </div>
-</body>
-<script src="{{ asset('js/app.js') }}"></script>
-@livewireScripts
-</html>
+@endsection
