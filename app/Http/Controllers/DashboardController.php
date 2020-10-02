@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\EMANDATE_ENRP;
 use Illuminate\Http\Request;
 
 class DashboardController extends Controller
@@ -17,8 +18,14 @@ class DashboardController extends Controller
     }
 
     public function dashboard_emandate()
-    {
-        return view('pages.dashboard_emandate');
+    {   
+        $daftarCount = EMANDATE_ENRP::all();  //count daftar
+        $lulusCount = EMANDATE_ENRP::where('section','BLOCK2')->get();  //count lulus
+        $gagalCount = EMANDATE_ENRP::where('section','BLOCK1')->get();  //count gagal
+        // $daftarview = $daftarCount->count();
+        // dd($lulusCount);
+        return view('pages.dashboard_emandate',compact('daftarCount','lulusCount','gagalCount'));
+        // return view('pages.dashboard_emandate');
     }
 
     /**
@@ -50,7 +57,7 @@ class DashboardController extends Controller
      */
     public function show($id)
     {
-        //
+       //
     }
 
     /**
