@@ -127,11 +127,13 @@
             class="bg-white divide-y dark:divide-gray-700 dark:bg-gray-800">
           @foreach ($NERPS as $item)
          
-            <tr class="text-gray-700 dark:text-gray-400">
-              <td class="px-4 py-3 font-serif text-gray-800 ">
+            <tr 
+              {{-- class="text-gray-700 dark:text-gray-400"> --}}
+              class="text-xs font-semibold tracking-wide text-left text-gray-500 uppercase border-b dark:border-gray-700 bg-gray-50 dark:text-gray-400 dark:bg-gray-800">
+              <td class="px-4 py-3">
               <a href = "{{ url('link/'.$item->payrefnum.'')}}"> {{ $item->filename }} </a>
               </td>
-              <td class="px-4 py-3 font-serif text-gray-800 ">
+              <td class="px-4 py-3">
                   {{ $item->payrefnum }}
               </td>
             </tr>
