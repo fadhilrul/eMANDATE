@@ -19,6 +19,7 @@ Route::get('/emandate-dashboard', 'DashboardController@dashboard_emandate')->nam
 Route::get('/emandate-list', 'EmandateController@index')->name('Emandate_list.index');
 Route::get('/emandate-listdetails', 'EmandateControllerDetails@index')->name('Emandate_listDetails.index');
 Route::resource('link','EmandateControllerDetails');
+Route::get('/test', 'TestController@index')->name('test.index');
 
 
 //livewire component route for search

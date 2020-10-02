@@ -2,11 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use DB;
 use Illuminate\Http\Request;
-use App\Models\EMANDATE_ENRP;
+use App\Models\EMANDATE_INFO;
+class TestController extends Controller
 
-class ViewDashboardDataController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,10 +14,18 @@ class ViewDashboardDataController extends Controller
      */
     public function index()
     {   
-       
-        $daftar_count = DB::select('select count(*) from emandate_enrp');
+        
 
-        return view('pages.test',compact('daftar_count'));
+       // $INFOS = EMANDATE_INFO::all();;
+         //dd($INFOS);
+
+        $INFOS = EMANDATE_INFO::where('payrefnum','like','%66011115000785%')->whereApproval('00')->paginate(5);
+        //dd($INFOS);
+       return view('pages.test',compact('INFOS'));
+         
+        //return view('pages.test');  
+       
+        
     }
 
   
@@ -52,8 +59,10 @@ class ViewDashboardDataController extends Controller
      */
     public function show($id)
     {
-        // $NERPS = EMANDATE_ENRP::paginate(10);
-       // return view('pages.maklumatlengkap');
+       // $INFOS = EMANDATE_INFO::where('payrefnum','like','%'.$id.'%')->whereSection('BLOCK2')->paginate(5);
+       
+       
+
     }
 
     /**
