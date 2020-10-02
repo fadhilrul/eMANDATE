@@ -1,5 +1,7 @@
 @extends('pages.layout.app')
 @section('content')
+
+
 <style>
     @media (min-width: 1280px){
       .container {
@@ -8,6 +10,8 @@
     }
   
   </style>
+
+
 <div class="container px-6 mx-auto grid">
     <h2
       class="my-6 text-2xl font-semibold text-gray-700 dark:text-gray-200"
@@ -21,6 +25,7 @@
       class="mb-4 text-lg font-semibold text-gray-600 dark:text-gray-300"
     >
     </h4>
+
     <!-- Cards -->
     <div class="grid gap-6 mb-8 md:grid-cols-2 xl:grid-cols-4">
       <!-- Card -->
@@ -45,7 +50,7 @@
           <p
             class="text-lg font-semibold text-gray-700 dark:text-gray-200"
           >
-            0000
+          
           </p>
         </div>
       </div>
@@ -136,7 +141,8 @@
         </div>
       </div>
       </div>
-      
+
+    
      <!-- New Cards for module in emandate-->
     <h4
       class="mb-4 text-lg font-semibold text-gray-600 dark:text-gray-300"
