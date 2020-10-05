@@ -19,10 +19,12 @@ class TestController extends Controller
        // $INFOS = EMANDATE_INFO::all();;
          //dd($INFOS);
 
-        $INFOS = EMANDATE_INFO::where('payrefnum','like','%66011115000785%')->whereApproval('00')->paginate(5);
+       // $INFOS = EMANDATE_INFO::where('payrefnum','like','%66011115000785%')->whereApproval('00')->paginate(5);
         //dd($INFOS);
-       return view('pages.test',compact('INFOS'));
-         
+      // return view('pages.test',compact('INFOS'));
+       return view('pages.test');  
+
+
         //return view('pages.test');  
        
         
@@ -59,7 +61,8 @@ class TestController extends Controller
      */
     public function show($id)
     {
-       // $INFOS = EMANDATE_INFO::where('payrefnum','like','%'.$id.'%')->whereSection('BLOCK2')->paginate(5);
+        $INFOS = EMANDATE_INFO::where('payrefnum','like','%'.$id.'%')->whereApproval('00')->paginate(5);
+        return view('pages.test',compact('INFOS'));
        
        
 

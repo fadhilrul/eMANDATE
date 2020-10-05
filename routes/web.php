@@ -20,7 +20,7 @@ Route::get('/emandate-list', 'EmandateController@index')->name('Emandate_list.in
 Route::get('/emandate-listdetails', 'EmandateControllerDetails@index')->name('Emandate_listDetails.index');
 Route::resource('link','EmandateControllerDetails');
 Route::get('/test', 'TestController@index')->name('test.index');
-
+Route::resource('link','TestController');
 
 //livewire component route for search
 Route::get('/search-box', 'searchController@index')->name('search.index');
