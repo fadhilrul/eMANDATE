@@ -1,6 +1,5 @@
-
-
 <?php
+
 namespace App\Http\Livewire;
 
 use App\Models\EMANDATE_ENRP;
@@ -23,5 +22,3 @@ class Search extends Component
         ]);
     }
 }
-
-// controller search
