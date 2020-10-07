@@ -28,3 +28,6 @@ Route::resource('linkviewsearch','EmandateInfoController');
 //livewire component route for search
 Route::get('/search-box', 'searchController@index')->name('search.index');
 //end livewire component route for search
+
+
+Route::get('/cft-list', 'CFTController@index')->name('cft_list.index');

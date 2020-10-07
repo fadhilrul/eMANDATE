@@ -47,6 +47,21 @@
 	  cursor: pointer;
 	}
 	
+  .btnsmall {
+	  background-color: #008CBA; /* Green */
+	  border: none;
+	  color: white;
+	  padding: 1px 20px;
+	  text-align: center;
+	  text-decoration: none;
+	  display: inline-block;
+	  font-size: 12px;
+	  margin: 4px 2px;
+	  border-radius: 8px;
+	  transition-duration: 0.4s;
+	  cursor: pointer;
+	}
+
 	.button2 {
 	background-color: white; 
 	color: black; 
@@ -69,13 +84,18 @@
 	color: white;
 	}
 
-  .back {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 30px;
-  width: 250px;
-  border: 3px solid blue; 
+  .button4 {
+	background-color: white; 
+	color: black; 
+	border: 2px solid green;
+	}
+
+	.button4:hover {
+	background-color: green;
+	color: white;
+	}
+
+
 }
 	
 	</style>
@@ -184,31 +204,31 @@
                   <li
                     class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"
                   >
-                    <a class="w-full" href="home_emandate.php">Home</a>
+                    <a class="w-full" href="{{ route('emandate.dashboard') }}">Home</a>
                   </li>
                   <li
                     class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"
                   >
-                    <a class="w-full" href="blank.php">
+                    <a class="w-full" href="{{ route('Emandate_list.index') }}">
                       ENRP
                     </a>
                   </li>
                   <li
                     class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"
                   >
-                    <a class="w-full" href="blank.php">
+                    <a class="w-full" href="{{ route('cft_list.index') }}">
                       CFT
                     </a>
                   </li>
                   <li
                     class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"
                   >
-                    <a class="w-full" href="blank.php">#3</a>
+                    <a class="w-full" href="#">#3</a>
                   </li>
                   <li
                     class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"
                   >
-                    <a class="w-full" href="blank.php">#4</a>
+                    <a class="w-full" href="#">#4</a>
                   </li>
                 </ul>
               </template>
