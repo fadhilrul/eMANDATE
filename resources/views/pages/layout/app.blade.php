@@ -68,6 +68,15 @@
 	background-color: red;
 	color: white;
 	}
+
+  .back {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 30px;
+  width: 250px;
+  border: 3px solid blue; 
+}
 	
 	</style>
 	@livewireStyles
@@ -82,18 +91,19 @@
         class="z-20 hidden w-64 overflow-y-auto bg-white dark:bg-gray-800 md:block flex-shrink-0"
       >
         <div class="py-4 text-gray-500 dark:text-gray-400">
-          <img
+         <!-- <img
              class="object-cover w-full h-full rounded-full"
-			 src= "https://www.tekun.gov.my/wp-content/uploads/2016/06/hotline-TEKUN_Logo-300x300.png"			
-			alt=""
-			style="width:45px;"
+              src= "https://www.tekun.gov.my/wp-content/uploads/2016/06/hotline-TEKUN_Logo-300x300.png"			
+              alt=""
+              style="width:45px;"
              loading="lazy"
-           />
-		  <a
-            class="ml-6 text-lg font-bold text-gray-800 dark:text-gray-200"
-            href="#"
-          > Tekun Nasional
-          </a>
+           /> -->
+
+           <span class="ml-2 text-lg font-bold text-gray-800 dark:text-gray-200" style="color:blue">TEK</span><span class="text-lg font-bold text-gray-800 dark:text-gray-200" style="color:red">U</span><span class="text-lg font-bold text-gray-800 dark:text-gray-200" style="color:blue">N</span>   
+          <span class="ml-1 text-lg font-bold text-gray-800 dark:text-gray-200" style="color:red">NASIONAL</span>
+
+
+
           <ul class="mt-6">
             <li class="relative px-6 py-3">
               <span
@@ -526,7 +536,7 @@
               </svg>
             </button>
             <!-- Search input -->
-            <div class="flex justify-center flex-1 lg:mr-32">
+          <div class="flex justify-center flex-1 lg:mr-32">
               <div
                 class="relative w-full max-w-xl mr-6 focus-within:text-purple-500"
               >
