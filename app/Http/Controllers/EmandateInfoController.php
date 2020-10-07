@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\EMANDATE_INFO;
-class TestController extends Controller
+class EmandateInfoController extends Controller
 
 {
     /**
@@ -21,11 +21,11 @@ class TestController extends Controller
 
        // $INFOS = EMANDATE_INFO::where('payrefnum','like','%66011115000785%')->whereApproval('00')->paginate(5);
         //dd($INFOS);
-      // return view('pages.test',compact('INFOS'));
-       return view('pages.test');  
+      // return view('pages.EmandateInfo',compact('INFOS'));
+       return view('pages.EmandateInfo');  
 
 
-        //return view('pages.test');  
+        //return view('pages.EmandateInfo');  
        
         
     }
@@ -62,7 +62,7 @@ class TestController extends Controller
     public function show($id)
     {
         $INFOS = EMANDATE_INFO::where('payrefnum','like','%'.$id.'%')->whereApproval('00')->paginate(5);
-        return view('pages.test',compact('INFOS'));
+        return view('pages.EmandateInfo',compact('INFOS'));
        
        
 
