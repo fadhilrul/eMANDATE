@@ -182,7 +182,7 @@
         <div>
           <div>
        
-         <a class="button button2" href="blank.php"> CFT</a>
+         <a class="button button2" href="{{route('cft_list.index')}}"> CFT</a>
          
         </div>
         </div>
