@@ -182,8 +182,8 @@
         <div>
           <div>
        
-         <a class="button button2" href="{{route('cft_list.index')}}"> CFT</a>
-         
+        <!-- <a class="button button2" href="{{route('cft_list.index')}}"> CFT</a> -->
+         <a class="button button2" href="{{route('searchcft.index')}}"> CFT</a>
         </div>
         </div>
       </div>

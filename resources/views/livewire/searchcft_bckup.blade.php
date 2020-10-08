@@ -18,7 +18,7 @@
         </tr>
       </thead>
       <tbody>
-        @foreach ($CFT_DATALIST as $item)
+        @foreach ($cftdata as $item)
         <tr>
           <td>
             {{ $item->filename }}
@@ -55,7 +55,7 @@
       </thead>
       <tbody
         class="bg-white divide-y dark:divide-gray-700 dark:bg-gray-800">
-        @foreach ($CFT_DATALIST as $item)
+        @foreach ($cftdata as $item)
         <tr class="text-gray-700 dark:text-gray-400">
           <td class="px-1 py-2">
             <div class="flex items-center text-sm">
@@ -92,7 +92,7 @@
       </tbody>
     </table>
   </div>
-  {{ $CFT_DATALIST->links() }}
+  {{ $cftdata->links() }}
 </div> --}}
 {{-- @endsection --}}
 
@@ -107,9 +107,10 @@
       Senarai Fail CFT E-Mandate
     </h2>
 
+    <input type="text"  class="form-control" placeholder="Search" wire:model="searchCFTTerm" /> 
 
 <!-- search section -->
-    <div class="flex justify-center flex-1 lg:mr-32">
+  <div class="flex justify-center flex-1 lg:mr-32">
           <div
             class="relative w-full max-w-xl mr-6 focus-within:text-purple-500"
           >
@@ -128,13 +129,13 @@
               </svg>
             </div>
             <input
-              class="w-full pl-8 pr-2 text-sm text-gray-700 placeholder-gray-600 bg-gray-100 border-0 rounded-md dark:placeholder-gray-500 dark:focus:shadow-outline-gray dark:focus:placeholder-gray-600 dark:bg-gray-700 dark:text-gray-200 focus:placeholder-gray-500 focus:bg-white focus:border-purple-300 focus:outline-none focus:shadow-outline-purple form-input"
-              type="text"
-              placeholder="Search for filename"
-              aria-label="Search"
-              wire:model="searchCFTTerm"
-              class="form-control"
-            />
+                  class="w-full pl-8 pr-2 text-sm text-gray-700 placeholder-gray-600 bg-gray-100 border-0 rounded-md dark:placeholder-gray-500 dark:focus:shadow-outline-gray dark:focus:placeholder-gray-600 dark:bg-gray-700 dark:text-gray-200 focus:placeholder-gray-500 focus:bg-white focus:border-purple-300 focus:outline-none focus:shadow-outline-purple form-input"
+                  type="text"
+                  placeholder="Search for filename"
+                  aria-label="Search"
+                  wire:model="searchCFTTerm"
+                  class="form-control"
+                />
           </div>
       </div>
 
@@ -160,7 +161,7 @@
           </thead>
           <tbody
             class="bg-white divide-y dark:divide-gray-700 dark:bg-gray-800">
-          @foreach ($CFT_DATALIST as $item)
+          @foreach ($cftdata as $item)
          
             <tr 
               {{-- class="text-gray-700 dark:text-gray-400"> --}}
@@ -188,7 +189,7 @@
           </tbody>
         </table>
       </div>
-      {{ $CFT_DATALIST->links() }}
+      {{ $cftdata->links() }}
       <div
         class="grid px-1 py-2 text-xs font-semibold tracking-wide text-gray-500 uppercase border-t dark:border-gray-700 bg-gray-50 sm:grid-cols-9 dark:text-gray-400 dark:bg-gray-800"
       >
