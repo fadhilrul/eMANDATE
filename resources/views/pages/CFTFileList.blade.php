@@ -134,10 +134,10 @@
               class="text-xs font-semibold tracking-wide text-left text-gray-500 uppercase border-b dark:border-gray-700 bg-gray-50 dark:text-gray-400 dark:bg-gray-800">
              
               <td style='width: 200px;'>
-                 <a href = "{{ url('link/'.$item->buyeracc.'')}}"> {{ $item->filename }} </a>
+                 {{ $item->filename }} 
               </td>
               <td style='width: 100px;'>
-                  {{ $item->buyeracc }}
+              <a href = "{{ url('linkcft/'.$item->buyeracc.'')}}"> {{ $item->buyeracc }}</a>
               </td>
               <td style='width: 100px;'>
                   {{ $item->status }}
@@ -186,8 +186,8 @@
                 </button>
               </li>
               <li>
-                <button
-                  class="px-3 py-1 rounded-md focus:outline-none focus:shadow-outline-purple"
+              <button
+                  class="px-3 py-1 text-white transition-colors duration-150 bg-purple-600 border border-r-0 border-purple-600 rounded-md focus:outline-none focus:shadow-outline-purple"
                 >
                   1
                 </button>
@@ -201,7 +201,7 @@
               </li>
               <li>
                 <button
-                  class="px-3 py-1 text-white transition-colors duration-150 bg-purple-600 border border-r-0 border-purple-600 rounded-md focus:outline-none focus:shadow-outline-purple"
+                  class="px-3 py-1 rounded-md focus:outline-none focus:shadow-outline-purple"
                 >
                   3
                 </button>

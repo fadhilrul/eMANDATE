@@ -31,3 +31,5 @@ Route::get('/search-box', 'searchController@index')->name('search.index');
 
 
 Route::get('/cft-list', 'CFTController@index')->name('cft_list.index');
+Route::get('/cft-listdetails', 'CFTControllerDetails@index')->name('cft_listdetails.index');
+Route::resource('linkcft','CFTControllerDetails');
