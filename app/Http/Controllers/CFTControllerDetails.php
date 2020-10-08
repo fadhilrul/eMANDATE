@@ -4,7 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\EMANDATE_CFT;
-class CFTController extends Controller
+class CFTControllerDetails extends Controller
+
 {
     /**
      * Display a listing of the resource.
@@ -13,10 +14,11 @@ class CFTController extends Controller
      */
     public function index()
     {   
-        $CFT_DATALIST = EMANDATE_CFT::paginate(10);
 
-         return view('pages.CFTFileList',compact('CFT_DATALIST'));
+         return view('pages.CFTFileListDetails');  //  ,compact('NERPS_details')
+        
     }
+
 
     /**
      * Show the form for creating a new resource.
@@ -47,7 +49,12 @@ class CFTController extends Controller
      */
     public function show($id)
     {
-        //
+
+        $CFT_details = EMANDATE_CFT::where('buyeracc','like','%'.$id.'%')->whereStatus(99)->paginate(10);
+        //   dd($NERPS_details);
+        
+        return view('pages.CFTFileListDetails',compact('CFT_details'));
+        
     }
 
     /**
@@ -84,3 +91,4 @@ class CFTController extends Controller
         //
     }
 }
+
