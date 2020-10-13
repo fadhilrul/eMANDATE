@@ -43,10 +43,6 @@
 										<td class="px-4 py-4 border border-indigo-dark">{{ $item->telno }}</td>
 									</tr>
 									<tr>
-										<td class="px-4 py-4 border border-indigo-dark">Nama Fail</td>
-										<td class="px-4 py-4 border border-indigo-dark">{{ $item->filename }}</td>
-									</tr>
-									<tr>
 										<td class="px-4 py-4 border border-indigo-dark">Amount Debit</td>
 										<td class="px-4 py-4 border border-indigo-dark">{{ $item->debitamt }}</td>
 									</tr>
@@ -74,10 +70,6 @@
 										<td class="px-4 py-4 border border-indigo-dark">Tarikh Lulus</td>
 										<td class="px-4 py-4 border border-indigo-dark">{{ $item->appdate }}</td>
 									</tr>
-									<tr>
-										<td class="px-4 py-4 border border-indigo-dark">Tarikh Process</td>
-										<td class="px-4 py-4 border border-indigo-dark">{{ $item->processdt }}</td>
-									</tr>
 									
 								</tbody>
 							</table>
@@ -96,16 +88,24 @@
 						<table class="w-3/4 mx-auto text-indigo-lightest text-center" style="border-collapse: collapse;">
 							<tbody>
 								<tr>
-									<td class="px-4 py-4 border border-indigo-dark">Last Cycle Date</td>
-									<td class="px-4 py-4 border border-indigo-dark">{{ $item->last_cycle_date }}</td>
+									<td class="px-4 py-4 border border-indigo-dark">Jumlah Pinjaman</td>
+									<td class="px-4 py-4 border border-indigo-dark">{{ $item->approved_limit }}</td>
 								</tr>
 								<tr>
-									<td class="px-4 py-4 border border-indigo-dark">Next Cycle Date</td>
-									<td class="px-4 py-4 border border-indigo-dark">{{ $item->next_cycle_date }}</td>
+									<td class="px-4 py-4 border border-indigo-dark">Jumlah Bayaran Bulanan</td>
+									<td class="px-4 py-4 border border-indigo-dark">{{ $item->instal_amt }}</td>
 								</tr>
 								<tr>
-									<td class="px-4 py-4 border border-indigo-dark">Frequecy Unsuccessful Payment</td>
-									<td class="px-4 py-4 border border-indigo-dark">{{ $item->block_payment_flag }}</td>
+									<td class="px-4 py-4 border border-indigo-dark">Tarikh Terakhir Pusingan Bayaran</td>
+									<td class="px-4 py-4 border border-indigo-dark">{{ $item->lastcycle_date }}</td>
+								</tr>
+								<tr>
+									<td class="px-4 py-4 border border-indigo-dark">Tarikh Seterusnya Pusingan Bayaran</td>
+									<td class="px-4 py-4 border border-indigo-dark">{{ $item->nextcycle_date }}</td>
+								</tr>
+								<tr>
+									<td class="px-4 py-4 border border-indigo-dark">Jumlah Gagal Pembayaran</td>
+									<td class="px-4 py-4 border border-indigo-dark">{{ $item->blockpayment_flag }}</td>
 								</tr>
 								
 							</tbody>
