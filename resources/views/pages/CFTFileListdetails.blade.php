@@ -33,6 +33,10 @@
         <tr>
             <td>STATUS</td>
         </tr>
+        </tr>
+        <tr>
+            <td>ACTION</td>
+        </tr>
 
 
       </thead>
@@ -43,7 +47,7 @@
             {{ $item->filename }}
           </tr>
           <tr>
-            {{ $item->payrefnum }}
+            {{ $item->buyeracc }}
           </tr>
           <tr>
             {{ $item->idnum }}
@@ -69,7 +73,9 @@
           <tr>
             {{ $item->status }}
           </tr>
-
+          <tr>
+            {{ $item->action }}
+          </tr>
 
         @endforeach
       </tbody>
@@ -108,7 +114,7 @@
                     <div
                      class="relative hidden w-8 h-8 mr-3 rounded-full md:block">
                     </div>
-                    {{ $item->payrefnum }}
+                    {{ $item->buyeracc }}
                 </div>
             </td>
           
@@ -225,6 +231,34 @@
             </td>
         </tr>
 
+        <tr class="text-xs font-semibold tracking-wide text-left text-gray-500 uppercase border-b dark:border-gray-700 bg-gray-50 dark:text-gray-400 dark:bg-gray-800">
+             <th class="px-4 py-3">Status Potongan</th>
+
+             <td class="px-4 py-3">
+                 <div class="flex items-center text-sm">
+                    <div
+                     class="relative hidden w-8 h-8 mr-3 rounded-full md:block">
+                    </div>
+                    {{ $item->action }}
+                </div>
+            </td>
+        </tr>
+        <tr class="text-xs font-semibold tracking-wide text-left text-gray-500 uppercase border-b dark:border-gray-700 bg-gray-50 dark:text-gray-400 dark:bg-gray-800">
+             <th class="px-4 py-3">Pertukaran Status Potongan</th>
+
+             <td class="px-4 py-3">
+                 <div class="flex items-center text-sm">
+                    <div
+                     class="relative hidden w-8 h-8 mr-3 rounded-full md:block">
+                    </div>
+
+                    <button class="btnsmall button3" onclick="window.location='#'">HOLD</button>
+                    <button class="btnsmall button4" onclick="window.location='#'">RE-ACTIVE</button>
+
+                </div>
+            </td>
+        </tr>
+
         @endforeach
 
       </thead>
@@ -272,7 +306,7 @@
 
             <tr
               class="text-xs font-semibold tracking-wide text-left text-gray-500 uppercase border-b dark:border-gray-700 bg-gray-50 dark:text-gray-400 dark:bg-gray-800">
-              <td class="px-4 py-3">No Akaun</td> <td class="px-4 py-3">{{ $item->payrefnum }}</td>
+              <td class="px-4 py-3">No Akaun</td> <td class="px-4 py-3">{{ $item->buyeracc }}</td>
             </tr>
 
             <tr
@@ -314,6 +348,24 @@
             class="text-xs font-semibold tracking-wide text-left text-gray-500 uppercase border-b dark:border-gray-700 bg-gray-50 dark:text-gray-400 dark:bg-gray-800">
             <td class="px-4 py-3">Status</td> <td class="px-4 py-3">{{ $item->status }}</td>
            </tr>
+
+           <tr
+            class="text-xs font-semibold tracking-wide text-left text-gray-500 uppercase border-b dark:border-gray-700 bg-gray-50 dark:text-gray-400 dark:bg-gray-800">
+            <td class="px-4 py-3">Status Potongan</td> <td class="px-4 py-3">{{ $item->action }}</td>
+           </tr>
+
+           <tr
+            class="text-xs font-semibold tracking-wide text-left text-gray-500 uppercase border-b dark:border-gray-700 bg-gray-50 dark:text-gray-400 dark:bg-gray-800">
+            <td class="px-4 py-3">Pertukaran Status Potongan</td> 
+            <td class="px-4 py-3">
+
+              <a href = "{{ url('change-status/'.$item -> buyeracc.'')}}">
+              <div class="py-8 bg-grey-lighter hover:bg-grey-light text-indigo-darker rounded rounded-t-none text-center uppercase font-bold flex items-center justify-left">
+            <!--  <span style="color:blue; vertical-align: 300%; border: 1px solid black;">Teruskan</span> -->
+              <span class="btnsmall button2">Teruskan</span>
+
+            </td>
+           </tr>
             
 
             @endforeach
@@ -331,7 +383,7 @@
     <!-- With actions -->
    <!-- <button class="button button2" onclick="window.location='{{ url("emandate-list") }}'">Back</button> -->
 
-    <a href= '{{ url("cft-list") }}' >
+    <a href= '{{ url("search_cftlist") }}' >
 			<div class="py-8 bg-grey-lighter hover:bg-grey-light text-indigo-darker rounded rounded-t-none text-center uppercase font-bold flex items-center justify-center"><span>Back</span>
 				<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" class="icon fill-current w-4 h-4 ml-2">
 					<path d="M18.59 13H3a1 1 0 0 1 0-2h15.59l-5.3-5.3a1 1 0 1 1 1.42-1.4l7 7a1 1 0 0 1 0 1.4l-7 7a1 1 0 0 1-1.42-1.4l5.3-5.3z" class="heroicon-ui"></path>

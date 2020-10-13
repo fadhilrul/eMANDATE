@@ -38,3 +38,9 @@ Route::resource('linkcft','CFTControllerDetails');
 Route::get('/search_cftlist', 'searchCFTController@index')->name('searchcft.index');
 
 
+
+/* TEST FOR CRUD USING BLOG */
+Route::resource('products','ProductController');
+
+
+Route::resource('change-status','StatusController');
