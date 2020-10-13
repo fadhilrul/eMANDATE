@@ -2,8 +2,10 @@
 @section('content')
 
 @if ($message = Session::get('success'))
-        <div class="alert alert-success">
-            <span style="color:blue" >{{ $message }}</span>
+<div class="container">
+        <div class="alert">
+            <span>{{ $message }}</span>
+        </div>
         </div>
     @endif
 
