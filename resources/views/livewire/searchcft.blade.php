@@ -14,6 +14,7 @@
           <td>NAMA FAIL</td>
           <td>NO AKAUN</td>
           <td>STATUS</td>
+          <td>action</td>
           <>
         </tr>
       </thead>
@@ -28,6 +29,9 @@
           </td>
           <td>
             {{ $item->status }}
+          </td>
+          <td>
+            {{ $item->action }}
           </td>
         </tr>
         @endforeach
@@ -48,9 +52,10 @@
       <thead>
         <tr
           class="text-xs font-semibold tracking-wide text-left text-gray-500 uppercase border-b dark:border-gray-700 bg-gray-50 dark:text-gray-400 dark:bg-gray-800">
-          <th class="px-1 py-2">Nama Fail</th>
-          <th class="px-1 py-2">No Account</th>
-          <th class="px-1 py-2">Status</th>
+          <th class="px-4 py-3" style="text-align:center; font-size: 12px">Nama Fail</th>
+          <th class="px-4 py-3" style="text-align:center; font-size: 12px">No Account</th>
+          <th class="px-4 py-3" style="text-align:center; font-size: 12px">Status</th>
+          <th class="px-4 py-3" style="text-align:center; font-size: 12px">action</th>
         </tr>
       </thead>
       <tbody
@@ -73,7 +78,7 @@
               <div
                 class="relative hidden w-8 h-8 mr-3 rounded-full md:block">
               </div>
-              {{ $item->buyeracc }}
+              <td class="px-4 py-3" style="text-align:center; font-size: 12px"> {{ $item->buyeracc }}</td>
             </div>
           </td>
 
@@ -83,10 +88,19 @@
               <div
                 class="relative hidden w-8 h-8 mr-3 rounded-full md:block">
               </div>
-              {{ $item->status }}
+              <td class="px-4 py-3" style="text-align:center; font-size: 12px">{{ $item->status }}</td>
             </div>
           </td>
-          
+          <td class="px-1 py-2">
+            <div class="flex items-center text-sm">
+              <!-- Avatar with inset shadow -->
+              <div
+                class="relative hidden w-8 h-8 mr-3 rounded-full md:block">
+              </div>
+              <td class="px-4 py-3" style="text-align:center; font-size: 12px"> {{ $item->action }}</td>
+            </div>
+          </td>
+
         </tr>
         @endforeach
       </tbody>
@@ -151,10 +165,11 @@
             <tr
               class="text-xs font-semibold tracking-wide text-left text-gray-500 uppercase border-b dark:border-gray-700 bg-gray-50 dark:text-gray-400 dark:bg-gray-800"
             >
-              <th style='width: 200px;'>Nama Fail</th>
-              <th style='width: 100px;'>No Akaun</th>
-              <th style='width: 100px;'>Status</th>
-              <th style='width: 100px;'>Action</th>
+            <th class="px-4 py-3" style="text-align:center; font-size: 15px">Nama Fail</th>
+          <th class="px-4 py-3" style="text-align:center; font-size: 15px">No Account</th>
+          <th class="px-4 py-3" style="text-align:center; font-size: 15px">Status</th>
+          <th class="px-4 py-3" style="text-align:center; font-size: 15px">Status Pembayaran</th>
+             <!-- <th style='width: 100px;'>Button</th> -->
             </tr>
           </thead>
           <tbody
@@ -165,21 +180,18 @@
               {{-- class="text-gray-700 dark:text-gray-400"> --}}
               class="text-xs font-semibold tracking-wide text-left text-gray-500 uppercase border-b dark:border-gray-700 bg-gray-50 dark:text-gray-400 dark:bg-gray-800">
              
-              <td style='width: 200px;'>
+              <td class="px-4 py-3" style="text-align:center; font-size: 12px">
                  {{ $item->filename }} 
               </td>
-              <td style='width: 100px;'>
+              <td class="px-4 py-3" style="text-align:center; font-size: 12px">
               <a href = "{{ url('linkcft/'.$item->buyeracc.'')}}"> {{ $item->buyeracc }}</a>
               </td>
-              <td style='width: 100px;'>
+              <td class="px-4 py-3" style="text-align:center; font-size: 12px">
                   {{ $item->status }}
               </td>
-
-              <td style='width: 100px;'>
-                <button class="btnsmall button3" onclick="window.location='#'">HOLD</button>
-                <button class="btnsmall button4" onclick="window.location='#'">RE-ACTIVE</button>
-              </td>  
-
+              <td class="px-4 py-3" style="text-align:center; font-size: 12px">
+                  {{ $item->action }}
+              </td>
 
             </tr>
 

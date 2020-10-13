@@ -259,7 +259,7 @@
         @endforeach
 
       </thead>
-      <tbody
+      <tbody>
        
       </tbody>
     </table>

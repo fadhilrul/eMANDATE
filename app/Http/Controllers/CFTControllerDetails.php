@@ -51,7 +51,7 @@ class CFTControllerDetails extends Controller
     {
 
         $CFT_details = EMANDATE_CFT::where('buyeracc','like','%'.$id.'%')->whereStatus(99)->paginate(10);
-        //   dd($NERPS_details);
+        //   dd($CFT_details);
         
         return view('pages.CFTFileListDetails',compact('CFT_details'));
         
@@ -79,6 +79,13 @@ class CFTControllerDetails extends Controller
     {
         //
     }
+
+
+ 
+
+
+
+
 
     /**
      * Remove the specified resource from storage.
