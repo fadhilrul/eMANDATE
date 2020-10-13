@@ -114,7 +114,7 @@
   padding: 10px 20px;
   background-color: lightblue;
   color: white;
-  font-size: 20px;
+  font-size: 15px;
   border-radius: 8px;
 
 }

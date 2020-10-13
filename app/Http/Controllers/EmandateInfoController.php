@@ -61,7 +61,7 @@ class EmandateInfoController extends Controller
      */
     public function show($id)
     {
-        $INFOS = EMANDATE_INFO::where('payrefnum','like','%'.$id.'%')->whereApproval('00')->paginate(5);
+        $INFOS = EMANDATE_INFO::where('fms_acct_no','like','%'.$id.'%')->whereApproval('00')->paginate(5);
         return view('pages.EmandateInfo',compact('INFOS'));
        
        
