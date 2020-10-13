@@ -36,7 +36,7 @@
 									</tr>
 									<tr>
 										<td class="px-4 py-4 border border-indigo-dark">No Akaun</td>
-										<td class="px-4 py-4 border border-indigo-dark">{{ $item->payrefnum }}</td>
+										<td class="px-4 py-4 border border-indigo-dark">{{ $item->fms_acct_no }}</td>
 									</tr>
 									<tr>
 										<td class="px-4 py-4 border border-indigo-dark">No Telefon</td>
