@@ -18,6 +18,8 @@ Route::get('/', 'DashboardController@index')->name('dashboard');
 Route::get('/emandate-dashboard', 'DashboardController@dashboard_emandate')->name('emandate.dashboard');
 Route::get('/emandate-list', 'EmandateController@index')->name('Emandate_list.index');
 
+Route::resource('linkmainenrp','EmandateController');
+
 Route::get('/emandate-listdetails', 'EmandateControllerDetails@index')->name('Emandate_listDetails.index');
 Route::resource('link','EmandateControllerDetails');
 
@@ -29,18 +31,20 @@ Route::resource('linkviewsearch','EmandateInfoController');
 Route::get('/search-box', 'searchController@index')->name('search.index');
 //end livewire component route for search
 
-
 Route::get('/cft-list', 'CFTController@index')->name('cft_list.index');
 Route::get('/cft-listdetails', 'CFTControllerDetails@index')->name('cft_listdetails.index');
 Route::resource('linkcft','CFTControllerDetails');
 
-
 Route::get('/search_cftlist', 'searchCFTController@index')->name('searchcft.index');
 
+Route::resource('change-status','StatusController');
+
+//Route::get('/main-enrp', 'ListFileENRPController@index')->name('listfileenrp.index');
+Route::get('/search_mainenrp', 'searchMainENRPController@index')->name('searchenrp.index');
 
 
-/* TEST FOR CRUD USING BLOG */
+
+
+/* TEST FOR CRUD USING Product */
 Route::resource('products','ProductController');
 
-
-Route::resource('change-status','StatusController');

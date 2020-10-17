@@ -76,8 +76,8 @@
 
 <br/>
 
-<div'>
-    <a href= '{{ url("emandate-dashboard") }}' >
+<div>
+    <a href= '{{ url("search_cftlist") }}' >
         <span class="ml-1 text-lg font-bold text-gray-800 dark:text-gray-200" style="color:purple"> HOME </span>
     </a>
 </div>

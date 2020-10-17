@@ -7,7 +7,7 @@
           <div class="card-header bg-success text-white ">
           </div>
           <div class="card-body">
-            @livewire('search')
+            @livewire('search-enrp')
           </div>
         </div>
       </div>
