@@ -3,9 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\EMANDATE_ENRP;
-class EmandateControllerDetails extends Controller
-
+use App\Models\EMANDATE_ENRP; 
+class SearchMainENRPController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,19 +12,9 @@ class EmandateControllerDetails extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {   
-        
-        /* have 2 condition (just for testing later on confirm back) */
-        // $NERPS_details = EMANDATE_ENRP::where('payrefnum', '=', '66011115000785      ')
-        //                 -> where(function ($query) {
-        //                     $query->where('section', '=', 'BLOCK2'); }) -> paginate(5);
-        
-
-         return view('pages.ENRPFileListDetails');  //  ,compact('NERPS_details')
-        
+    {    
+        return view('search_listenrp');
     }
-
-  
 
     /**
      * Show the form for creating a new resource.
@@ -56,14 +45,7 @@ class EmandateControllerDetails extends Controller
      */
     public function show($id)
     {
-        
-        $NERPS_details = EMANDATE_ENRP::where('payrefnum','like','%'.$id.'%')->whereSection('BLOCK2')->paginate(5);
-
-        // dd($NERPS);
-
-        
-        return view('pages.ENRPFileListDetails',compact('NERPS_details'));
-        
+        //
     }
 
     /**

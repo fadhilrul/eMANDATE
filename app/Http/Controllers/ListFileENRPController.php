@@ -4,7 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\EMANDATE_ENRP;
-class EmandateControllerDetails extends Controller
+class ListFileENRPController extends Controller
+
 
 {
     /**
@@ -14,14 +15,14 @@ class EmandateControllerDetails extends Controller
      */
     public function index()
     {   
-        
-        /* have 2 condition (just for testing later on confirm back) */
-        // $NERPS_details = EMANDATE_ENRP::where('payrefnum', '=', '66011115000785      ')
-        //                 -> where(function ($query) {
-        //                     $query->where('section', '=', 'BLOCK2'); }) -> paginate(5);
-        
 
-         return view('pages.ENRPFileListDetails');  //  ,compact('NERPS_details')
+        /* could not use for pagination because of distinct() */
+        $file_ENRP = EMANDATE_ENRP::distinct()-> get(['filename']);
+
+        //dd($file_ENRP);
+        
+         //return view('pages.mainENRP');  
+         return view('pages.mainENRP',compact('file_ENRP'));
         
     }
 
@@ -56,13 +57,21 @@ class EmandateControllerDetails extends Controller
      */
     public function show($id)
     {
-        
-        $NERPS_details = EMANDATE_ENRP::where('payrefnum','like','%'.$id.'%')->whereSection('BLOCK2')->paginate(5);
+        // $NERPS = EMANDATE_ENRP::paginate(10);
+        // $NERPS = EMANDATE_ENRP::find($id);
+       // $file_ENRP = EMANDATE_ENRP::where('payrefnum','like','%'.$id.'%')->whereSection('BLOCK2')->paginate(5);
+      //  $file_ENRP = EMANDATE_ENRP::distinct()-> get(['filename']) ->paginate(5);
 
-        // dd($NERPS);
 
+        // dd($file_ENRP);
+
+        // $file_ENRP = EMANDATE_ENRP::where('payrefnum', '=', $NERPS)->whereOr()
+        //                 -> where(function ($query) {
+        //                     $query->where('section', '=', 'BLOCK2'); }) -> paginate(5);
+
+        //   dd($file_ENRP);
         
-        return view('pages.ENRPFileListDetails',compact('NERPS_details'));
+       // return view('pages.mainENRP',compact('file_ENRP'));
         
     }
 

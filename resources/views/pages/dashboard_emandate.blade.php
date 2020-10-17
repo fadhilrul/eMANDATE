@@ -164,7 +164,8 @@
         </div>
         <div>
             <div>
-            <a class="button button2" href="{{route('Emandate_list.index')}}"> ENRP</a>
+          <!--  <a class="button button2" href="{{route('Emandate_list.index')}}"> ENRP</a> -->
+            <a class="button button2" href="{{route('searchenrp.index')}}"> ENRP</a>
             </div>
         </div>
       </div>

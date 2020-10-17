@@ -192,7 +192,6 @@
               <td class="px-4 py-3" style="text-align:center; font-size: 12px">
                   {{ $item->action }}
               </td>
-
             </tr>
 
           @endforeach
