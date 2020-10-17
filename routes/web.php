@@ -18,8 +18,6 @@ Route::get('/', 'DashboardController@index')->name('dashboard');
 Route::get('/emandate-dashboard', 'DashboardController@dashboard_emandate')->name('emandate.dashboard');
 Route::get('/emandate-list', 'EmandateController@index')->name('Emandate_list.index');
 
-Route::resource('linkmainenrp','EmandateController');
-
 Route::get('/emandate-listdetails', 'EmandateControllerDetails@index')->name('Emandate_listDetails.index');
 Route::resource('link','EmandateControllerDetails');
 
@@ -39,7 +37,6 @@ Route::get('/search_cftlist', 'searchCFTController@index')->name('searchcft.inde
 
 Route::resource('change-status','StatusController');
 
-//Route::get('/main-enrp', 'ListFileENRPController@index')->name('listfileenrp.index');
 Route::get('/search_mainenrp', 'searchMainENRPController@index')->name('searchenrp.index');
 
 
