@@ -50,7 +50,7 @@ class CFTControllerDetails extends Controller
     public function show($id)
     {
 
-        $CFT_details = EMANDATE_CFT::where('buyeracc','like','%'.$id.'%')->whereStatus(99)->paginate(10);
+        $CFT_details = EMANDATE_CFT::where('accno','like','%'.$id.'%')->whereStatus(00)->paginate(10);
         //   dd($CFT_details);
         
         return view('pages.CFTFileListDetails',compact('CFT_details'));

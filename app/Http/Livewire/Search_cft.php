@@ -28,7 +28,7 @@ class Search_cft extends Component
         /* use orwhere if want to search more than 1 field */
         return view('livewire.searchcft',[
             //'cftdata' => EMANDATE_CFT::where('filename','like', $searchCFTTerm)->WHERE('status','99')->paginate(10)
-            'cftdata' => EMANDATE_CFT::where('filename','like', $searchCFTTerm)->orwhere('buyeracc','like', $searchCFTTerm)->paginate(5)
+            'cftdata' => EMANDATE_CFT::where('filename','like', $searchCFTTerm)->orwhere('accno','like', $searchCFTTerm)->paginate(5)
         ]);
     }
 }

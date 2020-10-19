@@ -14,7 +14,6 @@
           <td>NAMA FAIL</td>
           <td>NO AKAUN</td>
           <td>STATUS</td>
-          <td>action</td>
           <>
         </tr>
       </thead>
@@ -25,13 +24,10 @@
             {{ $item->filename }}
           </td>
           <td>
-            {{ $item->buyeracc }}
+            {{ $item->accno }}
           </td>
           <td>
             {{ $item->status }}
-          </td>
-          <td>
-            {{ $item->action }}
           </td>
         </tr>
         @endforeach
@@ -55,7 +51,6 @@
           <th class="px-4 py-3" style="text-align:center; font-size: 12px">Nama Fail</th>
           <th class="px-4 py-3" style="text-align:center; font-size: 12px">No Account</th>
           <th class="px-4 py-3" style="text-align:center; font-size: 12px">Status</th>
-          <th class="px-4 py-3" style="text-align:center; font-size: 12px">action</th>
         </tr>
       </thead>
       <tbody
@@ -78,7 +73,7 @@
               <div
                 class="relative hidden w-8 h-8 mr-3 rounded-full md:block">
               </div>
-              <td class="px-4 py-3" style="text-align:center; font-size: 12px"> {{ $item->buyeracc }}</td>
+              <td class="px-4 py-3" style="text-align:center; font-size: 12px"> {{ $item->accno }}</td>
             </div>
           </td>
 
@@ -91,15 +86,8 @@
               <td class="px-4 py-3" style="text-align:center; font-size: 12px">{{ $item->status }}</td>
             </div>
           </td>
-          <td class="px-1 py-2">
-            <div class="flex items-center text-sm">
-              <!-- Avatar with inset shadow -->
-              <div
-                class="relative hidden w-8 h-8 mr-3 rounded-full md:block">
-              </div>
-              <td class="px-4 py-3" style="text-align:center; font-size: 12px"> {{ $item->action }}</td>
-            </div>
-          </td>
+
+         
 
         </tr>
         @endforeach
@@ -168,7 +156,6 @@
             <th class="px-4 py-3" style="text-align:center; font-size: 15px">Nama Fail</th>
           <th class="px-4 py-3" style="text-align:center; font-size: 15px">No Account</th>
           <th class="px-4 py-3" style="text-align:center; font-size: 15px">Status</th>
-          <th class="px-4 py-3" style="text-align:center; font-size: 15px">Status Pembayaran</th>
              <!-- <th style='width: 100px;'>Button</th> -->
             </tr>
           </thead>
@@ -184,13 +171,10 @@
                  {{ $item->filename }} 
               </td>
               <td class="px-4 py-3" style="text-align:center; font-size: 12px">
-              <a href = "{{ url('linkcft/'.$item->buyeracc.'')}}"> {{ $item->buyeracc }}</a>
+              <a href = "{{ url('linkcft/'.$item->accno.'')}}"> {{ $item->accno }}</a>
               </td>
               <td class="px-4 py-3" style="text-align:center; font-size: 12px">
                   {{ $item->status }}
-              </td>
-              <td class="px-4 py-3" style="text-align:center; font-size: 12px">
-                  {{ $item->action }}
               </td>
             </tr>
 
