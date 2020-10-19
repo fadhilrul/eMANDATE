@@ -1,104 +1,6 @@
 @extends('pages.layout.app')
 
-{{-- <style>
-  @media (min-width: 1280px){
-      .container {
-          max-width: 100vw !important;
-      }
-  }
-</style> --}}
-
-  {{-- <table>
-      <thead>
-        <tr>
-          <td>NAMA FAIL</td>
-          <td>NO AKAUN</td>
-          <td>STATUS</td>
-          <>
-        </tr>
-      </thead>
-      <tbody>
-        @foreach ($cftdata as $item)
-        <tr>
-          <td>
-            {{ $item->filename }}
-          </td>
-          <td>
-            {{ $item->accno }}
-          </td>
-          <td>
-            {{ $item->status }}
-          </td>
-        </tr>
-        @endforeach
-      </tbody>
-  </table> --}}
-  
-   
-  {{-- <h4 class="mb-4 text-lg font-semibold text-gray-600 dark:text-gray-300">
-    <br>
-      Senarai CFT E-Mandate
-   </h4>
-
-<div class = "container">
-
-  <div class="w-full overflow-hidden rounded-lg shadow-xs">
-   <div class="w-full overflow-x-auto">
-    <table class="w-full whitespace-no-wrap">
-      <thead>
-        <tr
-          class="text-xs font-semibold tracking-wide text-left text-gray-500 uppercase border-b dark:border-gray-700 bg-gray-50 dark:text-gray-400 dark:bg-gray-800">
-          <th class="px-4 py-3" style="text-align:center; font-size: 12px">Nama Fail</th>
-          <th class="px-4 py-3" style="text-align:center; font-size: 12px">No Account</th>
-          <th class="px-4 py-3" style="text-align:center; font-size: 12px">Status</th>
-        </tr>
-      </thead>
-      <tbody
-        class="bg-white divide-y dark:divide-gray-700 dark:bg-gray-800">
-        @foreach ($cftdata as $item)
-        <tr class="text-gray-700 dark:text-gray-400">
-          <td class="px-1 py-2">
-            <div class="flex items-center text-sm">
-              <!-- Avatar with inset shadow -->
-              <div
-                class="relative hidden w-8 h-8 mr-3 rounded-full md:block">
-              </div>
-              {{ $item->filename }}
-            </div>
-          </td>
-
-          <td class="px-1 py-2">
-            <div class="flex items-center text-sm">
-              <!-- Avatar with inset shadow -->
-              <div
-                class="relative hidden w-8 h-8 mr-3 rounded-full md:block">
-              </div>
-              <td class="px-4 py-3" style="text-align:center; font-size: 12px"> {{ $item->accno }}</td>
-            </div>
-          </td>
-
-          <td class="px-1 py-2">
-            <div class="flex items-center text-sm">
-              <!-- Avatar with inset shadow -->
-              <div
-                class="relative hidden w-8 h-8 mr-3 rounded-full md:block">
-              </div>
-              <td class="px-4 py-3" style="text-align:center; font-size: 12px">{{ $item->status }}</td>
-            </div>
-          </td>
-
-         
-
-        </tr>
-        @endforeach
-      </tbody>
-    </table>
-  </div>
-  {{ $cftdata->links() }}
-</div> --}}
-{{-- @endsection --}}
-
-
+ 
 
 <main class="h-full pb-16 overflow-y-auto">
 <div class="container">
@@ -139,8 +41,6 @@
           </div>
       </div>
 
-
-
     <!-- With avatar -->
     <h4
       class="mb-4 text-lg font-semibold text-gray-600 dark:text-gray-300"
@@ -149,36 +49,24 @@
     <div class="w-full mb-8 overflow-hidden rounded-lg shadow-xs">
       <div class="w-full overflow-x-auto">
         <table class="w-full whitespace-no-wrap">
-          <thead>
+        <thead>
             <tr
               class="text-xs font-semibold tracking-wide text-left text-gray-500 uppercase border-b dark:border-gray-700 bg-gray-50 dark:text-gray-400 dark:bg-gray-800"
             >
-            <th class="px-4 py-3" style="text-align:center; font-size: 15px">Nama Fail</th>
-          <th class="px-4 py-3" style="text-align:center; font-size: 15px">No Account</th>
-          <th class="px-4 py-3" style="text-align:center; font-size: 15px">Status</th>
-             <!-- <th style='width: 100px;'>Button</th> -->
+              <th class="px-4 py-3">Nama Fail</th>
             </tr>
           </thead>
-          <tbody
-            class="bg-white divide-y dark:divide-gray-700 dark:bg-gray-800">
           @foreach ($cftdata as $item)
-         
+          <tbody class="bg-white divide-y dark:divide-gray-700 dark:bg-gray-800">
             <tr 
               {{-- class="text-gray-700 dark:text-gray-400"> --}}
               class="text-xs font-semibold tracking-wide text-left text-gray-500 uppercase border-b dark:border-gray-700 bg-gray-50 dark:text-gray-400 dark:bg-gray-800">
-             
-              <td class="px-4 py-3" style="text-align:center; font-size: 12px">
-                 {{ $item->filename }} 
-              </td>
-              <td class="px-4 py-3" style="text-align:center; font-size: 12px">
-              <a href = "{{ url('linkcft/'.$item->accno.'')}}"> {{ $item->accno }}</a>
-              </td>
-              <td class="px-4 py-3" style="text-align:center; font-size: 12px">
-                  {{ $item->status }}
-              </td>
+              <td class="px-4 py-3">
+                 <a href = "{{ url('linkmainCFT/'.$item->filename.'')}}"> {{ $item->filename }} </a>
+              </td>      
             </tr>
 
-          @endforeach
+            @endforeach
           </tbody>
         </table>
       </div>

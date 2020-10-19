@@ -35,6 +35,8 @@ Route::get('/cft-list', 'CFTController@index')->name('cft_list.index');
 Route::get('/cft-listdetails', 'CFTControllerDetails@index')->name('cft_listdetails.index');
 Route::resource('linkcft','CFTControllerDetails');
 
+Route::resource('linkmainCFT','CFTController');
+
 Route::get('/search_cftlist', 'searchCFTController@index')->name('searchcft.index');
 
 Route::resource('change-status','StatusController');
