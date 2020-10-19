@@ -13,9 +13,8 @@ class CFTController extends Controller
      */
     public function index()
     {   
-        $CFT_DATALIST = EMANDATE_CFT::paginate(10);
-
-         return view('pages.CFTFileList',compact('CFT_DATALIST'));
+       
+         return view('pages.CFTFileList');
     }
 
     /**
@@ -47,7 +46,8 @@ class CFTController extends Controller
      */
     public function show($id)
     {
-        //
+        $CFT_DATALIST = EMANDATE_CFT::paginate(10);
+         return view('pages.CFTFileList',compact('CFT_DATALIST'));
     }
 
     /**
