@@ -119,9 +119,34 @@
 								
 							</tbody>
 						</table>
+
+						<br><br>
+						<div class="py-8 text-center text-indigo-lightest font-semibold uppercase">Maklumat Block Potongan</div>
+						<table class="w-3/4 mx-auto text-indigo-lightest text-center" style="border-collapse: collapse;">
+							<tbody>
+							<br>
+								<tr>
+									<td class="px-4 py-4 border border-indigo-dark">Block Potongan</td>
+
+									<td class="px-4 py-4 border border-indigo-dark">
+										<div class="form-group">
+											<label for="action"></label>
+											<select id="action" name="action">
+												<option value="ACTIVE">RE-ACTIVE</option>
+												<option value="ON HOLD">ON HOLD</option>
+											</select>
+										</div>
+									</td> 
+									
+								</tr>
+							</tbody>
+						</table>
+
+
 					</div>
-					
 				</div>
+
+
 			</div>
 
 			<div class="w-full p-3">

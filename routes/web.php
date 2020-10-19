@@ -21,6 +21,8 @@ Route::get('/emandate-list', 'EmandateController@index')->name('Emandate_list.in
 Route::get('/emandate-listdetails', 'EmandateControllerDetails@index')->name('Emandate_listDetails.index');
 Route::resource('link','EmandateControllerDetails');
 
+Route::resource('linkmainenrp','EmandateController');
+
 /* for view search  result*/
 Route::get('/EmandateInfo', 'EmandateInfoController@index')->name('EmandateInfo.index');
 Route::resource('linkviewsearch','EmandateInfoController');

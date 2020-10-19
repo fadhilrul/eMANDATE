@@ -29,7 +29,8 @@
     <!-- Cards -->
     <div class="grid gap-6 mb-8 md:grid-cols-2 xl:grid-cols-4">
       <!-- Card -->
-      <a href=""><div
+      <!-- <a href=""> -->
+      <div
         class="flex items-center p-4 bg-white rounded-lg shadow-xs dark:bg-gray-800"
       >
         <div
@@ -45,7 +46,7 @@
           <p
             class="mb-2 text-sm font-medium text-gray-600 dark:text-gray-400"
           >
-          Bilangan Usahawan Daftar
+          Bilangan Permohonan Daftar
           </p>
           <p
             class="text-lg font-semibold text-gray-700 dark:text-gray-200"
@@ -73,7 +74,7 @@
           <p
             class="mb-2 text-sm font-medium text-gray-600 dark:text-gray-400"
           >
-          Bilangan Usahawan Lulus
+          Bilangan Permohonan Lulus
           </p>
           <p
             class="text-lg font-semibold text-gray-700 dark:text-gray-200"
@@ -85,7 +86,8 @@
       <!-- Card -->
       
        <!-- Card -->
-      <a href=""><div
+     <!-- <a href="">-->
+     <div
         class="flex items-center p-4 bg-white rounded-lg shadow-xs dark:bg-gray-800"
       >
         <div
@@ -101,7 +103,7 @@
           <p
             class="mb-2 text-sm font-medium text-gray-600 dark:text-gray-400"
           >
-          Bilangan Usahawan Gagal
+          Bilangan Permohonan Dalam Process
           </p>
           <p
             class="text-lg font-semibold text-gray-700 dark:text-gray-200"
@@ -182,10 +184,27 @@
         </div>
         <div>
           <div>
-       
-        <!-- <a class="button button2" href="{{route('cft_list.index')}}"> CFT</a> -->
          <a class="button button2" href="{{route('searchcft.index')}}"> CFT</a>
         </div>
+        </div>
+      </div>
+
+
+      <div
+        class="flex items-center p-4 bg-white rounded-lg shadow-xs dark:bg-gray-800"
+      >
+        <div
+          class="p-3 mr-4 text-orange-500 bg-orange-100 rounded-full dark:text-orange-100 dark:bg-orange-500"
+        >
+          <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+            
+          </svg>
+        </div>
+        <div>
+            <div>
+          <!--  <a class="button button2" href="{{route('Emandate_list.index')}}"> ENRP</a> -->
+            <a class="button button2" href="{{route('search.index')}}"> EMANDATE INFO</a>
+            </div>
         </div>
       </div>
     </div>

@@ -354,18 +354,18 @@
             <td class="px-4 py-3">Status Potongan</td> <td class="px-4 py-3">{{ $item->action }}</td>
            </tr>
 
-           <tr
+        <!--   <tr
             class="text-xs font-semibold tracking-wide text-left text-gray-500 uppercase border-b dark:border-gray-700 bg-gray-50 dark:text-gray-400 dark:bg-gray-800">
             <td class="px-4 py-3">Pertukaran Status Potongan</td> 
             <td class="px-4 py-3">
 
               <a href = "{{ url('change-status/'.$item -> buyeracc.'')}}">
               <div class="py-8 bg-grey-lighter hover:bg-grey-light text-indigo-darker rounded rounded-t-none text-center uppercase font-bold flex items-center justify-left">
-            <!--  <span style="color:blue; vertical-align: 300%; border: 1px solid black;">Teruskan</span> -->
+   
               <span class="btnsmall button2">Teruskan</span>
 
             </td>
-           </tr>
+           </tr> -->
             
 
             @endforeach
