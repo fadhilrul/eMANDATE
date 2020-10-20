@@ -122,6 +122,11 @@
 
 						<br><br>
 						<div class="py-8 text-center text-indigo-lightest font-semibold uppercase">Maklumat Block Potongan</div>
+						@if(session()->has('activestatus'))
+							<x-general.alert.base class="bg-green-200 border-2 border-green-300 rounded-md p-2 text-sm my-2">
+								<x-slot name="message">{{ session()->get('activestatus') }}</x-slot>
+							</x-general.alert.base>
+						@endif
 						<table class="w-3/4 mx-auto text-indigo-lightest text-center" style="border-collapse: collapse;">
 							<tbody>
 							<br>
@@ -131,10 +136,14 @@
 									<td class="px-4 py-4 border border-indigo-dark">
 										<div class="form-group">
 											<label for="action"></label>
-											<select id="action" name="action">
-												<option value="ACTIVE">RE-ACTIVE</option>
-												<option value="ON HOLD">ON HOLD</option>
-											</select>
+											<form method="post" action="{{ route('EmandateInfo.activestatus') }}">
+												@csrf
+												<input type="hidden" name="itemid" value="{{ $item->idnum }}">
+												<select id="action" name="action">
+													<option value="active">RE-ACTIVE</option>
+													<option value="hold">ON HOLD</option>
+												</select>
+											</form>
 										</div>
 									</td> 
 									

@@ -1,133 +1,6 @@
-<!DOCTYPE html>
-<html :class="{ 'theme-dark': dark }" x-data="data()" lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Tekun Nasional</title>
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="{{ asset('assets/css/tailwind.output.css') }}" />
-
-    <script
-      src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js"
-      defer
-    ></script>
-    <script src="{{ asset('assets/js/init-alpine.js') }}"></script>
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.css"
-    />
-    <script
-      src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"
-      defer
-    ></script>
-    <script src="{{ asset('assets/js/charts-lines.js') }}" defer></script>
-    <script src="{{ asset('assets/js/charts-pie.js') }}" defer></script>
-    <script src="{{ asset('assets/js/feather-min.js') }}" defer></script>
-	
-	<style>
-	img {
-	float: left;
-	}
-	
-	.button {
-	  background-color: #008CBA; /* Green */
-	  border: none;
-	  color: white;
-	  padding: 16px 32px;
-	  text-align: center;
-	  text-decoration: none;
-	  display: inline-block;
-	  font-size: 16px;
-	  margin: 4px 2px;
-	  border-radius: 8px;
-	  transition-duration: 0.4s;
-	  cursor: pointer;
-	}
-	
-  .btnsmall {
-	  background-color: #008CBA; /* Green */
-	  border: none;
-	  color: white;
-	  padding: 1px 20px;
-	  text-align: center;
-	  text-decoration: none;
-	  display: inline-block;
-	  font-size: 12px;
-	  margin: 4px 2px;
-	  border-radius: 8px;
-	  transition-duration: 0.4s;
-	  cursor: pointer;
-	}
-
-  .btnnormal {
-    background-color: #008CBA; /* Green */
-	  border: none;
-	  color: white;
-	  padding: 8px 13px;
-	  text-align: center;
-	  text-decoration: none;
-	  display: inline-block;
-	  font-size: 14px;
-	  margin: 4px 2px;
-	  border-radius: 8px;
-	  transition-duration: 0.4s;
-	  cursor: pointer;
-	}
-
-	.button2 {
-	background-color: white; 
-	color: black; 
-	border: 2px solid #008CBA;
-	}
-
-	.button2:hover {
-	background-color: #008CBA;
-	color: white;
-	}
-	
-	.button3 {
-	background-color: white; 
-	color: black; 
-	border: 2px solid red;
-	}
-
-	.button3:hover {
-	background-color: red;
-	color: white;
-	}
-
-  .button4 {
-	background-color: white; 
-	color: black; 
-	border: 2px solid green;
-	}
-
-	.button4:hover {
-	background-color: green;
-	color: white;
-	}
-
-  .alert {
-  padding: 10px 20px;
-  background-color: lightblue;
-  color: white;
-  font-size: 15px;
-  border-radius: 8px;
-
-}
- 
-
-
-}
-	
-	</style>
-	@livewireStyles
-  </head>
-  <body>
-    <div
+@extends('pages.layout.base')
+@section('body')
+  <div
       class="flex h-screen bg-gray-100 dark:bg-gray-900"
       :class="{ 'overflow-hidden': isSideMenuOpen }"
     >
@@ -582,34 +455,11 @@
               </svg>
             </button>
             <!-- Search input -->
-          <div class="flex justify-center flex-1 lg:mr-32">
-              <div
-                class="relative w-full max-w-xl mr-6 focus-within:text-purple-500"
-              >
-                <div class="absolute inset-y-0 flex items-center pl-2">
-                  <svg
-                    class="w-4 h-4"
-                    aria-hidden="true"
-                    fill="currentColor"
-                    viewBox="0 0 20 20"
-                  >
-                    <path
-                      fill-rule="evenodd"
-                      d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z"
-                      clip-rule="evenodd"
-                    ></path>
-                  </svg>
-                </div>
-                <input
-                  class="w-full pl-8 pr-2 text-sm text-gray-700 placeholder-gray-600 bg-gray-100 border-0 rounded-md dark:placeholder-gray-500 dark:focus:shadow-outline-gray dark:focus:placeholder-gray-600 dark:bg-gray-700 dark:text-gray-200 focus:placeholder-gray-500 focus:bg-white focus:border-purple-300 focus:outline-none focus:shadow-outline-purple form-input"
-                  type="text"
-                  placeholder="Search for projects"
-                  aria-label="Search"
-                />
-              </div>
+            <div class="flex justify-center flex-1 lg:mr-32">
+              
             </div>
             <ul class="flex items-center flex-shrink-0 space-x-6">
-              <!-- Theme toggler -->
+              {{-- <!-- Theme toggler -->
               <li class="flex">
                 <button
                   class="rounded-md focus:outline-none focus:shadow-outline-purple"
@@ -643,8 +493,8 @@
                     </svg>
                   </template>
                 </button>
-              </li>
-              <!-- Notifications menu -->
+              </li> --}}
+              {{-- <!-- Notifications menu -->
               <li class="relative">
                 <button
                   class="relative align-middle rounded-md focus:outline-none focus:shadow-outline-purple"
@@ -714,7 +564,7 @@
                     </li>
                   </ul>
                 </template>
-              </li>
+              </li> --}}
               <!-- Profile menu -->
               <li class="relative">
                 <button
@@ -724,12 +574,9 @@
                   aria-label="Account"
                   aria-haspopup="true"
                 >
-                  <img
-                    class="object-cover w-8 h-8 rounded-full"
-                    src="https://images.unsplash.com/photo-1502378735452-bc7d86632805?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=200&fit=max&s=aa3a807e1bbdfd4364d1f449eaa96d82"
-                    alt=""
-                    aria-hidden="true"
-                  />
+                  <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                    <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-6-3a2 2 0 11-4 0 2 2 0 014 0zm-2 4a5 5 0 00-4.546 2.916A5.986 5.986 0 0010 16a5.986 5.986 0 004.546-2.084A5 5 0 0010 11z" clip-rule="evenodd" />
+                  </svg>
                 </button>
                 <template x-if="isProfileMenuOpen">
                   <ul
@@ -741,7 +588,7 @@
                     class="absolute right-0 w-56 p-2 mt-2 space-y-2 text-gray-600 bg-white border border-gray-100 rounded-md shadow-md dark:border-gray-700 dark:text-gray-300 dark:bg-gray-700"
                     aria-label="submenu"
                   >
-                    <li class="flex">
+                    {{-- <li class="flex">
                       <a
                         class="inline-flex items-center w-full px-2 py-1 text-sm font-semibold transition-colors duration-150 rounded-md hover:bg-gray-100 hover:text-gray-800 dark:hover:bg-gray-800 dark:hover:text-gray-200"
                         href="#"
@@ -762,8 +609,8 @@
                         </svg>
                         <span>Profile</span>
                       </a>
-                    </li>
-                    <li class="flex">
+                    </li> --}}
+                    {{-- <li class="flex">
                       <a
                         class="inline-flex items-center w-full px-2 py-1 text-sm font-semibold transition-colors duration-150 rounded-md hover:bg-gray-100 hover:text-gray-800 dark:hover:bg-gray-800 dark:hover:text-gray-200"
                         href="#"
@@ -785,11 +632,11 @@
                         </svg>
                         <span>Settings</span>
                       </a>
-                    </li>
+                    </li> --}}
                     <li class="flex">
                       <a
                         class="inline-flex items-center w-full px-2 py-1 text-sm font-semibold transition-colors duration-150 rounded-md hover:bg-gray-100 hover:text-gray-800 dark:hover:bg-gray-800 dark:hover:text-gray-200"
-                        href="#"
+                        href="{{ route('logkeluar') }}"
                       >
                         <svg
                           class="w-4 h-4 mr-3"
@@ -822,6 +669,4 @@
 
       </div>
     </div>
-    @livewireScripts
-  </body>
-</html>
+@endsection

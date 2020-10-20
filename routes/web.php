@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Middleware\AuthenticatedUser;
+use App\Http\Controllers\AuthenticationUser;
 // use App\Http\Controllers\DashboardController;
 
 /*
@@ -14,38 +16,44 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', 'DashboardController@index')->name('dashboard');
-Route::get('/emandate-dashboard', 'DashboardController@dashboard_emandate')->name('emandate.dashboard');
-Route::get('/emandate-list', 'EmandateController@index')->name('Emandate_list.index');
+Route::get('/logmasuk', [AuthenticationUser::class, 'logmasuk'])->name('logmasuk');
+Route::post('/loggingin', [AuthenticationUser::class, 'loggingin'])->name('loggingin');
+Route::get('/logkeluar', [AuthenticationUser::class, 'logkeluar'])->name('logkeluar');
 
-Route::get('/emandate-listdetails', 'EmandateControllerDetails@index')->name('Emandate_listDetails.index');
-Route::resource('link','EmandateControllerDetails');
+Route::middleware([AuthenticatedUser::class])->group(function() {
+      Route::get('/', 'DashboardController@index')->name('dashboard');
+      Route::get('/emandate-dashboard', 'DashboardController@dashboard_emandate')->name('emandate.dashboard');
+      Route::get('/emandate-list', 'EmandateController@index')->name('Emandate_list.index');
 
-Route::resource('linkmainenrp','EmandateController');
+      Route::get('/emandate-listdetails', 'EmandateControllerDetails@index')->name('Emandate_listDetails.index');
+      Route::resource('link','EmandateControllerDetails');
 
-/* for view search  result*/
-Route::get('/EmandateInfo', 'EmandateInfoController@index')->name('EmandateInfo.index');
-Route::resource('linkviewsearch','EmandateInfoController');
+      Route::resource('linkmainenrp','EmandateController');
 
-//livewire component route for search
-Route::get('/search-box', 'searchController@index')->name('search.index');
-//end livewire component route for search
+      /* for view search  result*/
+      Route::get('/EmandateInfo', 'EmandateInfoController@index')->name('EmandateInfo.index');
+      Route::post('/emandateinfoaactstatus', 'EmandateInfoController@activestatus')->name('EmandateInfo.activestatus');
+      Route::resource('linkviewsearch','EmandateInfoController');
 
-Route::get('/cft-list', 'CFTController@index')->name('cft_list.index');
-Route::get('/cft-listdetails', 'CFTControllerDetails@index')->name('cft_listdetails.index');
-Route::resource('linkcft','CFTControllerDetails');
+      //livewire component route for search
+      Route::get('/search-box', 'searchController@index')->name('search.index');
+      //end livewire component route for search
 
-Route::resource('linkmainCFT','CFTController');
+      Route::get('/cft-list', 'CFTController@index')->name('cft_list.index');
+      Route::get('/cft-listdetails', 'CFTControllerDetails@index')->name('cft_listdetails.index');
+      Route::resource('linkcft','CFTControllerDetails');
 
-Route::get('/search_cftlist', 'searchCFTController@index')->name('searchcft.index');
+      Route::resource('linkmainCFT','CFTController');
 
-Route::resource('change-status','StatusController');
+      Route::get('/search_cftlist', 'searchCFTController@index')->name('searchcft.index');
 
-Route::get('/search_mainenrp', 'searchMainENRPController@index')->name('searchenrp.index');
+      Route::resource('change-status','StatusController');
+
+      Route::get('/search_mainenrp', 'searchMainENRPController@index')->name('searchenrp.index');
 
 
 
 
-/* TEST FOR CRUD USING Product */
-Route::resource('products','ProductController');
-
+      /* TEST FOR CRUD USING Product */
+      Route::resource('products','ProductController');
+});

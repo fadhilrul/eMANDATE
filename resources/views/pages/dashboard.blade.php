@@ -1,5 +1,5 @@
 @extends('pages.layout.app')
-@section('content')	
+@section('content')
 		<!-- remarks -  Start program for part in the middle browser  -->
 		
 		
