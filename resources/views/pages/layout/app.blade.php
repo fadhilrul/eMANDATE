@@ -128,7 +128,7 @@
   </head>
   <body>
     <div
-      class="flex h-screen bg-gray-50 dark:bg-gray-900"
+      class="flex h-screen bg-gray-100 dark:bg-gray-900"
       :class="{ 'overflow-hidden': isSideMenuOpen }"
     >
       <!-- Desktop sidebar (for menu sidebar bahagian kiri)  -->
@@ -558,7 +558,7 @@
 	 
 	  
       <div class="flex flex-col flex-1 w-full">
-        <header class="z-10 py-4 bg-white shadow-md dark:bg-gray-800">
+        <header class="z-10 py-4 bg-white dark:bg-gray-800">
           <div
             class="container flex items-center justify-between h-full px-6 mx-auto text-purple-600 dark:text-purple-300"
           >
