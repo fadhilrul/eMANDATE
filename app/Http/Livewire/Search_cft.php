@@ -29,7 +29,9 @@ class Search_cft extends Component
         return view('livewire.searchcft',[
            
             //'cftdata' => EMANDATE_CFT::where('filename','like', $searchCFTTerm)->orwhere('accno','like', $searchCFTTerm)->paginate(5)
-            'cftdata' => EMANDATE_CFT::where('filename','like', $searchCFTTerm)->paginate(5)
+            //'cftdata' => EMANDATE_CFT::where('filename','like', $searchCFTTerm)->paginate(5)
+            'cftdata' => EMANDATE_CFT::select('filename')->where('filename','like', $searchCFTTerm)->groupBy('filename')->get()
+
         ]);
     }
 }
