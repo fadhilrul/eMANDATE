@@ -95,7 +95,7 @@
 					<br>
 				</div>
 				
-				<!-- Section for Maklumat Pembayaran -->
+				<!-- Section for Maklumat Potongan -->
 				
 				<div class="bg-indigo-darker rounded shadow w-5/6 md:w-1/2 z-0 mx-auto -mt-1 md:-mt-0 md:-ml-1">
 					<div class="py-8 text-center text-indigo-lightest font-semibold uppercase">Maklumat Potongan</div>
@@ -140,9 +140,13 @@
 												@csrf
 												<input type="hidden" name="itemid" value="{{ $item->idnum }}">
 												<select id="action" name="action">
-													<option value="active">RE-ACTIVE</option>
-													<option value="hold">ON HOLD</option>
+													<option value="0">RE-ACTIVE</option>
+													<option value="1">ON HOLD</option>
 												</select>
+												<div class="py-8 flex items-center justify-center">
+													<button type="submit" class="btnnormal button2">SUBMIT</button>
+												  </div>
+											    </div>
 											</form>
 										</div>
 									</td> 

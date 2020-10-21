@@ -102,9 +102,9 @@ class EmandateInfoController extends Controller
     public function activestatus(Request $request)
     {
         $info = EMANDATE_INFO::where('idnum', $request->itemid)->first();
-        $info->block_pay_status = ($request->action == "active") ? "active" : "onhold" ;
-        $info->block_by = session()->get('authenticatedUser')['userid'];
-        $info->block_pay_start_dt = date('Y-m-d');
+        $info->blocked_paymnt_status = ($request->action == 0) ? 0 : 1 ;
+        $info->blockedby = session()->get('authenticatedUser')['userid'];
+       // $info->blockpayment_date = date('Y-m-d');
         $info->save();
 
         return back()->with('activestatus', 'Status telah dikemaskini.');

@@ -12,5 +12,9 @@ class EMANDATE_INFO extends Model
     protected $table = 'EMANDATE_INFO';
 
     protected $guarded = [];
+   
+    public $timestamps = false;
+
+    protected $primaryKey = 'fms_acct_no';
 
 }
