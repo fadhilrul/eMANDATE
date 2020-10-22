@@ -662,10 +662,12 @@
             </ul>
           </div>
         </header>
-
+        <main class="h-full pb-16 overflow-y-auto">
         {{-- content --}}
 
-        @yield('content')
+          @yield('content')
+
+        </main>
         
 
       </div>
