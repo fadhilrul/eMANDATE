@@ -81,7 +81,6 @@
         </table>
       </div>
       {{ $EMANDATE_ENRP->links() }}
-      
     </div>
 
     <!-- With actions -->

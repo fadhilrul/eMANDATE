@@ -6,6 +6,7 @@ use App\Models\EMANDATE_ENRP;
 use Livewire\Component;
 use Livewire\WithPagination;
 use App\User;
+use Illuminate\Support\Facades\DB;
 
 class SearchEnrp extends Component
 {
@@ -29,8 +30,13 @@ class SearchEnrp extends Component
             
             //'file_ENRP' => EMANDATE_ENRP::where('filename','like', $searchlistenrp)->paginate(10)
             //'file_ENRP' => EMANDATE_ENRP::distinct('filename')->where('filename','like', $searchlistenrp)->get(),
-            'file_ENRP' => EMANDATE_ENRP::select('filename')->where('filename','like', $searchlistenrp)->groupBy('filename')->get()
-            
+            //'file_ENRP' => EMANDATE_ENRP::select('filename', 'hcrdate','count(*) as bil' )->where('filename','like', $searchlistenrp)->groupBy('filename')->get()
+
+            'file_ENRP' => DB::table('EMANDATE_ENRP')
+                     ->select(DB::raw('filename, hcrdate, count(*) as bil'))
+                     ->where('filename', 'like', $searchlistenrp)
+                     ->groupBy('filename', 'hcrdate')
+                     ->get()
         ]);
 
 
