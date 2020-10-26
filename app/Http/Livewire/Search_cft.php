@@ -19,11 +19,11 @@ class Search_cft extends Component
     public function render()
     {
 
-        $searchCFTTerm = '%'.$this->searchCFTTerm.'%';
+        $searchCFTTerm = ($this->searchCFTTerm != "") ? '' : '%'.$this->searchCFTTerm.'%';
 
        // $a = EMANDATE_CFT::where('filename','like', $searchCFTTerm)->WHERE('status','99')->paginate(10);
         //dd($a);
-        
+
 
         /* use orwhere if want to search more than 1 field */
         return view('livewire.searchcft',[
