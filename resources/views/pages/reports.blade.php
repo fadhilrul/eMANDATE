@@ -1,32 +1,29 @@
 @extends('pages.layout.app')
 @section('content')
 
-
 <style>
-    @media (min-width: 1280px){
-      .container {
-      max-width: 100vw !important;
-     }
-    }
-  
-  </style>
+  @media (min-width: 1280px){
+    .container {
+    max-width: 100vw !important;
+   }
+  }
+
+</style>
 
 
 <div class="container px-6 mx-auto grid">
-    <h2
-      class="my-6 text-2xl font-semibold text-gray-700 dark:text-gray-200"
-    >
-      Report Dashboard
-      
-    </h2>
-    
-    <!-- Responsive cards -->
-    <h4
-      class="mb-4 text-lg font-semibold text-gray-600 dark:text-gray-300"
-    >
-    </h4>
 
-    <!-- Cards -->
+<div class="main-content flex-1 bg-gray-100 mt-12 md:mt-2 pb-24 md:pb-5">
+
+  <div class="bg-blue-800 p-2 shadow text-xl text-white">
+      <h3 class="font-bold pl-2">Laporan e-MANDATE</h3>
+  </div>
+
+  <div class="flex flex-wrap">
+     
+  </div>
+       <BR>
+            <!-- Cards -->
     <div class="grid gap-6 mb-8 md:grid-cols-2 xl:grid-cols-4">
       <!-- Card -->
       <a href="{{ route('report.blockedpayment') }}"> 
@@ -85,7 +82,7 @@
       
        <!-- Card -->
      <!-- <a href="">-->
-     <div
+      <a href="{{ route('search.index') }}"><div
         class="flex items-center p-4 bg-white rounded-lg shadow-xs dark:bg-gray-800"
       >
         <div
@@ -109,101 +106,10 @@
           </p>
         </div>
       </div></a>
-      <!-- Card -->
-      <!-- Card -->
-      <!-- Card -->
-      {{-- <div
-        class="flex items-center p-4 bg-white rounded-lg shadow-xs dark:bg-gray-800"
-      >
-        
-        <div
-          class="p-3 mr-4 text-teal-500 bg-teal-100 rounded-full dark:text-teal-100 dark:bg-teal-500"
-        >
-          <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-            <path
-              fill-rule="evenodd"
-              d="M18 5v8a2 2 0 01-2 2h-5l-5 4v-4H4a2 2 0 01-2-2V5a2 2 0 012-2h12a2 2 0 012 2zM7 8H5v2h2V8zm2 0h2v2H9V8zm6 0h-2v2h2V8z"
-              clip-rule="evenodd"
-            ></path>
-          </svg>
-        </div>
-        <div>
-          <p
-            class="mb-2 text-sm font-medium text-gray-600 dark:text-gray-400"
-          >
-            Bilangan Usahawan bawah 15000
-          </p>
-          <p
-            class="text-lg font-semibold text-gray-700 dark:text-gray-200"
-          >
-            0000
-          </p>
-        </div>
-      </div> --}}
+     
       </div>
+</div>
+</div>
 
-    
-     <!-- New Cards for module in emandate-->
-    <h4
-      class="mb-4 text-lg font-semibold text-gray-600 dark:text-gray-300"
-    >
-    </h4> 
-    
-    <div class="grid gap-6 mb-8 md:grid-cols-2 xl:grid-cols-4">
-      <!-- Card -->
-      <div
-        class="flex items-center p-4 bg-white rounded-lg shadow-xs dark:bg-gray-800"
-      >
-        <div
-          class="p-3 mr-4 text-orange-500 bg-orange-100 rounded-full dark:text-orange-100 dark:bg-orange-500"
-        >
-          <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-            
-          </svg>
-        </div>
-        <div>
-            <div>
-          <!--  <a class="button button2" href="{{route('Emandate_list.index')}}"> ENRP</a> -->
-            <a class="button button2" href="{{route('searchenrp.index')}}"> ENRP</a>
-            </div>
-        </div>
-      </div>
-      
-      <div
-        class="flex items-center p-4 bg-white rounded-lg shadow-xs dark:bg-gray-800"
-      >
-        <div
-          class="p-3 mr-4 text-orange-500 bg-orange-100 rounded-full dark:text-orange-100 dark:bg-orange-500"
-        >
-          <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-            
-          </svg>
-        </div>
-        <div>
-          <div>
-         <a class="button button2" href="{{route('searchcft.index')}}"> CFT</a>
-        </div>
-        </div>
-      </div>
-
-
-      <div
-        class="flex items-center p-4 bg-white rounded-lg shadow-xs dark:bg-gray-800"
-      >
-        <div
-          class="p-3 mr-4 text-orange-500 bg-orange-100 rounded-full dark:text-orange-100 dark:bg-orange-500"
-        >
-          <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-            
-          </svg>
-        </div>
-        <div>
-            <div>
-          <!--  <a class="button button2" href="{{route('Emandate_list.index')}}"> ENRP</a> -->
-            <a class="button button2" href="{{route('search.index')}}"> EMANDATE INFO</a>
-            </div>
-        </div>
-      </div>
-    </div>
-  </div>
+<!--***********************************************************************************************************************************************-->
 @endsection

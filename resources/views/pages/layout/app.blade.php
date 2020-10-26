@@ -1,5 +1,6 @@
 @extends('pages.layout.base')
 @section('body')
+
   <div
       class="flex h-screen bg-gray-100 dark:bg-gray-900"
       :class="{ 'overflow-hidden': isSideMenuOpen }"
@@ -19,10 +20,38 @@
 
            <span class="ml-2 text-lg font-bold text-gray-800 dark:text-gray-200" style="color:blue">TEK</span><span class="text-lg font-bold text-gray-800 dark:text-gray-200" style="color:red">U</span><span class="text-lg font-bold text-gray-800 dark:text-gray-200" style="color:blue">N</span>   
           <span class="ml-1 text-lg font-bold text-gray-800 dark:text-gray-200" style="color:red">NASIONAL</span>
+          
+          <div class="md:mt-12 md:w-48 md:fixed md:left-0 md:top-0 content-center md:content-start text-left justify-between">
+            <ul class="list-reset flex flex-row md:flex-col py-0 md:py-3 px-1 md:px-2 text-center md:text-left">
+              <li class="mr-3 flex-1">
+                <a href="{{ route('dashboard') }}" class="block py-1 md:py-3 pl-1 align-middle text-blue no-underline hover:text-blue border-b-2 border-blue-800 hover:border-pink-500">
+                    <i class="fas fa-tasks pr-0 md:pr-3"></i><span class="pb-1 md:pb-0 text-xs md:text-base text-blue-600 md:text-blue-400 block md:inline-block">DASHBOARD</span>
+                </a>
+              </li>  
+              <li class="mr-3 flex-1">
+                    <a href="{{ route('emandate.dashboard') }}" class="block py-1 md:py-3 pl-1 align-middle text-blue no-underline hover:text-blue border-b-2 border-blue-800 hover:border-pink-500">
+                        <i class="fas fa-tasks pr-0 md:pr-3"></i><span class="pb-1 md:pb-0 text-xs md:text-base text-blue-600 md:text-blue-400 block md:inline-block">e-MANDATE</span>
+                    </a>
+                </li>
+                <li class="mr-3 flex-1">
+                    <a href="{{ route('searchenrp.index') }}" class="block py-1 md:py-3 pl-1 align-middle text-blue no-underline hover:text-blue border-b-2 border-blue-800 hover:border-purple-500">
+                        <i class="fa fa-envelope pr-0 md:pr-3"></i><span class="pb-1 md:pb-0 text-xs md:text-base text-blue-600 md:text-blue-400 block md:inline-block">FILE ENRP</span>
+                    </a>
+                </li>
+                <li class="mr-3 flex-1">
+                  <a href="{{ route('searchcft.index') }}" class="block py-1 md:py-3 pl-1 align-middle text-blue no-underline hover:text-blue border-b-2 border-blue-800 hover:border-purple-500">
+                      <i class="fa fa-envelope pr-0 md:pr-3"></i><span class="pb-1 md:pb-0 text-xs md:text-base text-blue-600 md:text-blue-400 block md:inline-block">FILE CFT</span>
+                  </a>
+              </li>
+                <li class="mr-3 flex-1">
+                    <a href="{{ route('report.dashboard') }}" class="block py-1 md:py-3 pl-0 md:pl-1 align-middle text-blue no-underline hover:text-blue border-b-2 border-gray-800 hover:border-blue-500">
+                        <i class="fa fa-wallet pr-0 md:pr-3"></i><span class="pb-1 md:pb-0 text-xs md:text-base text-blue-600 md:text-blue-400 block md:inline-block">LAPORAN</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
 
-
-
-          <ul class="mt-6">
+         <!-- <ul class="mt-6">
             <li class="relative px-6 py-3">
               <span
                 class="absolute inset-y-0 left-0 w-1 bg-purple-600 rounded-tr-lg rounded-br-lg"
@@ -49,9 +78,9 @@
                 <span class="ml-4">Dashboard</span>
               </a>
             </li>
-          </ul>
-          <ul>
-            <!--  -->
+          </ul> -->
+       <!--   <ul>  
+           
             <li class="relative px-6 py-3">
               <button
                 class="inline-flex items-center justify-between w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"
@@ -107,7 +136,7 @@
                   <li
                     class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"
                   >
-                    <!-- <a class="w-full" href="{{ route('Emandate_list.index') }}">-->
+                     <a class="w-full" href="{{ route('Emandate_list.index') }}">
                     <a class="w-full" href="{{ route('searchenrp.index') }}">
                       ENRP
                     </a>
@@ -127,9 +156,9 @@
                   <li
                     class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"
                   >
-                    <a class="w-full" href="{{ route('report.dashboard') }}">REPORT</a>  <!--change another page-->
+                    <a class="w-full" href="{{ route('report.dashboard') }}">REPORT</a> change another page
                   </li>
-                </ul>
+                </ul>  -->
               </template>
             </li>
           </ul>
@@ -137,10 +166,11 @@
         </div>
       </aside>
   
-	  <!--End Desktop sidebar -->
-
+    <!--End Desktop sidebar -->
 
       <!-- Mobile sidebar -->
+
+      
 	   
 	   
 	   
