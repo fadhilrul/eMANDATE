@@ -30,7 +30,7 @@
     <h2
       class="my-6 text-2xl font-semibold text-gray-700 dark:text-gray-200"
     >
-      Senarai Nama Fail E-Mandate
+      Senarai Fail E-Mandate
     </h2>
     <!-- search section -->
   <div class="flex justify-center flex-1 lg:mr-32">

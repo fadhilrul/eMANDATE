@@ -7,14 +7,12 @@
       }
   }
 </style>
-<main class="h-full pb-16 overflow-y-auto">
 <div class="container px-6 mx-auto grid">
   <div class="main-content flex-1 bg-gray-100 mt-12 md:mt-2 pb-24 md:pb-5">
 
   <div class="bg-blue-800 p-2 shadow text-xl text-white">
       <h3 class="font-bold pl-2">Senarai Maklumat ENRP E-Mandate</h3>
   </div>
-
   <div class="flex flex-wrap">
            <!--  START TABLES  -->
            <div class="-my-2 py-2 overflow-x-auto sm:-mx-6 sm:px-6 lg:-mx-8 pr-10 lg:px-8">
@@ -167,24 +165,15 @@
                     <button class="px-5 py-2 border-blue-500 border text-blue-500 rounded transition duration-300 hover:bg-blue-700 hover:text-white focus:outline-none">
                         <a href = "{{ url('link/'.$item->payrefnum.'')}}">  Papar </a> </button>
                 </td>
-                    </tr>
-                    @endforeach
-                    </tbody>
-                </table>
-             <div class="sm:flex-1 sm:flex sm:items-center sm:justify-between mt-4 work-sans">
-             </div>
-      <!--  END TABLES -->
-  </div>
-  {{ $NERPS->links() }}
-
-
-  <div class="flex flex-row flex-wrap flex-grow mt-2">
-
-    
-  </div>
-</div>
-</div>
-</main>
+             </tr>
+             @endforeach
+             </tbody>
+        </table>
+         <!--  END TABLES -->
+         {{ $NERPS->links() }}
+        </div>    
+    </div>
+</div></div>
 
 <!--*******************************************************************************************************************************************************-->
 @endsection

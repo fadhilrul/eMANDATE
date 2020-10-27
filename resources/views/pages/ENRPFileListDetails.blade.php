@@ -1,6 +1,359 @@
 @extends('pages.layout.app')
 @section('content')
 
+<style>
+  @media (min-width: 1280px){
+      .container {
+          max-width: 100vw !important;
+      }
+  }
+</style>
+
+
+<div class=" grid px-6 mx-auto">
+
+<div class="main-content flex-1 bg-gray-100 mt-12 md:mt-2 pb-24 md:pb-5">
+
+  <div class="bg-blue-800 p-2 shadow text-xl text-white">
+      <h3 class="font-bold pl-2">Senarai Fail E-Mandate (ENRP)</h3>
+  </div>
+
+  <div class="flex flex-wrap">
+    <table class="w-full whitespace-no-wrap table-auto">
+                    <thead>
+                     
+                    </thead>
+                    <tbody class="bg-white">
+                      @foreach ($NERPS_details as $item)
+
+                      <tr>
+                        <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-500">
+                            <div class="flex items-center">
+                                <div>
+                                    <div class="text-sm leading-5 text-gray-800">
+
+                                     <b>Nama Fail</b>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </td> 
+                        <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-500">
+                          <div class="flex items-center">
+                              <div class = "flex-grow">
+
+                                <div class="text-sm leading-5 text-gray-800">
+                                  <input value = "{{ $item->filename }}" disabled = true
+                                    class="block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input"
+                                  />
+                                </div>
+
+                              </div>
+                          </div>
+                        </td> 
+                      </tr>
+
+                      <tr>
+                        <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-500">
+                            <div class="flex items-center">
+                              <div class = "flex-grow">
+                                    <div class="text-sm leading-5 text-gray-800">
+
+                                     <b>No Akaun</b>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </td> 
+                        <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-500">
+                          <div class="flex items-center">
+                            <div class = "flex-grow">
+                                <div class="text-sm leading-5 text-gray-800">
+
+                                  <div class="text-sm leading-5 text-gray-800">
+                                    <input value = "{{ $item->payrefnum }}" disabled = true
+                                      class="block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input"
+                                    />
+                                  </div>
+                                  
+                                </div>
+                              </div>
+                          </div>
+                        </td> 
+                      </tr>
+
+                      <tr>
+                        <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-500">
+                            <div class="flex items-center">
+                              <div class = "flex-grow">
+                                    <div class="text-sm leading-5 text-gray-800">
+
+                                     <b>Pemohon</b>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </td> 
+                        <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-500">
+                          <div class="flex items-center">
+                            <div class = "flex-grow">
+                                <div class="text-sm leading-5 text-gray-800">
+                                  
+                                  <div class="text-sm leading-5 text-gray-800">
+                                    <input value = "{{ $item->buyername }}" disabled = true
+                                      class="block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input"
+                                    />
+                                  </div>
+                                  
+                                </div>
+                              </div>
+                          </div>
+                        </td> 
+                      </tr>
+
+                      <tr>
+                        <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-500">
+                            <div class="flex items-center">
+                              <div class = "flex-grow">
+                                    <div class="text-sm leading-5 text-gray-800">
+
+                                     <b>Bahagian</b>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </td> 
+                        <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-500">
+                          <div class="flex items-center">
+                            <div class = "flex-grow">
+                                <div class="text-sm leading-5 text-gray-800">
+                                  
+                                  <div class="text-sm leading-5 text-gray-800">
+                                    <input value = "{{ $item->section }}" disabled = true
+                                      class="block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input"
+                                    />
+                                  </div>
+  
+                                </div>
+                              </div>
+                          </div>
+                        </td> 
+                      </tr>
+
+                      <tr>
+                        <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-500">
+                            <div class="flex items-center">
+                              <div class = "flex-grow">
+                                    <div class="text-sm leading-5 text-gray-800">
+
+                                     <b>Kad Pengenalan</b>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </td> 
+                        <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-500">
+                          <div class="flex items-center">
+                            <div class = "flex-grow">
+                                <div class="text-sm leading-5 text-gray-800">
+                                  
+                                  <div class="text-sm leading-5 text-gray-800">
+                                    <input value = " {{ $item->idnum }}" disabled = true
+                                      class="block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input"
+                                    />
+                                  </div>
+                                 
+                                </div>
+                              </div>
+                          </div>
+                        </td> 
+                      </tr>
+
+                      <tr>
+                        <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-500">
+                            <div class="flex items-center">
+                              <div class = "flex-grow">
+                                    <div class="text-sm leading-5 text-gray-800">
+
+                                      <b>Jumlah Potongan</b>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </td> 
+                        <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-500">
+                          <div class="flex items-center">
+                            <div class = "flex-grow">
+                                <div class="text-sm leading-5 text-gray-800">
+                                  
+                                  <div class="text-sm leading-5 text-gray-800">
+                                    <input value = "{{ $item->debitamt }}" disabled = true
+                                      class="block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input"
+                                    />
+                                  </div>
+                                  
+
+                                </div>
+                              </div>
+                          </div>
+                        </td> 
+                      </tr>
+
+                      <tr>
+                        <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-500">
+                            <div class="flex items-center">
+                              <div class = "flex-grow">
+                                    <div class="text-sm leading-5 text-gray-800">
+
+                                     <b>Tujuan</b>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </td> 
+                        <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-500">
+                          <div class="flex items-center">
+                            <div class = "flex-grow">
+                                <div class="text-sm leading-5 text-gray-800">
+                                  
+                                  <div class="text-sm leading-5 text-gray-800">
+                                    <input value = "{{ $item->purpose }}" disabled = true
+                                      class="block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input"
+                                    />
+                                  </div>
+                                  
+                                </div>
+                              </div>
+                          </div>
+                        </td> 
+                      </tr>
+
+                      <tr>
+                        <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-500">
+                            <div class="flex items-center">
+                              <div class = "flex-grow">
+                                    <div class="text-sm leading-5 text-gray-800">
+
+                                     <b>Tarikh Lulus<b>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </td> 
+                        <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-500">
+                          <div class="flex items-center">
+                            <div class = "flex-grow">
+                                <div class="text-sm leading-5 text-gray-800">
+                                  
+                                  <div class="text-sm leading-5 text-gray-800">
+                                    <input value = "{{ $item->appdate }}" disabled = true
+                                      class="block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input"
+                                    />
+                                  </div>
+
+                                </div>
+                              </div>
+                          </div>
+                        </td> 
+                      </tr>
+
+                      <tr>
+                        <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-500">
+                            <div class="flex items-center">
+                              <div class = "flex-grow">
+                                    <div class="text-sm leading-5 text-gray-800">
+
+                                     <b>Mula Bayar</b>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </td> 
+                        <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-500">
+                          <div class="flex items-center">
+                            <div class = "flex-grow">
+                                <div class="text-sm leading-5 text-gray-800">
+                                  
+                                  <div class="text-sm leading-5 text-gray-800">
+                                    <input value = "{{ $item->effdate }}" disabled = true
+                                      class="block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input"
+                                    />
+                                  </div>
+                                  
+                                </div>
+                              </div>
+                          </div>
+                        </td> 
+                      </tr>
+
+                      <tr>
+                        <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-500">
+                            <div class="flex items-center">
+                              <div class = "flex-grow">
+                                    <div class="text-sm leading-5 text-gray-800">
+
+                                     <b>Tamat Bayar</b>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </td> 
+                        <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-500">
+                          <div class="flex items-center">
+                            <div class = "flex-grow">
+                                <div class="text-sm leading-5 text-gray-800">
+                                  
+                                  <div class="text-sm leading-5 text-gray-800">
+                                    <input value = "{{ $item->expdate }}" disabled = true
+                                      class="block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input"
+                                    />
+                                  </div>
+                                  
+
+                                </div>
+                              </div>
+                          </div>
+                        </td> 
+                      </tr>
+
+                      <tr>
+                        <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-500">
+                            <div class="flex items-center">
+                              <div class = "flex-grow">
+                                    <div class="text-sm leading-5 text-gray-800">
+
+                                     <b>Status</b>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </td> 
+                        <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-500">
+                          <div class="flex items-center">
+                            <div class = "flex-grow">
+                                <div class="text-sm leading-5 text-gray-800">
+                                  
+                                  <div class="text-sm leading-5 text-gray-800">
+                                    <input value = "{{ $item->approval }}" disabled = true
+                                      class="block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input"
+                                    />
+                                  </div>
+                                  
+                                </div>
+                              </div>
+                          </div>
+                        </td> 
+                      </tr>
+
+                    @endforeach
+                    </tbody>
+                </table>
+             <div class="sm:flex-1 sm:flex sm:items-center sm:justify-between mt-4 work-sans">
+             </div>
+      <!--  END TABLES -->
+</div>
+</div>
+
   {{-- <table>
       <thead>
         <tr>
@@ -267,7 +620,7 @@
   {{ $NERPS_details->links() }}
 </div> --}}
 
-
+<!--
 
 <main class="h-full pb-16 overflow-y-auto">
 <div class="container">
@@ -277,7 +630,7 @@
     >
       Senarai Fail E-Mandate (ENRP)
     </h2>
-    <!-- CTA -->
+ 
     
     <h4
       class="mb-4 text-lg font-semibold text-gray-600 dark:text-gray-300"
@@ -370,9 +723,9 @@
         class="grid px-4 py-3 text-xs font-semibold tracking-wide text-gray-500 uppercase border-t dark:border-gray-700 bg-gray-50 sm:grid-cols-9 dark:text-gray-400 dark:bg-gray-800"
       >
         <span class="col-span-2"></span>
-        <!-- Pagination -->
+        
       </div>
-    </div>
+    </div>-->
 
     <!-- With actions -->
    <!-- <button class="button button2" onclick="window.location='{{ url("emandate-list") }}'">Back</button> -->

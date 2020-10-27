@@ -16,9 +16,18 @@
     <div class="bg-blue-800 p-2 shadow text-xl text-white">
         <h3 class="font-bold pl-2">Laporan Senarai Sekatan Pemotongan</h3>
     </div>
-    <br>
-     
-    <!-- search section -->
+        <div>
+            <!--<livewire:datatable model="App\Models\EMANDATE_INFO" />-->
+        </div>
+</div>
+</div>
+</main>
+@endsection
+
+
+<!--***********************************************************************************************************************************-->
+    
+  <!--  
     <div class="flex justify-center flex-1 lg:mr-32">
         <div
           class="relative w-full max-w-xl mr-6 focus-within:text-purple-500"
@@ -62,8 +71,8 @@
                   <th class="px-4 py-3" style="text-align:center; font-size: 15px">Amaun</th>
                   <th class="px-4 py-3" style="text-align:center; font-size: 15px">Kekeparapn Potogan</th>
                   <th class="px-4 py-3" style="text-align:center; font-size: 15px">Produk</th>
-                  <th class="px-4 py-3" style="text-align:center; font-size: 15px">Tarikh Mula Potongan</th>
-                  <th class="px-4 py-3" style="text-align:center; font-size: 15px">Tarikh Luput Potongan</th>
+                  <th class="px-4 py-3" style="text-align:center; font-size: 15px">Mula Potongan</th>
+                  <th class="px-4 py-3" style="text-align:center; font-size: 15px">Tamat Potongan</th>
                   <th class="px-4 py-3" style="text-align:center; font-size: 15px">ID Bank</th>
                   <th class="px-4 py-3" style="text-align:center; font-size: 15px">Status Potongan</th>
                   <th class="px-4 py-3" style="text-align:center; font-size: 15px">Tarikh Akhir Pembayaran</th>
@@ -71,7 +80,7 @@
                   <th class="px-4 py-3" style="text-align:center; font-size: 15px">Tarikh Sekatan Pemotongan</th>
                   <th class="px-4 py-3" style="text-align:center; font-size: 15px">Tarikh Akhir Proses</th>
                   <th class="px-4 py-3" style="text-align:center; font-size: 15px">Status Pembayaran</th>
-                   <!-- <th style='width: 100px;'>Button</th> -->
+                   
                   </tr>
                 </thead>
                 <tbody
@@ -86,7 +95,7 @@
                       {{ $item->fms_acct_no }} 
                     </td>
                     <td class="px-4 py-3" style="text-align:center; font-size: 12px">
-                    {{ $item->idnum }}</a>
+                    {{ $item->idnum }}
                     </td>
                     <td class="px-4 py-3" style="text-align:center; font-size: 12px">
                         {{ $item->buyername }}
@@ -133,17 +142,7 @@
                 </tbody>
               </table>
         </div>
-      </div>
-</div>
-</div>
-{{ $blocked_payment->links() }}
-</main>
-@endsection
-
-
-<!--***********************************************************************************************************************************-->
-    
-    
+      </div>-->
 
     
     
