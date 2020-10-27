@@ -11,7 +11,7 @@
 
 
 <div class="card-body">
-  @livewire('blockedpayment')
+  @livewire('searchcftlist')
 </div>
 
 @endsection
