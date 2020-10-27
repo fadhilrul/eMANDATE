@@ -60,8 +60,6 @@ class EmandateControllerDetails extends Controller
         $NERPS_details = EMANDATE_ENRP::where('payrefnum','like','%'.$id.'%')->whereSection('BLOCK2')->paginate(5);
 
         // dd($NERPS);
-
-        
         return view('pages.ENRPFileListDetails',compact('NERPS_details'));
         
     }

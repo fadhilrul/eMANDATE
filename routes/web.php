@@ -21,42 +21,38 @@ Route::post('/loggingin', [AuthenticationUser::class, 'loggingin'])->name('loggi
 Route::get('/logkeluar', [AuthenticationUser::class, 'logkeluar'])->name('logkeluar');
 
 Route::middleware([AuthenticatedUser::class])->group(function() {
+     
+     /* Dashboard */
       Route::get('/', 'DashboardController@index')->name('dashboard');
       Route::get('/emandate-dashboard', 'DashboardController@dashboard_emandate')->name('emandate.dashboard');
       Route::get('/emandate-list', 'EmandateController@index')->name('Emandate_list.index');
+        
+      /* Report */
       Route::get('/emandate-report', 'EmandateReportController@index')->name('report.dashboard');
       Route::get('/emandate-report/sekatan-pemotongan', 'EmandateReportController@Blockedpayment')->name('report.blockedpayment');
 
-
-      Route::get('/emandate-listdetails', 'EmandateControllerDetails@index')->name('Emandate_listDetails.index');
-      Route::resource('link','EmandateControllerDetails');
-
-      Route::resource('linkmainenrp','EmandateController');
-
-      /* for view search  result*/
+      /* emandate_info */
+      Route::get('/search-box', 'searchController@index')->name('search.index');
       Route::get('/EmandateInfo', 'EmandateInfoController@index')->name('EmandateInfo.index');
       Route::post('/emandateinfoaactstatus', 'EmandateInfoController@activestatus')->name('EmandateInfo.activestatus');
       Route::resource('linkviewsearch','EmandateInfoController');
 
-      //livewire component route for search
-      Route::get('/search-box', 'searchController@index')->name('search.index');
-      //end livewire component route for search
-
-      Route::get('/cft-list', 'CFTController@index')->name('cft_list.index');
-      Route::get('/cft-listdetails', 'CFTControllerDetails@index')->name('cft_listdetails.index');
+      /* for CFT */
+      Route::resource('linkmainCFT','CFTController');
+      Route::get('/search_cftlist', 'searchCFTController@index')->name('searchcft.index');
       Route::resource('linkcft','CFTControllerDetails');
 
-      Route::resource('linkmainCFT','CFTController');
-
-      Route::get('/search_cftlist', 'searchCFTController@index')->name('searchcft.index');
-
-      Route::resource('change-status','StatusController');
-
+      /* For ENRP */
       Route::get('/search_mainenrp', 'searchMainENRPController@index')->name('searchenrp.index');
-
-
+      Route::resource('linkmainenrp','EmandateController');
+      Route::resource('link','EmandateControllerDetails');
 
 
       /* TEST FOR CRUD USING Product */
-      Route::resource('products','ProductController');
+      //Route::resource('products','ProductController');
+      //Route::resource('change-status','StatusController');
+      //Route::get('/cft-list', 'CFTController@index')->name('cft_list.index');
+     //Route::get('/cft-listdetails', 'CFTControllerDetails@index')->name('cft_listdetails.index');
+     //Route::get('/emandate-listdetails', 'EmandateControllerDetails@index')->name('Emandate_listDetails.index'); 
+     
 });

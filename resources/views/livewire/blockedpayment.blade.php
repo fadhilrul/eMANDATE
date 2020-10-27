@@ -1,13 +1,3 @@
-@extends('pages.layout.app')
-@section('content')
-<style>
-    @media (min-width: 1280px){
-        .container {
-            max-width: 100vw !important;
-        }
-    }
-  </style>
-  
 
 <div class=" grid px-6 mx-auto">
 <main class="h-full pb-16 overflow-y-auto">
@@ -40,8 +30,7 @@
           <input
                 class="w-full pl-8 pr-2 text-sm text-white-700 placeholder-gray-600 bg-white-100 border-0 rounded-md dark:placeholder-white-500 dark:focus:shadow-outline-white dark:focus:placeholder-white-600 dark:bg-gray-700 dark:text-gray-200 focus:placeholder-gray-500 focus:bg-white focus:border-purple-300 focus:outline-none focus:shadow-outline-purple form-input"
                 type="text"
-                placeholder="Carian no akaun / no ic"
-                aria-label="Search"
+                placeholder="Carian no ic"
                 wire:model="searchTerm"
                 class="form-control"
               /> 
@@ -138,7 +127,6 @@
 </div>
 {{ $blocked_payment->links() }}
 </main>
-@endsection
 
 
 <!--***********************************************************************************************************************************-->

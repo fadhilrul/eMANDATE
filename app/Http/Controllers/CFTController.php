@@ -47,7 +47,7 @@ class CFTController extends Controller
     public function show($id)
     {
         $CFT_DATALIST = EMANDATE_CFT::paginate(10);
-         return view('pages.CFTFileList',compact('CFT_DATALIST'));
+         return view('pages.searchcftdetails',compact('CFT_DATALIST'));
     }
 
     /**
