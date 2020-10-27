@@ -1,4 +1,4 @@
-<div class="max-width: 100vw px-6 mx-auto grid">
+<div class="container px-6 mx-auto grid">
 	<div class="main-content flex-1 bg-gray-100 mt-12 md:mt-2 pb-24 md:pb-5">
 		<div class="bg-blue-800 p-2 shadow text-xl text-white">
             <h3 class="font-bold pl-2">Senarai Nama Fail E-Mandate</h3>
