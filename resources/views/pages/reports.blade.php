@@ -54,7 +54,7 @@
       </div> </a>
       
       <!-- Card -->
-      <a href="{{ route('search.index') }}"><div
+      <a href=""><div
         class="flex items-center p-4 bg-white rounded-lg shadow-xs dark:bg-gray-800"
       >
         <div
@@ -82,7 +82,7 @@
       
        <!-- Card -->
      <!-- <a href="">-->
-      <a href="{{ route('search.index') }}"><div
+      <a href=""><div
         class="flex items-center p-4 bg-white rounded-lg shadow-xs dark:bg-gray-800"
       >
         <div
