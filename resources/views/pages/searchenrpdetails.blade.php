@@ -11,7 +11,7 @@
 
 
 <div class="card-body">
-  @livewire('blockedpayment')
+  @livewire('search-enrp-details')
 </div>
 
 @endsection

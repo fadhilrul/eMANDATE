@@ -19,7 +19,8 @@ class Search_cft extends Component
     public function render()
     {
 
-        $searchCFTTerm = ($this->searchCFTTerm != "") ? '' : '%'.$this->searchCFTTerm.'%';
+       // $searchCFTTerm = ($this->searchCFTTerm != "") ? '' : '%'.$this->searchCFTTerm.'%';
+       $searchCFTTerm =  "%".$this->searchCFTTerm."%";
 
        // $a = EMANDATE_CFT::where('filename','like', $searchCFTTerm)->WHERE('status','99')->paginate(10);
         //dd($a);

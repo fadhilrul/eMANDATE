@@ -17,7 +17,7 @@ class EmandateController extends Controller
         // $NERPS = EMANDATE_ENRP::WHERE('SECTION','BLOCK2')-> paginate(5);
          //return view('pages.ENRPFileList',compact('NERPS'));
 
-         return view('pages.ENRPFileList');
+         return view('pages.searchenrpdetails');
     }
 
 
@@ -53,8 +53,9 @@ class EmandateController extends Controller
     {
         $NERPS = EMANDATE_ENRP::paginate(10);
         // $NERPS = EMANDATE_ENRP::WHERE('SECTION','BLOCK2')-> paginate(5);
-         return view('pages.ENRPFileList',compact('NERPS'));
+         return view('pages.searchenrpdetails',compact('NERPS'));
     }
+
 
     /**
      * Show the form for editing the specified resource.

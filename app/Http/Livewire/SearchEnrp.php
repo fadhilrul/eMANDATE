@@ -14,7 +14,7 @@ class SearchEnrp extends Component
     use WithPagination;
 
     public $searchlistenrp = '';
-    public $message = 'a';
+
    
     public function render()
     {
@@ -37,6 +37,7 @@ class SearchEnrp extends Component
                      ->where('filename', 'like', $searchlistenrp)
                      ->groupBy('filename', 'hcrdate')
                      ->get()
+                     
         ]);
 
 
