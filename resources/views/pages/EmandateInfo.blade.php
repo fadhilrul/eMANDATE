@@ -142,7 +142,7 @@
 												<td class="px-4 py-4 border border-indigo-dark">
 													<div class = "flex-grow">
 														<div class="text-sm leading-5 text-gray-800">
-															<input value = "{{ $item->debitamt }}" disabled = true
+															<input value = "{{number_format($item->debitamt,2) }}" disabled = true
 															  class="block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input"
 															/>
 														</div>
@@ -155,7 +155,7 @@
 												<td class="px-4 py-4 border border-indigo-dark">
 													<div class = "flex-grow">
 														<div class="text-sm leading-5 text-gray-800">
-															<input value = "{{ $item->freqnum }}" disabled = true
+															<input value = "{{ number_format($item->freqnum) }}" disabled = true
 															  class="block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input"
 															/>
 														</div>
@@ -194,7 +194,7 @@
 												<td class="px-4 py-4 border border-indigo-dark">
 													<div class = "flex-grow">
 														<div class="text-sm leading-5 text-gray-800">
-															<input value = "{{ $item->effdate }}" disabled = true
+															<input value = "{{ date('d-m-Y',strtotime($item->effdate)) }}" disabled = true  
 															  class="block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input"
 															/>
 														</div>
@@ -207,7 +207,7 @@
 												<td class="px-4 py-4 border border-indigo-dark">
 													<div class = "flex-grow">
 														<div class="text-sm leading-5 text-gray-800">
-															<input value = "{{ $item->expdate }}" disabled = true
+															<input value = "{{ date('d-m-Y',strtotime($item->expdate)) }}" disabled = true
 															  class="block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input"
 															/>
 														</div>
@@ -220,7 +220,7 @@
 												<td class="px-4 py-4 border border-indigo-dark">
 													<div class = "flex-grow">
 														<div class="text-sm leading-5 text-gray-800">
-															<input value = "{{ $item->appdate }}" disabled = true
+															<input value = "{{ date('d-m-Y',strtotime($item->appdate)) }}" disabled = true
 															  class="block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input"
 															/>
 														</div>
@@ -329,7 +329,7 @@
 																		@csrf
 																		<input type="hidden" name="itemid" value="{{ $item->idnum }}">
 																		<select id="action" name="action">
-																			<option value="0">ACTIVE</option>
+																			<option value="0">RE-ACTIVE</option>
 																			<option value="1">ON HOLD</option>
 																		</select>
 																	</div>
@@ -374,8 +374,8 @@
 												<tbody>
 													<tr>
 														<td class="px-4 py-4 border border-indigo-dark">{{ $item->filename }}</td>
-														<td class="px-4 py-4 border border-indigo-dark">{{ $item->effdate }}</td>
-														<td class="px-4 py-4 border border-indigo-dark">{{ $item->effdate }}</td>
+														<td class="px-4 py-4 border border-indigo-dark">{{ date('d-m-Y',strtotime($item->effdate)) }}</td>
+														<td class="px-4 py-4 border border-indigo-dark">{{ date('d-m-Y',strtotime($item->effdate)) }}</td>
 													</tr>
 												</tbody>
 											</table>

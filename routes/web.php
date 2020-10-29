@@ -47,6 +47,9 @@ Route::middleware([AuthenticatedUser::class])->group(function() {
       Route::resource('linkmainenrp','EmandateController');
       Route::resource('link','EmandateControllerDetails');
 
+      /*TESTING SP */
+      Route::get('/sp_info', 'DashboardController@sp_info')->name('dashboard.sp_info');
+
 
       /* TEST FOR CRUD USING Product */
       //Route::resource('products','ProductController');
