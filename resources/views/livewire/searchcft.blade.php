@@ -58,7 +58,7 @@
                                     <div>
                                         <div class="text-sm leading-5 text-gray-800">
 
-                                           {{ date('d-m-Y',strtotime($item->hdate))}}
+                                           {{ substr($item->hdate,0,2).'-'.substr($item->hdate,2,2).'-'.substr($item->hdate,4,4) }} 
 
                                         </div>
                                     </div>
