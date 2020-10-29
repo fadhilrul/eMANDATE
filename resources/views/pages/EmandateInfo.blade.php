@@ -320,8 +320,9 @@
 												@endif
 												<tbody>
 													<tr>
-														<td class="px-4 py-4 border border-indigo-dark font-semibold">Satus : {{ $item->blocked_paymnt_status }}</td>
-														<td class="px-4 py-4 border border-indigo-dark">
+														<td class="px-2 py-2 border border-indigo-dark font-semibold">Kod : {{ $item->blocked_paymnt_status }}</td>
+														<td class="px-6 py-6 border border-indigo-dark font-semibold">Status : {{ $item->status_desc }}</td>
+														<td class="px-1 py-1 border border-indigo-dark">
 															<div class="flex">
 																<div class="pt-2">
 																	<label for="action"></label>
@@ -366,16 +367,16 @@
 											<table class="table-auto w-full border">
 												<thead>
 													<tr class="text-xs font-semibold tracking-wide text-left text-gray-500 uppercase border-b dark:border-gray-700 bg-gray-50 dark:text-gray-400 dark:bg-gray-800 p-5">
-														<th class=" px-4 py-3 text-left text-grey-dark border-indigo-dark font-semibold"><b>Nama Fail</b></th>
+														<th class=" px-4 py-3 text-left text-grey-dark border-indigo-dark font-semibold"><b>No Rekod</b></th>
 														<th class=" px-4 py-3 text-left text-grey-dark border-indigo-dark font-semibold"><b>Tarikh</b></th>
 														<th class=" px-4 py-3 text-left text-grey-dark border-indigo-dark font-semibold"><b>Status</b></th>
 													</tr>
 												</thead>
 												<tbody>
 													<tr>
-														<td class="px-4 py-4 border border-indigo-dark">{{ $item->filename }}</td>
+														<td class="px-4 py-4 border border-indigo-dark">{{ $item->recnum }}</td>
 														<td class="px-4 py-4 border border-indigo-dark">{{ date('d-m-Y',strtotime($item->effdate)) }}</td>
-														<td class="px-4 py-4 border border-indigo-dark">{{ date('d-m-Y',strtotime($item->effdate)) }}</td>
+														<td class="px-4 py-4 border border-indigo-dark">{{ $item->approval }}</td>
 													</tr>
 												</tbody>
 											</table>
