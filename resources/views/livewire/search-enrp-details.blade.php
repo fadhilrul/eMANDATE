@@ -3,7 +3,7 @@
     <div class="main-content flex-1 bg-gray-100 mt-12 md:mt-2 pb-24 md:pb-5">
   
     <div class="bg-blue-800 p-2 shadow text-xl text-white">
-        <h3 class="font-bold pl-2">Senarai Maklumat ENRP E-Mandate</h3>
+        <h3 class="font-bold pl-2">Senarai Maklumat ENRP</h3>
     </div>
   
     <div class="flex flex-wrap">
@@ -21,7 +21,8 @@
                                       </svg>
                                   </span>
                               </div>
-                              <input type="text" class="flex-shrink flex-grow flex-auto leading-normal tracking-wide w-px border border-none border-l-0 rounded rounded-l-none px-3 relative focus:outline-none text-xxs lg:text-base text-gray-500 font-thin form-input" placeholder="Search No Akaun or No Kad Pengenalan"
+                              <input type="text" class="flex-shrink flex-grow flex-auto leading-normal tracking-wide w-px border border-none border-l-0 rounded rounded-l-none px-3 relative focus:outline-none text-xxs lg:text-base text-gray-500 font-thin form-input" 
+                              placeholder="Carian No Akaun or No Kad Pengenalan"
                               wire:model="listenrp"
                               class="form-control">
                           </div>
@@ -29,9 +30,7 @@
                   </div>
               </div>
               <div class="align-middle inline-block min-w-full shadow overflow-hidden bg-white shadow-dashboard px-8 pt-3 rounded-bl-lg rounded-br-lg">
-                @foreach ($filelist_ENRP as $item)
-                <!-- {{ $item->filename }} -->
-                 @endforeach
+               
                   <table class="min-w-full">
                       <thead>
                           <tr>
@@ -126,7 +125,9 @@
                               <div>
                                   <div class="text-sm leading-5 text-gray-800">
   
-                                    {{ $item->effdate }}
+                                  
+                                    {{ substr($item->effdate,0,2).'-'.substr($item->effdate,2,2).'-'.substr($item->effdate,4,4) }} 
+                                    
   
                                   </div>
                               </div>
@@ -138,7 +139,8 @@
                             <div>
                                 <div class="text-sm leading-5 text-gray-800">
   
-                                  {{ $item->expdate }}
+                                   
+                                    {{ substr($item->expdate,0,2).'-'.substr($item->expdate,2,2).'-'.substr($item->expdate,4,4) }} 
                                   
                                 </div>
                             </div>
@@ -166,11 +168,13 @@
                   </table>
                <div class="sm:flex-1 sm:flex sm:items-center sm:justify-between mt-4 work-sans">
                </div>
+               {{ $filelist_ENRP->links() }}
+               <br>
+            </div>
         <!--  END TABLES -->
     </div>
-    {{ $filelist_ENRP->links() }}
-  
-  
+</div>
+
     <div class="flex flex-row flex-wrap flex-grow mt-2">
   
       

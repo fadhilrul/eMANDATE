@@ -61,7 +61,7 @@
                           <div class="rounded-full p-5 bg-yellow-600"><i class="fas fa-user-plus fa-2x fa-inverse"></i></div>
                       </div>
                       <div class="flex-1 text-right md:text-center">
-                          <h5 class="font-bold uppercase text-gray-600">Bilangan Permohonan Dalam Process</h5>
+                          <h5 class="font-bold uppercase text-gray-600">Bilangan Permohonan Dalam Proses</h5>
                           <h3 class="font-bold text-3xl"> {{($gagalCount->count())}} <span class="text-yellow-600"><i class="fas fa-caret-up"></i></span></h3>
                       </div>
                   </div>
@@ -71,10 +71,10 @@
           <div class="w-full md:w-1/2 xl:w-1/3 p-3">
             <a href="{{route('searchenrp.index')}}">
               <!--Metric Card-->
-              <div class="bg-blue-100 border-b-4 border-blue-500 rounded-lg shadow-lg p-5">
+              <div class="bg-red-100 border-b-4 border-red-500 rounded-lg shadow-lg p-5">
                   <div class="flex flex-row items-center">
                       <div class="flex-shrink pr-4">
-                          <div class="rounded-full p-5 bg-blue-600"><i class="fas fa-server fa-2x fa-inverse"></i></div>
+                          <div class="rounded-full p-5 bg-red-600"><i class="fas fa-server fa-2x fa-inverse"></i></div>
                       </div>
                       <div class="flex-1 text-right md:text-center">
                           <h5 class="font-bold uppercase text-gray-600"> Senarai </h5>
@@ -105,14 +105,14 @@
           <div class="w-full md:w-1/2 xl:w-1/3 p-3">
               <!--Metric Card-->
             <a href="{{route('search.index')}}">
-              <div class="bg-blue-100 border-b-4 border-blue-500 rounded-lg shadow-lg p-5">
+              <div class="bg-orange-100 border-b-4 border-orange-500 rounded-lg shadow-lg p-5">
                   <div class="flex flex-row items-center">
                       <div class="flex-shrink pr-4">
-                          <div class="rounded-full p-5 bg-blue-600"><i class="fas fa-inbox fa-2x fa-inverse"></i></div>
+                          <div class="rounded-full p-5 bg-orange-600"><i class="fas fa-inbox fa-2x fa-inverse"></i></div>
                       </div>
                       <div class="flex-1 text-right md:text-center">
-                          <h5 class="font-bold uppercase text-gray-600">Senarai</h5>
-                          <h3 class="font-bold text-3xl"> PEMOHON <span class="text-red-500"><i class="fas fa-caret-up"></i></span></h3>
+                          <h5 class="font-bold uppercase text-gray-600">INFO</h5>
+                          <h3 class="font-bold text-3xl"> e-Mandate <span class="text-red-500"><i class="fas fa-caret-up"></i></span></h3>
                       </div>
                   </div>
               </div>

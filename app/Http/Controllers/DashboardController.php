@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\EMANDATE_ENRP;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class DashboardController extends Controller
 {
@@ -27,6 +28,15 @@ class DashboardController extends Controller
         return view('pages.dashboard_emandate',compact('daftarCount','lulusCount','gagalCount'));
         // return view('pages.dashboard_emandate');
     }
+
+    //testing sp
+    public function sp_info()
+    {   
+        $procedureName = 'DBO.EMANDATE_INSERT_EMANDATE_INFO';
+        $result = DB::executeProcedure($procedureName);
+        dd($result);
+    }
+
 
     /**
      * Show the form for creating a new resource.

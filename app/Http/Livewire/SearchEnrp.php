@@ -34,7 +34,7 @@ class SearchEnrp extends Component
 
             'file_ENRP' => DB::table('EMANDATE_ENRP')
                      ->select(DB::raw('filename, hcrdate, count(*) as bil'))
-                     ->where('filename', 'like', $searchlistenrp)
+                     ->where('hcrdate', 'like', $searchlistenrp)
                      ->groupBy('filename', 'hcrdate')
                      ->get()
                      

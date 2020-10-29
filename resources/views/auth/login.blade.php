@@ -4,9 +4,14 @@
 <div class="min-h-screen flex items-center justify-center bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
       <div class="max-w-md w-full">
             <div>
-                  <h2 class="mt-6 text-center text-3xl leading-9 font-extrabold text-gray-900">
-                        Log Masuk Akaun
-                  </h2>
+                  <!--logo-->
+                  <div class="flex font-bold justify-center mt-6">
+                        <img class="h-40 w-40"
+                            src="https://static.imoney.my/articles/wp-content/uploads/2018/09/Tekun-Nasional-logo.png">
+                    </div>
+                  <h3 class="mt-6 text-center text-3xl leading-5 font-extrabold text-blue-900">
+                        Log Masuk<br><br>e-MANDATE
+                  </h3>
             </div>
             
             <form class="mt-8" action="{{ route('loggingin') }}" method="POST">

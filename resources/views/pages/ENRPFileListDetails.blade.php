@@ -15,7 +15,7 @@
 <div class="main-content flex-1 bg-gray-100 mt-12 md:mt-2 pb-24 md:pb-5">
 
   <div class="bg-blue-800 p-2 shadow text-xl text-white">
-      <h3 class="font-bold pl-2">Senarai Fail E-Mandate (ENRP)</h3>
+      <h3 class="font-bold pl-2">Maklumat Pemohon (ENRP)</h3>
   </div>
 
   <div class="flex flex-wrap">
@@ -246,7 +246,7 @@
                                 <div class="text-sm leading-5 text-gray-800">
                                   
                                   <div class="text-sm leading-5 text-gray-800">
-                                    <input value = "{{ $item->appdate }}" disabled = true
+                                    <input value = "{{ substr($item->appdate,0,2).'-'.substr($item->appdate,2,2).'-'.substr($item->appdate,4,4) }}" disabled = true      
                                       class="block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input"
                                     />
                                   </div>
@@ -275,7 +275,7 @@
                                 <div class="text-sm leading-5 text-gray-800">
                                   
                                   <div class="text-sm leading-5 text-gray-800">
-                                    <input value = "{{ $item->effdate }}" disabled = true
+                                    <input value = "{{ substr($item->effdate,0,2).'-'.substr($item->effdate,2,2).'-'.substr($item->effdate,4,4) }}" disabled = true
                                       class="block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input"
                                     />
                                   </div>
@@ -304,7 +304,7 @@
                                 <div class="text-sm leading-5 text-gray-800">
                                   
                                   <div class="text-sm leading-5 text-gray-800">
-                                    <input value = "{{ $item->expdate }}" disabled = true
+                                    <input value = "{{ substr($item->expdate,0,2).'-'.substr($item->expdate,2,2).'-'.substr($item->expdate,4,4) }}" disabled = true
                                       class="block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input"
                                     />
                                   </div>

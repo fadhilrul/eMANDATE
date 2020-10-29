@@ -1,7 +1,8 @@
+<main class="h-full pb-16 overflow-y-auto">
 <div class="container px-6 mx-auto grid">
 	<div class="main-content flex-1 bg-gray-100 mt-12 md:mt-2 pb-24 md:pb-5">
 		<div class="bg-blue-800 p-2 shadow text-xl text-white">
-            <h3 class="font-bold pl-2">Senarai Nama Fail E-Mandate</h3>
+            <h3 class="font-bold pl-2">Senarai Nama Fail ENRP</h3>
         </div>
 		
     <!-- search section -->
@@ -18,7 +19,8 @@
                                       </svg>
                                   </span>
                               </div>
-                              <input type="text" class="flex-shrink flex-grow flex-auto leading-normal tracking-wide w-px border border-none border-l-0 rounded rounded-l-none px-3 relative focus:outline-none text-xxs lg:text-base text-gray-500 font-thin form-input" placeholder="Search"
+                              <input type="text" class="flex-shrink flex-grow flex-auto leading-normal tracking-wide w-px border border-none border-l-0 rounded rounded-l-none px-3 relative focus:outline-none text-xxs lg:text-base text-gray-500 font-thin form-input" 
+                              placeholder="Carian Tarikh Fail"
                               wire:model="searchlistenrp"
                               class="form-control"/>
                           </div>
@@ -32,6 +34,7 @@
 					<thead>
                         <tr>
                             <th class="px-6 py-3 border-b-2 border-gray-300 text-left leading-4 text-blue-500 tracking-wider">Nama Fail</th>
+                            <th class="px-6 py-3 border-b-2 border-gray-300 text-left leading-4 text-blue-500 tracking-wider">Tarikh Transaksi</th>
                         </tr>
                      </thead>
 				
@@ -50,6 +53,19 @@
                                     </div>
                                 </div>
                             </td>
+                            
+                            <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-500">
+                                <div class="flex items-center">
+                                    <div>
+                                        <div class="text-sm leading-5 text-gray-800">
+
+                                           {{ substr($item->hcrdate,0,2).'-'.substr($item->hcrdate,2,2).'-'.substr($item->hcrdate,4,4) }} 
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </td>
+
 							 <td class="px-6 py-4 whitespace-no-wrap text-right border-b border-gray-500 text-sm leading-5">
                                     <button class="px-5 py-2 border-blue-500 border text-blue-500 rounded transition duration-300 hover:bg-blue-700 hover:text-white focus:outline-none">
                                         <a href = "{{ url('linkmainenrp/'.$item->filename.'')}}"> Papar </a> </button>
@@ -67,5 +83,6 @@
 		</div>
 	</div>
 </div>
+</main>
 
 
