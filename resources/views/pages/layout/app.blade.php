@@ -355,7 +355,7 @@
       <div class="flex flex-col flex-1 w-full">
         <header class="z-10 py-4 bg-white dark:bg-gray-800">
           <div
-            class="container flex items-center justify-between h-full px-6 mx-auto text-purple-600 dark:text-purple-300"
+            class="container flex items-center justify-between h-full px-6 mx-auto text-blue-600 dark:text-blue-500"
           >
             <!-- Mobile hamburger -->
             <button

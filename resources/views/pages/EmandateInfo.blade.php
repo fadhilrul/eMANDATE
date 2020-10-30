@@ -177,7 +177,7 @@
 											</tr>
 
 											<tr>
-												<td class="px-4 py-4 border border-indigo-dark font-semibold">Tujuan</td>
+												<td class="px-4 py-4 border border-indigo-dark font-semibold">Skim</td>
 												<td class="px-4 py-4 border border-indigo-dark">
 													<div class = "flex-grow">
 														<div class="text-sm leading-5 text-gray-800">

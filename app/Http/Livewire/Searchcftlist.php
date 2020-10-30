@@ -21,6 +21,7 @@ class Searchcftlist extends Component
          return view('livewire.searchcftlist',[
 
             'filelist_CFT' => EMANDATE_CFT::where('accno','like', $listcft)->orwhere('ic','like', $listcft)->paginate(10)
+            //'filelist_CFT' => EMANDATE_CFT::where('filename', $listcft)->paginate('10')
                   
         ]);
     }
