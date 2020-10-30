@@ -24,10 +24,17 @@
                               </svg>
                           </span>
                       </div>
-                      <input type="text" class="flex-shrink flex-grow flex-auto leading-normal tracking-wide w-px border border-none border-l-0 rounded rounded-l-none px-3 relative focus:outline-none text-xxs lg:text-base text-gray-500 font-thin form-input" 
+                      <!--<input type="text" class="flex-shrink flex-grow flex-auto leading-normal tracking-wide w-px border border-none border-l-0 rounded rounded-l-none px-3 relative focus:outline-none text-xxs lg:text-base text-gray-500 font-thin form-input" 
                       placeholder="Search No Akaun or No Kad Pengenalan"
                       wire:model="listcft"
-                      class="form-control">
+                      class="form-control">-->
+                      <input type="text" class="flex-shrink flex-grow flex-auto leading-normal tracking-wide w-px flex-1 border border-none border-l-0 rounded rounded-l-none px-3 relative focus:outline-none text-xxs lg:text-xs lg:text-base text-gray-500 font-thin"
+                       type="text"
+                       placeholder="Carian No Akaun / No Kad Pengenalan"
+                       aria-label="Search"
+                       wire:model="listcft"
+                       />
+
                   </div>
               </div>
           </div>
