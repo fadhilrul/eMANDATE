@@ -39,7 +39,7 @@
 							<header class="flex items-center justify-between leading-tight p-2 md:p-4">
 									<h1 class="text-lg">
 										<a class="no-underline hover:underline text-black" href="{{ route('emandate.dashboard') }}">
-											<i>E-Mandate<i>
+											<i class= text-blue-500>E-Mandate<i>
 										</a>
 									</h1>
 							</header>

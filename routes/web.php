@@ -39,6 +39,7 @@ Route::middleware([AuthenticatedUser::class])->group(function() {
 
       /* for CFT */
       Route::resource('linkmainCFT','CFTController');
+      //Route::get('/linkmainCFT/{id}', 'CFTController@index')->name('linkcft.index');
       Route::get('/search_cftlist', 'searchCFTController@index')->name('searchcft.index');
       Route::resource('linkcft','CFTControllerDetails');
 
