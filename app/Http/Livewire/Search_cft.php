@@ -32,6 +32,7 @@ class Search_cft extends Component
             //'cftdata' => EMANDATE_CFT::where('filename','like', $searchCFTTerm)->orwhere('accno','like', $searchCFTTerm)->paginate(5)
             //'cftdata' => EMANDATE_CFT::where('filename','like', $searchCFTTerm)->paginate(5)
             'cftdata' => EMANDATE_CFT::select('filename','hdate')->where('filename','like', $searchCFTTerm)->orwhere('hdate','like', $searchCFTTerm)->groupBy('filename','hdate')->get()
+            
 
         ]);
     }

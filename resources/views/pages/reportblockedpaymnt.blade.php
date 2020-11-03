@@ -10,8 +10,8 @@
 </style>
 
 
-<div class="card-body">
-  @livewire('blockedpayment')
-</div>
+<!--<div class="card-body">
+  <@livewire('blockedpayment')
+</div>-->
 
 @endsection

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\EMANDATE_INFO;
+use App\Models\EMANDATE_CFT;
 class EmandateInfoController extends Controller
 
 {
@@ -60,9 +61,11 @@ class EmandateInfoController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function show($id)
-    {
+    {   
         $INFOS = EMANDATE_INFO::where('fms_acct_no','like','%'.$id.'%')->whereApproval('00')->paginate(5);
-        return view('pages.EmandateInfo',compact('INFOS'));
+        $filelist_CFT = EMANDATE_CFT::where('payrefno','like','%'.$id.'%')->paginate(10);
+        
+        return view('pages.EmandateInfo',compact('INFOS','filelist_CFT'));
     }
 
     /**

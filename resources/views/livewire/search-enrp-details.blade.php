@@ -2,9 +2,9 @@
   <div class="container px-6 mx-auto grid">
     <div class="main-content flex-1 bg-gray-100 mt-12 md:mt-2 pb-24 md:pb-5">
   
-    <div class="bg-blue-800 p-2 shadow text-xl text-white">
-        <h3 class="font-bold pl-2">Senarai Maklumat ENRP</h3>
-    </div>
+        <div class="bg-blue-800 p-2 shadow text-xl text-white">
+            <h3 class="font-bold pl-2">Senarai Maklumat ENRP</h3>
+        </div>
   
     <div class="flex flex-wrap">
              <!--  START TABLES  -->
@@ -181,11 +181,11 @@
         <!--  END TABLES -->
     </div>
 </div>
-
-    <div class="flex flex-row flex-wrap flex-grow mt-2">
-  
-      
+</div>
+    
+ <!--   <div class="flex flex-row flex-wrap flex-grow mt-2">
     </div>
+-->
   </div>
   </div>
   </main>

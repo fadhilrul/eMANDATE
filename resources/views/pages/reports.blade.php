@@ -26,7 +26,8 @@
             <!-- Cards -->
     <div class="grid gap-6 mb-8 md:grid-cols-2 xl:grid-cols-4">
       <!-- Card -->
-      <a href="{{ route('report.blockedpayment') }}"> 
+      <a href="{{ route('report.blockedpayment') }}">
+       
       <div
         class="flex items-center p-4 bg-white rounded-lg shadow-xs dark:bg-gray-800"
       >
