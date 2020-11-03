@@ -29,7 +29,7 @@ Route::middleware([AuthenticatedUser::class])->group(function() {
         
       /* Report */
       Route::get('/emandate-report', 'EmandateReportController@index')->name('report.dashboard');
-      Route::get('/emandate-report/sekatan-pemotongan', 'EmandateReportController@Blockedpayment')->name('report.blockedpayment');
+      Route::get('/emandate-report/sekatan-pemotongan', 'EmandateReportController@BlockedpaymentRpt')->name('report.blockedpayment');
 
       /* emandate_info */
       Route::get('/search-box', 'searchController@index')->name('search.index');

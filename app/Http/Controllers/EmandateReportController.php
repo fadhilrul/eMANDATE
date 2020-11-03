@@ -18,7 +18,7 @@ class EmandateReportController extends Controller
     }
 
     //listing blocked payment
-    public function blockedpayment()
+    public function BlockedpaymentRpt()
     {   
        return view('pages.reportblockedpaymnt');
     }
