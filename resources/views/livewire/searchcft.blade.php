@@ -5,7 +5,7 @@
         </div>
 		
     <!-- search section -->
-		<div class="-my-2 py-2 overflow-x-auto sm:-mx-6 sm:px-6 lg:-mx-8 pr-10 lg:px-8">
+	<!--	<div class="-my-2 py-2 overflow-x-auto sm:-mx-6 sm:px-6 lg:-mx-8 pr-10 lg:px-8">  -->
 			  <div class="align-middle rounded-tl-lg rounded-tr-lg inline-block w-full py-4 overflow-hidden bg-white shadow-lg px-12">
                   <div class="flex justify-between">
                       <div class="inline-flex border rounded w-7/12 px-2 lg:px-6 h-12 bg-transparent">
@@ -85,7 +85,7 @@
                </div>
 			</div>
 						
-		</div>
+	<!--	</div>  -->
 	</div>
 </div>
 

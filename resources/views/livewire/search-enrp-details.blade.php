@@ -43,10 +43,9 @@
                           <tr>
                               <th class="px-6 py-3 border-b-2 border-gray-300 text-left leading-4 text-blue-500 tracking-wider">Nama Fail</th>
                               <th class="px-6 py-3 border-b-2 border-gray-300 text-left leading-4 text-blue-500 tracking-wider">No Akaun</th>
-                              <th class="px-6 py-3 border-b-2 border-gray-300 text-left leading-4 text-blue-500 tracking-wider">Bahagian</th>
                               <th class="px-6 py-3 border-b-2 border-gray-300 text-left leading-4 text-blue-500 tracking-wider">Kad Pengenalan</th>
                               <th class="px-6 py-3 border-b-2 border-gray-300 text-left leading-4 text-blue-500 tracking-wider">Pemohon</th>
-                              <th class="px-6 py-3 border-b-2 border-gray-300 text-left leading-4 text-blue-500 tracking-wider">Tujuan</th>
+                              <th class="px-6 py-3 border-b-2 border-gray-300 text-left leading-4 text-blue-500 tracking-wider">Skim</th>
                               <th class="px-6 py-3 border-b-2 border-gray-300 text-left leading-4 text-blue-500 tracking-wider">Mula Bayar</th>
                               <th class="px-6 py-3 border-b-2 border-gray-300 text-left leading-4 text-blue-500 tracking-wider">Tamat Bayar</th>
                               <th class="px-6 py-3 border-b-2 border-gray-300 text-left leading-4 text-blue-500 tracking-wider">Status</th>
@@ -60,7 +59,7 @@
                                           <div>
                                               <div class="text-sm leading-5 text-gray-800">
   
-                                                {{ $item->filename }}
+                                                {{ substr($item->filename,0,8) }}
   
                                               </div>
                                           </div>
@@ -77,19 +76,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                </td> 
-  
-                                <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-500">
-                                  <div class="flex items-center">
-                                      <div>
-                                          <div class="text-sm leading-5 text-gray-800">
-  
-                                            {{ $item->section }}
-  
-                                          </div>
-                                      </div>
-                                  </div>
-                              </td> 
+                                </td>
   
                               <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-500">
                                 <div class="flex items-center">
@@ -108,7 +95,7 @@
                                   <div>
                                       <div class="text-sm leading-5 text-gray-800">
   
-                                        {{ $item->buyername }}
+                                        {{ substr($item->buyername,0,20) }}
   
                                       </div>
                                   </div>
@@ -133,7 +120,7 @@
                                   <div class="text-sm leading-5 text-gray-800">
   
                                   
-                                    {{ substr($item->effdate,0,2).'-'.substr($item->effdate,2,2).'-'.substr($item->effdate,4,4) }} 
+                                    {{ substr($item->effdate,0,2).'/'.substr($item->effdate,2,2).'/'.substr($item->effdate,4,4) }} 
                                     
   
                                   </div>
@@ -147,7 +134,7 @@
                                 <div class="text-sm leading-5 text-gray-800">
   
                                    
-                                    {{ substr($item->expdate,0,2).'-'.substr($item->expdate,2,2).'-'.substr($item->expdate,4,4) }} 
+                                    {{ substr($item->expdate,0,2).'/'.substr($item->expdate,2,2).'/'.substr($item->expdate,4,4) }} 
                                   
                                 </div>
                             </div>

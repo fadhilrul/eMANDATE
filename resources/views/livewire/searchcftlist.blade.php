@@ -62,7 +62,7 @@
                                   <div>
                                       <div class="text-sm leading-5 text-gray-800">
     
-                                        {{ $item->filename }}
+                                        {{ substr($item->filename,0,10) }}
     
                                       </div>
                                   </div>
@@ -86,7 +86,7 @@
                               <div>
                                   <div class="text-sm leading-5 text-gray-800">
     
-                                    {{ $item->buyername }}
+                                    {{ substr($item->buyername,0,20) }}
     
                                   </div>
                               </div>

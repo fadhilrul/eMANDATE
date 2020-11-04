@@ -51,7 +51,7 @@ class CFTController extends Controller
     {   
         //dd($id);
         $CFT_DATALIST = EMANDATE_CFT::where('filename','=',$id)->get();
-        //dd($CFT_DATALIST);
+        //dd($id);
          return view('pages.searchcftdetails',compact('CFT_DATALIST'));
     }
 
