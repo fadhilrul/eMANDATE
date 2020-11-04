@@ -5,9 +5,15 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\EMANDATE_INFO;
 use App\Models\EMANDATE_CFT;
+use Livewire\WithPagination;
+use App\User;
+
 class EmandateInfoController extends Controller
 
 {
+    use WithPagination;
+
+    public $listcft = '';
     /**
      * Display a listing of the resource.
      *
@@ -62,9 +68,11 @@ class EmandateInfoController extends Controller
      */
     public function show($id)
     {   
+        //$listcft =  "%".$this->listcft."%";
+
         $INFOS = EMANDATE_INFO::where('fms_acct_no','like','%'.$id.'%')->whereApproval('00')->paginate(5);
-        $filelist_CFT = EMANDATE_CFT::where('payrefno','like','%'.$id.'%')->paginate(10);
-        
+        $filelist_CFT = EMANDATE_CFT::where('payrefno','like','%'.$id.'%')->paginate(5);
+
         return view('pages.EmandateInfo',compact('INFOS','filelist_CFT'));
     }
 
@@ -104,6 +112,7 @@ class EmandateInfoController extends Controller
 
     public function activestatus(Request $request)
     {
+       
         $info = EMANDATE_INFO::where('idnum', $request->itemid)->first();
         $info->blocked_paymnt_status = ($request->action == 0) ? 0 : 1 ;
         $info->blockedby = session()->get('authenticatedUser')['userid'];
