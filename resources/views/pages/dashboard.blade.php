@@ -31,7 +31,7 @@
 					<div class="my-1 px-1 w-40 md:w-1/6 lg:my-2 lg:px-4 lg:w-1/6">
 			
 						<!-- Article -->
-						<article class="overflow-hidden rounded-lg shadow-lg bg-yellow-50">
+						<article class="overflow-hidden rounded-lg shadow-lg bg-blue-50">
 			
 							<a href="{{ route('emandate.dashboard') }}">
 							<img alt="Placeholder" class="block h-auto w-full" src="{{ asset('assets/img/moneytime.png') }}">

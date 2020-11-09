@@ -115,6 +115,7 @@ class EmandateInfoController extends Controller
        
         $info = EMANDATE_INFO::where('idnum', $request->itemid)->first();
         $info->blocked_paymnt_status = ($request->action == 0) ? 0 : 1 ;
+        $info->status_desc = ($request->action == 0) ? 'RE-ACTIVE' : 'ON-HOLD';
         $info->blockedby = session()->get('authenticatedUser')['userid'];
        // $info->blockpayment_date = date('Y-m-d');
         $info->save();

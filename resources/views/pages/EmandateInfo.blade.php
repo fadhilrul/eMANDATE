@@ -143,7 +143,7 @@
 											<table class="md:table-auto lg:table-fixed table-auto w-full">
 												<tbody>
 													<tr>
-														<td class="px-4 py-4 border border-indigo-dark font-semibold">Amount Debit</td>
+														<td class="px-4 py-4 border border-indigo-dark font-semibold">Amaun Debit</td>
 															<td class="px-4 py-4 border border-indigo-dark">
 																<div class = "flex-grow">
 																	<div class="text-sm leading-5 text-gray-800">
@@ -351,8 +351,8 @@
 																					@csrf
 																					<input type="hidden" name="itemid" value="{{ $item->idnum }}">
 																						<select id="action" name="action">
-																							<option value="0">RE-ACTIVE</option>
-																							<option value="1">ON HOLD</option>
+																							<option value="0" {{$item->blocked_paymnt_status == 0 ? 'selected':''}}>RE-ACTIVE</option>
+																							<option value="1" {{$item->blocked_paymnt_status == 1 ? 'selected':''}}>ON HOLD</option>
 																						</select>
 																					<div class="pl-2">
 																						<button type="submit" class="btnnormal button2">SUBMIT</button>
