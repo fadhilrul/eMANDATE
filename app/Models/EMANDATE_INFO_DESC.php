@@ -20,21 +20,16 @@ use Illuminate\Database\Eloquent\Model;
 // }
 
 
-class EMANDATE_INFO extends Model
+class EMANDATE_INFO_DESC extends Model
 {
-    protected $table = 'EMANDATE_INFO';
+    protected $table = 'EMANDATE_INFO_DESC';
     protected $guarded = [];
     public $timestamps = false;
-    protected $primaryKey = 'fms_acct_no';
+    protected $primaryKey = 'IDDESC';
         
-    public  function cft()
+    public  function INFO()
     {
-        return $this->hasMany('App\Models\EMANDATE_CFT','payrefno','fms_acct_no');
-    }
-
-    public  function info_desc()
-    {
-        return $this->hasOne('App\Models\EMANDATE_INFO_DESC','IDDESC','fms_acct_no');
+        return $this->belongsTo('App\Models\EMANDATE_INFO','IDDESC','fms_acct_no');
     }
 }
 
