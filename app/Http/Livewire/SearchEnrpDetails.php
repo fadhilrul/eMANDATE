@@ -21,7 +21,6 @@ class SearchEnrpDetails extends Component
          return view('livewire.search-enrp-details',[
 
             'filelist_ENRP' => EMANDATE_ENRP::where('payrefnum','like', $listenrp)->orwhere('idnum','like', $listenrp)->paginate(10)
-                  
         ]);
     }
 }

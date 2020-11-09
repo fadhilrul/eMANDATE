@@ -558,7 +558,7 @@
 						<div>
 							<div class="text-sm leading-5 text-gray-800">
 	
-							  {{ $item->status }}
+							  {{ $item->status_desc }}
 	
 							</div>
 						</div>
