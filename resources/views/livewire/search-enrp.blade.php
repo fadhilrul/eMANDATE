@@ -19,11 +19,8 @@
                                       </svg>
                                   </span>
                               </div>
-                            <!--  <input type="text" class="flex-shrink flex-grow flex-auto leading-normal tracking-wide w-px border border-none border-l-0 rounded rounded-l-none px-3 relative focus:outline-none text-xxs lg:text-base text-gray-500 font-thin form-input" 
-                              placeholder="Carian Tarikh Fail"
-                              wire:model="searchlistenrp"
-                              class="form-control"/>
-                            -->
+                          
+                              
                             <input type="text" class="flex-shrink flex-grow flex-auto leading-normal tracking-wide w-px flex-1 border border-none border-l-0 rounded rounded-l-none px-3 relative focus:outline-none text-xxs lg:text-xs lg:text-base text-gray-500 font-thin"
                             type="text"
                             placeholder="Carian Tarikh Transaksi"
@@ -75,7 +72,7 @@
 
 							 <td class="px-6 py-4 whitespace-no-wrap text-right border-b border-gray-500 text-sm leading-5">
                                     <button class="px-5 py-2 border-blue-500 border text-blue-500 rounded transition duration-300 hover:bg-blue-700 hover:text-white focus:outline-none">
-                                        <a href = "{{ url('linkmainenrp/'.$item->filename.'')}}"> Papar </a> </button>
+                                        <a href = "{{ url('linkmainenrp/'.$item->hcrdate.'')}}"> Papar </a> </button>
                                 </td>
 						</tr>
 			 

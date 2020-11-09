@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "13683acd6018d9d1ef7f5774221e6b47",
+    "content-hash": "66f0465779498adf1c25f1366f4195f0",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -1430,16 +1430,16 @@
         },
         {
             "name": "maatwebsite/excel",
-            "version": "3.1.23",
+            "version": "3.1.24",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Maatwebsite/Laravel-Excel.git",
-                "reference": "b8145257f020635f374d2314ccd556674efcbfcb"
+                "reference": "8b267b4a940634195eb6ea60c2da62f178a15940"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Maatwebsite/Laravel-Excel/zipball/b8145257f020635f374d2314ccd556674efcbfcb",
-                "reference": "b8145257f020635f374d2314ccd556674efcbfcb",
+                "url": "https://api.github.com/repos/Maatwebsite/Laravel-Excel/zipball/8b267b4a940634195eb6ea60c2da62f178a15940",
+                "reference": "8b267b4a940634195eb6ea60c2da62f178a15940",
                 "shasum": ""
             },
             "require": {
@@ -1500,7 +1500,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2020-09-29T07:30:12+00:00"
+            "time": "2020-10-28T09:10:05+00:00"
         },
         {
             "name": "maennchen/zipstream-php",
@@ -5360,10 +5360,6 @@
                 "profiler",
                 "webprofiler"
             ],
-            "support": {
-                "issues": "https://github.com/barryvdh/laravel-debugbar/issues",
-                "source": "https://github.com/barryvdh/laravel-debugbar/tree/v3.5.1"
-            },
             "funding": [
                 {
                     "url": "https://github.com/barryvdh",
@@ -5821,10 +5817,6 @@
                 "debug",
                 "debugbar"
             ],
-            "support": {
-                "issues": "https://github.com/maximebf/php-debugbar/issues",
-                "source": "https://github.com/maximebf/php-debugbar/tree/v1.16.3"
-            },
             "time": "2020-05-06T07:06:27+00:00"
         },
         {
@@ -7747,9 +7739,6 @@
             ],
             "description": "Symfony Debug Component",
             "homepage": "https://symfony.com",
-            "support": {
-                "source": "https://github.com/symfony/debug/tree/v4.4.16"
-            },
             "funding": [
                 {
                     "url": "https://symfony.com/sponsor",
@@ -7865,5 +7854,5 @@
         "php": "^7.3"
     },
     "platform-dev": [],
-    "plugin-api-version": "2.0.0"
+    "plugin-api-version": "1.1.0"
 }

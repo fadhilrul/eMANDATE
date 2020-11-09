@@ -5,7 +5,6 @@ namespace App\Http\Livewire;
 use App\Models\EMANDATE_CFT;
 use Livewire\Component;
 use Livewire\WithPagination;
-use App\User;
 
 
 class Search_cft extends Component

@@ -11,7 +11,9 @@
 
 
 <div class="card-body">
-  @livewire('search-enrp-details')
+  @livewire('search-enrp-details', [
+    'id'=> $id
+  ])
 </div>
 
 @endsection

@@ -11,7 +11,8 @@
 
 
 <div class="card-body">
-  @livewire('searchcftlist')
+  @livewire('searchcftlist', ['id'=> $id] )
+
 </div>
 
 @endsection

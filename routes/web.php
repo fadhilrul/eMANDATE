@@ -5,6 +5,7 @@ use App\Http\Middleware\AuthenticatedUser;
 use App\Http\Controllers\AuthenticationUser;
 // use App\Http\Controllers\DashboardController;
 
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -29,7 +30,11 @@ Route::middleware([AuthenticatedUser::class])->group(function() {
         
       /* Report */
       Route::get('/emandate-report', 'EmandateReportController@index')->name('report.dashboard');
-      Route::get('/emandate-report/sekatan-pemotongan', 'EmandateReportController@BlockedpaymentRpt')->name('report.blockedpayment');
+     // Route::get('/emandate-report/sekatan-pemotongan', 'EmandateReportController@BlockedpaymentRpt')->name('report.blockedpayment');
+      Route::get('/main-enrp-report', 'EmandateReportController@ENRPRpt')->name('report.enrp');
+      Route::resource('linkrptenrp','RptENRPController'); 
+      Route::get('exportenrp', 'RptENRPController@export')->name('export-ENRP');
+
 
       /* emandate_info */
       Route::get('/search-box', 'searchController@index')->name('search.index');
@@ -38,15 +43,17 @@ Route::middleware([AuthenticatedUser::class])->group(function() {
       Route::resource('linkviewsearch','EmandateInfoController');
 
       /* for CFT */
-      Route::resource('linkmainCFT','CFTController');
-      //Route::get('/linkmainCFT/{id}', 'CFTController@index')->name('linkcft.index');
       Route::get('/search_cftlist', 'searchCFTController@index')->name('searchcft.index');
+      Route::resource('linkmainCFT','CFTController');
       Route::resource('linkcft','CFTControllerDetails');
+      //Route::get('/linkmainCFT/{id}', 'CFTController@index')->name('linkcft.index');
+      
 
       /* For ENRP */
       Route::get('/search_mainenrp', 'searchMainENRPController@index')->name('searchenrp.index');
       Route::resource('linkmainenrp','EmandateController');
       Route::resource('link','EmandateControllerDetails');
+
 
       /*TESTING SP */
       Route::get('/sp_info', 'DashboardController@sp_info')->name('dashboard.sp_info');

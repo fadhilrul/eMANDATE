@@ -5,7 +5,6 @@ namespace App\Http\Livewire;
 use App\Models\EMANDATE_ENRP;
 use Livewire\Component;
 use Livewire\WithPagination;
-use App\User;
 
 class Search extends Component
 {

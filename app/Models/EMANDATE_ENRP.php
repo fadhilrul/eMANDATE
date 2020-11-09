@@ -10,8 +10,9 @@ class EMANDATE_ENRP extends Model
     use HasFactory;
 
     protected $table = 'EMANDATE_ENRP';
-
     protected $guarded = [];
+
+    protected $primaryKey = 'payrefnum';
 
 
 }

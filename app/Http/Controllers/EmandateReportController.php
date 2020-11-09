@@ -17,11 +17,14 @@ class EmandateReportController extends Controller
        return view('pages.reports');
     }
 
-    //listing blocked payment
-    public function BlockedpaymentRpt()
+    //listing report
+    public function ENRPRpt()
     {   
-       return view('pages.reportblockedpaymnt');
+       return view('pages.reportsmainenrp');
     }
+
+
+
 
 }
 

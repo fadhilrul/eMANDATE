@@ -13,14 +13,9 @@ class EmandateController extends Controller
      */
     public function index()
     {   
-        //$NERPS = EMANDATE_ENRP::paginate(5);
-        // $NERPS = EMANDATE_ENRP::WHERE('SECTION','BLOCK2')-> paginate(5);
-         //return view('pages.ENRPFileList',compact('NERPS'));
 
-         return view('pages.searchenrpdetails');
+             return view('pages.searchenrpdetails');
     }
-
-
 
     /**
      * Show the form for creating a new resource.
@@ -51,9 +46,15 @@ class EmandateController extends Controller
      */
     public function show($id)
     {
-        $NERPS = EMANDATE_ENRP::paginate(10);
-        // $NERPS = EMANDATE_ENRP::WHERE('SECTION','BLOCK2')-> paginate(5);
-         return view('pages.searchenrpdetails',compact('NERPS'));
+        //dd($id);
+      //  $test = EMANDATE_ENRP::where($id);
+        
+        //dd($test);
+
+        //$NERPS = EMANDATE_ENRP::where('approval','like','%00%')->paginate(5);
+         return view('pages.searchenrpdetails',compact('id'));
+
+         //return view('pages.searchenrpdetails');
     }
 
 
