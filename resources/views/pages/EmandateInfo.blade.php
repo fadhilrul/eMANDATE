@@ -567,7 +567,7 @@
 						<th class="px-6 py-3 border-b-2 border-gray-300 text-left leading-4 text-blue-500 tracking-wider">BankID</th>
 						<th class="px-6 py-3 border-b-2 border-gray-300 text-left leading-4 text-blue-500 tracking-wider">Matawang</th>
 						<th class="px-6 py-3 border-b-2 border-gray-300 text-left leading-4 text-blue-500 tracking-wider">Amaun</th>
-						<th class="px-6 py-3 border-b-2 border-gray-300 text-left leading-4 text-blue-500 tracking-wider">Arahan Potongan</th>
+						<th class="px-6 py-3 border-b-2 border-gray-300 text-left leading-4 text-blue-500 tracking-wider">Bil Percubaan Bulanan</th>
 						<th class="px-6 py-3 border-b-2 border-gray-300 text-left leading-4 text-blue-500 tracking-wider">Status</th>
 					</tr>
 				</thead>
@@ -645,19 +645,19 @@
 						  </div>
 					  </div>
 				  </td>
-
+				  @foreach ($INFOS as $item)
 				  <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-500">
 					<div class="flex items-center">
 						<div>
 							<div class="text-sm leading-5 text-gray-800">
 	
-							  {{ $item->noretry }}
+							  {{ $item->failed_count_mon }}
 	
 							</div>
 						</div>
 					</div>
 				</td>
-
+				@endforeach
 				<td class="px-6 py-4 whitespace-no-wrap border-b border-gray-500">
 					<div class="flex items-center">
 						<div>
