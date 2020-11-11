@@ -247,10 +247,112 @@
 							</tr>
 						</tbody>
 					</table>
+					<!-- start maklumat arahan pemotongan-->
 
 					<div class="pt-5">
 						<div class="bg-blue-800 p-2 shadow text-xl text-white">
-							<h3 class="font-bold pl-2">Maklumat Potongan</h3>
+							<h3 class="font-bold pl-2">Maklumat Arahan Pemotongan</h3>
+						</div>
+						<div class="w-full  overflow-hidden rounded-lg shadow-xs">
+							<div class="w-full overflow-x-auto">
+								<table class="w-full whitespace-no-wrap">
+									<tbody
+										class="bg-white divide-y dark:divide-gray-700 dark:bg-gray-800"
+										>
+										<tr class="text-gray-700 dark:text-gray-400">
+											<td class="border px-4 py-2">
+												<div>
+													<table class="table-auto w-full">
+														<tbody>
+															<tr>
+																<td class="px-4 py-4 border border-indigo-dark font-semibold">Tarikh Berjaya Daftar</td>
+																<td class="px-4 py-4 border border-indigo-dark">
+																	<div class = "flex-grow">
+																		<div class="text-sm leading-5 text-gray-800">
+																			<input value = "{{ date('d-m-Y',strtotime($item->appdate)) }}" disabled = true
+																	  			class="block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input"
+																			/>
+																		</div>
+																	</div>
+																</td>
+
+															</tr>
+
+															<tr>
+																<td class="px-4 py-4 border border-indigo-dark font-semibold">Rujukan RHB-DDA Form</td>
+																	<td class="px-4 py-4 border border-indigo-dark">
+																		<div class = "flex-grow">
+																			<div class="text-sm leading-5 text-gray-800">
+																				<input value = "{{ $item->recnum }}" disabled = true
+																	  				class="block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input"
+																				/>
+																			</div>
+																		</div>
+																	</td>
+																</td>
+															</tr>
+
+															<tr>
+																<td class="px-4 py-4 border border-indigo-dark font-semibold">Tarikh Mula Arahan Potongan </td>
+																	<td class="px-4 py-4 border border-indigo-dark">
+																		<div class = "flex-grow">
+																			<div class="text-sm leading-5 text-gray-800">
+																				<input value = "{{ date('d-m-Y',strtotime($item->effdate)) }} "  disabled = true
+																	  				class="block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input"
+																				/>
+																			</div>
+																		</div>
+													
+																	</td>
+																</td>	
+															</tr>
+
+															<tr>
+																<td class="px-4 py-4 border border-indigo-dark font-semibold">Tarikh Akhir Arahan Potongan </td>
+																	<td class="px-4 py-4 border border-indigo-dark">
+																		<div class = "flex-grow">
+																			<div class="text-sm leading-5 text-gray-800">
+																				<input value = "{{ date('d-m-Y',strtotime($item->expdate)) }} "  disabled = true
+																	  				class="block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input"
+																				/>
+																			</div>
+																		</div>
+													
+																	</td>
+																</td>	
+															</tr>
+
+															<tr>
+																<td class="px-4 py-4 border border-indigo-dark font-semibold">Amaun Potongan Bulanan </td>
+																	<td class="px-4 py-4 border border-indigo-dark">
+																		<div class = "flex-grow">
+																			<div class="text-sm leading-5 text-gray-800">
+																				<input value = "{{ $item->instal_amt }}"  disabled = true
+																	  				class="block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input"
+																				/>
+																			</div>
+																		</div>
+													
+																	</td>
+																</td>	
+															</tr>
+
+														</tbody>
+													</table>
+												</div>
+											</td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+						</div>
+					</div>
+
+					<!-- end maklumat arahan pemotongan -->
+
+					<div class="pt-5">
+						<div class="bg-blue-800 p-2 shadow text-xl text-white">
+							<h3 class="font-bold pl-2">Status Arahan Potongan</h3>
 						</div>
 						<div class="w-full  overflow-hidden rounded-lg shadow-xs">
 							<div class="w-full overflow-x-auto">
@@ -274,6 +376,7 @@
 																		</div>
 																	</div>
 																</td>
+
 															</tr>
 
 															<tr>
@@ -291,15 +394,16 @@
 															</tr>
 
 															<tr>
-																<td class="px-4 py-4 border border-indigo-dark font-semibold">Jumlah Gagal Potongan Bulanan</td>
+																<td class="px-4 py-4 border border-indigo-dark font-semibold">Bilangan Gagal Potongan </td>
 																	<td class="px-4 py-4 border border-indigo-dark">
 																		<div class = "flex-grow">
 																			<div class="text-sm leading-5 text-gray-800">
-																				<input value = "{{ $item->blockpayment_flag }}" disabled = true
-																	  				class="block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input"
+																				<input value = "{{ $item->blockpayment_flag }} Bulan"  disabled = true
+																	  				class="block w-70 mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input"
 																				/>
 																			</div>
 																		</div>
+													
 																	</td>
 																</td>	
 															</tr>
@@ -351,8 +455,9 @@
 																					@csrf
 																					<input type="hidden" name="itemid" value="{{ $item->idnum }}">
 																						<select id="action" name="action">
+																							<option selected>PLEASE CHOOSE</option>
 																							<option value="0" {{$item->blocked_paymnt_status == 0 ? 'selected':''}}>RE-ACTIVE</option>
-																							<option value="1" {{$item->blocked_paymnt_status == 1 ? 'selected':''}}>ON HOLD</option>
+																							<option value="1" {{$item->blocked_paymnt_status == 1 ? 'selected':''}}>ON-HOLD</option>
 																						</select>
 																					<div class="pl-2">
 																						<button type="submit" class="btnnormal button2">SUBMIT</button>
@@ -424,7 +529,7 @@
 
 	<!--CFT LIST OF TRANSACTION -->
 	<div class="bg-blue-800 p-2 shadow text-xl text-white">
-		<h3 class="font-bold pl-2"> Rekod Bayaran </h3>
+		<h3 class="font-bold pl-2"> Rekod Transaksi Terkini</h3>
 	</div>
 
 	 <!--start tables-->
@@ -456,13 +561,13 @@
 			<table class="min-w-full">
 				<thead>
 					<tr>
-						<th class="px-6 py-3 border-b-2 border-gray-300 text-left leading-4 text-blue-500 tracking-wider">Nama Fail</th>
+						<th class="px-6 py-3 border-b-2 border-gray-300 text-left leading-4 text-blue-500 tracking-wider">Rujukan Fail CFT</th>
 						<th class="px-6 py-3 border-b-2 border-gray-300 text-left leading-4 text-blue-500 tracking-wider">Mod Bayaran</th>
 						<th class="px-6 py-3 border-b-2 border-gray-300 text-left leading-4 text-blue-500 tracking-wider">Tarikh Transaksi</th>
 						<th class="px-6 py-3 border-b-2 border-gray-300 text-left leading-4 text-blue-500 tracking-wider">BankID</th>
 						<th class="px-6 py-3 border-b-2 border-gray-300 text-left leading-4 text-blue-500 tracking-wider">Matawang</th>
 						<th class="px-6 py-3 border-b-2 border-gray-300 text-left leading-4 text-blue-500 tracking-wider">Amaun</th>
-						<th class="px-6 py-3 border-b-2 border-gray-300 text-left leading-4 text-blue-500 tracking-wider">Percubaan</th>
+						<th class="px-6 py-3 border-b-2 border-gray-300 text-left leading-4 text-blue-500 tracking-wider">Arahan Potongan</th>
 						<th class="px-6 py-3 border-b-2 border-gray-300 text-left leading-4 text-blue-500 tracking-wider">Status</th>
 					</tr>
 				</thead>
