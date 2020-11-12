@@ -483,18 +483,18 @@
 					<table class="min-w-full">
 						<thead>
 							<tr>
-								<th class="px-6 py-3 border-b-2 border-gray-300 text-left leading-4 text-blue-500 tracking-wider">Rujukan Fail CFT</th>
+								<th class="px-6 py-3 border-b-2 border-gray-300 text-left leading-4 text-blue-500 tracking-wider">Rujukan Fail Res</th>
 								<th class="px-6 py-3 border-b-2 border-gray-300 text-left leading-4 text-blue-500 tracking-wider">Mod Bayaran</th>
 								<th class="px-6 py-3 border-b-2 border-gray-300 text-left leading-4 text-blue-500 tracking-wider">Tarikh Transaksi</th>
 								<th class="px-6 py-3 border-b-2 border-gray-300 text-left leading-4 text-blue-500 tracking-wider">BankID</th>
-								<th class="px-6 py-3 border-b-2 border-gray-300 text-left leading-4 text-blue-500 tracking-wider">Matawang</th>
+								{{-- <th class="px-6 py-3 border-b-2 border-gray-300 text-left leading-4 text-blue-500 tracking-wider">Matawang</th> --}}
 								<th class="px-6 py-3 border-b-2 border-gray-300 text-left leading-4 text-blue-500 tracking-wider">Amaun</th>
-								<th class="px-6 py-3 border-b-2 border-gray-300 text-left leading-4 text-blue-500 tracking-wider">Bil Percubaan Bulanan</th>
+								{{-- <th class="px-6 py-3 border-b-2 border-gray-300 text-left leading-4 text-blue-500 tracking-wider">Bil Percubaan Bulanan</th> --}}
 								<th class="px-6 py-3 border-b-2 border-gray-300 text-left leading-4 text-blue-500 tracking-wider">Status</th>
 							</tr>
 						</thead>
 						<tbody class="bg-white">
-						  @foreach ($filelist_CFT as $item)
+						  @foreach ($filelist_res as $item)
 						  <tr>
 									<td class="px-6 py-4 whitespace-no-wrap border-b border-gray-500">
 										<div class="flex items-center">
@@ -544,7 +544,7 @@
 								  </div>
 							  </td>
 		
-							<td class="px-6 py-4 whitespace-no-wrap border-b border-gray-500">
+							{{-- <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-500">
 								<div class="flex items-center">
 									<div>
 										<div class="text-sm leading-5 text-gray-800">
@@ -554,7 +554,7 @@
 										</div>
 									</div>
 								</div>
-							</td>
+							</td> --}}
 			  
 							<td class="px-6 py-4 whitespace-no-wrap border-b border-gray-500">
 							  <div class="flex items-center">
@@ -567,7 +567,7 @@
 								  </div>
 							  </div>
 						  </td>
-						  @foreach ($INFOS as $item)
+						  {{-- @foreach ($INFOS as $item)
 						  <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-500">
 							<div class="flex items-center">
 								<div>
@@ -579,13 +579,13 @@
 								</div>
 							</div>
 						</td>
-						@endforeach
+						@endforeach --}}
 						<td class="px-6 py-4 whitespace-no-wrap border-b border-gray-500">
 							<div class="flex items-center">
 								<div>
 									<div class="text-sm leading-5 text-gray-800">
 			
-									  {{ $item->status_desc }}
+									  {{ $item->status }}
 			
 									</div>
 								</div>
@@ -597,7 +597,7 @@
 					</table>
 					</div>
 					@endforeach
-					{{ $filelist_CFT->links() }}
+					{{-- {{ $filelist_res->links() }} --}}
 				  </div>
 				</div>
 				<div x-show="openTab === 6">

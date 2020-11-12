@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\EMANDATE_INFO;
 use App\Models\EMANDATE_CFT;
+use App\Models\EMANDATE_RES;
 use Livewire\WithPagination;
 use App\User;
 
@@ -71,9 +72,9 @@ class EmandateInfoController extends Controller
         //$listcft =  "%".$this->listcft."%";
 
         $INFOS = EMANDATE_INFO::where('fms_acct_no','like','%'.$id.'%')->whereApproval('00')->paginate(5);
-        $filelist_CFT = EMANDATE_CFT::where('payrefno','like','%'.$id.'%')->paginate(5);
+        $filelist_res = EMANDATE_RES::whereRaw("substr(filler,0,14) like '%".$id."%'")->paginate(5);
 
-        return view('pages.EmandateInfo',compact('INFOS','filelist_CFT'));
+        return view('pages.EmandateInfo',compact('INFOS','filelist_res'));
     }
 
     /**

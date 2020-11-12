@@ -4,7 +4,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Middleware\AuthenticatedUser;
 use App\Http\Controllers\AuthenticationUser;
 // use App\Http\Controllers\DashboardController;
-
+use Illuminate\Http\RedirectResponse;
+use Illuminate\Support\Facades\Redirect;
 
 /*
 |--------------------------------------------------------------------------
@@ -58,6 +59,11 @@ Route::middleware([AuthenticatedUser::class])->group(function() {
 
       /*TESTING SP */
       Route::get('/sp_info', 'DashboardController@sp_info')->name('dashboard.sp_info');
+      
+      /* testing */
+      Route::get('/sp01', function(){
+          return Redirect::to('http://localhost/enrp/newenrp/enrp.php');
+      })->name('sp01');
 
 
       /* TEST FOR CRUD USING Product */
