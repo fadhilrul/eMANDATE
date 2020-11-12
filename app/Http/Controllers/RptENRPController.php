@@ -40,9 +40,9 @@ class RptENRPController extends Controller
        
     }
     
-    public function export() 
+    public function export(Request $request) 
     {
-        return Excel::download(new EnrpExport, 'EnrpData.xlsx');
+        return Excel::download(new EnrpExport($request->id), 'EnrpData.xlsx');
     }
    
 }
