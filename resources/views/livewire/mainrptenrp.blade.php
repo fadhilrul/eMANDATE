@@ -2,7 +2,7 @@
     <div class="container px-6 mx-auto grid">
         <div class="main-content flex-1 bg-gray-100 mt-12 md:mt-2 pb-24 md:pb-5">
             <div class="bg-blue-800 p-2 shadow text-xl text-white">
-                <h3 class="font-bold pl-2">Senarai Laporan Fail ENRP dalam process</h3>
+                <h3 class="font-bold pl-2">Senarai Laporan Fail ENRP</h3>
             </div>
             
         <!-- search section -->
@@ -36,13 +36,10 @@
                         <thead>
                             <tr>
                                 <th class="px-6 py-3 border-b-2 border-gray-300 text-left leading-4 text-blue-500 tracking-wider">Tarikh Transaksi</th>
-                                <th>
-                                    <td class="px-6 py-4 whitespace-no-wrap text-left  text-sm leading-5">
-                                        <button class="px-5 py-2 border-blue-500 border text-blue-500 rounded transition duration-300 hover:bg-blue-700 hover:text-white focus:outline-none">
-                                            <a href = "#"> Papar Semua </a> </button>
-                                    </td>
-                                </th>    
-                               
+                                <th lass="px-6 py-4 whitespace-no-wrap text-left  text-sm leading-5">
+                                   <button class="px-5 py-2 border-blue-500 border text-blue-500 rounded transition duration-300 hover:bg-blue-700 hover:text-white focus:outline-none">
+                                    <a href = "#"> Papar Semua </a> </button>
+                                </th>  
                             </tr>
                          </thead>
                     
@@ -50,6 +47,7 @@
                         <tbody class="bg-white">  
                          
                             <tr>
+
                                 <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-500">
                                     <div class="flex items-center">
                                         <div>
@@ -61,20 +59,24 @@
                                         </div>
                                     </div>
                                 </td>
-    
-                                <td class="px-6 py-4 whitespace-no-wrap text-right border-b border-gray-500 text-sm leading-5">
-                                        <button class="px-5 py-2 border-blue-500 border text-blue-500 rounded transition duration-300 hover:bg-blue-700 hover:text-white focus:outline-none">
-                                            <a href = "{{ url('linkrptenrp/'.$item->hcrdate.'')}}"> Papar </a> </button>
-                                </td>
 
-                                 <td class="px-6 py-4 whitespace-no-wrap text-right border-b border-gray-500 text-sm leading-5 inline-flex">  
+                                <td class="px-6 py-4 whitespace-no-wrap text-right border-b border-gray-500 text-sm leading-5">
+                                    <button class="px-5 py-2 border-blue-500 border text-blue-500 rounded transition duration-300 hover:bg-blue-700 hover:text-white focus:outline-none">
+                                        <a href = "{{ url('linkrptenrp/'.$item->hcrdate.'')}}">  
+                                            <svg class="w-10 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 10h16M4 14h16M4 18h16"></path></svg>
+                                        </a> 
+                                    </button>
 
                                     <button class="px-5 py-2 border-green-500 border text-green-500 rounded transition duration-300 hover:bg-green-700 hover:text-white focus:outline-none">
-                                   <!-- <a href =  "{{ route('export-ENRP') }}">Muat Turun</a> </button>-->
-                                    <a href =  "#">Muat Turun</a> </button>
-                                 </td>
+                                        <a href =  "{{ route('export-ENRP') }}">
+                                        
+                                            <svg class="w-10 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" class="heroicon-ui"></path></svg>
+                                         </a>
+                                    </button>       
+                                </td>
+                              
                             </tr>
-                 
+
                         </tbody>
                         @endforeach
                     </table>
