@@ -286,7 +286,7 @@
       <!-- Mobile sidebar -->
       <!-- Backdrop -->
       <div
-        x-show="isSideMenuOpen"
+        x-show="isSideMenuOpen" x-cloak
         x-transition:enter="transition ease-in-out duration-150"
         x-transition:enter-start="opacity-0"
         x-transition:enter-end="opacity-100"
@@ -297,7 +297,7 @@
       ></div>
       <aside
         class="fixed inset-y-0 z-20 flex-shrink-0 w-64 mt-16 overflow-y-auto bg-white dark:bg-gray-800 md:hidden"
-        x-show="isSideMenuOpen"
+        x-show="isSideMenuOpen" x-cloak
         x-transition:enter="transition ease-in-out duration-150"
         x-transition:enter-start="opacity-0 transform -translate-x-20"
         x-transition:enter-end="opacity-100"
@@ -885,7 +885,7 @@
     </div>
     <!-- Modal backdrop. This what you want to place close to the closing body tag -->
     <div
-      x-show="isModalOpen"
+      x-show="isModalOpen" x-cloak
       x-transition:enter="transition ease-out duration-150"
       x-transition:enter-start="opacity-0"
       x-transition:enter-end="opacity-100"
@@ -896,7 +896,7 @@
     >
       <!-- Modal -->
       <div
-        x-show="isModalOpen"
+        x-show="isModalOpen" x-cloak
         x-transition:enter="transition ease-out duration-150"
         x-transition:enter-start="opacity-0 transform translate-y-1/2"
         x-transition:enter-end="opacity-100"
