@@ -151,13 +151,13 @@
       </a>
     </div>
     <div class="m-3">
-        <a href="http://localhost/enrp/newenrp/cft2.php" title="Quicktoolz On Facebook"
+        <a href="http://localhost/emandateUAT/cft2.php" title="Quicktoolz On Facebook"
            class="md:w-32 bg-white tracking-wide text-gray-800 font-bold rounded border-2 border-orange-500 hover:border-orange-500 hover:bg-orange-500 hover:text-white shadow-md py-2 px-6 inline-flex items-center">
           <span class="mx-auto">GENERATE CFT</span>
         </a>
       </div>
     <div class="m-3">
-      <a href="http://localhost/enrp/newenrp/1res.php" title="Quicktoolz On Pinterest"
+      <a href="http://localhost/emandateUAT/1res.php" title="Quicktoolz On Pinterest"
          class="md:w-32 bg-white tracking-wide text-gray-800 font-bold rounded border-2 border-red-600 hover:border-red-600 hover:bg-red-600 hover:text-white shadow-md py-2 px-6 inline-flex items-center">
         <span class="mx-auto">INSERT RES</span>
       </a>
