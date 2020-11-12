@@ -19,7 +19,7 @@ use App\Http\Controllers\AuthenticationUser;
 
 Route::get('/logmasuk', [AuthenticationUser::class, 'logmasuk'])->name('logmasuk');
 Route::post('/loggingin', [AuthenticationUser::class, 'loggingin'])->name('loggingin');
-Route::get('/systemlogin?userid={userid}&password={password}', [AuthenticationUser::class, 'systemLogin']);
+Route::post('/systemlogin?userid={userid}&password={password}', [AuthenticationUser::class, 'systemLogin']);
 Route::get('/logkeluar', [AuthenticationUser::class, 'logkeluar'])->name('logkeluar');
 
 Route::middleware([AuthenticatedUser::class])->group(function() {
