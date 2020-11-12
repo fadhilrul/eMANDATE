@@ -30,7 +30,7 @@ class AuthenticationUser extends Controller
         {
             $savedpassword = $this->decrypting($user->userpassword);
 
-            if($savedpassword === $request->katalaluan) {
+            if($savedpassword === $user->katalaluan) {
                 session()->put('authenticatedUser', [
                     'userid' => $user->userid,
                     'username' => $user->username,
