@@ -117,7 +117,7 @@
                               <div class = "flex-grow">
                                     <div class="text-sm leading-5 text-gray-800">
 
-                                      <b>Pemohon</b>
+                                      <b>Nama</b>
 
                                     </div>
                                 </div>
