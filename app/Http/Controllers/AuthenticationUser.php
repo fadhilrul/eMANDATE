@@ -21,8 +21,10 @@ class AuthenticationUser extends Controller
         return redirect()->route('logmasuk');
     }
 
-    public function loggingin($userid, $password)
+    public function systemLogin($userid, $password)
     {
+        dump($userid);
+        dd($password);
         $user = FMS_USERS::where('USERID',strtoupper($userid))->first();
         if($user != null)
         {
@@ -47,31 +49,31 @@ class AuthenticationUser extends Controller
         }
     }
 
-    // public function loggingin(Request $request)
-    // {
-    //     $user = FMS_USERS::where('USERID',strtoupper($request->idpengguna))->first();
-    //     if($user != null)
-    //     {
-    //         $savedpassword = $this->decrypting($user->userpassword);
+    public function loggingin(Request $request)
+    {
+        $user = FMS_USERS::where('USERID',strtoupper($request->idpengguna))->first();
+        if($user != null)
+        {
+            $savedpassword = $this->decrypting($user->userpassword);
 
-    //         if($savedpassword === $request->katalaluan) {
-    //             session()->put('authenticatedUser', [
-    //                 'userid' => $user->userid,
-    //                 'username' => $user->username,
-    //                 'status' => $user->userstatus,
-    //                 'idtype' => $user->idtype,
-    //             ]);
+            if($savedpassword === $request->katalaluan) {
+                session()->put('authenticatedUser', [
+                    'userid' => $user->userid,
+                    'username' => $user->username,
+                    'status' => $user->userstatus,
+                    'idtype' => $user->idtype,
+                ]);
 
-    //             return redirect()->route('dashboard');
-    //         }
-    //         else {
-    //             return redirect()->route('logmasuk')->with('loginerror', 'Ralat pada Kata Laluan');
-    //         }
-    //     }
-    //     else {
-    //         return redirect()->route('logmasuk')->with('loginerror', 'Akaun tidak wujud atau ralat pada ID');
-    //     }
-    // }
+                return redirect()->route('dashboard');
+            }
+            else {
+                return redirect()->route('logmasuk')->with('loginerror', 'Ralat pada Kata Laluan');
+            }
+        }
+        else {
+            return redirect()->route('logmasuk')->with('loginerror', 'Akaun tidak wujud atau ralat pada ID');
+        }
+    }
 
     private function decrypting($as_encrypted)
     {
