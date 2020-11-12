@@ -12,7 +12,7 @@ class EMANDATE_ENRP extends Model
     protected $table = 'EMANDATE_ENRP';
     protected $guarded = [];
 
-    protected $primaryKey = 'payrefnum';
+    //protected $primaryKey = 'payrefnum';
 
 
 }

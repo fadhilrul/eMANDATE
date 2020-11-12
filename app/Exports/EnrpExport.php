@@ -18,7 +18,7 @@ class EnrpExport implements FromQuery,WithHeadings
     {
         /*nama header */
         return [
-            'NO',
+            'SEQNO',
             'HCRDATE',
             'BATCHID',
             'PAYREFNUM',
@@ -44,10 +44,17 @@ class EnrpExport implements FromQuery,WithHeadings
         /* to select all column
         return EMANDATE_ENRP::query()->where('approval','not like','%00%'); */
 
+        /*$test = EMANDATE_ENRP::query()
+                            ->select('seqno','hcrdate','batchid','payrefnum','idtype','idnum','buyername','buyeracct','debitamt','purpose', 'telno','email','effdate','expdate','appdate')
+                            ->where('approval','not like','%00%')
+                            ->get();
+        dd($test);
+
         /* to select selected column */
          return EMANDATE_ENRP::query()
-                ->select('hcrdate','batchid','payrefnum','idtype','idnum','buyername','buyeracct','debitamt','purpose', 'telno','email','effdate','expdate','appdate')
-                ->where('approval','not like','%00%');
+                        ->select('seqno','hcrdate','batchid','payrefnum','idtype','idnum','buyername','buyeracct','debitamt','purpose', 'telno','email','effdate','expdate','appdate')
+                        ->where('approval','not like','%00%')
+                        ->get();
 
     }
 
