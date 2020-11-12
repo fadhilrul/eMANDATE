@@ -68,7 +68,7 @@
                                     </button>
 
                                     <button class="px-5 py-2 border-green-500 border text-green-500 rounded transition duration-300 hover:bg-green-700 hover:text-white focus:outline-none">
-                                        <a href =  "{{ route('export-ENRP') }}">
+                                        <a href = "{{ route('export-ENRP',['id' => $item->hcrdate]) }}">  
                                         
                                             <svg class="w-10 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" class="heroicon-ui"></path></svg>
                                          </a>

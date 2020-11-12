@@ -33,19 +33,22 @@
                     </div>
                 </div>
                 <div class="align-middle inline-block min-w-full shadow overflow-hidden bg-white shadow-dashboard px-8 pt-3 rounded-bl-lg rounded-br-lg">
-                 
+                  
                     <table class="min-w-full">
                         <thead>
                             <tr>
                                 <th>
-                                    <td class="px-6 py-4 whitespace-no-wrap text-left  text-sm leading-5">
-                                        <button class="px-5 py-2 border-green-500 border text-green-500 rounded transition duration-300 hover:bg-green-700 hover:text-white focus:outline-none">
-                                            <a href = "{{ route('export-ENRP') }}"> Muat Turun </a> </button>
+                               <!--     @foreach ($rptdetails_enrp as $item) 
 
-                                           
-                                    </td>
+                                    <button class="px-5 py-2 border-green-500 border text-green-500 rounded transition   duration-300 hover:bg-green-700 hover:text-white focus:outline-none  float: right";>
+                                     
+                                        <a href = "{{ route('export-ENRP',['id' => $item->filename]) }}">Muat Turun</a>  
+                                    </button> 
+                                   
+                                    @endforeach   -->
+                                  
                                 </th>
-                                
+
                             </tr>
                             <tr>
                                 <th class="px-6 py-3 border-b-2 border-gray-300 text-left leading-4 text-blue-500 tracking-wider">Nama Fail</th>
@@ -58,10 +61,8 @@
                             </tr>
                         </thead>
                         <tbody class="bg-white">
-                          @foreach ($rptdetails_enrp as $item)
+                            @foreach ($rptdetails_enrp as $item) 
                         <tr>
-                                     
-
                                     <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-500">
                                         <div class="flex items-center">
                                             <div>
@@ -146,10 +147,8 @@
                                   </div>
                               </div>
                           </div>
-                      </td> 
-    
-                 
-                    
+                      </td>
+                      
                         </tr>
                         @endforeach
                         </tbody>
