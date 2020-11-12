@@ -22,7 +22,7 @@
                          
                                 <input type="text" class="flex-shrink flex-grow flex-auto leading-normal tracking-wide w-px flex-1 border border-none border-l-0 rounded rounded-l-none px-3 relative focus:outline-none text-xxs lg:text-xs lg:text-base text-gray-500 font-thin"
                                 type="text"
-                                placeholder="Carian Tarikh Transaksi"
+                                placeholder="Carian Tarikh Daftar"
                                 aria-label="Search"
                                 wire:model="findmainrptenrp"
                                 />
@@ -35,7 +35,7 @@
                     <table class="min-w-full">
                         <thead>
                             <tr>
-                                <th class="px-6 py-3 border-b-2 border-gray-300 text-left leading-4 text-blue-500 tracking-wider">Tarikh Transaksi</th>
+                                <th class="px-6 py-3 border-b-2 border-gray-300 text-left leading-4 text-blue-500 tracking-wider">Tarikh Daftar</th>
                                 <th lass="px-6 py-4 whitespace-no-wrap text-left  text-sm leading-5">
                                    <button class="px-5 py-2 border-blue-500 border text-blue-500 rounded transition duration-300 hover:bg-blue-700 hover:text-white focus:outline-none">
                                     <a href = "#"> Papar Semua </a> </button>
