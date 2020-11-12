@@ -28,22 +28,22 @@
 				>
 				<ul class="flex border-b">
 				  <li @click="openTab = 1" :class="{ '-mb-px': openTab === 1 }" class="-mb-px mr-1">
-					<a :class="openTab === 1 ? activeClasses : inactiveClasses" class="bg-white inline-block py-2 px-4 font-semibold" href="#"><b>Maklumat Akaun</b></a>
+					<a :class="openTab === 1 ? activeClasses : inactiveClasses" class="bg-white inline-block py-2 px-4 font-semibold" href="#">Maklumat Akaun</a>
 				  </li>
 				  <li @click="openTab = 2" :class="{ '-mb-px': openTab === 2 }" class="mr-1">
-					<a :class="openTab === 2 ? activeClasses : inactiveClasses" class="bg-white inline-block py-2 px-4 font-semibold" href="#"><b>Arahan Potongan</b></a>
+					<a :class="openTab === 2 ? activeClasses : inactiveClasses" class="bg-white inline-block py-2 px-4 font-semibold" href="#">Arahan Potongan</a>
 				  </li>
 				  <li @click="openTab = 3" :class="{ '-mb-px': openTab === 3 }" class="mr-1">
-					<a :class="openTab === 3 ? activeClasses : inactiveClasses" class="bg-white inline-block py-2 px-4 font-semibold" href="#"><b>Status Arahan Potongan</b></a>
+					<a :class="openTab === 3 ? activeClasses : inactiveClasses" class="bg-white inline-block py-2 px-4 font-semibold" href="#">Status Arahan Potongan</a>
 				  </li>
 				  <li @click="openTab = 4" :class="{ '-mb-px': openTab === 4 }" class="mr-1">
-					<a :class="openTab === 4 ? activeClasses : inactiveClasses" class="bg-white inline-block py-2 px-4 font-semibold" href="#"><b>Status Sekatan Akaun</b></a>
+					<a :class="openTab === 4 ? activeClasses : inactiveClasses" class="bg-white inline-block py-2 px-4 font-semibold" href="#">Status Sekatan Akaun</a>
 				  </li>
 				  <li @click="openTab = 5" :class="{ '-mb-px': openTab === 5 }" class="mr-1">
-					<a :class="openTab === 5 ? activeClasses : inactiveClasses" class="bg-white inline-block py-2 px-4 font-semibold" href="#"><b>Rekod Transaksi</b></a>
+					<a :class="openTab === 5 ? activeClasses : inactiveClasses" class="bg-white inline-block py-2 px-4 font-semibold" href="#">Rekod Transaksi</a>
 				  </li>
 				  <li @click="openTab = 6" :class="{ '-mb-px': openTab === 6 }" class="mr-1">
-					<a :class="openTab === 6 ? activeClasses : inactiveClasses" class="bg-white inline-block py-2 px-4 font-semibold" href="#"><b>Rekod Pendaftaran</b></a>
+					<a :class="openTab === 6 ? activeClasses : inactiveClasses" class="bg-white inline-block py-2 px-4 font-semibold" href="#">Rekod Pendaftaran</a>
 				  </li>
 				</ul>
 				<div class="w-full pt-4">
@@ -613,9 +613,9 @@
 										<table class="table-auto w-full border">
 											<thead>
 												<tr class="text-xs font-semibold tracking-wide text-left text-gray-500 uppercase border-b dark:border-gray-700 bg-gray-50 dark:text-gray-400 dark:bg-gray-800 p-5">
-													<th class=" px-4 py-3 text-left text-grey-dark border-indigo-dark font-semibold"><b>No Rekod</b></th>
-													<th class=" px-4 py-3 text-left text-grey-dark border-indigo-dark font-semibold"><b>Tarikh</b></th>
-													<th class=" px-4 py-3 text-left text-grey-dark border-indigo-dark font-semibold"><b>Status</b></th>
+													<th class=" px-4 py-3 text-left text-grey-dark border-indigo-dark font-semibold">No Rekod</th>
+													<th class=" px-4 py-3 text-left text-grey-dark border-indigo-dark font-semibold">Tarikh Berjaya Daftar</th>
+													<th class=" px-4 py-3 text-left text-grey-dark border-indigo-dark font-semibold">Status</th>
 												</tr>
 											</thead>
 											<tbody>
