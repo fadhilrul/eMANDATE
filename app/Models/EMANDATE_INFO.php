@@ -32,9 +32,9 @@ class EMANDATE_INFO extends Model
         return $this->hasMany('App\Models\EMANDATE_CFT','payrefno','fms_acct_no');
     }
 
-    public  function info_desc()
+    public  function res()
     {
-        return $this->hasOne('App\Models\EMANDATE_INFO_DESC','IDDESC','fms_acct_no');
+        return $this->hasMany('App\Models\EMANDATE_RES','substr(filler,0,14)','fms_acct_no');
     }
 }
 
