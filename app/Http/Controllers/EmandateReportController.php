@@ -28,6 +28,11 @@ class EmandateReportController extends Controller
        return view('pages.reportsmainresfail');
     }
 
+    public function RESRptPass()
+    {   
+       return view('pages.reportsmainrespass');
+    }
+    
 
 
 
