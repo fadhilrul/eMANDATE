@@ -5,7 +5,6 @@ namespace App\Http\Livewire;
 use App\Models\EMANDATE_ENRP;
 use Livewire\Component;
 use Livewire\WithPagination;
-use App\User;
 
 class Rptenrp extends Component
 {
@@ -18,8 +17,6 @@ class Rptenrp extends Component
     {
         $this->idrptenrp = $id;
     }
-
-   
  
     public function render()
     {

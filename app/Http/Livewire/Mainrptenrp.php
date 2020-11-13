@@ -24,6 +24,7 @@ class Mainrptenrp extends Component
                      ->where('hcrdate', 'like', $findmainrptenrp)
                      ->where('approval', 'not like' , '%00%')
                      ->groupBy('hcrdate')
+                     ->orderBy('hcrdate')
                      ->get() 
                      
         ]);

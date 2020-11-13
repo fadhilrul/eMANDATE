@@ -2,7 +2,7 @@
     <div class="container px-6 mx-auto grid">
         <div class="main-content flex-1 bg-gray-100 mt-12 md:mt-2 pb-24 md:pb-5">
             <div class="bg-blue-800 p-2 shadow text-xl text-white">
-                <h3 class="font-bold pl-2">Senarai Laporan Fail ENRP</h3>
+                <h3 class="font-bold pl-2">Senarai Laporan Fail RES</h3>
             </div>
             
         <!-- search section -->
@@ -22,9 +22,9 @@
                          
                                 <input type="text" class="flex-shrink flex-grow flex-auto leading-normal tracking-wide w-px flex-1 border border-none border-l-0 rounded rounded-l-none px-3 relative focus:outline-none text-xxs lg:text-xs lg:text-base text-gray-500 font-thin"
                                 type="text"
-                                placeholder="Carian Tarikh Daftar"
+                                placeholder="Carian Tarikh Transaksi"
                                 aria-label="Search"
-                                wire:model="findmainrptenrp"
+                                wire:model="findmainrptresfail"
                                 />
                               </div>
                           </div>
@@ -35,15 +35,15 @@
                     <table class="min-w-full">
                         <thead>
                             <tr>
-                                <th class="px-6 py-3 border-b-2 border-gray-300 text-left leading-4 text-blue-500 tracking-wider">Tarikh Daftar</th>
+                                <th class="px-6 py-3 border-b-2 border-gray-300 text-left leading-4 text-blue-500 tracking-wider">Tarikh Transaksi</th>
                                 <th lass="px-6 py-4 whitespace-no-wrap text-left  text-sm leading-5">
-                                 <!--  <button class="px-5 py-2 border-blue-500 border text-blue-500 rounded transition duration-300 hover:bg-blue-700 hover:text-white focus:outline-none">
+                                  <!-- <button class="px-5 py-2 border-blue-500 border text-blue-500 rounded transition duration-300 hover:bg-blue-700 hover:text-white focus:outline-none">
                                     <a href = "#"> Papar Semua </a> </button> -->
                                 </th>  
                             </tr>
                          </thead>
                     
-                         @foreach ($rpt_enrp as $item)
+                         @foreach ($rpt_resfail as $item)
                         <tbody class="bg-white">  
                          
                             <tr>
@@ -52,9 +52,9 @@
                                     <div class="flex items-center">
                                         <div>
                                             <div class="text-sm leading-5 text-gray-800">
-    
-                                               {{ substr($item->hcrdate,0,2).'-'.substr($item->hcrdate,2,2).'-'.substr($item->hcrdate,4,4) }} 
-    
+                                                
+                                                {{ substr($item->hdate,0,2).'-'.substr($item->hdate,3,2).'-'.substr($item->hdate,6,5) }}         
+
                                             </div>
                                         </div>
                                     </div>
@@ -62,14 +62,16 @@
 
                                 <td class="px-6 py-4 whitespace-no-wrap text-right border-b border-gray-500 text-sm leading-5">
                                     <button class="px-5 py-2 border-blue-500 border text-blue-500 rounded transition duration-300 hover:bg-blue-700 hover:text-white focus:outline-none">
-                                        <a href = "{{ url('linkrptenrp/'.$item->hcrdate.'')}}">  
+                                         <a href = "{{ url('linkrptresfailed/'.$item->filename.'')}}">  
+
+
                                             <svg class="w-10 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 10h16M4 14h16M4 18h16"></path></svg>
                                         </a> 
                                     </button>
 
                                     <button class="px-5 py-2 border-green-500 border text-green-500 rounded transition duration-300 hover:bg-green-700 hover:text-white focus:outline-none">
-                                        <a href = "{{ route('export-ENRP',['id' => $item->hcrdate]) }}">  
-                                        
+                                       <a href = "{{ route('export-resfail',['id' => $item->filename]) }}"> 
+                                     
                                             <svg class="w-10 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" class="heroicon-ui"></path></svg>
                                          </a>
                                     </button>       
@@ -87,7 +89,7 @@
                 </div>		
             <!--</div> -->
         </div>
-
+        
         <a href= '{{ url("emandate-report") }}' >
             <div class="py-8 bg-grey-lighter hover:bg-grey-light text-indigo-darker rounded rounded-t-none text-center uppercase font-bold flex items-center justify-center"><span>Back</span>
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" class="icon fill-current w-4 h-4 ml-2">

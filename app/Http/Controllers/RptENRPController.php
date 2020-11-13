@@ -24,6 +24,7 @@ class RptENRPController extends Controller
             return view('pages.reportenrp');
     }
 
+
     public function show($id)
     {
         //dd($id);
