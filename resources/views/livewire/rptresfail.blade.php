@@ -3,7 +3,7 @@
       <div class="main-content flex-1 bg-gray-100 mt-12 md:mt-2 pb-24 md:pb-5">
     
           <div class="bg-blue-800 p-2 shadow text-xl text-white">
-              <h3 class="font-bold pl-2">Senarai Maklumat Laporan ENRP</h3>
+              <h3 class="font-bold pl-2">Senarai Maklumat Laporan RES (gagal ikut tarikh transaksi)</h3>
           </div>
     
       <div class="flex flex-wrap">
@@ -26,7 +26,7 @@
                                  type="text"
                                  placeholder="Carian No Akaun"
                                  aria-label="Search"
-                                 wire:model="findrptenrp"
+                                 wire:model="findrptresfail"
                               />
                             </div>
                         </div>
@@ -37,29 +37,26 @@
                     <table class="min-w-full">
                         <thead>
                             <tr>
-                                
-
+                      
                             </tr>
                             <tr>
-                                <th class="px-6 py-3 border-b-2 border-gray-300 text-left leading-4 text-blue-500 tracking-wider">Nama Fail</th>
+                                <th class="px-6 py-3 border-b-2 border-gray-300 text-left leading-4 text-blue-500 tracking-wider">Tarikh Transaksi</th>
                                 <th class="px-6 py-3 border-b-2 border-gray-300 text-left leading-4 text-blue-500 tracking-wider">No Akaun</th>
                                 <th class="px-6 py-3 border-b-2 border-gray-300 text-left leading-4 text-blue-500 tracking-wider">Kad Pengenalan</th>
-                                <th class="px-6 py-3 border-b-2 border-gray-300 text-left leading-4 text-blue-500 tracking-wider">Nama</th>
-                                <th class="px-6 py-3 border-b-2 border-gray-300 text-left leading-4 text-blue-500 tracking-wider">Skim</th>
-                                <th class="px-6 py-3 border-b-2 border-gray-300 text-left leading-4 text-blue-500 tracking-wider">Mula Bayar</th>
-                                <th class="px-6 py-3 border-b-2 border-gray-300 text-left leading-4 text-blue-500 tracking-wider">Tamat Bayar</th>
+                                <th class="px-6 py-3 border-b-2 border-gray-300 text-left leading-4 text-blue-500 tracking-wider">Jumlah Potongan</th>
+                                <th class="px-6 py-3 border-b-2 border-gray-300 text-left leading-4 text-blue-500 tracking-wider">Status</th>
                             </tr>
                         </thead>
                         <tbody class="bg-white">
-                            @foreach ($rptdetails_enrp as $item) 
+                            @foreach ($rptdetails_resfail as $item) 
                         <tr>
                                     <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-500">
                                         <div class="flex items-center">
                                             <div>
                                                 <div class="text-sm leading-5 text-gray-800">
-    
-                                                  {{ substr($item->filename,0,8) }}
-    
+
+                                                  {{ substr($item->hdate,0,2).'-'.substr($item->hdate,3,2).'-'.substr($item->hdate,6,5) }}         
+                                               
                                                 </div>
                                             </div>
                                         </div>
@@ -70,8 +67,8 @@
                                           <div>
                                               <div class="text-sm leading-5 text-gray-800">
     
-                                                {{ $item->payrefnum }}
-    
+                                                {{ substr($item->filler,0,14) }}
+                                         
                                               </div>
                                           </div>
                                       </div>
@@ -82,7 +79,7 @@
                                       <div>
                                           <div class="text-sm leading-5 text-gray-800">
     
-                                            {{ $item->idnum }}
+                                            {{ $item->ic }}
     
                                           </div>
                                       </div>
@@ -94,58 +91,32 @@
                                     <div>
                                         <div class="text-sm leading-5 text-gray-800">
     
-                                          {{ substr($item->buyername,0,20) }}
+                                          {{ $item->tranamt }}
+    
+                                        </div>
+                                    </div>
+                                </div>
+                              </td> 
+
+                              <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-500">
+                                <div class="flex items-center">
+                                    <div>
+                                        <div class="text-sm leading-5 text-gray-800">
+    
+                                          {{ $item->status }}
     
                                         </div>
                                     </div>
                                 </div>
                             </td> 
-    
-                            <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-500">
-                              <div class="flex items-center">
-                                  <div>
-                                      <div class="text-sm leading-5 text-gray-800">
-    
-                                        {{ $item->purpose }}
-    
-                                      </div>
-                                  </div>
-                              </div>
-                          </td> 
-    
-                          <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-500">
-                            <div class="flex items-center">
-                                <div>
-                                    <div class="text-sm leading-5 text-gray-800">
-    
-                                    
-                                      {{ substr($item->effdate,0,2).'/'.substr($item->effdate,2,2).'/'.substr($item->effdate,4,4) }} 
-                                      
-    
-                                    </div>
-                                </div>
-                            </div>
-                        </td> 
-    
-                        <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-500">
-                          <div class="flex items-center">
-                              <div>
-                                  <div class="text-sm leading-5 text-gray-800">
-    
-                                      {{ substr($item->expdate,0,2).'/'.substr($item->expdate,2,2).'/'.substr($item->expdate,4,4) }} 
-                                    
-                                  </div>
-                              </div>
-                          </div>
-                      </td>
-                      
+                        
                         </tr>
                         @endforeach
                         </tbody>
                     </table>
                  <div class="sm:flex-1 sm:flex sm:items-center sm:justify-between mt-4 work-sans">
                  </div>
-                 {{ $rptdetails_enrp->links() }}
+                 {{ $rptdetails_resfail->links() }}
                  <br>
               </div>
           <!--  END TABLES -->
@@ -153,7 +124,7 @@
   </div>
   </div>
 
-    <a href= '{{ url("main-enrp-report") }}' >
+    <a href= '{{ url("main-resfail-report") }}' >
         <div class="py-8 bg-grey-lighter hover:bg-grey-light text-indigo-darker rounded rounded-t-none text-center uppercase font-bold flex items-center justify-center"><span>Back</span>
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" class="icon fill-current w-4 h-4 ml-2">
                 <path d="M18.59 13H3a1 1 0 0 1 0-2h15.59l-5.3-5.3a1 1 0 1 1 1.42-1.4l7 7a1 1 0 0 1 0 1.4l-7 7a1 1 0 0 1-1.42-1.4l5.3-5.3z" class="heroicon-ui"></path>

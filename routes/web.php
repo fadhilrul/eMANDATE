@@ -33,11 +33,16 @@ Route::middleware([AuthenticatedUser::class])->group(function() {
       /* Report */
       Route::get('/emandate-report', 'EmandateReportController@index')->name('report.dashboard');
      // Route::get('/emandate-report/sekatan-pemotongan', 'EmandateReportController@BlockedpaymentRpt')->name('report.blockedpayment');
+     /* Report ENRP */
       Route::get('/main-enrp-report', 'EmandateReportController@ENRPRpt')->name('report.enrp');
       Route::resource('linkrptenrp','RptENRPController'); 
       Route::get('exportenrp', 'RptENRPController@export')->name('export-ENRP');
+       /* Report RES (failed) */
+       Route::get('/main-resfail-report', 'EmandateReportController@RESRptFail')->name('report.resfail');
+       Route::resource('linkrptresfailed','RptRESfailController'); 
+       Route::get('exportresfail', 'RptRESfailController@export')->name('export-resfail');
 
-
+       
       /* emandate_info */
       Route::get('/search-box', 'searchController@index')->name('search.index');
       Route::get('/EmandateInfo', 'EmandateInfoController@index')->name('EmandateInfo.index');
