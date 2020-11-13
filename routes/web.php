@@ -41,6 +41,10 @@ Route::middleware([AuthenticatedUser::class])->group(function() {
        Route::get('/main-resfail-report', 'EmandateReportController@RESRptFail')->name('report.resfail');
        Route::resource('linkrptresfailed','RptRESfailController'); 
        Route::get('exportresfail', 'RptRESfailController@export')->name('export-resfail');
+       /* Report RES (pass) */
+       Route::get('/main-respass-report', 'EmandateReportController@RESRptPass')->name('report.respass');
+       Route::resource('linkrptrespasses','RptRESpassController'); 
+       Route::get('exportrespass', 'RptRESpassController@export')->name('export-respass');
 
        
       /* emandate_info */

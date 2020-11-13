@@ -52,7 +52,7 @@
         class="flex items-center p-4 bg-white rounded-lg shadow-xs dark:bg-gray-800"
       >
         <div
-          class="p-3 mr-4 text-green-500 bg-green-100 rounded-full dark:text-green-100 dark:bg-green-500"
+          class="p-3 mr-4 text-red-500 bg-red-100 rounded-full dark:text-red-100 dark:bg-red-500"
         >
           <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
             <path  
@@ -70,25 +70,46 @@
       
        <!-- Card -->
      <!-- <a href="">-->
-      <a href=""><div
-        class="flex items-center p-4 bg-white rounded-lg shadow-xs dark:bg-gray-800"
-      >
-        <div
-          class="p-3 mr-4 text-red-500 bg-red-100 rounded-full dark:text-red-500 dark:bg-red-100"
-        >
-          <svg class="w-5 h-5"  fill="currentColor" viewBox="0 0 20 20">
-            <path  
-            d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z"
-            ></path>
-          </svg>
+      <a href="{{ route('report.respass') }}">
+        <div class="flex items-center p-4 bg-white rounded-lg shadow-xs dark:bg-gray-800">
+          <div
+            class="p-3 mr-4 text-green-500 bg-green-100 rounded-full dark:text-green-500 dark:bg-green-100"
+          >
+            <svg class="w-5 h-5"  fill="currentColor" viewBox="0 0 20 20">
+              <path  
+              d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z"
+              ></path>
+            </svg>
+          </div>
+          <div>
+            <p class="mb-2 text-sm font-medium text-gray-600 dark:text-gray-400">
+              Laporan Transaksi Lulus
+            </p>
+          
+          </div>
         </div>
-        <div>
-          <p class="mb-2 text-sm font-medium text-gray-600 dark:text-gray-400">
-            Laporan Status Hold
-          </p>
-         
-        </div>
-      </div></a>
+      </a>
+
+      <!-- <a href="">-->
+        <a href="">
+          <div class="flex items-center p-4 bg-white rounded-lg shadow-xs dark:bg-gray-800">
+            <div
+              class="p-3 mr-4 text-yellow-500 bg-yellow-100 rounded-full dark:text-yellow-500 dark:bg-yellow-100"
+            >
+              <svg class="w-5 h-5"  fill="currentColor" viewBox="0 0 20 20">
+                <path  
+                d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z"
+                ></path>
+              </svg>
+            </div>
+            <div>
+              <p class="mb-2 text-sm font-medium text-gray-600 dark:text-gray-400">
+                Laporan Customer On Hold
+              </p>
+            
+            </div>
+          </div>
+        </a>
      
       </div>
 </div>
