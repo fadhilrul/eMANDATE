@@ -156,7 +156,7 @@
 													  <td class="px-4 py-4 border border-indigo-dark">
 														  <div class = "flex-grow">
 															  <div class="text-sm leading-5 text-gray-800">
-																  <input value = "{{ $item->instal_amt }}" disabled = true
+																  <input value = "RM{{ $item->instal_amt }}" disabled = true
 																		class="block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input"
 																  />
 															  </div>
@@ -354,7 +354,7 @@
 														<td class="px-4 py-4 border border-indigo-dark">
 															<div class = "flex-grow">
 																<div class="text-sm leading-5 text-gray-800">
-																	<input value = "{{ $item->instal_amt }}"  disabled = true
+																	<input value = "RM{{ $item->instal_amt }}"  disabled = true
 																		  class="block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input"
 																	/>
 																</div>
@@ -582,7 +582,7 @@
 						  <div>
 							  <div class="text-sm leading-5 text-gray-800">
 	  
-								{{ $item->tranamt }}
+								RM{{ $item->tranamt }}
 	  
 							  </div>
 						  </div>
@@ -606,7 +606,7 @@
 						<div>
 							<div class="text-sm leading-5 text-gray-800">
 	
-							  {{ $item->status }}
+							  R{{ $item->status }}
 	
 							</div>
 						</div>
@@ -643,7 +643,8 @@
 											<tr>
 												<td class="px-4 py-4 border border-indigo-dark">{{ $item->recnum }}</td>
 												<td class="px-4 py-4 border border-indigo-dark">{{ date('d-m-Y',strtotime($item->effdate)) }}</td>
-												<td class="px-4 py-4 border border-indigo-dark">{{ $item->approval }}</td>
+												<td class="px-4 py-4 border border-indigo-dark">{{ $item->approved_desc }}</td>
+												{{-- <td class="px-4 py-4 border border-indigo-dark">{{ $item->approval }}</td> --}}
 											</tr>
 										</tbody>
 									</table>
