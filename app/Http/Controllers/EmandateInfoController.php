@@ -72,7 +72,8 @@ class EmandateInfoController extends Controller
         //$listcft =  "%".$this->listcft."%";
 
         $INFOS = EMANDATE_INFO::where('fms_acct_no','like','%'.$id.'%')->whereApproval('00')->paginate(5);
-        $filelist_res = EMANDATE_RES::whereRaw("substr(filler,0,14) like '%".$id."%'")->paginate(5);
+        $filelist_res = EMANDATE_RES::whereRaw("substr(filler,0,14) like '%".$id."%'")->paginate(20);
+        //dd($id);
 
         return view('pages.EmandateInfo',compact('INFOS','filelist_res'));
     }
