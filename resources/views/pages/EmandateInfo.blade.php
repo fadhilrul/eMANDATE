@@ -1,12 +1,19 @@
 @extends('pages.layout.app')
 @section('content')
 
+<!-- link modal-->
+<link href="https://cdn.jsdelivr.net/npm/tailwindcss/dist/tailwind.min.css" rel="stylesheet">  
+<!-- end link modal -->
+
+
 <style>
 	@media (min-width: 1280px){
 	  .container {
 	  max-width: 100vw !important;
 	 }
 	}
+
+
   </style>
 
 <div class="container grid px-6 mx-auto">
@@ -477,12 +484,48 @@
 																			<option value="0" {{$item->blocked_paymnt_status == 0 ? 'selected':''}}>RE-ACTIVE</option>
 																			<option value="1" {{$item->blocked_paymnt_status == 1 ? 'selected':''}}>ON-HOLD</option>
 																		</select>
-																	<div class="pl-2">
-																		<button type="submit" class="btnnormal button2">SUBMIT</button>
-																	</div>
+																		<div class="pl-2">
+																		{{-- <button type="submit" class="btnnormal button2">SUBMIT</button> --}}
+																		<!-- start modal -->
+																		<div x-data="{ show: false }">
+																			<div class="flex justify-center">
+																				<button @click={show=true} type="button" class="leading-tight bg-blue-500 text-gray-200 rounded px-6 py-2 text-sm focus:outline-none focus:border-white">Tindakan</Button>
+																			</div>
+																			<div x-show="show" tabindex="0" class="z-40 overflow-auto left-0 top-0 bottom-0 right-0 w-full h-full fixed">
+																				<div  @click.away="show = false" class="z-50 relative p-3 mx-auto my-0 max-w-full" style="width: 600px;">
+																					<div class="bg-white rounded shadow-lg border flex flex-col overflow-hidden">
+																						<button @click={show=false} class="fill-current h-6 w-6 absolute right-0 top-0 m-6 font-3xl font-bold">&times;</button>
+																						<div class="px-6 py-3 text-xl border-b font-bold">Ulasan/Keterangan</div>
+																						<div class="p-6 flex-grow">
+																							<!-- text area -->
+																							<label class="block">
+																								<textarea class="form-textarea mt-1 block w-full" rows="3" placeholder="Ulasan Tidak boleh melebihi 100 patah perkataan. @error('reasons') is-invalid @enderror" name="reasons">{{ old('reasons') }}</textarea>
+
+																							</label>
+																							<!-- end text area -->
+																						</div>
+																						<div class="px-6 py-3 border-t">
+																							<div class="flex justify-end">
+																								<button @click={show=false} type="button" class="bg-gray-700 text-gray-100 rounded px-4 py-2 mr-1">Tutup</Button>
+																								<button  @click={show=true} type="sumbit" class="bg-blue-600 text-gray-200 rounded px-4 py-2">Simpan</Button>
+																							</div>
+																						</div>
+																					</div>
+																				</div>
+																				<div class="z-40 overflow-auto left-0 top-0 bottom-0 right-0 w-full h-full fixed bg-black opacity-50"></div>
+																			</div>
+																		<!-- end modal -->
+																		</div>
 																</form>
 														</div>
 													</div>
+												</td>
+											</tr>
+											<tr>
+												<td class="px-2 py-2 border border-indigo-dark font-semibold">Sebab/Keterangan : 
+												</td>
+												<td colspan="3" class="px-6 py-6 border border-indigo-dark font-semibold">
+													<textarea class="form-textarea mt-1 block w-full" rows="3" disabled>{{ $item->reasons }}</textarea>
 												</td>
 											</tr>
 										</tbody>
@@ -687,4 +730,7 @@
 	}
   </script>
 <!-- new design end -->
+
+
+
 @endsection
