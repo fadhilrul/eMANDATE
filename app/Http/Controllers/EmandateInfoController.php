@@ -119,6 +119,7 @@ class EmandateInfoController extends Controller
         $info->blocked_paymnt_status = ($request->action == 0) ? 0 : 1 ;
         $info->status_desc = ($request->action == 0) ? 'RE-ACTIVE' : 'ON-HOLD';
         $info->blockedby = session()->get('authenticatedUser')['userid'];
+        $info->reasons = ($request->reasons);
        // $info->blockpayment_date = date('Y-m-d');
         $info->save();
 
