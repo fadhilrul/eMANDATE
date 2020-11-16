@@ -52,6 +52,8 @@ Route::middleware([AuthenticatedUser::class])->group(function() {
       Route::get('/EmandateInfo', 'EmandateInfoController@index')->name('EmandateInfo.index');
       Route::post('/emandateinfoaactstatus', 'EmandateInfoController@activestatus')->name('EmandateInfo.activestatus');
       Route::resource('linkviewsearch','EmandateInfoController');
+      Route::get('/RujukanKod', 'RujukanKodController@index')->name('RujukanKod.index');
+      Route::get('exportkodrujukan', 'RujukanKodController@export')->name('export-kodRujukan');
 
       /* for CFT */
       Route::get('/search_cftlist', 'searchCFTController@index')->name('searchcft.index');
