@@ -16,7 +16,7 @@
                                   src="https://static.imoney.my/articles/wp-content/uploads/2018/09/Tekun-Nasional-logo.png">
                               </div>
 
-                              <h3 class="mt-6 text-center text-3xl leading-5 font-extrabold text-blue-900">
+                              <h3 class="mt-6 text-center text-3xl leading-5 font-extrabold text-blue-800">
                               Log Masuk<br><br>e-MANDATE
                               </h3>
                         </div>
