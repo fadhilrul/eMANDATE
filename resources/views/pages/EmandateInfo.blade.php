@@ -499,8 +499,7 @@
 																						<div class="p-6 flex-grow">
 																							<!-- text area -->
 																							<label class="block">
-																								<textarea class="form-textarea mt-1 block w-full" rows="3" placeholder="Ulasan Tidak boleh melebihi 100 patah perkataan. @error('reasons') is-invalid @enderror" name="reasons">{{ old('reasons') }}</textarea>
-
+																								<textarea class="form-textarea mt-1 block w-full" rows="3" placeholder="Ulasan Tidak boleh melebihi 100 patah perkataan. @error('reasons') is-invalid @enderror" name="reasons" maxlength = "100" required>{{ old('reasons') }}</textarea>
 																							</label>
 																							<!-- end text area -->
 																						</div>
