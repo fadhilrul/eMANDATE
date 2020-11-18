@@ -8,6 +8,12 @@
       max-width: 100vw !important;
      }
     }
+
+    /*DROPDOWN CSS*/
+    .dropdown:hover .dropdown-menu {
+    display: block;
+    }
+
   
   </style>
 
@@ -19,6 +25,23 @@
       <div class="bg-blue-800 p-2 shadow text-xl text-white">
           <h3 class="font-bold pl-2">E-Mandate Dashboard</h3>
       </div>
+
+      <!-- DROPDOWN PILIHAN NEGERI -->
+      <div class="p-10">
+
+        <div class="dropdown inline-block relative">
+          <button type="button" class="inline-flex justify-center w-full rounded-md border border-gray-300 px-4 py-2 bg-white text-sm leading-5 font-medium text-gray-700 hover:text-gray-500 focus:outline-none focus:border-blue-300 focus:shadow-outline-blue active:bg-gray-50 active:text-gray-800 transition ease-in-out duration-150" id="options-menu" aria-haspopup="true" aria-expanded="true">
+            <span class="mr-1">Pilihan Negeri</span>
+            <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/> </svg>
+          </button>
+          <ul class="dropdown-menu absolute hidden text-gray-700 pt-1">
+            <li class=""><a class="rounded-t bg-gray-200 hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap" href="#">One</a></li>
+            <li class=""><a class="bg-gray-200 hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap" href="#">Two</a></li>
+            <li class=""><a class="rounded-b bg-gray-200 hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap" href="#">Three is the magic number</a></li>
+          </ul>
+        </div>
+      </div>
+      <!-- END DROP DOWN PILIHAN NEGERI -->
 
       <div class="flex flex-wrap">
         <div class="w-full md:w-1/2 xl:w-1/3 p-3">

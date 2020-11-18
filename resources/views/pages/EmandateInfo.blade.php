@@ -15,6 +15,7 @@
 
 
   </style>
+  
 
 <div class="container grid px-6 mx-auto">
 <div class="main-content flex-1 bg-gray-100 mt-12 md:mt-2 pb-24 md:pb-5">
@@ -492,9 +493,9 @@
 																				<button @click={show=true} type="button" class="leading-tight bg-blue-500 text-gray-200 rounded px-6 py-2 text-sm focus:outline-none focus:border-white">Tindakan</Button>
 																			</div>
 																			<div x-show="show" tabindex="0" class="z-40 overflow-auto left-0 top-0 bottom-0 right-0 w-full h-full fixed">
-																				<div  @click.away="show = false" class="z-50 relative p-3 mx-auto my-0 max-w-full" style="width: 600px;">
+																				<div  @click.away="show = false" class="z-50 relative p-3 mx-auto my-0 max-w-full" style="width: 600px; margin-top:315px">
 																					<div class="bg-white rounded shadow-lg border flex flex-col overflow-hidden">
-																						<button @click={show=false} class="fill-current h-6 w-6 absolute right-0 top-0 m-6 font-3xl font-bold">&times;</button>
+																						<button @click={show=false} class="fill-current h-6 w-6 absolute right-0 top-0 m-6 font-3xl font-bold"></button>  <!--&times;-->
 																						<div class="px-6 py-3 text-xl border-b font-bold">Ulasan/Keterangan</div>
 																						<div class="p-6 flex-grow">
 																							<!-- text area -->
