@@ -33,6 +33,10 @@ class EmandateReportController extends Controller
        return view('pages.reportsmainrespass');
     }
     
+    public function RESRptHoldall()
+    {   
+       return view('pages.reportsmainholdall');
+    }
 
 
 

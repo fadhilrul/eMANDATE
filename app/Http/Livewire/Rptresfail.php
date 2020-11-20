@@ -30,31 +30,31 @@ class Rptresfail extends Component
                             ->where('filler','like', $findrptresfail)
                             ->where('status','<>', '00')
                             ->paginate(10)                 
-           
+                        
 
-        /*'rptdetails_resfail' => DB::table('EMANDATE_RES')
-                            ->select(DB::raw('filename, hdate', 'filler', 'ic', 'status', 'tranamt'))
-                            ->where('filename', 'like', $idrptresfails)
+       /* 'rptdetails_resfail' => DB::table('EMANDATE_RES')
+                           ->where('filename', 'like', $idrptresfails)
                             ->where('filler', 'like', $findrptresfail)
                             ->where('status', '<>' , '00')
-                            ->paginate(10) */
+                            ->paginate(10) */ 
 
          
-       /* 'rptdetails_resfail' => EMANDATE_RES::join ('EMANDATE_INFO_DESC','RES.STATUS' , '=', 'substr(REF.RE_CODE, 2, 3)')
+         /*'rptdetails_resfail' => EMANDATE_RES::join ('EMANDATE_INFO_DESC','RES.STATUS' , '=', 'substr(REF.RE_CODE, 2, 3)')
                                -> where('RES.filename','like', $idrptresfails)
                                 ->where('RES.filler','like', $findrptresfail)
                                 ->where('RES.status','<>', '00')
                                 ->paginate(10) */
 
-        /*$data = DB::table('city')
-                            ->join('state', 'state.state_id', '=', 'city.state_id')
-                            ->join('country', 'country.country_id', '=', 'state.country_id')
-                            ->select('country.country_name', 'state.state_name', 'city.city_name')
-                            ->get();
-                          return view('join_table', compact('data'));      
-*/
-
-
+                        
+        /* 'rptdetails_resfail' => DB::table('EMANDATE_RES')
+                           // ->join ('EMANDATE_INFO_DESC', 'EMANDATE_RES.STATUS', '=', 'substr(EMANDATE_INFO_DESC.RE_CODE, 2, 3)') 
+                           ->join ('EMANDATE_INFO_DESC', 'EMANDATE_RES.STATUS', '=', 'EMANDATE_INFO_DESC.RE_CODE') 
+                           ->where('EMANDATE_RES.filename', 'like',  "'".$idrptresfails."'")
+                            ->where('EMANDATE_RES.filler', 'like',  "'".$findrptresfail."'")
+                            ->where('EMANDATE_RES.status', '<>' , '00')
+                            ->paginate(10)   */    
+                            
+    
         ]);  
     
     }

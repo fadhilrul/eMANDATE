@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\FMS_USERS;
+use Illuminate\Support\Facades\DB;
 
 class AuthenticationUser extends Controller
 {
@@ -52,16 +53,31 @@ class AuthenticationUser extends Controller
     public function loggingin(Request $request)
     {
         $user = FMS_USERS::where('USERID',strtoupper($request->idpengguna))->first();
+  
         if($user != null)
         {
             $savedpassword = $this->decrypting($user->userpassword);
 
             if($savedpassword === $request->katalaluan) {
+
+                /* Join table  to get state_id */
+             $user_state = DB::table('FMS_USERS')
+            -> select('BANK_OFFICERS.BRANCH_CODE', 'BRANCHES.STATE_CODE' )
+            ->join ('BANK_OFFICERS', 'FMS_USERS.USERID', '=', 'BANK_OFFICERS.OFFICER_ID') 
+            ->join ('BRANCHES', 'BANK_OFFICERS.BRANCH_CODE', '=', 'BRANCHES.BRANCH_CODE')
+            ->where('FMS_USERS.USERID' , '=', $user->userid)
+            ->first(); 
+            /* end join table to get state_id */
+
                 session()->put('authenticatedUser', [
                     'userid' => $user->userid,
                     'username' => $user->username,
                     'status' => $user->userstatus,
                     'idtype' => $user->idtype,
+
+                    'branch_code' => $user_state->branch_code,
+                    'state_code' => $user_state->state_code,
+
                 ]);
 
                 return redirect()->route('dashboard');
