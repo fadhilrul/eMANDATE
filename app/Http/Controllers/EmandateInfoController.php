@@ -72,7 +72,7 @@ class EmandateInfoController extends Controller
         //$listcft =  "%".$this->listcft."%";
 
         $INFOS = EMANDATE_INFO::where('fms_acct_no','like','%'.$id.'%')->whereApproval('00')->paginate(5);
-        $filelist_res = EMANDATE_RES::whereRaw("substr(filler,0,14) like '%".$id."%'")->paginate(20);
+        $filelist_res = EMANDATE_RES::whereRaw("substr(filler,0,14) like '%".$id."%' ORDER BY SUBSTR(HDATE,7,10),SUBSTR(HDATE,4,5),SUBSTR(HDATE,1,2) ASC")->paginate(20);
         //dd($id);
 
         return view('pages.EmandateInfo',compact('INFOS','filelist_res'));
@@ -114,15 +114,31 @@ class EmandateInfoController extends Controller
 
     public function activestatus(Request $request)
     {
-       
+    
         $info = EMANDATE_INFO::where('idnum', $request->itemid)->first();
-        $info->blocked_paymnt_status = ($request->action == 0) ? 0 : 1 ;
-        $info->status_desc = ($request->action == 0) ? 'RE-ACTIVE' : 'ON-HOLD';
-        $info->blockedby = session()->get('authenticatedUser')['userid'];
-        $info->reasons = ($request->reasons);
-       // $info->blockpayment_date = date('Y-m-d');
-        $info->save();
 
+        if ($request->action == 0) {
+            
+            $info->blocked_paymnt_status = ($request->action == 0) ? 0 : 1 ;
+            $info->status_desc = ($request->action == 0) ? 'RE-ACTIVE' : 'ON-HOLD';
+            $info->blockedby = session()->get('authenticatedUser')['userid'];
+            $info->reasons = ($request->reasons);
+            $info->blockpayment_flag = 0;
+            $info->FAILEDCOUNT = 0;
+            $info->save();
+            
+        }else{
+
+            $info->blocked_paymnt_status = ($request->action == 0) ? 0 : 1 ;
+            $info->status_desc = ($request->action == 0) ? 'RE-ACTIVE' : 'ON-HOLD';
+            $info->blockedby = session()->get('authenticatedUser')['userid'];
+            $info->reasons = ($request->reasons);
+            $info->blockpayment_flag = 3;
+            $info->FAILEDCOUNT = 3;
+            // $info->blockpayment_date = date('Y-m-d');
+            $info->save();
+
+        }
         return back()->with('activestatus', 'Status telah dikemaskini.');
     }
 }

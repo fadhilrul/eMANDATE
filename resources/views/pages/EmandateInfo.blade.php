@@ -30,7 +30,7 @@
 	  <ul class="flex mb-0 list-none flex-wrap pt-3 pb-4 flex-row">
 		<li class="-mb-px mr-2 last:mr-0 flex-auto text-center">
 		  <a class="text-xs font-bold uppercase px-5 py-3 shadow-lg rounded block leading-normal text-white bg-blue-600" onclick="changeAtiveTab(event,'tab-1')">
-			<i class="fas fa-space-shuttle text-base mr-1"></i>  Maklumat Akaun
+			<i class="fas fa-space-shuttle text-base mr-1"></i>  Maklumat Pendaftaran
 		  </a>
 		</li>
 		<li class="-mb-px mr-2 last:mr-0 flex-auto text-center">
@@ -495,7 +495,7 @@
 																			<div x-show="show" tabindex="0" class="z-40 overflow-auto left-0 top-0 bottom-0 right-0 w-full h-full fixed">
 																				<div  @click.away="show = false" class="z-50 relative p-3 mx-auto my-0 max-w-full" style="width: 600px; margin-top:315px">
 																					<div class="bg-white rounded shadow-lg border flex flex-col overflow-hidden">
-																						<button @click={show=false} class="fill-current h-6 w-6 absolute right-0 top-0 m-6 font-3xl font-bold"></button>  <!--&times;-->
+																						{{-- <button @click={show=false} class="fill-current h-6 w-6 absolute right-0 top-0 m-6 font-3xl font-bold"></button>  <!--&times;--> --}}
 																						<div class="px-6 py-3 text-xl border-b font-bold">Ulasan/Keterangan</div>
 																						<div class="p-6 flex-grow">
 																							<!-- text area -->
@@ -522,7 +522,7 @@
 												</td>
 											</tr>
 											<tr>
-												<td class="px-2 py-2 border border-indigo-dark font-semibold">Sebab/Keterangan : 
+												<td class="px-2 py-2 border border-indigo-dark font-semibold">Ulasan/Keterangan:
 												</td>
 												<td colspan="3" class="px-6 py-6 border border-indigo-dark font-semibold">
 													<textarea class="form-textarea mt-1 block w-full" rows="3" disabled>{{ $item->reasons }}</textarea>
@@ -553,6 +553,7 @@
 						{{-- <th class="px-6 py-3 border-b-2 border-gray-300 text-left leading-4 text-blue-500 tracking-wider">Matawang</th> --}}
 						<th class="px-6 py-3 border-b-2 border-gray-300 text-left leading-4 text-blue-500 tracking-wider">Amaun</th>
 						{{-- <th class="px-6 py-3 border-b-2 border-gray-300 text-left leading-4 text-blue-500 tracking-wider">Bil Percubaan Bulanan</th> --}}
+						<th class="px-6 py-3 border-b-2 border-gray-300 text-left leading-4 text-blue-500 tracking-wider">Kod Status</th>
 						<th class="px-6 py-3 border-b-2 border-gray-300 text-left leading-4 text-blue-500 tracking-wider">Status</th>
 					</tr>
 				</thead>
@@ -650,6 +651,17 @@
 							<div class="text-sm leading-5 text-gray-800">
 	
 							  R{{ $item->status }}
+	
+							</div>
+						</div>
+					</div>
+				</td>
+				<td class="px-6 py-4 whitespace-no-wrap border-b border-gray-500">
+					<div class="flex items-center">
+						<div>
+							<div class="text-sm leading-5 text-gray-800">
+	
+							  {{ SUBSTR($item->status_desc,0,30) }}
 	
 							</div>
 						</div>
