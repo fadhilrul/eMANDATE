@@ -4,7 +4,7 @@
 		<div class="bg-blue-800 p-2 shadow text-xl text-white">
             <h3 class="font-bold pl-2">Senarai Nama Fail ENRP</h3>
         </div>
-		
+        {{ session()->get('authenticatedUser')['state_code'] }}
     <!-- search section -->
 	<!--	<div class="-my-2 py-2 overflow-x-auto sm:-mx-6 sm:px-6 lg:-mx-8 pr-10 lg:px-8">  -->
 			  <div class="align-middle rounded-tl-lg rounded-tr-lg inline-block w-full py-4 overflow-hidden bg-white shadow-lg px-12">

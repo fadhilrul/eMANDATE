@@ -18,24 +18,36 @@ class SearchEnrp extends Component
     {
 
         $searchlistenrp =  "%".$this->searchlistenrp."%";
+        $state_user = session('authenticatedUser')['state_code'];
+        //dd($state_user);
 
-        // $a = EMANDATE_ENRP::where('filename','like', $searchlistenrp)->groupBy('filename')->get();
-       // dd($a);
+        if ( $state_user == 00){
+           
+            return view('livewire.search-enrp',[
 
-        //$file_ENRP = EMANDATE_ENRP::distinct()-> get(['filename']);
-        return view('livewire.search-enrp',[
+                'file_ENRP' => DB::table('EMANDATE_ENRP')
+                         ->select(DB::raw('filename, hcrdate, count(*) as bil'))
+                         ->where('hcrdate', 'like', $searchlistenrp)
+                         ->groupBy('filename', 'hcrdate')
+                         ->get()
 
-            //'file_ENRP' => EMANDATE_ENRP::where('filename','like', $searchlistenrp)->paginate(10)
-            //'file_ENRP' => EMANDATE_ENRP::distinct('filename')->where('filename','like', $searchlistenrp)->get(),
-            //'file_ENRP' => EMANDATE_ENRP::select('filename', 'hcrdate','count(*) as bil' )->where('filename','like', $searchlistenrp)->groupBy('filename')->get()
+       
+            ]);
+        }
+        else{
+            return view('livewire.search-enrp',[
 
-            'file_ENRP' => DB::table('EMANDATE_ENRP')
-                     ->select(DB::raw('filename, hcrdate, count(*) as bil'))
-                     ->where('hcrdate', 'like', $searchlistenrp)
-                     ->groupBy('filename', 'hcrdate')
-                     ->get()
-                     
-        ]);
+                'file_ENRP' => DB::table('EMANDATE_ENRP')
+                         ->select(DB::raw('filename, hcrdate, count(*) as bil'))
+                         ->join ('ACCOUNT_MASTER', DB::raw("TRIM(ACCOUNT_MASTER.ACCOUNT_NO)"), '=', DB::raw("TRIM(EMANDATE_ENRP.PAYREFNUM)")  )
+                         ->join ('BRANCHES', 'BRANCHES.BRANCH_CODE', '=', 'ACCOUNT_MASTER.BRANCH_CODE')
+                         ->where('BRANCHES.STATE_CODE' , '=',  $state_user )
+                         ->where('hcrdate', 'like', $searchlistenrp)
+                         ->groupBy('filename', 'hcrdate')
+                         ->get()
+                         
+            ]);
+        }
 
 
     }
