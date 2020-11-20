@@ -37,14 +37,18 @@ Route::middleware([AuthenticatedUser::class])->group(function() {
       Route::get('/main-enrp-report', 'EmandateReportController@ENRPRpt')->name('report.enrp');
       Route::resource('linkrptenrp','RptENRPController'); 
       Route::get('exportenrp', 'RptENRPController@export')->name('export-ENRP');
-       /* Report RES (failed) */
+     /* Report RES (failed) */
        Route::get('/main-resfail-report', 'EmandateReportController@RESRptFail')->name('report.resfail');
        Route::resource('linkrptresfailed','RptRESfailController'); 
        Route::get('exportresfail', 'RptRESfailController@export')->name('export-resfail');
-       /* Report RES (pass) */
+     /* Report RES (pass) */
        Route::get('/main-respass-report', 'EmandateReportController@RESRptPass')->name('report.respass');
        Route::resource('linkrptrespasses','RptRESpassController'); 
        Route::get('exportrespass', 'RptRESpassController@export')->name('export-respass');
+     /* Report Hold (for all) */
+       Route::get('/main-holdall-report', 'EmandateReportController@RESRptHoldall')->name('report.holdall');
+       Route::resource('linkrptholdall','RptHoldAllController'); 
+       Route::get('exportholdall', 'RptHoldAllController@export')->name('export-holdall');
 
        
       /* emandate_info */

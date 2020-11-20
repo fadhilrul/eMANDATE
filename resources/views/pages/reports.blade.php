@@ -91,7 +91,7 @@
       </a>
 
       <!-- <a href="">-->
-        <a href="">
+        <a href="{{ route('report.holdall') }}">
           <div class="flex items-center p-4 bg-white rounded-lg shadow-xs dark:bg-gray-800">
             <div
               class="p-3 mr-4 text-yellow-500 bg-yellow-100 rounded-full dark:text-yellow-500 dark:bg-yellow-100"

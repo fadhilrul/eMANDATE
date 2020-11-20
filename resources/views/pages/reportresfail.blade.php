@@ -12,7 +12,7 @@
 
 <div class="card-body">
   @livewire('rptresfail', ['id' => $id])
-
+  
 </div>
 
 @endsection

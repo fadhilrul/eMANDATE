@@ -18,16 +18,68 @@ class DashboardController extends Controller
         return view('pages.dashboard');
     }
 
-    public function dashboard_emandate()
+ /*   public function dashboard_emandate()
     {   
         $daftarCount = EMANDATE_ENRP::all();  //count daftar
         $lulusCount = EMANDATE_ENRP::where('section','BLOCK2')->get();  //count lulus
         $gagalCount = EMANDATE_ENRP::where('section','BLOCK1')->get();  //count gagal
-        // $daftarview = $daftarCount->count();
-        // dd($lulusCount);
+
+        session('authenticatedUser')['state_code'];
+        dd(session('authenticatedUser')['state_code']);
+
         return view('pages.dashboard_emandate',compact('daftarCount','lulusCount','gagalCount'));
-        // return view('pages.dashboard_emandate');
+        
+    } */
+    
+    /* use if else */
+    public function dashboard_emandate()
+    {
+        /* get state from user id */
+        $state_user = session('authenticatedUser')['state_code'];
+       // dd($state_user);
+
+        if  ($state_user == '00')
+        {
+            $daftarCount = EMANDATE_ENRP::all();  //count daftar
+            $lulusCount = EMANDATE_ENRP::where('section','BLOCK2')->get();  //count lulus
+            $gagalCount = EMANDATE_ENRP::where('section','BLOCK1')->get();  //count gagal 
+
+            return view('pages.dashboard_emandate',compact('daftarCount','lulusCount','gagalCount'));    
+        }
+        else {
+            
+            $state_user = session('authenticatedUser')['state_code'];
+           
+            //$daftarCountS = EMANDATE_ENRP::all();  //count daftar
+
+            $daftarCount = DB::table('EMANDATE_ENRP')
+                            ->join ('ACCOUNT_MASTER', DB::raw("TRIM(ACCOUNT_MASTER.ACCOUNT_NO)"), '=', DB::raw("TRIM(EMANDATE_ENRP.PAYREFNUM)")  )
+                            ->join ('BRANCHES', 'BRANCHES.BRANCH_CODE', '=', 'ACCOUNT_MASTER.BRANCH_CODE')
+                            ->where('BRANCHES.STATE_CODE' , '=',  $state_user )
+                            ->get();
+            //dd($daftarCount);               
+
+            $lulusCount = DB::table('EMANDATE_ENRP')
+                            ->join ('ACCOUNT_MASTER', DB::raw("TRIM(ACCOUNT_MASTER.ACCOUNT_NO)"), '=', DB::raw("TRIM(EMANDATE_ENRP.PAYREFNUM)")  )
+                            ->join ('BRANCHES', 'BRANCHES.BRANCH_CODE', '=', 'ACCOUNT_MASTER.BRANCH_CODE')
+                            ->where('BRANCHES.STATE_CODE' , '=',  $state_user )
+                            ->where('EMANDATE_ENRP.SECTION', '=', 'BLOCK2' )
+                            ->get();
+
+            $gagalCount = DB::table('EMANDATE_ENRP')
+                            ->join ('ACCOUNT_MASTER', DB::raw("TRIM(ACCOUNT_MASTER.ACCOUNT_NO)"), '=', DB::raw("TRIM(EMANDATE_ENRP.PAYREFNUM)")  )
+                            ->join ('BRANCHES', 'BRANCHES.BRANCH_CODE', '=', 'ACCOUNT_MASTER.BRANCH_CODE')
+                            ->where('BRANCHES.STATE_CODE' , '=',  $state_user )
+                            ->where('EMANDATE_ENRP.SECTION', '=', 'BLOCK1' )
+                            ->get();
+           
+            return view('pages.dashboard_emandate',compact('daftarCount','lulusCount','gagalCount'));  
+        }
+
     }
+    /* end if else */
+
+
 
     //testing sp
     public function sp_info()
