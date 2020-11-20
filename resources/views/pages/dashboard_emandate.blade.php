@@ -49,7 +49,7 @@
       <!-- component -->
       <!-- card component -->
       <!-- component -->
-      <div class="rounded rounded-t-lg overflow-hidden shadow max-w-xs my-3">
+   <!--   <div class="rounded rounded-t-lg overflow-hidden shadow max-w-xs my-3">
         <img src="https://i.imgur.com/dYcYQ7E.png" class="w-full" />
         <div class="flex justify-center -mt-8">
             <img src="https://i.imgur.com/8Km9tLL.jpg" class="rounded-full border-solid border-white border-2 -mt-3">		
@@ -68,10 +68,10 @@
             <span>Friends</span>
           </div>
         </div>
-      </div>
+      </div> -->
       <!-- end card component -->
       <!-- component -->
-      <div class="flex flex-wrap -mx-4">
+    <!--  <div class="flex flex-wrap -mx-4">
         <div class="w-full mb-6 lg:mb-0 lg:w-1/2 px-4 flex flex-col">
           <div class="flex-grow flex flex-col bg-white border-t border-b sm:rounded sm:border shadow overflow-hidden">
             <div class="border-b">
@@ -166,7 +166,7 @@
             </div>
           </div>
         </div>
-      </div>
+      </div> -->
       <!-- end component -->
 
       <div class="flex flex-wrap">
