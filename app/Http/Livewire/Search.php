@@ -5,6 +5,7 @@ namespace App\Http\Livewire;
 use App\Models\EMANDATE_ENRP;
 use Livewire\Component;
 use Livewire\WithPagination;
+use Illuminate\Support\Facades\DB;
 
 class Search extends Component
 {
@@ -12,13 +13,32 @@ class Search extends Component
 
     public $searchTerm = '';
     public $message = 'a';
-
+    
     public function render()
     {
         $searchTerm = '%'.$this->searchTerm.'%';
+        $state_user = session('authenticatedUser')['state_code'];
+        //dd($state_user);
+        
+        if ( $state_user == 00)
+        {
+            return view('livewire.search',[
+                'EMANDATE_ENRP' => EMANDATE_ENRP::where('idnum','like', $searchTerm)
+                                ->orwhere('payrefnum','like', $searchTerm)
+                                ->paginate(10)
+            ]);
+        }
+        else{
+            
+            return view('livewire.search',[
+                'EMANDATE_ENRP' => EMANDATE_ENRP::where('payrefnum','like', $searchTerm)
+                                ->join ('ACCOUNT_MASTER', DB::raw("TRIM(ACCOUNT_MASTER.ACCOUNT_NO)"), '=', DB::raw("TRIM(EMANDATE_ENRP.PAYREFNUM)")  )
+                                ->join ('BRANCHES', 'BRANCHES.BRANCH_CODE', '=', 'ACCOUNT_MASTER.BRANCH_CODE')
+                                ->where('BRANCHES.STATE_CODE' , '=',  $state_user )
+                                //->orwhere('payrefnum','like', $searchTerm)
+                                ->paginate(10)
+            ]);
+        }        
 
-        return view('livewire.search',[
-            'EMANDATE_ENRP' => EMANDATE_ENRP::where('idnum','like', $searchTerm)->orwhere('payrefnum','like', $searchTerm)->paginate(10)
-        ]);
     }
 }

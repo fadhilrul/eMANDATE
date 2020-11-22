@@ -59,14 +59,26 @@ class EnrpExport implements FromQuery,WithHeadings
                                 ->select('seqno','hcrdate','batchid','payrefnum','idtype','idnum','buyername','buyeracct','debitamt','purpose', 'telno','email','effdate','expdate','appdate')
                                 ->where('approval','not like','%00%')
                                 ; */
+        $state_user = session('authenticatedUser')['state_code'];
 
-        return  DB::table('EMANDATE_ENRP')
-                ->select('hcrdate','batchid','payrefnum','idtype','idnum','buyername','buyeracct','debitamt','purpose', 'telno','email','effdate','expdate','appdate')
-                ->where('hcrdate','like', "%".$this->idrptenrp."%")
-                ->where('approval','not like','%00%')
-                ->orderby('seqno')
-                 ;                   
+        if ( $state_user == 00){
 
+            return  DB::table('EMANDATE_ENRP')
+                    ->select('hcrdate','batchid','payrefnum','idtype','idnum','buyername','buyeracct','debitamt','purpose', 'telno','email','effdate','expdate','appdate')
+                    ->where('hcrdate','like', "%".$this->idrptenrp."%")
+                    ->where('approval','not like','%00%')
+                    ->orderby('seqno');                   
+        }
+        else{
+            return  DB::table('EMANDATE_ENRP')
+                    ->select('hcrdate','batchid','payrefnum','idtype','idnum','buyername','buyeracct','debitamt','purpose', 'telno','email','effdate','expdate','appdate')
+                    ->join ('ACCOUNT_MASTER', DB::raw("TRIM(ACCOUNT_MASTER.ACCOUNT_NO)"), '=', DB::raw("TRIM(EMANDATE_ENRP.PAYREFNUM)")  )
+                    ->join ('BRANCHES', 'BRANCHES.BRANCH_CODE', '=', 'ACCOUNT_MASTER.BRANCH_CODE')
+                    ->where('BRANCHES.STATE_CODE' , '=',  $state_user )
+                    ->where('hcrdate','like', "%".$this->idrptenrp."%")
+                    ->where('approval','not like','%00%')
+                    ->orderby('seqno'); 
+        }  
 
 
     }

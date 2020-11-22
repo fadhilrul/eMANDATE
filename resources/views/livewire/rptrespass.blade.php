@@ -45,6 +45,7 @@
                                 <th class="px-6 py-3 border-b-2 border-gray-300 text-left leading-4 text-blue-500 tracking-wider">Kad Pengenalan</th>
                                 <th class="px-6 py-3 border-b-2 border-gray-300 text-left leading-4 text-blue-500 tracking-wider">Jumlah Potongan</th>
                                 <th class="px-6 py-3 border-b-2 border-gray-300 text-left leading-4 text-blue-500 tracking-wider">Status</th>
+                                <th class="px-6 py-3 border-b-2 border-gray-300 text-left leading-4 text-blue-500 tracking-wider">Maklumat Status </th>
                             </tr>
                         </thead>
                         <tbody class="bg-white">
@@ -109,6 +110,19 @@
                                     </div>
                                 </div>
                             </td> 
+
+                            <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-500">
+                                <div class="flex items-center">
+                                    <div>
+                                        <div class="text-sm leading-5 text-gray-800">
+    
+                                            {{ $item->approved_desc }}
+    
+                                        </div>
+                                    </div>
+                                </div>
+                            </td> 
+                            
                         
                         </tr>
                         @endforeach
