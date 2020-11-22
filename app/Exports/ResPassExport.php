@@ -27,20 +27,35 @@ class ResPassExport implements FromQuery,WithHeadings
             'KAD PENGENALAN',
             'JUMLAH POTONGAN',
             'STATUS',
+            'MAKLUMAT STATUS',
         ];
     }
 
     public function query()
     {
-        return  DB::table('EMANDATE_RES')
-        //->select('hdate', 'substr(filler, 1, 14)' ,'ic','tranamt','status')
-        ->select('hdate', 'filler' ,'ic','tranamt','status')
-        ->where('filename','like', "%".$this->idrptresfail."%")
-        ->where('status','=','00')
-        ->orderby('filename')
-         ;      
+        $state_user = session('authenticatedUser')['state_code'];
+
+        if ( $state_user == 00){
+
+            return  DB::table('EMANDATE_RES')
+            ->select('hdate', DB::raw("SUBSTR(EMANDATE_RES.FILLER,1,14)") ,'ic','tranamt','status','approved_desc')
+            ->join ('EMANDATE_INFO_DESC', 'EMANDATE_RES.STATUS', '=', DB::raw("SUBSTR(EMANDATE_INFO_DESC.RE_CODE,2,3)"))
+            ->where('filename','like', "%".$this->idrptresfail."%")
+            ->where('status','=','00')
+            ->orderby('filename'); 
+        }
+        else{
+            return  DB::table('EMANDATE_RES')
+            ->select('hdate', DB::raw("SUBSTR(EMANDATE_RES.FILLER,1,14)") ,'ic','tranamt','status','approved_desc')
+            ->join ('ACCOUNT_MASTER', DB::raw("TRIM(ACCOUNT_MASTER.ACCOUNT_NO)"), '=', DB::raw("SUBSTR(EMANDATE_RES.FILLER,1,14)")  )
+            ->join ('BRANCHES', 'BRANCHES.BRANCH_CODE', '=', 'ACCOUNT_MASTER.BRANCH_CODE')
+            ->join ('EMANDATE_INFO_DESC', 'EMANDATE_RES.STATUS', '=', DB::raw("SUBSTR(EMANDATE_INFO_DESC.RE_CODE,2,3)"))
+            ->where('BRANCHES.STATE_CODE' , '=',  $state_user )
+            ->where('filename','like', "%".$this->idrptresfail."%")
+            ->where('status','=','00')
+            ->orderby('filename');
+        }
+
+
     }
-
-
-
 }

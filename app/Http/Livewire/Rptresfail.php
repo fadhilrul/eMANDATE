@@ -24,14 +24,34 @@ class Rptresfail extends Component
         $findrptresfail =  "%".$this->findrptresfail."%";
         $idrptresfails =  "%".$this->idrptresfail."%";
 
-        return view('livewire.rptresfail',[
+        $state_user = session('authenticatedUser')['state_code'];
 
-       'rptdetails_resfail' => EMANDATE_RES::where('filename','like', $idrptresfails)
-                            ->where('filler','like', $findrptresfail)
-                            ->where('status','<>', '00')
-                            ->paginate(10)                 
-                        
+        if ( $state_user == 00){
 
+            return view('livewire.rptresfail',[
+
+            'rptdetails_resfail' => EMANDATE_RES::where('filename','like', $idrptresfails)
+                                    ->join ('EMANDATE_INFO_DESC', 'EMANDATE_RES.STATUS', '=', DB::raw("SUBSTR(EMANDATE_INFO_DESC.RE_CODE,2,3)"))
+                                    ->where('filler','like', $findrptresfail)
+                                    ->where('status','<>', '00')
+                                    ->paginate(10)                 
+                            
+            ]); 
+        }
+        else{
+            return view('livewire.rptresfail',[
+
+                'rptdetails_resfail' => EMANDATE_RES::where('filename','like', $idrptresfails)
+                                        ->join ('ACCOUNT_MASTER', DB::raw("TRIM(ACCOUNT_MASTER.ACCOUNT_NO)"), '=', DB::raw("SUBSTR(EMANDATE_RES.FILLER,1,14)")  )
+                                        ->join ('BRANCHES', 'BRANCHES.BRANCH_CODE', '=', 'ACCOUNT_MASTER.BRANCH_CODE')
+                                        ->join ('EMANDATE_INFO_DESC', 'EMANDATE_RES.STATUS', '=', DB::raw("SUBSTR(EMANDATE_INFO_DESC.RE_CODE,2,3)"))
+                                        ->where('BRANCHES.STATE_CODE' , '=',  $state_user )
+                                        ->where('filler','like', $findrptresfail)
+                                        ->where('status','<>', '00')
+                                        ->paginate(10)                 
+                                
+                ]);
+        } 
        /* 'rptdetails_resfail' => DB::table('EMANDATE_RES')
                            ->where('filename', 'like', $idrptresfails)
                             ->where('filler', 'like', $findrptresfail)
@@ -55,7 +75,7 @@ class Rptresfail extends Component
                             ->paginate(10)   */    
                             
     
-        ]);  
+        
     
     }
 

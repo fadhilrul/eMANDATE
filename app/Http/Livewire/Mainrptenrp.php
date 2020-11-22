@@ -16,18 +16,40 @@ class Mainrptenrp extends Component
     public function render()
     {
         $findmainrptenrp =  "%".$this->findmainrptenrp."%";
+        $state_user = session('authenticatedUser')['state_code'];
 
-        return view('livewire.mainrptenrp',[
+        if ( $state_user == 00){
 
-         'rpt_enrp' => DB::table('EMANDATE_ENRP')
-                     ->select(DB::raw('hcrdate, count(*) as bil'))
-                     ->where('hcrdate', 'like', $findmainrptenrp)
-                     ->where('approval', 'not like' , '%00%')
-                     ->groupBy('hcrdate')
-                     ->orderBy('hcrdate')
-                     ->get() 
-                     
-        ]);
+            return view('livewire.mainrptenrp',[
+
+            'rpt_enrp' => DB::table('EMANDATE_ENRP')
+                        ->select(DB::raw('hcrdate, count(*) as bil'))
+                        ->where('hcrdate', 'like', $findmainrptenrp)
+                        ->where('approval', 'not like' , '%00%')
+                        ->groupBy('hcrdate')
+                        ->orderBy('hcrdate')
+                        ->get() 
+                        
+            ]);
+        }
+        else {
+            
+            return view('livewire.mainrptenrp',[
+
+                'rpt_enrp' => DB::table('EMANDATE_ENRP')
+                            ->select(DB::raw('hcrdate, count(*) as bil'))
+                            ->join ('ACCOUNT_MASTER', DB::raw("TRIM(ACCOUNT_MASTER.ACCOUNT_NO)"), '=', DB::raw("TRIM(EMANDATE_ENRP.PAYREFNUM)")  )
+                            ->join ('BRANCHES', 'BRANCHES.BRANCH_CODE', '=', 'ACCOUNT_MASTER.BRANCH_CODE')
+                            ->where('BRANCHES.STATE_CODE' , '=',  $state_user )
+                            ->where('hcrdate', 'like', $findmainrptenrp)
+                            ->where('approval', 'not like' , '%00%')
+                            ->groupBy('hcrdate')
+                            ->orderBy('hcrdate')
+                            ->get() 
+                            
+                ]);
+
+        }    
 
     }
 }

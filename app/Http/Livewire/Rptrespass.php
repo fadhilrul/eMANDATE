@@ -23,15 +23,34 @@ class Rptrespass extends Component
     {
         $findrptrespass =  "%".$this->findrptrespass."%";
         $idrptrespasss =  "%".$this->idrptrespass."%";
+        $state_user = session('authenticatedUser')['state_code'];
 
-        return view('livewire.rptrespass',[
+        if ( $state_user == 00){
 
-       'rptdetails_respass' => EMANDATE_RES::where('filename','like', $idrptrespasss)
-                            ->where('filler','like', $findrptrespass)
-                            ->where('status','=', '00')
-                            ->paginate(10)        
+            return view('livewire.rptrespass',[
 
-         ]);  
+            'rptdetails_respass' => EMANDATE_RES::where('filename','like', $idrptrespasss)
+                                 ->join ('EMANDATE_INFO_DESC', 'EMANDATE_RES.STATUS', '=', DB::raw("SUBSTR(EMANDATE_INFO_DESC.RE_CODE,2,3)"))
+                                ->where('filler','like', $findrptrespass)
+                                ->where('status','=', '00')
+                                ->paginate(10)        
+
+            ]);  
+        }
+        else{
+            return view('livewire.rptrespass',[
+
+                'rptdetails_respass' => EMANDATE_RES::where('filename','like', $idrptrespasss)
+                                    ->join ('ACCOUNT_MASTER', DB::raw("TRIM(ACCOUNT_MASTER.ACCOUNT_NO)"), '=', DB::raw("SUBSTR(EMANDATE_RES.FILLER,1,14)")  )
+                                    ->join ('BRANCHES', 'BRANCHES.BRANCH_CODE', '=', 'ACCOUNT_MASTER.BRANCH_CODE')
+                                    ->join ('EMANDATE_INFO_DESC', 'EMANDATE_RES.STATUS', '=', DB::raw("SUBSTR(EMANDATE_INFO_DESC.RE_CODE,2,3)"))
+                                    ->where('BRANCHES.STATE_CODE' , '=',  $state_user )
+                                    ->where('filler','like', $findrptrespass)
+                                    ->where('status','=', '00')
+                                    ->paginate(10)        
+    
+                ]);
+        }    
 
      }
  
