@@ -36,7 +36,7 @@ class DashboardController extends Controller
     {
         /* get state from user id */
         $state_user = session('authenticatedUser')['state_code'];
-       // dd($state_user);
+        //dd($state_user);
 
         if  ($state_user == '00')
         {
@@ -49,6 +49,8 @@ class DashboardController extends Controller
         else {
             
             $state_user = session('authenticatedUser')['state_code'];
+
+            //dd($state_user);
            
             //$daftarCountS = EMANDATE_ENRP::all();  //count daftar
 

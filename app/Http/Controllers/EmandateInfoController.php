@@ -8,6 +8,7 @@ use App\Models\EMANDATE_CFT;
 use App\Models\EMANDATE_RES;
 use Livewire\WithPagination;
 use App\User;
+use Illuminate\Support\Facades\DB;
 
 class EmandateInfoController extends Controller
 
@@ -69,13 +70,70 @@ class EmandateInfoController extends Controller
      */
     public function show($id)
     {   
+
         //$listcft =  "%".$this->listcft."%";
 
         $INFOS = EMANDATE_INFO::where('fms_acct_no','like','%'.$id.'%')->whereApproval('00')->paginate(5);
         $filelist_res = EMANDATE_RES::whereRaw("substr(filler,0,14) like '%".$id."%' ORDER BY SUBSTR(HDATE,7,10),SUBSTR(HDATE,4,5),SUBSTR(HDATE,1,2) ASC")->paginate(20);
         //dd($id);
+        
+        //account position part
+        $acc_pos = DB::select(DB::raw("
+                    SELECT         
+                    P.DISBURSED_AMOUNT ,
+                    P.TOT_PROFIT_UNEARNED ,
+                    M.SAVINGS_TO_PAID ,  
+                    M.APPROVED_LIMIT+P.TOT_PROFIT_UNEARNED+M.SAVINGS_TO_PAID AS TOTAL,
+                    P.UNDRAWN_AMOUNT,
+                    P.EXPIRY_DATE,
+                    M.START_INSTAL_DATE,
+                    P.DISBURSED_AMOUNT- P.COST_OUTSTANDING AMAUN_POKOK,
+                    NVL(P.TOT_PROFIT_EARNED,0) as TOT_PROFIT_EARNED,
+                    P.COST_OUTSTANDING,
+                    P.UEI_OUTSTANDING,
+                    P.BAL_OUTSTANDING,
+                    NVL(P.REBATE_AMOUNT,0) AS REBATE_AMOUNT,
+                    NVL(P.SAVINGS_BALANCE,0) AS SAVINGS_BALANCE,
+                    EXCESS_PAYMENT,
+                    (CASE WHEN P.CREDIT_STATUS = 0 THEN 'CURRENT' WHEN P.CREDIT_STATUS = 1 THEN 'DELINQUENT' WHEN P.CREDIT_STATUS = 2 THEN 'SUB STANDARD' WHEN P.CREDIT_STATUS = 2 THEN 'DOUBTFUL' WHEN P.CREDIT_STATUS = 4 THEN 'BAD' END)AS CREDIT_STATUS,
+                    (case when P.NPF_STATUS = 'N' THEN 'PERFORMING' ELSE 'NON-PERFORMING' END) AS NPF_STATUS,
+                    P.INSTAL_ARREARS,
+                    NVL(P.SEC_DEP_IN_ARREAR,0) AS SEC_DEP_IN_ARREAR,
+                    P.CREDIT_STATUS_CHGDATE,           
+                    P.NPF_CHANGED_DATE,
+                    (CASE WHEN INSTAL_MODE = 'M' THEN NVL(bulantgkbil,month_arrears) END) AS instal_mode,
+                    P.BULANTGKBIL,
+                    NVL((SELECT SUM(OWING_AMT) FROM OWINGS WHERE OWING_CODE NOT IN (SELECT OWING_CODE FROM OWING_CODES WHERE AUTODEDUCT = 'Y') AND ACCOUNT_NO = P.ACCOUNT_NO),0) as total_owings,
+                    NVL((SELECT SUM(OWING_AMT_PAID) FROM OWINGS WHERE OWING_CODE NOT IN (SELECT OWING_CODE FROM OWING_CODES WHERE AUTODEDUCT = 'Y') AND ACCOUNT_NO = P.ACCOUNT_NO),0) as owings_paid,
+                    P.OWING_AMT,
+                    sec_dep_in_arrear+owing_amt+instal_arrears as amount_arrears,
+                    NVL(P.LAST_PYMT_AMT,0) AS LAST_PYMT_AMT,
+                    P.LAST_PAYMENT_DATE,
+                    P.INSTALMENT_NO,
+                    P.LAST_INSTAL_DATE,
+                    NVL(P.PAYMENT_AMOUNT,0) AS PAYMENT_AMOUNT,
+                    P.LAST_INSTAL_DUE_DATE,
+                    P.INSTAL_DUE_DATE,
+                    P.LAST_MODIFIED_DATE,
+                    P.LAST_MODIFIED_USER,
+                    (M.instal_amount + M.savings_instamt) AS INSTALL_AMT
+                    FROM ACCOUNT_POSITION P,
+                         ACCOUNT_MASTER M,
+                         EMANDATE_INFO I
+                    WHERE P.ACTID = M.ACTID
+                    and   P.ACCOUNT_NO = M.ACCOUNT_NO
+                    and   P.ACCOUNT_NO = I.FMS_ACCT_NO
+                    and   M.ACCOUNT_NO = I.FMS_ACCT_NO
+                    and   trim(fms_acct_no) = '$id'
+                    "));
 
-        return view('pages.EmandateInfo',compact('INFOS','filelist_res'));
+                        $data = $acc_pos;
+                        //dd($data);
+                      
+                        return view('pages.EmandateInfo',compact('INFOS','filelist_res','data'));
+                   
+        
+        //account position part end
     }
 
     /**
