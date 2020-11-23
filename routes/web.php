@@ -29,6 +29,9 @@ Route::middleware([AuthenticatedUser::class])->group(function() {
       Route::get('/', 'DashboardController@index')->name('dashboard');
       Route::get('/emandate-dashboard', 'DashboardController@dashboard_emandate')->name('emandate.dashboard');
       Route::get('/emandate-list', 'EmandateController@index')->name('Emandate_list.index');
+      Route::get('/emandate-daftarnegeri', 'DaftarNegeriController@index')->name('listdaftar');
+      Route::get('/emandate-lulusnegeri', 'LulusNegeriController@index')->name('listlulus');
+      Route::get('/emandate-gagalnegeri', 'GagalNegeriController@index')->name('listgagal');
         
       /* Report */
       Route::get('/emandate-report', 'EmandateReportController@index')->name('report.dashboard');
