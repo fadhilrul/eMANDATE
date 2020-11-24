@@ -74,7 +74,7 @@ class EmandateInfoController extends Controller
         //$listcft =  "%".$this->listcft."%";
 
         $INFOS = EMANDATE_INFO::where('fms_acct_no','like','%'.$id.'%')->whereApproval('00')->paginate(5);
-        $filelist_res = EMANDATE_RES::whereRaw("substr(filler,0,14) like '%".$id."%' ORDER BY SUBSTR(HDATE,7,10),SUBSTR(HDATE,4,5),SUBSTR(HDATE,1,2) ASC")->paginate(20);
+        $filelist_res = EMANDATE_RES::whereRaw("substr(filler,0,14) like '%".$id."%' and posted = 'Y' ORDER BY SUBSTR(HDATE,7,10),SUBSTR(HDATE,4,5),SUBSTR(HDATE,1,2) ASC")->paginate(20);
         //dd($id);
         
         //account position part
