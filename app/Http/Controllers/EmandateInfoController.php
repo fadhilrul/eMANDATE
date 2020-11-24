@@ -79,7 +79,10 @@ class EmandateInfoController extends Controller
         
         //account position part
         $acc_pos = DB::select(DB::raw("
-                    SELECT         
+                    SELECT
+                    M.DURATION,
+                    TO_CHAR(M.START_INSTAL_DATE, 'dd-mm-yyyy') AS START_INSTAL_DATE, 
+                    M.PROFIT_RATE,     
                     P.DISBURSED_AMOUNT ,
                     P.TOT_PROFIT_UNEARNED ,
                     M.SAVINGS_TO_PAID ,  
@@ -95,13 +98,15 @@ class EmandateInfoController extends Controller
                     NVL(P.REBATE_AMOUNT,0) AS REBATE_AMOUNT,
                     NVL(P.SAVINGS_BALANCE,0) AS SAVINGS_BALANCE,
                     EXCESS_PAYMENT,
-                    (CASE WHEN P.CREDIT_STATUS = 0 THEN 'CURRENT' WHEN P.CREDIT_STATUS = 1 THEN 'DELINQUENT' WHEN P.CREDIT_STATUS = 2 THEN 'SUB STANDARD' WHEN P.CREDIT_STATUS = 2 THEN 'DOUBTFUL' WHEN P.CREDIT_STATUS = 4 THEN 'BAD' END)AS CREDIT_STATUS,
+                    (CASE WHEN P.CREDIT_STATUS = 0 THEN 'CURRENT' WHEN P.CREDIT_STATUS = 1 THEN 'DELINQUENT' WHEN P.CREDIT_STATUS = 2 THEN 'SUB STANDARD' WHEN P.CREDIT_STATUS = 2 THEN 'DOUBTFUL' WHEN P.CREDIT_STATUS = 4 THEN 'BAD' END)AS CREDIT_STATUS1,
+                    UF_GET_CREADIT_STATUS(P.CREDIT_STATUS) AS CREDIT_STATUS,
                     (case when P.NPF_STATUS = 'N' THEN 'PERFORMING' ELSE 'NON-PERFORMING' END) AS NPF_STATUS,
                     P.INSTAL_ARREARS,
                     NVL(P.SEC_DEP_IN_ARREAR,0) AS SEC_DEP_IN_ARREAR,
                     P.CREDIT_STATUS_CHGDATE,           
                     P.NPF_CHANGED_DATE,
-                    (CASE WHEN INSTAL_MODE = 'M' THEN NVL(bulantgkbil,month_arrears) END) AS instal_mode,
+                    nvl((CASE WHEN INSTAL_MODE = 'M' THEN NVL(bulantgkbil,month_arrears) END),0) AS instal_mode,
+                    UF_GET_INSTALMODES(M.INSTAL_MODE) AS INSTMODE,
                     P.BULANTGKBIL,
                     NVL((SELECT SUM(OWING_AMT) FROM OWINGS WHERE OWING_CODE NOT IN (SELECT OWING_CODE FROM OWING_CODES WHERE AUTODEDUCT = 'Y') AND ACCOUNT_NO = P.ACCOUNT_NO),0) as total_owings,
                     NVL((SELECT SUM(OWING_AMT_PAID) FROM OWINGS WHERE OWING_CODE NOT IN (SELECT OWING_CODE FROM OWING_CODES WHERE AUTODEDUCT = 'Y') AND ACCOUNT_NO = P.ACCOUNT_NO),0) as owings_paid,
@@ -127,10 +132,24 @@ class EmandateInfoController extends Controller
                     and   trim(fms_acct_no) = '$id'
                     "));
 
-                        $data = $acc_pos;
-                        //dd($data);
+                    $data = $acc_pos;
+                    //dd($data);
+
+         //resit part
+        $resit_sql = DB::select(DB::raw("           
+                    SELECT 
+                        RESIT_NO, ACCOUNT_NO, ID_RESIT, RESIT_AMOUNT, upper(COLLECTOR) AS COLLECTOR, 
+                        to_char(RESIT_DATE, 'dd-mm-yyyy') as resitdt, BIS_NO, TYPE, CHEQUE_NO, CHEQUE_BANK_CODE, CUST_NAME, upper(OFFICER_INCHARGE) AS OFFICER_INCHARGE, 
+                        to_char(TRX_DATE,'dd-mm-yyyy') as trx_date, STATUS_RESIT,CNCL_STATUS, VLD_STATUS FROM RESIT 
+                        WHERE ACCOUNT_NO = '$id'
+                    ORDER BY RESIT_DATE
+                    "));
+
+                    $resit = $resit_sql;
+        // end resit part
+
                       
-                        return view('pages.EmandateInfo',compact('INFOS','filelist_res','data'));
+        return view('pages.EmandateInfo',compact('INFOS','filelist_res','data','resit'));
                    
         
         //account position part end
