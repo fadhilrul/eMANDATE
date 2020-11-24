@@ -138,9 +138,23 @@ class EmandateInfoController extends Controller
          //resit part
         $resit_sql = DB::select(DB::raw("           
                     SELECT 
-                        RESIT_NO, ACCOUNT_NO, ID_RESIT, RESIT_AMOUNT, upper(COLLECTOR) AS COLLECTOR, 
-                        to_char(RESIT_DATE, 'dd-mm-yyyy') as resitdt, BIS_NO, TYPE, CHEQUE_NO, CHEQUE_BANK_CODE, CUST_NAME, upper(OFFICER_INCHARGE) AS OFFICER_INCHARGE, 
-                        to_char(TRX_DATE,'dd-mm-yyyy') as trx_date, STATUS_RESIT,CNCL_STATUS, VLD_STATUS FROM RESIT 
+                        RESIT_NO, 
+                        ACCOUNT_NO, 
+                        ID_RESIT, 
+                        RESIT_AMOUNT, 
+                        upper(COLLECTOR) AS COLLECTOR, 
+                        to_char(RESIT_DATE, 'dd-mm-yyyy') as resitdt, 
+                        BIS_NO, 
+                        (CASE WHEN TYPE = 'D' THEN 'DEBIT' WHEN TYPE = 'D' THEN 'DEBIT' WHEN TYPE = 'T' THEN 'TUNAI' WHEN TYPE = 'C' THEN 'CREDIT' ELSE NULL END) AS TYPE,
+                        CHEQUE_NO, 
+                        CHEQUE_BANK_CODE, 
+                        CUST_NAME, 
+                        upper(OFFICER_INCHARGE) AS OFFICER_INCHARGE, 
+                        to_char(TRX_DATE,'dd-mm-yyyy') as trx_date, 
+                        STATUS_RESIT AS STATUS_RESIT1,
+                        ( CASE WHEN CNCL_STATUS = 'C' THEN 'OK' WHEN CNCL_STATUS = 'X' THEN 'BATAL' WHEN CNCL_STATUS = 'R' THEN 'REVERSE' ELSE NULL END) AS STATUS_RESIT, 
+                        (case when VLD_STATUS = 'Y' then 'DISAHKAN' when VLD_STATUS = 'N' then 'BELUM DISAHKAN' ELSE NULL end)  AS VLD_STATUS
+                        FROM RESIT 
                         WHERE ACCOUNT_NO = '$id'
                     ORDER BY RESIT_DATE
                     "));
