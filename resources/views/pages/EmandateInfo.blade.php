@@ -51,7 +51,7 @@
 			<td class="px-4 py-4 border border-indigo-dark font-semibold" colspan = "2">
 				<div class = "flex-grow">
 					<div class="text-sm leading-5 text-gray-800">
-						Nama: <input value = "{{ $item->buyername }}" disabled = true/>
+						Nama Usahawan: <input value = "{{ $item->buyername }}" disabled = true/>
 					</div>
 				</div>
 			</td>
@@ -1271,7 +1271,7 @@
 											<td class="px-6 py-4 whitespace-no-wrap border-b border-gray-500">
 											<div class="flex items-center">
 												<div style="font-size:11px">
-													{{$item->resit_amount}}
+													{{number_format($item->resit_amount,2)}}
 												</div>
 											</div>
 										</td>
