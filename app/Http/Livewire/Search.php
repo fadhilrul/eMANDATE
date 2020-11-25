@@ -23,20 +23,34 @@ class Search extends Component
         if ( $state_user == 00)
         {
             return view('livewire.search',[
-                'EMANDATE_ENRP' => EMANDATE_ENRP::where('idnum','like', $searchTerm)
+               /* 'EMANDATE_ENRP' => EMANDATE_ENRP::where('idnum','like', $searchTerm)
                                 ->orwhere('payrefnum','like', $searchTerm)
-                                ->paginate(10)
+                                ->paginate(10) */
+
+                'EMANDATE_ENRP' =>  EMANDATE_ENRP::where(function($query) use ($searchTerm) {
+                                    $query->where('payrefnum', 'like', $searchTerm)
+                                          ->orWhere('idnum', 'like', $searchTerm); })
+                                         ->paginate(10) 
             ]);
         }
         else{
             
             return view('livewire.search',[
-                'EMANDATE_ENRP' => EMANDATE_ENRP::where('payrefnum','like', $searchTerm)
+              /*  'EMANDATE_ENRP' => EMANDATE_ENRP::where('payrefnum','like', $searchTerm)
                                 ->join ('ACCOUNT_MASTER', DB::raw("TRIM(ACCOUNT_MASTER.ACCOUNT_NO)"), '=', DB::raw("TRIM(EMANDATE_ENRP.PAYREFNUM)")  )
                                 ->join ('BRANCHES', 'BRANCHES.BRANCH_CODE', '=', 'ACCOUNT_MASTER.BRANCH_CODE')
                                 ->where('BRANCHES.STATE_CODE' , '=',  $state_user )
                                 //->orwhere('payrefnum','like', $searchTerm)
-                                ->paginate(10)
+                                ->paginate(10) */
+
+                    'EMANDATE_ENRP' => EMANDATE_ENRP:: where(function($query) use ($searchTerm){
+                                    $query->where('payrefnum', 'like', $searchTerm)
+                                          ->orWhere('idnum', 'like', $searchTerm); })
+                                    ->join ('ACCOUNT_MASTER', DB::raw("TRIM(ACCOUNT_MASTER.ACCOUNT_NO)"), '=', DB::raw("TRIM(EMANDATE_ENRP.PAYREFNUM)")  )
+                                    ->join ('BRANCHES', 'BRANCHES.BRANCH_CODE', '=', 'ACCOUNT_MASTER.BRANCH_CODE')
+                                    ->where('BRANCHES.STATE_CODE' , '=',  $state_user )
+                                    ->paginate(10) 
+                                
             ]);
         }        
 
