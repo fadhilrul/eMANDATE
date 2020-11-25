@@ -68,7 +68,7 @@
                                 <div>
                                     <div class="text-sm leading-5 text-gray-800">
     
-                                       {{ $item->accno }}
+                                       {{ $item->payrefno }}
     
                                     </div>
                                 </div>
