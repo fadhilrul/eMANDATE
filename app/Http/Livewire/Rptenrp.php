@@ -31,7 +31,8 @@ class Rptenrp extends Component
                                 ->where('payrefnum','like', $findrptenrp)
                                 ->where('approval','<>', '00')
                                 ->paginate(10)
-                    
+
+                
             ]); 
         }
         else{
