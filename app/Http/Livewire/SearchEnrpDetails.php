@@ -32,21 +32,41 @@ class SearchEnrpDetails extends Component
         {    
             return view('livewire.search-enrp-details',[
 
-                'filelist_ENRP' => EMANDATE_ENRP::where('hcrdate','=', $this->idenrp)//->paginate(10)
+                /*'filelist_ENRP' => EMANDATE_ENRP::where('hcrdate','=', $this->idenrp)//->paginate(10)
                                 ->where('payrefnum','like', $listenrp)
-                                ->paginate(10)
-            ]);
+                                ->orwhere('idnum','like', $listenrp)
+                                ->paginate(10)  */
+                'filelist_ENRP' =>  EMANDATE_ENRP::where(function($query) use ($listenrp) {
+                                    $query->where('payrefnum', 'like', $listenrp)
+                                          ->orWhere('idnum', 'like', $listenrp); })
+                                         -> where('hcrdate','=', $this->idenrp)
+                                         ->paginate(10) 
+                                    
+               ]);  
+                         
+        
         }
         else{
 
             return view('livewire.search-enrp-details',[
 
-                'filelist_ENRP' => EMANDATE_ENRP::where('hcrdate','=', $this->idenrp)//->paginate(10)
+              /*  'filelist_ENRP' => EMANDATE_ENRP::where('hcrdate','=', $this->idenrp)//->paginate(10)
                                     ->join ('ACCOUNT_MASTER', DB::raw("TRIM(ACCOUNT_MASTER.ACCOUNT_NO)"), '=', DB::raw("TRIM(EMANDATE_ENRP.PAYREFNUM)")  )
                                     ->join ('BRANCHES', 'BRANCHES.BRANCH_CODE', '=', 'ACCOUNT_MASTER.BRANCH_CODE')
                                     ->where('BRANCHES.STATE_CODE' , '=',  $state_user )
                                     ->where('payrefnum','like', $listenrp)
-                                    ->paginate(10)
+                                   // ->orwhere('idnum','like', $listenrp)
+                                    ->paginate(10) */
+
+             'filelist_ENRP' => EMANDATE_ENRP:: where(function($query) use ($listenrp){
+                                        $query->where('payrefnum', 'like', $listenrp)
+                                              ->orWhere('idnum', 'like', $listenrp); })
+                                        -> where('hcrdate','=', $this->idenrp)//->paginate(10)
+                                        ->join ('ACCOUNT_MASTER', DB::raw("TRIM(ACCOUNT_MASTER.ACCOUNT_NO)"), '=', DB::raw("TRIM(EMANDATE_ENRP.PAYREFNUM)")  )
+                                        ->join ('BRANCHES', 'BRANCHES.BRANCH_CODE', '=', 'ACCOUNT_MASTER.BRANCH_CODE')
+                                        ->where('BRANCHES.STATE_CODE' , '=',  $state_user )
+                                        ->paginate(10) 
+
             ]);
         }
 

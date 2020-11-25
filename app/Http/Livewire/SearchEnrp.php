@@ -30,8 +30,7 @@ class SearchEnrp extends Component
                          ->where('hcrdate', 'like', $searchlistenrp)
                          ->groupBy('filename', 'hcrdate')
                          ->get()
-
-       
+                   
             ]);
         }
         else{
