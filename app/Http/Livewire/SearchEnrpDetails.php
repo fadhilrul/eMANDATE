@@ -44,7 +44,7 @@ class SearchEnrpDetails extends Component
                                     
                ]);  
                          
-        
+
         }
         else{
 

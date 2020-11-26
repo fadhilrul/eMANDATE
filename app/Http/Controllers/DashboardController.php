@@ -32,28 +32,37 @@ class DashboardController extends Controller
     } */
     
     /* use if else */
-    public function dashboard_emandate()
+    public function dashboard_emandate(Request $request)
     {
-        /* get state from user id */
-        $state_user = session('authenticatedUser')['state_code'];
-        //dd($state_user);
 
+        $state_user = session('authenticatedUser')['state_code'];
+        
         if  ($state_user == '00')
         {
+
+            $state = DB::table('EMANDATE_ENRP')->select('section')->distinct()->get()->pluck('section');
+            $branch = DB::table('EMANDATE_ENRP')->select('payrefnum')->distinct()->get()->pluck('payrefnum');
+            $transdate = DB::table('EMANDATE_ENRP')->select('effdate')->distinct()->get()->pluck('effdate');
+
+            $post = POST::query();
+
+            if ($request->filled('section'))
+
             $daftarCount = EMANDATE_ENRP::all();  //count daftar
             $lulusCount = EMANDATE_ENRP::where('section','BLOCK2')->get();  //count lulus
             $gagalCount = EMANDATE_ENRP::where('section','BLOCK1')->get();  //count gagal 
 
             return view('pages.dashboard_emandate',compact('daftarCount','lulusCount','gagalCount'));    
         }
+
+
+        /* for all except HQ */
         else {
             
             $state_user = session('authenticatedUser')['state_code'];
 
             //dd($state_user);
-           
-            //$daftarCountS = EMANDATE_ENRP::all();  //count daftar
-
+        
             $daftarCount = DB::table('EMANDATE_ENRP')
                             ->join ('ACCOUNT_MASTER', DB::raw("TRIM(ACCOUNT_MASTER.ACCOUNT_NO)"), '=', DB::raw("TRIM(EMANDATE_ENRP.PAYREFNUM)")  )
                             ->join ('BRANCHES', 'BRANCHES.BRANCH_CODE', '=', 'ACCOUNT_MASTER.BRANCH_CODE')
