@@ -53,7 +53,6 @@ Route::middleware([AuthenticatedUser::class])->group(function() {
        Route::resource('linkrptholdall','RptHoldAllController'); 
        Route::get('exportholdall', 'RptHoldAllController@export')->name('export-holdall');
 
-       
       /* emandate_info */
       Route::get('/search-box', 'searchController@index')->name('search.index');
       Route::get('/EmandateInfo', 'EmandateInfoController@index')->name('EmandateInfo.index');
@@ -68,12 +67,10 @@ Route::middleware([AuthenticatedUser::class])->group(function() {
       Route::resource('linkcft','CFTControllerDetails');
       //Route::get('/linkmainCFT/{id}', 'CFTController@index')->name('linkcft.index');
       
-
       /* For ENRP */
       Route::get('/search_mainenrp', 'searchMainENRPController@index')->name('searchenrp.index');
       Route::resource('linkmainenrp','EmandateController');
       Route::resource('link','EmandateControllerDetails');
-
 
       /*TESTING SP */
       Route::get('/sp_info', 'DashboardController@sp_info')->name('dashboard.sp_info');
@@ -83,12 +80,10 @@ Route::middleware([AuthenticatedUser::class])->group(function() {
           return Redirect::to('http://localhost/enrp/newenrp/enrp.php');
       })->name('sp01');
 
-
       /* TEST FOR CRUD USING Product */
       //Route::resource('products','ProductController');
       //Route::resource('change-status','StatusController');
       //Route::get('/cft-list', 'CFTController@index')->name('cft_list.index');
      //Route::get('/cft-listdetails', 'CFTControllerDetails@index')->name('cft_listdetails.index');
-     //Route::get('/emandate-listdetails', 'EmandateControllerDetails@index')->name('Emandate_listDetails.index'); 
-     
+     //Route::get('/emandate-listdetails', 'EmandateControllerDetails@index')->name('Emandate_listDetails.index');
 });
