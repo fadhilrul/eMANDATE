@@ -11,6 +11,7 @@
 	@media (min-width: 1280px){
 	  .container {
 	  max-width: 100vw !important;
+	  
 	 }
 	 
 	}
