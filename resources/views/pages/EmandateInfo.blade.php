@@ -12,6 +12,7 @@
 	  .container {
 	  max-width: 100vw !important;
 	 }
+	 
 	}
 
 
