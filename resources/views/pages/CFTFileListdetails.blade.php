@@ -14,9 +14,13 @@
 
 <div class="main-content flex-1 bg-gray-100 mt-12 md:mt-2 pb-24 md:pb-5">
 
-  <div class="bg-blue-800 p-2 shadow text-xl text-white">
-      <h3 class="font-bold pl-2">Maklumat Transaksi (CFT)</h3>
-  </div>
+  <div class="bg-blue-800 p-2 shadow text-xl text-white flex justify-between items-center">
+    <h3 class="font-bold pl-2"> Maklumat Arahan Potongan CFT</h3>
+    <span class=" text-base pr-2 ">
+      {{-- Negeri : {{ session()->get('authenticatedUser')['state_name'] }} --}}
+              CAWANGAN : {{ session()->get('authenticatedUser')['branch_name'] }}
+    </span>
+</div>
 
   <div class="flex flex-wrap">
     <table class="w-full whitespace-no-wrap table-auto">
@@ -117,7 +121,7 @@
                               <div class = "flex-grow">
                                     <div class="text-sm leading-5 text-gray-800">
 
-                                      <b>Nama</b>
+                                      <b>Nama Usahawan</b>
 
                                     </div>
                                 </div>
@@ -147,7 +151,7 @@
                               <div class = "flex-grow">
                                     <div class="text-sm leading-5 text-gray-800">
 
-                                     <b>Jumlah Transaksi</b>
+                                     <b>Amaun Potongan</b>
 
                                     </div>
                                 </div>
@@ -176,7 +180,7 @@
                               <div class = "flex-grow">
                                     <div class="text-sm leading-5 text-gray-800">
 
-                                     <b>Tarikh Potongan<b>
+                                     <b>Tarikh Mula Potongan<b>
 
                                     </div>
                                 </div>
@@ -276,7 +280,7 @@
                                 <div class="text-sm leading-5 text-gray-800">
                                   
                                   <div class="text-sm leading-5 text-gray-800">
-                                    <input value = "{{ $item->status }}" disabled = true
+                                    <input value = "{{ $item->status_desc }}" disabled = true
                                       class="block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input"
                                     />
                                   </div>

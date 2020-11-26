@@ -19,19 +19,39 @@
 		  
 		  <div class="main-content flex-1 bg-gray-50 mt-12 md:mt-2 pb-24 md:pb-5">
 		  
-			<div class="bg-blue-800 p-2 shadow text-xl text-white">
-				<h3 class="font-bold pl-2">E-FMS DASHBOARD</h3>
+			<div class="bg-blue-800 p-2 shadow text-xl text-white flex justify-between items-center">
+				<h3 class="font-bold pl-2">e-FMS Dashboard</h3>
+				<span class=" text-base pr-2 ">
+				  {{-- Negeri : {{ session()->get('authenticatedUser')['state_name'] }} --}}
+				  CAWANGAN : {{ session()->get('authenticatedUser')['branch_name'] }}
+				</span>
 			</div>
 			<!--CARD SUB SYSTEM -->
-
+			
+			  
 			<div class="container my-12 mx-auto px-4 md:px-12">
 				<div class="flex flex-wrap -mx-1 lg:-mx-4">
 			
 					<!-- Column -->
 					<div class="my-1 px-1 w-40 md:w-1/6 lg:my-2 lg:px-4 lg:w-1/6">
-			
+						
+						
+							<div class="h-32 w-32 relative cursor-pointer mb-5">
+							  <div class="absolute inset-0 bg-white opacity-25 rounded-lg shadow-2xl"></div>
+							  <div class="absolute inset-0 transform  hover:scale-75 transition duration-300">
+								<div class="h-full w-full bg-white rounded-lg shadow-2xl">
+									<a href="{{ route('emandate.dashboard') }}">
+										<img alt="Placeholder" class="block h-auto w-full" src="{{ asset('assets/img/moneytime.png') }}">
+										<B class= text-blue-500>E-Mandate<B>
+									</a>
+									
+								</div>
+							  </div>
+							</div>
+						
+
 						<!-- Article -->
-						<article class="overflow-hidden rounded-lg shadow-lg bg-blue-50">
+						{{-- <article class="overflow-hidden rounded-lg shadow-lg bg-blue-50">
 			
 							<a href="{{ route('emandate.dashboard') }}">
 							<img alt="Placeholder" class="block h-auto w-full" src="{{ asset('assets/img/moneytime.png') }}">
@@ -44,7 +64,7 @@
 										</a>
 									</h1>
 							</header>
-						</article>
+						</article> --}}
 						<!-- END Article -->
 			
 					</div>

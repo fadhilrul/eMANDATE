@@ -205,32 +205,42 @@ class EmandateInfoController extends Controller
 
     public function activestatus(Request $request)
     {
-    
-        $info = EMANDATE_INFO::where('idnum', $request->itemid)->first();
+        $branch_code = session('authenticatedUser')['branch_code'];
+        if  ($branch_code == '0009')
+        {
 
-        if ($request->action == 0) {
-            
-            $info->blocked_paymnt_status = ($request->action == 0) ? 0 : 1 ;
-            $info->status_desc = ($request->action == 0) ? 'RE-ACTIVE' : 'ON-HOLD';
-            $info->blockedby = session()->get('authenticatedUser')['userid'];
-            $info->reasons = ($request->reasons);
-            $info->blockpayment_flag = 0;
-            $info->FAILEDCOUNT = 0;
-            $info->save();
-            
+            $info = EMANDATE_INFO::where('idnum', $request->itemid)->first();
+
+            if ($request->action == 0) {
+                
+                $info->blocked_paymnt_status = ($request->action == 0) ? 0 : 1 ;
+                $info->status_desc = ($request->action == 0) ? 'RE-ACTIVE' : 'ON-HOLD';
+                $info->blockedby = session()->get('authenticatedUser')['userid'];
+                $info->reasons = ($request->reasons);
+                $info->blockpayment_flag = 0;
+                $info->FAILEDCOUNT = 0;
+                $info->blocked_paymnt_status = 0;
+                $info->save();
+                
+            }else{
+
+                $info->blocked_paymnt_status = ($request->action == 0) ? 0 : 1 ;
+                $info->status_desc = ($request->action == 0) ? 'RE-ACTIVE' : 'ON-HOLD';
+                $info->blockedby = session()->get('authenticatedUser')['userid'];
+                $info->reasons = ($request->reasons);
+                $info->blockpayment_flag = 3;
+                $info->FAILEDCOUNT = 3;
+                $info->blocked_paymnt_status = 1;
+                // $info->blockpayment_date = date('Y-m-d');
+                $info->save();
+                
+
+            }
+            return back()->with('activestatus', 'Status telah dikemaskini.');
         }else{
-
-            $info->blocked_paymnt_status = ($request->action == 0) ? 0 : 1 ;
-            $info->status_desc = ($request->action == 0) ? 'RE-ACTIVE' : 'ON-HOLD';
-            $info->blockedby = session()->get('authenticatedUser')['userid'];
-            $info->reasons = ($request->reasons);
-            $info->blockpayment_flag = 3;
-            $info->FAILEDCOUNT = 3;
-            // $info->blockpayment_date = date('Y-m-d');
-            $info->save();
-
-        }
-        return back()->with('activestatus', 'Status telah dikemaskini.');
+            return back()->with('activestatus', 'Anda Tidak Mempunyai Akses Untuk Melakukan Tindakan ini.');
+        }          
+ 
     }
 }
 

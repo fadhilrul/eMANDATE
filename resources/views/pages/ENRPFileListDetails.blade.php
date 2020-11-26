@@ -14,9 +14,13 @@
 
 <div class="main-content flex-1 bg-gray-100 mt-12 md:mt-2 pb-24 md:pb-5">
 
-  <div class="bg-blue-800 p-2 shadow text-xl text-white">
-      <h3 class="font-bold pl-2">Maklumat Nama (ENRP)</h3>
-  </div>
+  <div class="bg-blue-800 p-2 shadow text-xl text-white flex justify-between items-center">
+    <h3 class="font-bold pl-2"> Maklumat Detail ENRP</h3>
+    <span class=" text-base pr-2 ">
+      {{-- Negeri : {{ session()->get('authenticatedUser')['state_name'] }} --}}
+              CAWANGAN : {{ session()->get('authenticatedUser')['branch_name'] }}
+    </span>
+</div>
 
   <div class="flex flex-wrap">
     <table class="w-full whitespace-no-wrap table-auto">
@@ -88,7 +92,7 @@
                               <div class = "flex-grow">
                                     <div class="text-sm leading-5 text-gray-800">
 
-                                     <b>Nama</b>
+                                     <b>Nama Usahawan</b>
 
                                     </div>
                                 </div>
@@ -187,7 +191,7 @@
                                 <div class="text-sm leading-5 text-gray-800">
                                   
                                   <div class="text-sm leading-5 text-gray-800">
-                                    <input value = "{{ $item->debitamt }}" disabled = true
+                                    <input value = "{{ substr($item->debitamt,11,3) }}" disabled = true
                                       class="block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input"
                                     />
                                   </div>
@@ -205,7 +209,7 @@
                               <div class = "flex-grow">
                                     <div class="text-sm leading-5 text-gray-800">
 
-                                     <b>Tujuan</b>
+                                     <b>Skim</b>
 
                                     </div>
                                 </div>
@@ -229,18 +233,18 @@
                       </tr>
 
                       <tr>
-                        <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-500">
+                        {{-- <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-500">
                             <div class="flex items-center">
                               <div class = "flex-grow">
                                     <div class="text-sm leading-5 text-gray-800">
 
-                                     <b>Tarikh Lulus<b>
+                                     <b>Tarikh Lulus Pinjaman <b>
 
                                     </div>
                                 </div>
                             </div>
-                        </td> 
-                        <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-500">
+                        </td>  --}}
+                        {{-- <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-500">
                           <div class="flex items-center">
                             <div class = "flex-grow">
                                 <div class="text-sm leading-5 text-gray-800">
@@ -254,7 +258,7 @@
                                 </div>
                               </div>
                           </div>
-                        </td> 
+                        </td>  --}}
                       </tr>
 
                       <tr>
@@ -263,7 +267,7 @@
                               <div class = "flex-grow">
                                     <div class="text-sm leading-5 text-gray-800">
 
-                                     <b>Mula Bayar</b>
+                                     <b>Tarikh mula Arahan Potongan</b>
 
                                     </div>
                                 </div>
@@ -292,7 +296,7 @@
                               <div class = "flex-grow">
                                     <div class="text-sm leading-5 text-gray-800">
 
-                                     <b>Tamat Bayar</b>
+                                     <b>Tarikh Akhir Arahan Potongan</b>
 
                                     </div>
                                 </div>

@@ -23,84 +23,38 @@
           
           <div class="md:mt-12 md:w-48 md:fixed md:left-0 md:top-0 content-center md:content-start text-left justify-between">
             <ul class="list-reset flex flex-row md:flex-col py-0 md:py-3 px-1 md:px-2 text-center md:text-left">
-         <!--     <li class="mr-3 flex-1">
-                <a href="{{ route('dashboard') }}" class="block py-1 md:py-3 pl-1 align-middle text-blue no-underline hover:text-blue border-b-2 border-blue-800 hover:border-pink-500">
-                    <i class="fas fa-tasks pr-0 md:pr-3"></i><span class="pb-1 md:pb-0 text-xs md:text-base text-blue-600 md:text-blue-400 block md:inline-block">DASHBOARD</span>
-                </a>
-              </li>  
-              <li class="mr-3 flex-1">
-                    <a href="{{ route('emandate.dashboard') }}" class="block py-1 md:py-3 pl-1 align-middle text-blue no-underline hover:text-blue border-b-2 border-blue-800 hover:border-pink-500">
-                        <i class="fas fa-tasks pr-0 md:pr-3"></i><span class="pb-1 md:pb-0 text-xs md:text-base text-blue-600 md:text-blue-400 block md:inline-block">e-MANDATE</span>
-                    </a>
-                </li>
-                <li class="mr-3 flex-1">
-                    <a href="{{ route('searchenrp.index') }}" class="block py-1 md:py-3 pl-1 align-middle text-blue no-underline hover:text-blue border-b-2 border-blue-800 hover:border-purple-500">
-                        <i class="fa fa-envelope pr-0 md:pr-3"></i><span class="pb-1 md:pb-0 text-xs md:text-base text-blue-600 md:text-blue-400 block md:inline-block">FILE ENRP</span>
-                    </a>
-                </li>
-                <li class="mr-3 flex-1">
-                  <a href="{{ route('searchcft.index') }}" class="block py-1 md:py-3 pl-1 align-middle text-blue no-underline hover:text-blue border-b-2 border-blue-800 hover:border-purple-500">
-                      <i class="fa fa-envelope pr-0 md:pr-3"></i><span class="pb-1 md:pb-0 text-xs md:text-base text-blue-600 md:text-blue-400 block md:inline-block">FILE CFT</span>
-                  </a>
-              </li>  -->
-           <!--     <li class="mr-3 flex-1">
-                    <a href="{{ route('report.dashboard') }}" class="block py-1 md:py-3 pl-0 md:pl-1 align-middle text-blue no-underline hover:text-blue border-b-2 border-gray-800 hover:border-blue-500">
-                        <i class="fa fa-wallet pr-0 md:pr-3"></i><span class="pb-1 md:pb-0 text-xs md:text-base text-blue-600 md:text-blue-400 block md:inline-block">LAPORAN</span>
-                    </a>
-                </li>
-
-               
-
-                <li class="mr-3 flex-1">
-                  <a href="http://localhost/enrp/enrp.php" class="block py-1 md:py-3 pl-0 md:pl-1 align-middle text-blue no-underline hover:text-blue border-b-2 border-gray-800 hover:border-blue-500">
-                      <i class="fa fa-wallet pr-0 md:pr-3"></i><span class="pb-1 md:pb-0 text-xs md:text-base text-blue-600 md:text-blue-400 block md:inline-block">ENRP Process</span>
-                  </a>
-              </li>
-
-              <li class="mr-3 flex-1">
-                <a href="http://localhost/enrp/cft2.php" class="block py-1 md:py-3 pl-0 md:pl-1 align-middle text-blue no-underline hover:text-blue border-b-2 border-gray-800 hover:border-blue-500">
-                    <i class="fa fa-wallet pr-0 md:pr-3"></i><span class="pb-1 md:pb-0 text-xs md:text-base text-blue-600 md:text-blue-400 block md:inline-block">CFT Process</span>
-                </a>
-            </li>
-
-            <li class="mr-3 flex-1">
-              <a href="{{ route('dashboard.sp_info') }}" class="block py-1 md:py-3 pl-0 md:pl-1 align-middle text-blue no-underline hover:text-blue border-b-2 border-gray-800 hover:border-blue-500">
-                  <i class="fa fa-wallet pr-0 md:pr-3"></i><span class="pb-1 md:pb-0 text-xs md:text-base text-blue-600 md:text-blue-400 block md:inline-block">SP Process</span>
-              </a>
-          </li>   -->
-
-
+              
             </ul>
         </div>
 
-          <ul class="mt-6">
-            <li class="relative px-6 py-3">
-              <span
-                class="absolute inset-y-0 left-0 w-1 bg-purple-600 rounded-tr-lg rounded-br-lg"
-                aria-hidden="true"
-              ></span>
-              <a
-                class="inline-flex items-center w-full text-sm font-semibold text-gray-800 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200 dark:text-gray-100"
-                href="{{ route('dashboard') }}"
-              >
-                <svg
-                  class="w-5 h-5"
+            <ul class="mt-6">
+              <li class="relative px-6 py-3">
+                <span
+                  class="absolute inset-y-0 left-0 w-1 bg-purple-600 rounded-tr-lg rounded-br-lg"
                   aria-hidden="true"
-                  fill="none"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
+                ></span>
+                <a
+                  class="inline-flex items-center w-full text-sm font-semibold text-gray-800 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200 dark:text-gray-100"
+                  href="{{ route('dashboard') }}"
                 >
-                  <path
-                    d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"
-                  ></path>
-                </svg>
-                <span class="ml-4">Dashboard</span>
-              </a>
-            </li>
-          </ul> 
+                  <svg
+                    class="w-5 h-5"
+                    aria-hidden="true"
+                    fill="none"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"
+                    ></path>
+                  </svg>
+                  <span class="ml-4">Dashboard</span>
+                </a>
+              </li>
+            </ul> 
           <ul>  
            
             <li class="relative px-6 py-3">

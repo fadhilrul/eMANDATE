@@ -132,6 +132,7 @@
   </head>
   <body>
       @yield('body')
+      <x-global-loading/>
       @livewireScripts
   </body>
 </html>

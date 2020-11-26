@@ -1,10 +1,14 @@
 <main class="h-full pb-16 overflow-y-auto">
 <div class="container px-6 mx-auto grid">
 	<div class="main-content flex-1 bg-gray-100 mt-12 md:mt-2 pb-24 md:pb-5">
-		<div class="bg-blue-800 p-2 shadow text-xl text-white">
+        <div class="bg-blue-800 p-2 shadow text-xl text-white flex justify-between items-center">
             <h3 class="font-bold pl-2">Senarai Nama Fail ENRP</h3>
+            <span class=" text-base pr-2 ">
+              {{-- Negeri : {{ session()->get('authenticatedUser')['state_name'] }} --}}
+                      CAWANGAN : {{ session()->get('authenticatedUser')['branch_name'] }}
+            </span>
         </div>
-        {{ session()->get('authenticatedUser')['state_code'] }}
+        {{-- {{ session()->get('authenticatedUser')['state_code'] }} --}}
     <!-- search section -->
 	<!--	<div class="-my-2 py-2 overflow-x-auto sm:-mx-6 sm:px-6 lg:-mx-8 pr-10 lg:px-8">  -->
 			  <div class="align-middle rounded-tl-lg rounded-tr-lg inline-block w-full py-4 overflow-hidden bg-white shadow-lg px-12">

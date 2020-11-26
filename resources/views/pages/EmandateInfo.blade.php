@@ -21,9 +21,13 @@
 <div class="container grid px-6 mx-auto">
 <div class="main-content flex-1 bg-gray-100 mt-12 md:mt-2 pb-24 md:pb-5">
 
-		<div class="bg-blue-800 p-2 shadow text-xl text-white">
-			<h3 class="font-bold pl-2"> Info e-Mandate</h3>
-		</div>
+	<div class="bg-blue-800 p-2 shadow text-xl text-white flex justify-between items-center">
+		<h3 class="font-bold pl-2">Info e-Mandate</h3>
+		<span class=" text-base pr-2 ">
+		  {{-- Negeri : {{ session()->get('authenticatedUser')['state_name'] }} --}}
+				  CAWANGAN : {{ session()->get('authenticatedUser')['branch_name'] }}
+		</span>
+	</div>
 
 <!-- table info -->	
 @foreach ($INFOS as $item)
@@ -33,15 +37,15 @@
 		<tr>
 			<td class="px-4 py-4 border border-indigo-dark font-semibold">
 				<div class = "flex-grow">
-					<div class="text-sm leading-5 text-gray-800">
-						Akaun No: <input value = "{{ $item->fms_acct_no }}" disabled = true/>
+					<div class="text-sm leading-5 text-gray-800 text-black-500">
+						Akaun No: &nbsp;&nbsp; <i><input value = "{{ $item->fms_acct_no }}" disabled = true/></i>
 					</div>
 				</div>
 			</td>
 			<td class="px-4 py-4 border border-indigo-dark font-semibold">
 				<div class = "flex-grow">
-					<div class="text-sm leading-5 text-gray-800">
-						Kad Pengenalan: <input value = "{{ $item->idnum }}" disabled = true/>
+					<div class="text-sm leading-5 text-gray-800 text-black-500">
+						Kad Pengenalan: &nbsp;&nbsp; <i><input value = "{{ $item->idnum }}" disabled = true/></i>
 					</div>
 				</div>
 			</td>
@@ -50,8 +54,8 @@
 		<tr>
 			<td class="px-4 py-4 border border-indigo-dark font-semibold" colspan = "2">
 				<div class = "flex-grow">
-					<div class="text-sm leading-5 text-gray-800">
-						Nama Usahawan: <input value = "{{ $item->buyername }}" disabled = true/>
+					<div class="text-sm leading-5 text-gray-800 text-black-500">
+						Nama Usahawan: &nbsp;&nbsp; <i><input value = "{{ $item->buyername }}" disabled = true/></i>
 					</div>
 				</div>
 			</td>
@@ -79,7 +83,7 @@
 		</li>
 		<li class="-mb-px mr-2 last:mr-0 flex-auto text-center">
 		  <a class="text-xs font-bold uppercase px-5 py-3 shadow-lg rounded block leading-normal text-blue-600 bg-white" onclick="changeAtiveTab(event,'tab-3')">
-			<i class="fas fa-briefcase text-base mr-1"></i>  Status Arahan Potongan
+			<i class="fas fa-briefcase text-base mr-1"></i>  Status Arahan Potongan (CFT)
 		  </a>
 		</li>
 		<li class="-mb-px mr-2 last:mr-0 flex-auto text-center">
@@ -99,7 +103,7 @@
 		  </li>
 		  <li class="-mb-px mr-2 last:mr-0 flex-auto text-center">
 			<a class="text-xs font-bold uppercase px-5 py-3 shadow-lg rounded block leading-normal text-blue-600 bg-white" onclick="changeAtiveTab(event,'tab-7')">
-			  <i class="fas fa-briefcase text-base mr-1"></i>  eFMS
+			  <i class="fas fa-briefcase text-base mr-1"></i>  e-FMS
 			</a>
 		  </li>
 	  </ul>
@@ -148,7 +152,7 @@
 											  </tr>
 
 											  <tr>
-												  <td class="px-4 py-4 border border-indigo-dark font-semibold">No Akaun</td>
+												  <td class="px-4 py-4 border border-indigo-dark font-semibold">No Akaun Pembiayaan</td>
 													  <td class="px-4 py-4 border border-indigo-dark">
 														  <div class = "flex-grow">
 															  <div class="text-sm leading-5 text-gray-800">
@@ -160,27 +164,12 @@
 													  </td>
 												  </td>
 											  </tr>
-
 											  <tr>
-												  <td class="px-4 py-4 border border-indigo-dark font-semibold">No Telefon</td>
-													  <td class="px-4 py-4 border border-indigo-dark">
-														  <div class = "flex-grow">
-															  <div class="text-sm leading-5 text-gray-800">
-																  <input value = "{{ $item->telno }}" disabled = true
-																		class="block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input"
-																  />
-															  </div>
-														  </div>
-													  </td>
-												  </tr>
-											  </tr>
-
-											  <tr>
-												<td class="px-4 py-4 border border-indigo-dark font-semibold">Skim</td>
+												<td class="px-4 py-4 border border-indigo-dark font-semibold">No Akaun Bank Simpanan/Semasa</td>
 													<td class="px-4 py-4 border border-indigo-dark">
 														<div class = "flex-grow">
 															<div class="text-sm leading-5 text-gray-800">
-																<input value = "{{ $item->purpose }}" disabled = true
+																<input value = "{{$item->buyeracct}}" disabled = true
 																	  class="block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input"
 																/>
 															</div>
@@ -188,7 +177,6 @@
 													</td>
 												</td>
 											</tr>
-
 											  {{-- <tr>
 												  <td class="px-4 py-4 border border-indigo-dark font-semibold">Status</td>
 													  <td class="px-4 py-4 border border-indigo-dark">
@@ -208,7 +196,7 @@
 								  <div class="pl-4">
 									  <table class="md:table-auto lg:table-fixed table-auto w-full">
 										  <tbody>
-											<tr>
+											{{-- <tr>
 												<td class="px-4 py-4 border border-indigo-dark font-semibold">Jumlah Pinjaman</td>
 													<td class="px-4 py-4 border border-indigo-dark">
 														<div class = "flex-grow">
@@ -220,8 +208,8 @@
 														</div>
 													</td>
 												</td>
-											</tr>
-											  <tr>
+											</tr> --}}
+											  {{-- <tr>
 												  <td class="px-4 py-4 border border-indigo-dark font-semibold">Amaun Debit</td>
 													  <td class="px-4 py-4 border border-indigo-dark">
 														  <div class = "flex-grow">
@@ -233,9 +221,22 @@
 														  </div>
 													  </td>
 												  </td>
-											  </tr>
+											  </tr> --}}
 											  <tr>
-												<td class="px-4 py-4 border border-indigo-dark font-semibold">Jumlah Potongan Bulanan</td>
+												<td class="px-4 py-4 border border-indigo-dark font-semibold">Skim</td>
+													<td class="px-4 py-4 border border-indigo-dark">
+														<div class = "flex-grow">
+															<div class="text-sm leading-5 text-gray-800">
+																<input value = "{{ $item->purpose }}" disabled = true
+																	  class="block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input"
+																/>
+															</div>
+														</div>
+													</td>
+												</td>
+											</tr>
+											  <tr>
+												<td class="px-4 py-4 border border-indigo-dark font-semibold">Jumlah Arahan Debit</td>
 													<td class="px-4 py-4 border border-indigo-dark">
 														<div class = "flex-grow">
 															<div class="text-sm leading-5 text-gray-800">
@@ -248,7 +249,7 @@
 												</td>
 											</tr>			
 											  <tr>
-												  <td class="px-4 py-4 border border-indigo-dark font-semibold">Kekerapan</td>
+												  <td class="px-4 py-4 border border-indigo-dark font-semibold">Bilangan Kekerapan</td>
 													  <td class="px-4 py-4 border border-indigo-dark">
 														  <div class = "flex-grow">
 															  <div class="text-sm leading-5 text-gray-800">
@@ -260,10 +261,20 @@
 													  </td>
 												  </td>
 											  </tr>
-
-											  
-
 											  <tr>
+												<td class="px-4 py-4 border border-indigo-dark font-semibold">No Telefon</td>
+													<td class="px-4 py-4 border border-indigo-dark">
+														<div class = "flex-grow">
+															<div class="text-sm leading-5 text-gray-800">
+																<input value = "{{ $item->telno }}" disabled = true
+																	  class="block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input"
+																/>
+															</div>
+														</div>
+													</td>
+												</tr>
+											</tr>
+											  {{-- <tr>
 												  <td class="px-4 py-4 border border-indigo-dark font-semibold">Mod Kekerapan</td>
 													  <td class="px-4 py-4 border border-indigo-dark">
 														  <div class = "flex-grow">
@@ -275,10 +286,7 @@
 														  </div>
 													  </td>
 												  </td>
-											  </tr>
-
-											  
-
+											  </tr> --}}
 											  {{-- <tr>
 												  <td class="px-4 py-4 border border-indigo-dark font-semibold">Tarikh Mula</td>
 													  <td class="px-4 py-4 border border-indigo-dark">
@@ -402,7 +410,7 @@
 													</td>	
 												</tr>
 
-												<tr>
+												{{-- <tr>
 													<td class="px-4 py-4 border border-indigo-dark font-semibold">Amaun Potongan Bulanan </td>
 														<td class="px-4 py-4 border border-indigo-dark">
 															<div class = "flex-grow">
@@ -412,10 +420,9 @@
 																	/>
 																</div>
 															</div>
-										
 														</td>
 													</td>	
-												</tr>
+												</tr> --}}
 
 											</tbody>
 										</table>
@@ -507,7 +514,7 @@
 											<x-slot name="message">{{ session()->get('activestatus') }}</x-slot>
 											</x-general.alert.base>
 										@endif
-
+										
 										<tbody>
 											<tr>
 												<td class="px-2 py-2 border border-indigo-dark font-semibold">Kod : {{ $item->blocked_paymnt_status }}
@@ -525,42 +532,87 @@
 																<form method="post" action="{{ route('EmandateInfo.activestatus') }}">
 																	@csrf
 																	<input type="hidden" name="itemid" value="{{ $item->idnum }}">
-																		<select id="action" name="action">
-																			<option selected>PLEASE CHOOSE</option>
-																			<option value="0" {{$item->blocked_paymnt_status == 0 ? 'selected':''}}>RE-ACTIVE</option>
-																			<option value="1" {{$item->blocked_paymnt_status == 1 ? 'selected':''}}>ON-HOLD</option>
-																		</select>
-																		<div class="pl-2">
-																		{{-- <button type="submit" class="btnnormal button2">SUBMIT</button> --}}
-																		<!-- start modal -->
-																		<div x-data="{ show: false }">
-																			<div class="flex justify-center">
-																				<button @click={show=true} type="button" class="leading-tight bg-blue-500 text-gray-200 rounded px-6 py-2 text-sm focus:outline-none focus:border-white">Tindakan</Button>
-																			</div>
-																			<div x-show="show" tabindex="0" class="z-40 overflow-auto left-0 top-0 bottom-0 right-0 w-full h-full fixed">
-																				<div  @click.away="show = false" class="z-50 relative p-3 mx-auto my-0 max-w-full" style="width: 600px; margin-top:315px">
-																					<div class="bg-white rounded shadow-lg border flex flex-col overflow-hidden">
-																						{{-- <button @click={show=false} class="fill-current h-6 w-6 absolute right-0 top-0 m-6 font-3xl font-bold"></button>  <!--&times;--> --}}
-																						<div class="px-6 py-3 text-xl border-b font-bold">Ulasan/Keterangan</div>
-																						<div class="p-6 flex-grow">
-																							<!-- text area -->
-																							<label class="block">
-																								<textarea class="form-textarea mt-1 block w-full" rows="3" placeholder="Ulasan Tidak boleh melebihi 100 patah perkataan. @error('reasons') is-invalid @enderror" name="reasons" maxlength = "100" required>{{ old('reasons') }}</textarea>
-																							</label>
-																							<!-- end text area -->
+																		@if (session('authenticatedUser')['branch_code'] == '0009')
+																			@if ($item->code_blocked == '02')
+																			
+																					<select class ="form-control" id="action" name="action" disabled>
+																						{{-- <option selected>PLEASE CHOOSE</option> --}}
+																							<option value="" {{$item->blocked_paymnt_status == null ? 'selected':''}}>SILA PILIH</option>
+																							<option value="0" {{$item->blocked_paymnt_status == 0 ? 'selected':''}}>RE-ACTIVE</option>
+																							<option value="1" {{$item->blocked_paymnt_status == 1 ? 'selected':''}}>ON-HOLD</option>
+																							{{-- {{dd($item->blocked_paymnt_status)}}	 --}}
+																					</select>
+																					
+																					<!-- start modal -->
+																					<div x-data="{ show: false }">
+																						<div class="flex justify-center">
+																							<button @click={show=true} type="button" class="leading-tight bg-blue-500 text-gray-200 rounded px-6 py-2 text-sm focus:outline-none focus:border-white" hidden>Tindakan</Button>
 																						</div>
-																						<div class="px-6 py-3 border-t">
-																							<div class="flex justify-end">
-																								<button @click={show=false} type="button" class="bg-gray-700 text-gray-100 rounded px-4 py-2 mr-1">Tutup</Button>
-																								<button  @click={show=true} type="sumbit" class="bg-blue-600 text-gray-200 rounded px-4 py-2">Simpan</Button>
+																						<div x-show="show" tabindex="0" class="z-40 overflow-auto left-0 top-0 bottom-0 right-0 w-full h-full fixed">
+																							<div  @click.away="show = false" class="z-50 relative p-3 mx-auto my-0 max-w-full" style="width: 600px; margin-top:315px">
+																								<div class="bg-white rounded shadow-lg border flex flex-col overflow-hidden">
+																									{{-- <button @click={show=false} class="fill-current h-6 w-6 absolute right-0 top-0 m-6 font-3xl font-bold"></button>  <!--&times;--> --}}
+																									<div class="px-6 py-3 text-xl border-b font-bold">Ulasan/Keterangan</div>
+																									<div class="p-6 flex-grow">
+																										<!-- text area -->
+																										<label class="block">
+																											<textarea class="form-textarea mt-1 block w-full" rows="3" placeholder="Ulasan Tidak boleh melebihi 100 patah perkataan. @error('reasons') is-invalid @enderror" name="reasons" maxlength = "100" required>{{ old('reasons') }}</textarea>
+																										</label>
+																										<!-- end text area -->
+																									</div>
+																									<div class="px-6 py-3 border-t">
+																										<div class="flex justify-end src=your-loader-url">
+																											<button @click={show=false} type="button" class="bg-gray-700 text-gray-100 rounded px-4 py-2 mr-1">Tutup</Button>
+																											<button  @click={show=true} type="sumbit" class="bg-blue-600 text-gray-200 rounded px-4 py-2">Simpan</Button>
+																										</div>
+																									</div>
+																								</div>
 																							</div>
+																							<div class="z-40 overflow-auto left-0 top-0 bottom-0 right-0 w-full h-full fixed bg-black opacity-50"></div>
 																						</div>
 																					</div>
+																				<!-- end modal -->
+																			@else
+																			{{-- {{dump($item->blocked_paymnt_status)}} --}}
+																				<select class ="form-control" id="action" name="action">
+																					
+																					{{-- <option selected>PLEASE CHOOSE</option> --}}
+																					<option value="99" {{$item->blocked_paymnt_status == null ? 'selected':''}} disabled>SILA PILIH</option>
+																					<option value="0" {{$item->blocked_paymnt_status == 0 and $item->blocked_paymnt_status != null  ? 'selected':''}}>RE-ACTIVE</option>
+																					<option value="1" {{$item->blocked_paymnt_status == 1 and $item->blocked_paymnt_status != null  ? 'selected':''}}>ON-HOLD</option>
+																				</select>
+																				<!-- start modal -->
+																				<div x-data="{ show: false }">
+																					<div class="flex justify-center">
+																						<button @click={show=true} type="button" class="leading-tight bg-blue-500 text-gray-200 rounded px-6 py-2 text-sm focus:outline-none focus:border-white">Tindakan</Button>
+																					</div>
+																					<div x-show="show" tabindex="0" class="z-40 overflow-auto left-0 top-0 bottom-0 right-0 w-full h-full fixed">
+																						<div  @click.away="show = false" class="z-50 relative p-3 mx-auto my-0 max-w-full" style="width: 600px; margin-top:315px">
+																							<div class="bg-white rounded shadow-lg border flex flex-col overflow-hidden">
+																								{{-- <button @click={show=false} class="fill-current h-6 w-6 absolute right-0 top-0 m-6 font-3xl font-bold"></button>  <!--&times;--> --}}
+																								<div class="px-6 py-3 text-xl border-b font-bold">Ulasan/Keterangan</div>
+																								<div class="p-6 flex-grow">
+																									<!-- text area -->
+																									<label class="block">
+																										<textarea class="form-textarea mt-1 block w-full" rows="3" placeholder="Ulasan Tidak boleh melebihi 100 patah perkataan. @error('reasons') is-invalid @enderror" name="reasons" maxlength = "100" required>{{ old('reasons') }}</textarea>
+																									</label>
+																									<!-- end text area -->
+																								</div>
+																								<div class="px-6 py-3 border-t">
+																									<div class="flex justify-end src=your-loader-url">
+																										<button @click={show=false} type="button" class="bg-gray-700 text-gray-100 rounded px-4 py-2 mr-1">Tutup</Button>
+																										<button  @click={show=true} type="sumbit" class="bg-blue-600 text-gray-200 rounded px-4 py-2">Simpan</Button>
+																									</div>
+																								</div>
+																							</div>
+																						</div>
+																						<div class="z-40 overflow-auto left-0 top-0 bottom-0 right-0 w-full h-full fixed bg-black opacity-50"></div>
+																					</div>
 																				</div>
-																				<div class="z-40 overflow-auto left-0 top-0 bottom-0 right-0 w-full h-full fixed bg-black opacity-50"></div>
-																			</div>
-																		<!-- end modal -->
-																		</div>
+																			<!-- end modal -->
+																			@endif
+																			<div class="pl-2">
+																		@endif	
 																</form>
 														</div>
 													</div>
@@ -574,6 +626,7 @@
 												</td>
 											</tr>
 										</tbody>
+										
 									</table>
 								</div>		
 							</div>
@@ -596,7 +649,7 @@
 						<th class="px-6 py-3 border-b-2 border-gray-300 text-left leading-4 text-blue-500 tracking-wider">Tarikh Potongan</th>
 						<th class="px-6 py-3 border-b-2 border-gray-300 text-left leading-4 text-blue-500 tracking-wider">BankID</th>
 						{{-- <th class="px-6 py-3 border-b-2 border-gray-300 text-left leading-4 text-blue-500 tracking-wider">Matawang</th> --}}
-						<th class="px-6 py-3 border-b-2 border-gray-300 text-left leading-4 text-blue-500 tracking-wider">Amaun</th>
+						<th class="px-6 py-3 border-b-2 border-gray-300 text-left leading-4 text-blue-500 tracking-wider">Amaun(RM)</th>
 						{{-- <th class="px-6 py-3 border-b-2 border-gray-300 text-left leading-4 text-blue-500 tracking-wider">Bil Percubaan Bulanan</th> --}}
 						<th class="px-6 py-3 border-b-2 border-gray-300 text-left leading-4 text-blue-500 tracking-wider">Kod Status</th>
 						<th class="px-6 py-3 border-b-2 border-gray-300 text-left leading-4 text-blue-500 tracking-wider">Status</th>
@@ -669,9 +722,9 @@
 					<td class="px-6 py-4 whitespace-no-wrap border-b border-gray-500">
 					  <div class="flex items-center">
 						  <div>
-							  <div class="text-sm leading-5 text-gray-800">
+							  <div class="text-sm leading-5 text-gray-800" >
 	  
-								RM{{ $item->tranamt }}
+								{{ $item->tranamt }}
 	  
 							  </div>
 						  </div>
@@ -793,25 +846,25 @@
 														
 													</div>
 													<div class="flex-grow flex px-3 py-3 text-grey-darker items-center border-b -mx-2">
-														<div class="w-2/5 xl:w-1/4 px-6 flex items-center" style="font-size:11px">
+														<div class="w-2/5 xl:w-1/4 px-6 flex items-center" style="font-size:12px">
 															Tempoh Pembiayaan
 														</div>
-														<div class="w-2/5 xl:w-1/4 px-6 flex items-center" style="font-size:11px">
+														<div class="w-2/5 xl:w-1/4 px-6 flex items-center" style="font-size:12px">
 															
 																{{$data[0]->duration}} Bulan
 															
 														</div>
-														<div class="w-2/5 xl:w-1/4 px-6 flex items-center" style="font-size:11px">
+														<div class="w-2/5 xl:w-1/4 px-6 flex items-center" style="font-size:12px">
 															
 																{{number_format($data[0]->profit_rate,2)}} % Setahun
 															
 														</div>
 													</div>
 													<div class="flex-grow flex px-3 py-3 text-grey-darker items-center border-b -mx-2">
-														<div class="w-2/5 xl:w-1/4 px-6 flex items-center" style="font-size:11px">
+														<div class="w-2/5 xl:w-1/4 px-6 flex items-center" style="font-size:12px">
 															Amaun Pengeluaran
 														</div>
-														<div class="w-2/5 xl:w-1/4 px-6 flex items-center" style="font-size:11px">
+														<div class="w-2/5 xl:w-1/4 px-6 flex items-center" style="font-size:12px">
 															RM{{number_format($data[0]->disbursed_amount,2)}}
 														</div>
 														<div class="flex w-3/5 md:w/12">
@@ -823,10 +876,10 @@
 														</div>
 													</div>
 													<div class="flex-grow flex px-3 py-3 text-grey-darker items-center border-b -mx-2">
-														<div class="w-2/5 xl:w-1/4 px-6 flex items-center" style="font-size:11px">
+														<div class="w-2/5 xl:w-1/4 px-6 flex items-center" style="font-size:12px">
 															Caj Keseluruhan
 														</div>
-														<div class="w-2/5 xl:w-1/4 px-6 flex items-center" style="font-size:11px">
+														<div class="w-2/5 xl:w-1/4 px-6 flex items-center" style="font-size:12px">
 															RM{{number_format($data[0]->tot_profit_unearned,2)}}
 														</div>
 														<div class="flex w-3/5 md:w/12">
@@ -838,10 +891,10 @@
 														</div>
 													</div>
 													<div class="flex-grow flex px-3 py-3 text-grey-darker items-center border-b -mx-2">
-														<div class="w-2/5 xl:w-1/4 px-6 flex items-center" style="font-size:11px">
+														<div class="w-2/5 xl:w-1/4 px-6 flex items-center" style="font-size:12px">
 															Simpanan Keseluruhan
 														</div>
-														<div class="w-2/5 xl:w-1/4 px-6 flex items-center" style="font-size:11px">
+														<div class="w-2/5 xl:w-1/4 px-6 flex items-center" style="font-size:12px">
 															RM{{number_format($data[0]->savings_to_paid,2)}}
 														</div>
 														<div class="flex w-3/5 md:w/12">
@@ -853,10 +906,10 @@
 														</div>
 													</div>
 													<div class="flex-grow flex px-3 py-3 text-grey-darker items-center border-b -mx-2">
-														<div class="w-2/5 xl:w-1/4 px-6 flex items-center" style="font-size:11px">
+														<div class="w-2/5 xl:w-1/4 px-6 flex items-center" style="font-size:12px">
 															Jumlah Keseluruhan
 														</div>
-														<div class="w-2/5 xl:w-1/4 px-6 flex items-center" style="font-size:11px">
+														<div class="w-2/5 xl:w-1/4 px-6 flex items-center" style="font-size:12px">
 															RM{{number_format($data[0]->total,2)}}
 														</div>
 														<div class="flex w-3/5 md:w/12">
@@ -868,10 +921,10 @@
 														</div>
 													</div>
 													<div class="flex-grow flex px-3 py-3 text-grey-darker items-center border-b -mx-2">
-														<div class="w-2/5 xl:w-1/4 px-6 flex items-center" style="font-size:11px">
+														<div class="w-2/5 xl:w-1/4 px-6 flex items-center" style="font-size:12px">
 															Baki Belum dikeluarkan
 														</div>
-														<div class="w-2/5 xl:w-1/4 px-6 flex items-center" style="font-size:11px">
+														<div class="w-2/5 xl:w-1/4 px-6 flex items-center" style="font-size:12px">
 															RM{{number_format($data[0]->undrawn_amount,2)}}
 														</div>
 														<div class="flex w-3/5 md:w/12">
@@ -883,13 +936,13 @@
 														</div>
 													</div>
 													<div class="flex-grow flex px-3 py-3 text-grey-darker items-center border-b -mx-2">
-														<div class="w-2/5 xl:w-1/4 px-6 flex items-center" style="font-size:11px">
+														<div class="w-2/5 xl:w-1/4 px-6 flex items-center" style="font-size:12px">
 															Tarikh Mula & Akhir Bayar
 														</div>
-														<div class="w-2/5 xl:w-1/4 px-6 flex items-center" style="font-size:11px">
+														<div class="w-2/5 xl:w-1/4 px-6 flex items-center" style="font-size:12px">
 															{{date("d-m-Y", strtotime(substr($data[0]->start_instal_date,0,10)))}}
 														</div>
-														<div class="w-2/5 xl:w-1/4 px-6 flex items-center" style="font-size:11px">
+														<div class="w-2/5 xl:w-1/4 px-6 flex items-center" style="font-size:12px">
 															{{date("d-m-Y", strtotime(substr($data[0]->expiry_date,0,10)))}}
 														</div>
 													</div>
@@ -909,96 +962,96 @@
 														
 													</div>
 													<div class="flex-grow flex px-3 py-3 text-grey-darker items-center border-b -mx-2">
-														<div class="w-2/5 xl:w-1/4 px-6 flex items-center" style="font-size:11px">
+														<div class="w-2/5 xl:w-1/4 px-6 flex items-center" style="font-size:12px">
 															<div class="bg-orange h-2 rounded-full flex-grow mr-2"></div>
 															
 														</div>
-														<div class="w-2/5 xl:w-1/4 px-6 flex items-center" style="font-size:11px">
+														<div class="w-2/5 xl:w-1/4 px-6 flex items-center" style="font-size:12px">
 															
 															Telah Dibayar
 														</div>
-														<div class="w-2/5 xl:w-1/4 px-6 flex items-center" style="font-size:11px">
+														<div class="w-2/5 xl:w-1/4 px-6 flex items-center" style="font-size:12px">
 															
 															Belum Dibayar
 														</div>
 													</div>
 													<div class="flex-grow flex px-3 py-3 text-grey-darker items-center border-b -mx-2">
-														<div class="w-2/5 xl:w-1/4 px-6 flex items-center" style="font-size:11px">
+														<div class="w-2/5 xl:w-1/4 px-6 flex items-center" style="font-size:12px">
 															<div class="rounded-full bg-grey inline-flex mr-3">
 															<svg class="fill-current text-white h-8 w-8 block" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 38 38"><g fill-rule="evenodd"><path d="M12.29 28.04l1.29-5.52-1.58.67.63-2.85 1.64-.68L16.52 10h5.23l-1.52 7.14 2.09-.74-.58 2.7-2.05.8-.9 4.34h8.1l-.99 3.8z"></path></g></svg>
 															</div>
 															Amaun Pokok
 														</div>
-														<div class="w-2/5 xl:w-1/4 px-6 flex items-center" style="font-size:11px">
+														<div class="w-2/5 xl:w-1/4 px-6 flex items-center" style="font-size:12px">
 															<div class="bg-grey h-2 w-2 rounded-full mr-2"></div>
 																RM{{NUMBER_FORMAT($data[0]->amaun_pokok,2)}}
 														</div>
-														<div class="w-2/5 xl:w-1/4 px-6 flex items-center" style="font-size:11px">
+														<div class="w-2/5 xl:w-1/4 px-6 flex items-center" style="font-size:12px">
 															<div class="bg-grey h-2 w-2 rounded-full mr-2"></div>	
 																RM{{NUMBER_FORMAT($data[0]->cost_outstanding,2)}}
 														</div>
 														
 													</div>
 													<div class="flex-grow flex px-3 py-3 text-grey-darker items-center border-b -mx-2">
-														<div class="w-2/5 xl:w-1/4 px-6 flex items-center" style="font-size:11px">
+														<div class="w-2/5 xl:w-1/4 px-6 flex items-center" style="font-size:12px">
 															<div class="rounded-full bg-grey inline-flex mr-3">
 															<svg class="fill-current text-white h-8 w-8 block" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 38 38"><g fill-rule="evenodd"><path d="M12.29 28.04l1.29-5.52-1.58.67.63-2.85 1.64-.68L16.52 10h5.23l-1.52 7.14 2.09-.74-.58 2.7-2.05.8-.9 4.34h8.1l-.99 3.8z"></path></g></svg>
 															</div>
 															Amaun Caj
 														</div>
-														<div class="w-2/5 xl:w-1/4 px-6 flex items-center" style="font-size:11px">
+														<div class="w-2/5 xl:w-1/4 px-6 flex items-center" style="font-size:12px">
 															<div class="bg-indigo h-2 w-2 rounded-full mr-2"></div>
 																RM{{NUMBER_FORMAT($data[0]->tot_profit_earned,2)}}
 														</div>
-														<div class="w-2/5 xl:w-1/4 px-6 flex items-center" style="font-size:11px">
+														<div class="w-2/5 xl:w-1/4 px-6 flex items-center" style="font-size:12px">
 															<div class="bg-indigo h-2 w-2 rounded-full mr-2"></div>
 																RM{{NUMBER_FORMAT($data[0]->uei_outstanding,2)}}
 														</div>
 														
 													</div>
 													<div class="flex-grow flex px-3 py-3 text-grey-darker items-center border-b -mx-2">
-														<div class="w-2/5 xl:w-1/4 px-6 flex items-center" style="font-size:11px">
+														<div class="w-2/5 xl:w-1/4 px-6 flex items-center" style="font-size:12px">
 															<div class="rounded-full bg-grey inline-flex mr-3">
 															<svg class="fill-current text-white h-8 w-8 block" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 38 38"><g fill-rule="evenodd"><path d="M12.29 28.04l1.29-5.52-1.58.67.63-2.85 1.64-.68L16.52 10h5.23l-1.52 7.14 2.09-.74-.58 2.7-2.05.8-.9 4.34h8.1l-.99 3.8z"></path></g></svg>
 															</div>
 															Baki Pembiayaan
 														</div>
-														<div class="w-2/5 xl:w-1/4 px-6 flex items-center" style="font-size:11px">
+														<div class="w-2/5 xl:w-1/4 px-6 flex items-center" style="font-size:12px">
 															<div class="bg-indigo h-2 w-2 rounded-full mr-2"></div>	
 														</div>
-														<div class="w-2/5 xl:w-1/4 px-6 flex items-center" style="font-size:11px">
+														<div class="w-2/5 xl:w-1/4 px-6 flex items-center" style="font-size:12px">
 															<div class="bg-indigo h-2 w-2 rounded-full mr-2"></div>
 															RM{{NUMBER_FORMAT($data[0]->bal_outstanding,2)}}
 														</div>
 													</div>
 													<div class="flex-grow flex px-3 py-3 text-grey-darker items-center border-b -mx-2">
-														<div class="w-2/5 xl:w-1/4 px-6 flex items-center" style="font-size:11px">
+														<div class="w-2/5 xl:w-1/4 px-6 flex items-center" style="font-size:12px">
 															<div class="rounded-full bg-indigo inline-flex mr-3">
 															<svg class="fill-current text-white h-8 w-8 block" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><g fill-rule="evenodd"><path d="M10.13 17.76c-.1-.15-.06-.2.09-.12l5.49 3.09c.15.08.4.08.56 0l5.58-3.08c.16-.08.2-.03.1.11L16.2 25.9c-.1.15-.28.15-.38 0l-5.7-8.13zm.04-2.03a.3.3 0 0 1-.13-.42l5.74-9.2c.1-.15.25-.15.34 0l5.77 9.19c.1.14.05.33-.12.41l-5.5 2.78a.73.73 0 0 1-.6 0l-5.5-2.76z"></path></g></svg>
 															</div>
 															Amaun Rebat
 														</div>
-														<div class="w-2/5 xl:w-1/4 px-6 flex items-center" style="font-size:11px">
+														<div class="w-2/5 xl:w-1/4 px-6 flex items-center" style="font-size:12px">
 															<div class="bg-indigo h-2 w-2 rounded-full mr-2"></div>
 																
 														</div>
-														<div class="w-2/5 xl:w-1/4 px-6 flex items-center" style="font-size:11px">
+														<div class="w-2/5 xl:w-1/4 px-6 flex items-center" style="font-size:12px">
 															<div class="bg-indigo h-2 w-2 rounded-full mr-2"></div>
 															RM{{NUMBER_FORMAT($data[0]->rebate_amount,2)}}
 														</div>
 													</div>
 													<div class="flex-grow flex px-3 py-3 text-grey-darker items-center border-b -mx-2">
-														<div class="w-2/5 xl:w-1/4 px-6 flex items-center" style="font-size:11px">
+														<div class="w-2/5 xl:w-1/4 px-6 flex items-center" style="font-size:12px">
 															<div class="rounded-full bg-indigo inline-flex mr-3">
 															<svg class="fill-current text-white h-8 w-8 block" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><g fill-rule="evenodd"><path d="M10.13 17.76c-.1-.15-.06-.2.09-.12l5.49 3.09c.15.08.4.08.56 0l5.58-3.08c.16-.08.2-.03.1.11L16.2 25.9c-.1.15-.28.15-.38 0l-5.7-8.13zm.04-2.03a.3.3 0 0 1-.13-.42l5.74-9.2c.1-.15.25-.15.34 0l5.77 9.19c.1.14.05.33-.12.41l-5.5 2.78a.73.73 0 0 1-.6 0l-5.5-2.76z"></path></g></svg>
 															</div>
 															Jumlah Simpanan
 														</div>
-														<div class="w-2/5 xl:w-1/4 px-6 flex items-center" style="font-size:11px">
+														<div class="w-2/5 xl:w-1/4 px-6 flex items-center" style="font-size:12px">
 															<div class="bg-indigo h-2 w-2 rounded-full mr-2"></div>
 																
 														</div>
-														<div class="w-2/5 xl:w-1/4 px-6 flex items-center" style="font-size:11px">
+														<div class="w-2/5 xl:w-1/4 px-6 flex items-center" style="font-size:12px">
 															<div class="bg-indigo h-2 w-2 rounded-full mr-2"></div>
 															RM{{NUMBER_FORMAT($data[0]->savings_balance,2)}}
 														</div>
@@ -1032,52 +1085,52 @@
 													</div>
 													<span class="text-lg"> </span>
 												</div>
-												<div class="w-2/5 xl:w-1/4 px-6 flex items-center" style="font-size:11px">
+												<div class="w-2/5 xl:w-1/4 px-6 flex items-center" style="font-size:12px">
 													Status
 												</div>
-												<div class="w-2/5 xl:w-1/4 px-6 flex items-center" style="font-size:11px">
+												<div class="w-2/5 xl:w-1/4 px-6 flex items-center" style="font-size:12px">
 													Telah Berlaku
 												</div>
 											</div>
 											<div class="flex-grow flex px-3 py-3 text-grey-darker items-center border-b -mx-2">
-												<div class="w-2/5 xl:w-1/4 px-6 flex items-center" style="font-size:11px">
+												<div class="w-2/5 xl:w-1/4 px-6 flex items-center" style="font-size:12px">
 													<div class="rounded-full bg-grey inline-flex mr-3">
 													<svg class="fill-current text-white h-8 w-8 block" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 38 38"><g fill-rule="evenodd"><path d="M12.29 28.04l1.29-5.52-1.58.67.63-2.85 1.64-.68L16.52 10h5.23l-1.52 7.14 2.09-.74-.58 2.7-2.05.8-.9 4.34h8.1l-.99 3.8z"></path></g></svg>
 													</div>
 													Status Kredit
 												</div>
-												<div class="w-2/5 xl:w-1/4 px-6 flex items-center" style="font-size:11px">
+												<div class="w-2/5 xl:w-1/4 px-6 flex items-center" style="font-size:12px">
 													{{$data[0]->credit_status}}
 												</div>
-												<div class="w-2/5 xl:w-1/4 px-6 flex items-center" style="font-size:11px">
+												<div class="w-2/5 xl:w-1/4 px-6 flex items-center" style="font-size:12px">
 													{{date("d-m-Y", strtotime(substr($data[0]->credit_status_chgdate,0,10)))}}
 												</div>
 											</div>
 											<div class="flex-grow flex px-3 py-3 text-grey-darker items-center border-b -mx-2">
-												<div class="w-2/5 xl:w-1/4 px-6 flex items-center" style="font-size:11px">
+												<div class="w-2/5 xl:w-1/4 px-6 flex items-center" style="font-size:12px">
 													<div class="rounded-full bg-indigo inline-flex mr-3">
 													<svg class="fill-current text-white h-8 w-8 block" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><g fill-rule="evenodd"><path d="M10.13 17.76c-.1-.15-.06-.2.09-.12l5.49 3.09c.15.08.4.08.56 0l5.58-3.08c.16-.08.2-.03.1.11L16.2 25.9c-.1.15-.28.15-.38 0l-5.7-8.13zm.04-2.03a.3.3 0 0 1-.13-.42l5.74-9.2c.1-.15.25-.15.34 0l5.77 9.19c.1.14.05.33-.12.41l-5.5 2.78a.73.73 0 0 1-.6 0l-5.5-2.76z"></path></g></svg>
 													</div>
 													Status NPL
 												</div>
-												<div class="w-2/5 xl:w-1/4 px-6 flex items-center" style="font-size:11px">
+												<div class="w-2/5 xl:w-1/4 px-6 flex items-center" style="font-size:12px">
 														{{$data[0]->npf_status}}
 												</div>
-												<div class="w-2/5 xl:w-1/4 px-6 flex items-center" style="font-size:11px">
+												<div class="w-2/5 xl:w-1/4 px-6 flex items-center" style="font-size:12px">
 													{{date("d-m-Y", strtotime(SUBSTR($data[0]->npf_changed_date,0,10)))}}
 												</div>
 											</div>
 											<div class="flex-grow flex px-3 py-3 text-grey-darker items-center border-b -mx-2">
-												<div class="w-2/5 xl:w-1/4 px-6 flex items-center" style="font-size:11px">
+												<div class="w-2/5 xl:w-1/4 px-6 flex items-center" style="font-size:12px">
 													<div class="rounded-full bg-indigo inline-flex mr-3">
 													<svg class="fill-current text-white h-8 w-8 block" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><g fill-rule="evenodd"><path d="M10.13 17.76c-.1-.15-.06-.2.09-.12l5.49 3.09c.15.08.4.08.56 0l5.58-3.08c.16-.08.2-.03.1.11L16.2 25.9c-.1.15-.28.15-.38 0l-5.7-8.13zm.04-2.03a.3.3 0 0 1-.13-.42l5.74-9.2c.1-.15.25-.15.34 0l5.77 9.19c.1.14.05.33-.12.41l-5.5 2.78a.73.73 0 0 1-.6 0l-5.5-2.76z"></path></g></svg>
 													</div>
 													Tunggakan
 												</div>
-												<div class="w-2/5 xl:w-1/4 px-6 flex items-center" style="font-size:11px">
+												<div class="w-2/5 xl:w-1/4 px-6 flex items-center" style="font-size:12px">
 													RM{{NUMBER_FORMAT($data[0]->instal_arrears,2)}}
 												</div>
-												<div class="w-2/5 xl:w-1/4 px-6 flex items-center" style="font-size:11px">
+												<div class="w-2/5 xl:w-1/4 px-6 flex items-center" style="font-size:12px">
 													{{$data[0]->instal_mode}}&nbspKali Bayaran
 												</div>
 											</div>
@@ -1095,43 +1148,43 @@
 													</div>
 											</div>
 											<div class="flex-grow flex px-3 py-3 text-grey-darker items-center border-b -mx-2">
-												<div class="w-2/5 xl:w-1/4 px-6 flex items-center" style="font-size:11px">
+												<div class="w-2/5 xl:w-1/4 px-6 flex items-center" style="font-size:12px">
 													<div class="rounded-full bg-orange inline-flex mr-3">
 													<svg class="fill-current text-white h-8 w-8 block" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><g fill-rule="evenodd"><path d="M21.78 15.37c.51-.61.83-1.4.83-2.26 0-2.74-1.6-4.38-4.24-4.38V5.45c0-.12-.1-.22-.22-.22h-1.27c-.11 0-.2.1-.2.21v3.3h-1.7V5.44c0-.12-.1-.22-.22-.22H13.5c-.12 0-.2.1-.21.21v3.3H9.67c-.12 0-.21.09-.21.21v1.31c0 .12.1.22.21.22h.21c.94 0 1.7.79 1.7 1.75v7c0 .92-.68 1.67-1.55 1.75a.21.21 0 0 0-.18.16l-.33 1.32c-.01.06 0 .13.04.19.04.05.1.08.17.08h3.55v3.3c0 .1.1.2.2.2h1.28c.12 0 .21-.1.21-.22v-3.28h1.7v3.3c0 .1.1.2.21.2h1.27c.12 0 .22-.1.22-.22v-3.28h.85c2.65 0 4.24-1.64 4.24-4.37 0-1.28-.68-2.39-1.68-3zm-6.8-4.01h2.54c.94 0 1.7.78 1.7 1.75 0 .96-.76 1.75-1.7 1.75h-2.55v-3.5zm3.39 8.75h-3.4v-3.5h3.4c.93 0 1.7.78 1.7 1.75 0 .96-.77 1.75-1.7 1.75z"></path></g></svg>
 													</div>
 													Jumlah Owings
 												</div>
-												<div class="w-2/5 xl:w-1/4 px-6 flex items-center" style="font-size:11px">	
+												<div class="w-2/5 xl:w-1/4 px-6 flex items-center" style="font-size:12px">	
 												</div>
-												<div class="w-2/5 xl:w-1/4 px-6 flex items-center" style="font-size:11px">
+												<div class="w-2/5 xl:w-1/4 px-6 flex items-center" style="font-size:12px">
 													RM{{NUMBER_FORMAT($data[0]->total_owings,2)}}
 												</div>
 											</div>
 											<div class="flex-grow flex px-3 py-3 text-grey-darker items-center border-b -mx-2">
-												<div class="w-2/5 xl:w-1/4 px-6 flex items-center" style="font-size:11px">
+												<div class="w-2/5 xl:w-1/4 px-6 flex items-center" style="font-size:12px">
 													<div class="rounded-full bg-grey inline-flex mr-3">
 													<svg class="fill-current text-white h-8 w-8 block" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 38 38"><g fill-rule="evenodd"><path d="M12.29 28.04l1.29-5.52-1.58.67.63-2.85 1.64-.68L16.52 10h5.23l-1.52 7.14 2.09-.74-.58 2.7-2.05.8-.9 4.34h8.1l-.99 3.8z"></path></g></svg>
 													</div>
 													Owing Telah Dibayar
 												</div>
-												<div class="w-2/5 xl:w-1/4 px-6 flex items-center" style="font-size:11px">
+												<div class="w-2/5 xl:w-1/4 px-6 flex items-center" style="font-size:12px">
 
 												</div>
-												<div class="w-2/5 xl:w-1/4 px-6 flex items-center" style="font-size:11px">
+												<div class="w-2/5 xl:w-1/4 px-6 flex items-center" style="font-size:12px">
 													RM{{NUMBER_FORMAT($data[0]->owings_paid,2)}}
 												</div>
 											</div>
 											<div class="flex-grow flex px-3 py-3 text-grey-darker items-center border-b -mx-2">
-												<div class="w-2/5 xl:w-1/4 px-6 flex items-center" style="font-size:11px">
+												<div class="w-2/5 xl:w-1/4 px-6 flex items-center" style="font-size:12px">
 													<div class="rounded-full bg-indigo inline-flex mr-3">
 													<svg class="fill-current text-white h-8 w-8 block" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><g fill-rule="evenodd"><path d="M10.13 17.76c-.1-.15-.06-.2.09-.12l5.49 3.09c.15.08.4.08.56 0l5.58-3.08c.16-.08.2-.03.1.11L16.2 25.9c-.1.15-.28.15-.38 0l-5.7-8.13zm.04-2.03a.3.3 0 0 1-.13-.42l5.74-9.2c.1-.15.25-.15.34 0l5.77 9.19c.1.14.05.33-.12.41l-5.5 2.78a.73.73 0 0 1-.6 0l-5.5-2.76z"></path></g></svg>
 													</div>
 													Baki Owings
 												</div>
-												<div class="w-2/5 xl:w-1/4 px-6 flex items-center" style="font-size:11px">
+												<div class="w-2/5 xl:w-1/4 px-6 flex items-center" style="font-size:12px">
 														
 												</div>
-												<div class="w-2/5 xl:w-1/4 px-6 flex items-center" style="font-size:11px">
+												<div class="w-2/5 xl:w-1/4 px-6 flex items-center" style="font-size:12px">
 														RM{{NUMBER_FORMAT($data[0]->owing_amt,2)}}
 												</div>
 											</div>
@@ -1152,78 +1205,78 @@
 													</div>
 											</div>
 											<div class="flex-grow flex px-3 py-3 text-grey-darker items-center border-b -mx-2">
-												<div class="w-2/5 xl:w-1/4 px-6 flex items-center" style="font-size:11px">
+												<div class="w-2/5 xl:w-1/4 px-6 flex items-center" style="font-size:12px">
 													<div class="rounded-full bg-orange inline-flex mr-3">
 													<svg class="fill-current text-white h-8 w-8 block" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><g fill-rule="evenodd"><path d="M21.78 15.37c.51-.61.83-1.4.83-2.26 0-2.74-1.6-4.38-4.24-4.38V5.45c0-.12-.1-.22-.22-.22h-1.27c-.11 0-.2.1-.2.21v3.3h-1.7V5.44c0-.12-.1-.22-.22-.22H13.5c-.12 0-.2.1-.21.21v3.3H9.67c-.12 0-.21.09-.21.21v1.31c0 .12.1.22.21.22h.21c.94 0 1.7.79 1.7 1.75v7c0 .92-.68 1.67-1.55 1.75a.21.21 0 0 0-.18.16l-.33 1.32c-.01.06 0 .13.04.19.04.05.1.08.17.08h3.55v3.3c0 .1.1.2.2.2h1.28c.12 0 .21-.1.21-.22v-3.28h1.7v3.3c0 .1.1.2.21.2h1.27c.12 0 .22-.1.22-.22v-3.28h.85c2.65 0 4.24-1.64 4.24-4.37 0-1.28-.68-2.39-1.68-3zm-6.8-4.01h2.54c.94 0 1.7.78 1.7 1.75 0 .96-.76 1.75-1.7 1.75h-2.55v-3.5zm3.39 8.75h-3.4v-3.5h3.4c.93 0 1.7.78 1.7 1.75 0 .96-.77 1.75-1.7 1.75z"></path></g></svg>
 													</div>
 													Ansuran Terakhir diTerima
 												</div>
-												<div class="w-2/5 xl:w-1/4 px-6 flex items-center" style="font-size:11px">
+												<div class="w-2/5 xl:w-1/4 px-6 flex items-center" style="font-size:12px">
 													
 														RM{{NUMBER_FORMAT($data[0]->last_pymt_amt,2)}}
 												</div>
-												<div class="w-2/5 xl:w-1/4 px-6 flex items-center" style="font-size:11px">
+												<div class="w-2/5 xl:w-1/4 px-6 flex items-center" style="font-size:12px">
 													
 													Tarikh Terakhir di Terima
 												</div>
-												<div class="w-2/5 xl:w-1/4 px-6 flex items-center" style="font-size:11px">
+												<div class="w-2/5 xl:w-1/4 px-6 flex items-center" style="font-size:12px">
 													
 														{{date("d-m-Y", strtotime(substr($data[0]->last_payment_date,0,10)))}}
 												</div>
 											</div>
 											<div class="flex-grow flex px-3 py-3 text-grey-darker items-center border-b -mx-2">
-												<div class="w-2/5 xl:w-1/4 px-6 flex items-center" style="font-size:11px">
+												<div class="w-2/5 xl:w-1/4 px-6 flex items-center" style="font-size:12px">
 													<div class="rounded-full bg-orange inline-flex mr-3">
 													<svg class="fill-current text-white h-8 w-8 block" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><g fill-rule="evenodd"><path d="M21.78 15.37c.51-.61.83-1.4.83-2.26 0-2.74-1.6-4.38-4.24-4.38V5.45c0-.12-.1-.22-.22-.22h-1.27c-.11 0-.2.1-.2.21v3.3h-1.7V5.44c0-.12-.1-.22-.22-.22H13.5c-.12 0-.2.1-.21.21v3.3H9.67c-.12 0-.21.09-.21.21v1.31c0 .12.1.22.21.22h.21c.94 0 1.7.79 1.7 1.75v7c0 .92-.68 1.67-1.55 1.75a.21.21 0 0 0-.18.16l-.33 1.32c-.01.06 0 .13.04.19.04.05.1.08.17.08h3.55v3.3c0 .1.1.2.2.2h1.28c.12 0 .21-.1.21-.22v-3.28h1.7v3.3c0 .1.1.2.21.2h1.27c.12 0 .22-.1.22-.22v-3.28h.85c2.65 0 4.24-1.64 4.24-4.37 0-1.28-.68-2.39-1.68-3zm-6.8-4.01h2.54c.94 0 1.7.78 1.7 1.75 0 .96-.76 1.75-1.7 1.75h-2.55v-3.5zm3.39 8.75h-3.4v-3.5h3.4c.93 0 1.7.78 1.7 1.75 0 .96-.77 1.75-1.7 1.75z"></path></g></svg>
 													</div>
 													Bil. | No. Pembayaran
 												</div>
-												<div class="w-2/5 xl:w-1/4 px-6 flex items-center" style="font-size:11px">
+												<div class="w-2/5 xl:w-1/4 px-6 flex items-center" style="font-size:12px">
 														{{$data[0]->instalment_no}}
 												</div>
-												<div class="w-2/5 xl:w-1/4 px-6 flex items-center" style="font-size:11px">	
+												<div class="w-2/5 xl:w-1/4 px-6 flex items-center" style="font-size:12px">	
 													Jumlah Pembayaran
 												</div>
-												<div class="w-2/5 xl:w-1/4 px-6 flex items-center" style="font-size:11px">
+												<div class="w-2/5 xl:w-1/4 px-6 flex items-center" style="font-size:12px">
 														RM{{NUMBER_FORMAT($data[0]->payment_amount,2)}}
 												</div>
 											</div>
 											<div class="flex-grow flex px-3 py-3 text-grey-darker items-center border-b -mx-2">
-												<div class="w-2/5 xl:w-1/4 px-6 flex items-center" style="font-size:11px">	
+												<div class="w-2/5 xl:w-1/4 px-6 flex items-center" style="font-size:12px">	
 													<div class="rounded-full bg-orange inline-flex mr-3">
 													<svg class="fill-current text-white h-8 w-8 block" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><g fill-rule="evenodd"><path d="M21.78 15.37c.51-.61.83-1.4.83-2.26 0-2.74-1.6-4.38-4.24-4.38V5.45c0-.12-.1-.22-.22-.22h-1.27c-.11 0-.2.1-.2.21v3.3h-1.7V5.44c0-.12-.1-.22-.22-.22H13.5c-.12 0-.2.1-.21.21v3.3H9.67c-.12 0-.21.09-.21.21v1.31c0 .12.1.22.21.22h.21c.94 0 1.7.79 1.7 1.75v7c0 .92-.68 1.67-1.55 1.75a.21.21 0 0 0-.18.16l-.33 1.32c-.01.06 0 .13.04.19.04.05.1.08.17.08h3.55v3.3c0 .1.1.2.2.2h1.28c.12 0 .21-.1.21-.22v-3.28h1.7v3.3c0 .1.1.2.21.2h1.27c.12 0 .22-.1.22-.22v-3.28h.85c2.65 0 4.24-1.64 4.24-4.37 0-1.28-.68-2.39-1.68-3zm-6.8-4.01h2.54c.94 0 1.7.78 1.7 1.75 0 .96-.76 1.75-1.7 1.75h-2.55v-3.5zm3.39 8.75h-3.4v-3.5h3.4c.93 0 1.7.78 1.7 1.75 0 .96-.77 1.75-1.7 1.75z"></path></g></svg>
 													</div>
 														Tarikh Pembayaran Terkini
 												</div>
-												<div class="w-2/5 xl:w-1/4 px-6 flex items-center" style="font-size:11px">
+												<div class="w-2/5 xl:w-1/4 px-6 flex items-center" style="font-size:12px">
 														{{date("d-m-Y", strtotime(substr($data[0]->last_payment_date,0,10)))}}
 												</div>
-												<div class="w-2/5 xl:w-1/4 px-6 flex items-center" style="font-size:11px">
+												<div class="w-2/5 xl:w-1/4 px-6 flex items-center" style="font-size:12px">
 													Sila Bayar Sebelum
 												</div>
-												<div class="w-2/5 xl:w-1/4 px-6 flex items-center" style="font-size:11px">
+												<div class="w-2/5 xl:w-1/4 px-6 flex items-center" style="font-size:12px">
 														{{date("d-m-Y", strtotime(substr($data[0]->last_instal_due_date,0,10)))}}
 												</div>
 											</div>
 											<div class="flex-grow flex px-3 py-3 text-grey-darker items-center border-b -mx-2">
-												<div class="w-2/5 xl:w-1/4 px-6 flex items-center" style="font-size:11px">
+												<div class="w-2/5 xl:w-1/4 px-6 flex items-center" style="font-size:12px">
 													<div class="rounded-full bg-orange inline-flex mr-3">
 													<svg class="fill-current text-white h-8 w-8 block" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><g fill-rule="evenodd"><path d="M21.78 15.37c.51-.61.83-1.4.83-2.26 0-2.74-1.6-4.38-4.24-4.38V5.45c0-.12-.1-.22-.22-.22h-1.27c-.11 0-.2.1-.2.21v3.3h-1.7V5.44c0-.12-.1-.22-.22-.22H13.5c-.12 0-.2.1-.21.21v3.3H9.67c-.12 0-.21.09-.21.21v1.31c0 .12.1.22.21.22h.21c.94 0 1.7.79 1.7 1.75v7c0 .92-.68 1.67-1.55 1.75a.21.21 0 0 0-.18.16l-.33 1.32c-.01.06 0 .13.04.19.04.05.1.08.17.08h3.55v3.3c0 .1.1.2.2.2h1.28c.12 0 .21-.1.21-.22v-3.28h1.7v3.3c0 .1.1.2.21.2h1.27c.12 0 .22-.1.22-.22v-3.28h.85c2.65 0 4.24-1.64 4.24-4.37 0-1.28-.68-2.39-1.68-3zm-6.8-4.01h2.54c.94 0 1.7.78 1.7 1.75 0 .96-.76 1.75-1.7 1.75h-2.55v-3.5zm3.39 8.75h-3.4v-3.5h3.4c.93 0 1.7.78 1.7 1.75 0 .96-.77 1.75-1.7 1.75z"></path></g></svg>
 													</div>
 														Bayaran Seterusnya Pada
 												</div>
-												<div class="w-2/5 xl:w-1/4 px-6 flex items-center" style="font-size:11px">
+												<div class="w-2/5 xl:w-1/4 px-6 flex items-center" style="font-size:12px">
 														{{date("d-m-Y", strtotime(SUBSTR($data[0]->instal_due_date,0,10)))}}
 												</div>
-												<div class="w-2/5 xl:w-1/4 px-6 flex items-center" style="font-size:11px">
+												<div class="w-2/5 xl:w-1/4 px-6 flex items-center" style="font-size:12px">
 													Ansuran
 												</div>
-												<div class="w-2/5 xl:w-1/4 px-6 flex items-center" style="font-size:11px">
+												<div class="w-2/5 xl:w-1/4 px-6 flex items-center" style="font-size:12px">
 														RM{{NUMBER_FORMAT($data[0]->install_amt,2)}} {{$data[0]->instmode}}
 												</div>
 											</div>
 											<div class="px-6 py-4">
-												<div class="text-right text-grey" style="font-size:11px">
+												<div class="text-right text-grey" style="font-size:12px">
 													<b> Kemaskini Akhir </b> : {{date("d-m-Y", strtotime(substr($data[0]->last_modified_date,0,10)))}} &nbsp &nbsp &nbsp
 													<b> Oleh </b> : {{$data[0]->last_modified_user}}
 												</div>
@@ -1262,7 +1315,7 @@
 										<tr>
 											<td class="px-6 py-4 whitespace-no-wrap border-b border-gray-500">
 												<div class="flex items-center">
-													<div style="font-size:11px">
+													<div style="font-size:12px">
 															{{$item->resit_no}}
 													</div>
 												</div>
@@ -1270,7 +1323,7 @@
 					
 											<td class="px-6 py-4 whitespace-no-wrap border-b border-gray-500">
 											<div class="flex items-center">
-												<div style="font-size:11px">
+												<div style="font-size:12px">
 													{{number_format($item->resit_amount,2)}}
 												</div>
 											</div>
@@ -1278,7 +1331,7 @@
 					
 										<td class="px-6 py-4 whitespace-no-wrap border-b border-gray-500">
 											<div class="flex items-center">
-												<div style="font-size:11px">
+												<div style="font-size:12px">
 													{{-- {{ substr($item->hdate,0,2).'/'.substr($item->hdate,2,2).'/'.substr($item->hdate,4,4) }} --}}
 													{{$item->collector}}
 												</div>
@@ -1287,14 +1340,14 @@
 					
 										<td class="px-6 py-4 whitespace-no-wrap border-b border-gray-500">
 										<div class="flex items-center">
-											<div style="font-size:11px">
+											<div style="font-size:12px">
 												{{$item->resitdt}}
 											</div>
 										</div>
 										</td>
 										<td class="px-6 py-4 whitespace-no-wrap border-b border-gray-500">
 											<div class="flex items-center">
-												<div style="font-size:11px">
+												<div style="font-size:12px">
 													{{$item->bis_no}}
 												</div>
 											</div>
@@ -1302,49 +1355,49 @@
 								
 										<td class="px-6 py-4 whitespace-no-wrap border-b border-gray-500">
 											<div class="flex items-center">
-												<div style="font-size:11px">
+												<div style="font-size:12px">
 													{{$item->type}}
 												</div>
 											</div>
 										</td>
 										<td class="px-6 py-4 whitespace-no-wrap border-b border-gray-500">
 											<div class="flex items-center">
-												<div style="font-size:11px">
+												<div style="font-size:12px">
 													{{$item->cheque_no}}
 												</div>
 											</div>
 										</td>
 										<td class="px-6 py-4 whitespace-no-wrap border-b border-gray-500">
 											<div class="flex items-center">
-												<div style="font-size:11px">
+												<div style="font-size:12px">
 													{{$item->cheque_bank_code}}
 												</div>
 											</div>
 										</td>
 										<td class="px-6 py-4 whitespace-no-wrap border-b border-gray-500">
 											<div class="flex items-center">
-												<div style="font-size:11px">
+												<div style="font-size:12px">
 													{{$item->officer_incharge}}
 												</div>
 											</div>
 										</td>
 										<td class="px-6 py-4 whitespace-no-wrap border-b border-gray-500">
 											<div class="flex items-center">
-												<div style="font-size:11px">
+												<div style="font-size:12px">
 													{{$item->trx_date}}
 												</div>
 											</div>
 										</td>
 										<td class="px-6 py-4 whitespace-no-wrap border-b border-gray-500">
 											<div class="flex items-center">
-												<div style="font-size:11px">
+												<div style="font-size:12px">
 													{{$item->status_resit}}
 												</div>
 											</div>
 										</td>
 										<td class="px-6 py-4 whitespace-no-wrap border-b border-gray-500">
 											<div class="flex items-center">
-												<div style="font-size:11px">
+												<div style="font-size:12px">
 													{{$item->vld_status}}
 												</div>
 											</div>
@@ -1429,6 +1482,7 @@
 
   </script>
 <!-- new design end -->
+
 
 
 

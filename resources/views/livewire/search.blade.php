@@ -3,9 +3,13 @@
 <main class="h-full pb-16 overflow-y-auto">
 <div class="container">
 <div class="container px-6 mx-auto">
-  <div class="bg-blue-800 p-2 shadow text-xl text-white">
-      <h3 class="font-bold pl-2">Senarai E-Mandate Info</h3>
-  </div>
+  <div class="bg-blue-800 p-2 shadow text-xl text-white flex justify-between items-center">
+    <h3 class="font-bold pl-2">Senarai Emandate Info</h3>
+    <span class=" text-base pr-2 ">
+      {{-- Negeri : {{ session()->get('authenticatedUser')['state_name'] }} --}}
+              CAWANGAN : {{ session()->get('authenticatedUser')['branch_name'] }}
+    </span>
+</div>
       <!--start tables-->
  <div class="-my-2 py-2 overflow-x-auto sm:-mx-6 sm:px-6 lg:-mx-8 pr-10 lg:px-8">
   <div class="align-middle rounded-tl-lg rounded-tr-lg inline-block w-full py-4 overflow-hidden bg-white shadow-lg px-12">
@@ -22,7 +26,7 @@
                   </div>
                   <input type="text" class="flex-shrink flex-grow flex-auto leading-normal tracking-wide w-px flex-1 border border-none border-l-0 rounded rounded-l-none px-3 relative focus:outline-none text-xxs lg:text-xs lg:text-base text-gray-500 font-thin"
                   type="text"
-                  placeholder="Carian No Akaun"
+                  placeholder="Carian No Akaun/Kad Pengenalan"
                   aria-label="Search"
                   wire:model="searchTerm"
                   />

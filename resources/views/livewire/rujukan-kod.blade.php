@@ -1,11 +1,15 @@
 
 
 <main class="h-full pb-16 overflow-y-auto">
-    <div class="container">
+  <div class="container">
     <div class="container px-6 mx-auto">
-      <div class="bg-blue-800 p-2 shadow text-xl text-white">
-          <h3 class="font-bold pl-2">Rujukan Kod Transaksi</h3>
-      </div>
+      <div class="bg-blue-800 p-2 shadow text-xl text-white flex justify-between items-center">
+        <h3 class="font-bold pl-2">Rujukan Kod Transaksi</h3>
+        <span class=" text-base pr-2 ">
+          {{-- Negeri : {{ session()->get('authenticatedUser')['state_name'] }} --}}
+                  CAWANGAN : {{ session()->get('authenticatedUser')['branch_name'] }}
+        </span>
+    </div>
           <!--start tables-->
      <div class="-my-2 py-2 overflow-x-auto sm:-mx-6 sm:px-6 lg:-mx-8 pr-10 lg:px-8">
       <div class="align-middle rounded-tl-lg rounded-tr-lg inline-block w-full py-4 overflow-hidden bg-white shadow-lg px-12">
@@ -99,5 +103,5 @@
     </div>
     <!-- end tables -->
     <div>
-    </div>
-    </main>
+  </div>
+</main>
