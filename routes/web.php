@@ -19,7 +19,7 @@ use Illuminate\Support\Facades\Redirect;
 */
 
 Route::get('/logmasuk', [AuthenticationUser::class, 'logmasuk'])->name('logmasuk');
-Route::post('/loggingin', [AuthenticationUser::class, 'loggingin'])->name('loggingin');
+Route::get('/loggingin', [AuthenticationUser::class, 'loggingin'])->name('loggingin');
 Route::post('/systemlogin?userid={userid}&password={password}', [AuthenticationUser::class, 'systemLogin']);
 Route::get('/logkeluar', [AuthenticationUser::class, 'logkeluar'])->name('logkeluar');
 

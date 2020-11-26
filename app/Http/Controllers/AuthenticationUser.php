@@ -98,6 +98,7 @@ class AuthenticationUser extends Controller
                     'state_name' => $user_state->description,
                 ]);
 
+                // dd($user_state);
                 return redirect()->route('dashboard');
             }
             else {
