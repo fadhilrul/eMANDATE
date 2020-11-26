@@ -15,7 +15,7 @@
 		  
 		<main class="h-full overflow-y-auto">
 		  
-		  <div class="container px-6 mx-auto grid">
+		  <div class="container px-6 mx-auto grid"> 
 		  
 		  <div class="main-content flex-1 bg-gray-50 mt-12 md:mt-2 pb-24 md:pb-5">
 		  
