@@ -41,8 +41,9 @@
 				
 					<thead>
                         <tr>
-                            <th class="px-6 py-3 border-b-2 border-gray-300 text-left leading-4 text-blue-500 tracking-wider">Nama Fail</th>
                             <th class="px-6 py-3 border-b-2 border-gray-300 text-left leading-4 text-blue-500 tracking-wider">Tarikh Berjaya Daftar</th>
+                            <th class="px-6 py-3 border-b-2 border-gray-300 text-left leading-4 text-blue-500 tracking-wider">Cawangan</th>
+                            <th class="px-6 py-3 border-b-2 border-gray-300 text-left leading-4 text-blue-500 tracking-wider">Negeri</th>
                         </tr>
                      </thead>
 				
@@ -50,18 +51,7 @@
 					<tbody class="bg-white">  
 						
 						<tr>
-							<td class="px-6 py-4 whitespace-no-wrap border-b border-gray-500">
-                                <div class="flex items-center">
-                                    <div>
-                                        <div class="text-sm leading-5 text-gray-800">
-
-                                           {{ $item->filename }}
-
-                                        </div>
-                                    </div>
-                                </div>
-                            </td>
-                            
+						
                             <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-500">
                                 <div class="flex items-center">
                                     <div>
@@ -73,6 +63,32 @@
                                     </div>
                                 </div>
                             </td>
+
+                            <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-500">
+                                <div class="flex items-center">
+                                    <div>
+                                        <div class="text-sm leading-5 text-gray-800">
+
+                                            {{ $item-> branch_name }}
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </td>
+
+                            <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-500">
+                                <div class="flex items-center">
+                                    <div>
+                                        <div class="text-sm leading-5 text-gray-800">
+
+                                            {{ $item-> description }}
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </td>
+
+                           
 
 							 <td class="px-6 py-4 whitespace-no-wrap text-right border-b border-gray-500 text-sm leading-5">
                                     <button class="px-5 py-2 border-blue-500 border text-blue-500 rounded transition duration-300 hover:bg-blue-700 hover:text-white focus:outline-none">

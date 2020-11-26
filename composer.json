@@ -15,6 +15,7 @@
         "laravel-frontend-presets/tall": "^2.0",
         "laravel/framework": "^8.0",
         "laravel/tinker": "^2.0",
+        "laravelcollective/html": "^6.2",
         "livewire/livewire": "^2.2",
         "maatwebsite/excel": "^3.1",
         "mediconesystems/livewire-datatables": "^0.4.1",

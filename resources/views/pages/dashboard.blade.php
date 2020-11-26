@@ -53,13 +53,13 @@
 						<!-- Article -->
 						{{-- <article class="overflow-hidden rounded-lg shadow-lg bg-blue-50">
 			
-							<a href="{{ route('emandate.dashboard') }}">
+							<a href="{{ url('emandate-dashboard') }}">
 							<img alt="Placeholder" class="block h-auto w-full" src="{{ asset('assets/img/moneytime.png') }}">
 							</a>
 			
 							<header class="flex items-center justify-between leading-tight p-2 md:p-4">
 									<h1 class="text-lg">
-										<a class="no-underline hover:underline text-black" href="{{ route('emandate.dashboard') }}">
+										<a class="no-underline hover:underline text-black" href="{{ url('emandate-dashboard') }}">
 											<B class= text-blue-500>E-Mandate<B>
 										</a>
 									</h1>
