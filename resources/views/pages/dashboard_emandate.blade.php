@@ -96,7 +96,7 @@
             <div class = "form-group">
                 <div class = "flex-grow">
                   <div class="text-sm leading-5 text-gray-800">
-                     <button type="submit" class="px-4 py-2 bg-blue-400 hover:bg-blue-600">Submit</button>
+                     <button type="submit" class="px-4 py-2 bg-blue-400 hover:bg-blue-600">Jana</button>
                     </div>
                   </div>
                 </div> 
