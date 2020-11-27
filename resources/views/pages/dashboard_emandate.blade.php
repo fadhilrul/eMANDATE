@@ -112,7 +112,7 @@
  
   <div class="flex flex-wrap">  
     <div class="w-full md:w-1/2 xl:w-1/3 p-3">
-      <a href="{{-- route('listlulus') --}}">
+     {{--  <a href="{{ route('listlulus') }}"> --}}
         <div class="bg-green-100 border-b-4 border-green-500 rounded-lg shadow-lg p-5">
             <div class="flex flex-row items-center">
                 <div class="flex-1 text-right md:text-center">
@@ -126,7 +126,7 @@
     </div>
 
     <div class="w-full md:w-1/2 xl:w-1/3 p-3">
-      <a href="{{-- route('listlulus') --}}">
+     {{--   <a href="{{ route('listlulus') }}"> --}}
        
         <div class="bg-green-100 border-b-4 border-green-500 rounded-lg shadow-lg p-5">
             <div class="flex flex-row items-center">
@@ -141,7 +141,7 @@
     </div>
 
     <div class="w-full md:w-1/2 xl:w-1/3 p-3">
-      <a href="{{-- route('listgagal') --}}">
+    {{--    <a href="{{ route('listgagal') }}"> --}}
         <div class="bg-yellow-100 border-b-4 border-yellow-600 rounded-lg shadow-lg p-5">
             <div class="flex flex-row items-center">
                 <div class="flex-1 text-right md:text-center">
