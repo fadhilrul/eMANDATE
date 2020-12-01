@@ -21,23 +21,28 @@ class DashboardEmandateController extends Controller
             //$state = DB::table('EMANDATE_ENRP')->select('section')->distinct()->get()->pluck('section');
             //$branch = DB::table('EMANDATE_ENRP')->select('payrefnum')->distinct()->get()->pluck('payrefnum');
 
-            $state =  DB::table('EMANDATE_ENRP')
+           /* $state =  DB::table('EMANDATE_ENRP')
                         ->select('BNM_STATECODES.description')
                         ->distinct()
                         ->join ('ACCOUNT_MASTER', DB::raw("TRIM(ACCOUNT_MASTER.ACCOUNT_NO)"), '=', DB::raw("TRIM(EMANDATE_ENRP.PAYREFNUM)")  )
                         ->join ('BRANCHES', 'BRANCHES.BRANCH_CODE', '=', 'ACCOUNT_MASTER.BRANCH_CODE')
                         ->join ('BNM_STATECODES',  'BRANCHES.STATE_CODE' , '=', 'BNM_STATECODES.CODE' )
                         ->get()
-                        ->pluck('description');  
+                        ->pluck('description');  */
 
-            $branch =  DB::table('EMANDATE_ENRP')
+            $state = DB::table('BNM_STATECODES')->select('description')->distinct()->get()->pluck('description');        
+           
+                    
+            /*$branch =  DB::table('EMANDATE_ENRP')
                         ->select('BRANCHES.BRANCH_NAME')
                         ->distinct()
                         ->join ('ACCOUNT_MASTER', DB::raw("TRIM(ACCOUNT_MASTER.ACCOUNT_NO)"), '=', DB::raw("TRIM(EMANDATE_ENRP.PAYREFNUM)")  )
                         ->join ('BRANCHES', 'BRANCHES.BRANCH_CODE', '=', 'ACCOUNT_MASTER.BRANCH_CODE')
                         ->join ('BNM_STATECODES',  'BRANCHES.STATE_CODE' , '=', 'BNM_STATECODES.CODE' )
                         ->get()
-                        ->pluck('branch_name');            
+                        ->pluck('branch_name'); */ 
+            
+            $branch = DB::table('BRANCHES')->select('branch_name','state_code')->distinct()->orderby('state_code')->get()->pluck('branch_name');                       
 
             $transdate = DB::table('EMANDATE_ENRP')->select('effdate')->distinct()->get()->pluck('effdate');
 

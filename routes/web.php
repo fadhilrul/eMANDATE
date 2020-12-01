@@ -27,13 +27,12 @@ Route::middleware([AuthenticatedUser::class])->group(function() {
      
      /* Dashboard */
       Route::get('/', 'DashboardController@index')->name('dashboard');
-      //Route::get('/emandate-dashboard', 'DashboardEmandateController@index')->name('emandate.dashboard');
-      Route::get('/emandate-dashboard', 'DashboardEmandateController@index')->name('emandate.dashboard');
-      Route::post('/emandate-dashboard', 'DashboardEmandateController@index')->name('emandate.dashboard');
       Route::get('/emandate-list', 'EmandateController@index')->name('Emandate_list.index');
       Route::get('/emandate-daftarnegeri', 'DaftarNegeriController@index')->name('listdaftar');
       Route::get('/emandate-lulusnegeri', 'LulusNegeriController@index')->name('listlulus');
       Route::get('/emandate-gagalnegeri', 'GagalNegeriController@index')->name('listgagal');
+      /* dashboard emandate use livewire */
+      Route::get('/emandate-dashboard', 'HomeController@index')->name('emandate.dashboard');
         
       /* Report */
       Route::get('/emandate-report', 'EmandateReportController@index')->name('report.dashboard');
@@ -92,5 +91,7 @@ Route::middleware([AuthenticatedUser::class])->group(function() {
       //Route::get('/cft-list', 'CFTController@index')->name('cft_list.index');
      //Route::get('/cft-listdetails', 'CFTControllerDetails@index')->name('cft_listdetails.index');
      //Route::get('/emandate-listdetails', 'EmandateControllerDetails@index')->name('Emandate_listDetails.index'); 
-     
+     //Route::get('/emandate-dashboard', 'DashboardEmandateController@index')->name('emandate.dashboard');
+      //Route::get('/emandate-dashboard', 'DashboardEmandateController@index')->name('emandate.dashboard');
+      //Route::post('/emandate-dashboard', 'DashboardEmandateController@index')->name('emandate.dashboard');
 });
