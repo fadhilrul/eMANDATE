@@ -36,9 +36,12 @@ class HoldallExport implements FromQuery,WithHeadings
     public function query()
     {
            
-        $state_user = session('authenticatedUser')['state_code'];
+        /*  $state_user = session('authenticatedUser')['state_code'];*/
+       $branch_user = session('authenticatedUser')['branch_code'];
+       $branch_type = session('authenticatedUser')['branch_type'];
 
-        if ( $state_user == 00){
+        /* if ( $state_user == 00){ */
+        if ( $branch_type == 'HQ'){  
 
             return  DB::table('EMANDATE_INFO')
             ->select('blockpayment_date','fms_acct_no','idnum','recnum','lastfailed_date','lastsuccess_date','blockedby','status_desc')
@@ -52,7 +55,7 @@ class HoldallExport implements FromQuery,WithHeadings
             ->select('blockpayment_date','fms_acct_no','idnum','recnum','lastfailed_date','lastsuccess_date','blockedby','status_desc')
             ->join ('ACCOUNT_MASTER', DB::raw("TRIM(ACCOUNT_MASTER.ACCOUNT_NO)"), '=', DB::raw("TRIM(EMANDATE_INFO.FMS_ACCT_NO)")  )
             ->join ('BRANCHES', 'BRANCHES.BRANCH_CODE', '=', 'ACCOUNT_MASTER.BRANCH_CODE')
-            ->where('BRANCHES.STATE_CODE' , '=',  $state_user )
+            ->where('BRANCHES.STATE_CODE' , '=',  $branch_user )
             ->where('blockpayment_date','like', "%".$this->idrptholdall."%")
             ->where('status_desc','=','ON-HOLD')
             ->orderby('fms_acct_no'); 
