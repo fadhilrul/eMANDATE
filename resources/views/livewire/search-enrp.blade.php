@@ -8,7 +8,8 @@
                       CAWANGAN : {{ session()->get('authenticatedUser')['branch_name'] }}
             </span>
         </div>
-        {{-- {{ session()->get('authenticatedUser')['state_code'] }} --}}
+        {{-- {{ session()->get('authenticatedUser')['branch_code'] }} --}}
+
     <!-- search section -->
 	<!--	<div class="-my-2 py-2 overflow-x-auto sm:-mx-6 sm:px-6 lg:-mx-8 pr-10 lg:px-8">  -->
 			  <div class="align-middle rounded-tl-lg rounded-tr-lg inline-block w-full py-4 overflow-hidden bg-white shadow-lg px-12">
@@ -74,11 +75,10 @@
                                 </div>
                             </td>
 
-                           
 							 <td class="px-6 py-4 whitespace-no-wrap text-right border-b border-gray-500 text-sm leading-5">
                                     <button class="px-5 py-2 border-blue-500 border text-blue-500 rounded transition duration-300 hover:bg-blue-700 hover:text-white focus:outline-none">
                                         <a href = "{{ url('linkmainenrp/'.$item->hcrdate.'')}}"> Papar </a> </button>
-                                </td>
+                             </td>
 						</tr>
 			 
                     </tbody>

@@ -62,27 +62,13 @@ class AuthenticationUser extends Controller
 
                 /* Join table  to get state_id */
               $user_state = DB::table('FMS_USERS')
-             -> select('BANK_OFFICERS.BRANCH_CODE', 'BRANCHES.STATE_CODE' ,'BRANCHES.BRANCH_NAME','BNM_STATECODES.CODE','BNM_STATECODES.DESCRIPTION') //DB::raw('UF_GET_STATE_DESC(SUBSTR(BANK_OFFICERS.BRANCH_CODE,0,2)) AS state'))
+             -> select('BANK_OFFICERS.BRANCH_CODE', 'BRANCHES.BRANCH_TYPE' ,'BRANCHES.STATE_CODE' ,'BRANCHES.BRANCH_NAME','BNM_STATECODES.CODE','BNM_STATECODES.DESCRIPTION') //DB::raw('UF_GET_STATE_DESC(SUBSTR(BANK_OFFICERS.BRANCH_CODE,0,2)) AS state'))
              ->join ('BANK_OFFICERS', 'FMS_USERS.USERID', '=', 'BANK_OFFICERS.OFFICER_ID') 
              ->join ('BRANCHES', 'BANK_OFFICERS.BRANCH_CODE', '=', 'BRANCHES.BRANCH_CODE')
              ->join ('BNM_STATECODES','BRANCHES.STATE_CODE','=' , 'BNM_STATECODES.CODE')
              ->where('FMS_USERS.USERID' , '=', $user->userid)
              ->first(); 
              //dd($user_state);
-
-            // $user = DB::select(DB::raw("
-            //     SELECT 
-            //     O.BRANCH_CODE, 
-            //     B.STATE_CODE,
-            //     UF_GET_STATE_DESC(SUBSTR(O.BRANCH_CODE,0,2)) AS STATE,
-            //     UF_GET_BRANCHNAME(O.BRANCH_CODE) AS CAWANGAN
-            //     FROM FMS_USERS F,BANK_OFFICERS O,BRANCHES B
-            //     WHERE F.USERID = O.OFFICER_ID
-            //     AND O.BRANCH_CODE = B.BRANCH_CODE
-            //     AND F.USERID =  $user->userid
-            // "));
-
-            // $user_state = $state;
 
             /* end join table to get state_id */
 
@@ -94,6 +80,7 @@ class AuthenticationUser extends Controller
 
                     'branch_code' => $user_state->branch_code,
                     'state_code' => $user_state->state_code,
+                    'branch_type' => $user_state->branch_type,
                     'branch_name' => $user_state->branch_name,
                     'state_name' => $user_state->description,
                 ]);

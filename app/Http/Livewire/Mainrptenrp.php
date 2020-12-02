@@ -6,6 +6,7 @@ use App\Models\EMANDATE_ENRP;
 use Livewire\Component;
 use Livewire\WithPagination;
 use Illuminate\Support\Facades\DB;
+use DateTime;
 
 class Mainrptenrp extends Component
 {
@@ -16,9 +17,14 @@ class Mainrptenrp extends Component
     public function render()
     {
         $findmainrptenrp =  "%".$this->findmainrptenrp."%";
-        $state_user = session('authenticatedUser')['state_code'];
+        //$state_user = session('authenticatedUser')['state_code'];
+        $branch_user = session('authenticatedUser')['branch_code'];
+        $branch_type = session('authenticatedUser')['branch_type'];
 
-        if ( $state_user == 00){
+        $date = new DateTime();
+        $date->format('Y-m-d');
+
+        if ( $branch_type == 'HQ'){
 
             return view('livewire.mainrptenrp',[
 
@@ -40,7 +46,7 @@ class Mainrptenrp extends Component
                             ->select(DB::raw('hcrdate, count(*) as bil'))
                             ->join ('ACCOUNT_MASTER', DB::raw("TRIM(ACCOUNT_MASTER.ACCOUNT_NO)"), '=', DB::raw("TRIM(EMANDATE_ENRP.PAYREFNUM)")  )
                             ->join ('BRANCHES', 'BRANCHES.BRANCH_CODE', '=', 'ACCOUNT_MASTER.BRANCH_CODE')
-                            ->where('BRANCHES.STATE_CODE' , '=',  $state_user )
+                            ->where('BRANCHES.BRANCH_CODE' , '=',  $branch_user )
                             ->where('hcrdate', 'like', $findmainrptenrp)
                             ->where('approval', 'not like' , '%00%')
                             ->groupBy('hcrdate')

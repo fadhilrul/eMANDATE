@@ -10,6 +10,7 @@ use Illuminate\Http\Request;
 use App\Exports\ResFailExport;
 use App\Models\EMANDATE_RES;
 use Maatwebsite\Excel\Facades\Excel;
+use DateTime;
 
 class RptRESfailController extends Controller
 {
@@ -27,7 +28,11 @@ class RptRESfailController extends Controller
 
     public function export(Request $request) 
     {
-        return Excel::download(new ResFailExport($request->id), 'DataFailbyDate.xlsx');
+        $date = new DateTime();
+        $date_download = $date->format('dmy');
+
+        //return Excel::download(new ResFailExport($request->id), 'DataFailbyDate.xlsx');
+        return Excel::download(new ResFailExport($request->id), 'DataFailbyDate_' . $date_download . '.xlsx');
     }
 
 }
