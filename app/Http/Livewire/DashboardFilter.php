@@ -36,13 +36,46 @@ class DashboardFilter extends Component
 
             } 
 
+            $selected_state = $this->country;
             $selected_branch = $this->city;
-            //dd($selected_branch);
-
-            $daftar = EMANDATE_ENRP::where('BRANCHES.BRANCH_CODE',  $selected_branch)
+            
+            if($selected_branch == 'All'){
+                
+                $daftar = EMANDATE_ENRP::where('BRANCHES.STATE_CODE',  $selected_state)
                     ->join ('ACCOUNT_MASTER', DB::raw("TRIM(ACCOUNT_MASTER.ACCOUNT_NO)"), '=', DB::raw("TRIM(EMANDATE_ENRP.PAYREFNUM)")  )
                     ->join ('BRANCHES', 'BRANCHES.BRANCH_CODE', '=', 'ACCOUNT_MASTER.BRANCH_CODE')
                     ->get();
+
+                $lulus = EMANDATE_ENRP::where('BRANCHES.STATE_CODE',  $selected_state)
+                    ->join ('ACCOUNT_MASTER', DB::raw("TRIM(ACCOUNT_MASTER.ACCOUNT_NO)"), '=', DB::raw("TRIM(EMANDATE_ENRP.PAYREFNUM)")  )
+                    ->join ('BRANCHES', 'BRANCHES.BRANCH_CODE', '=', 'ACCOUNT_MASTER.BRANCH_CODE')
+                    ->where('EMANDATE_ENRP.SECTION', 'BLOCK2')
+                    ->get();
+
+                $gagal = EMANDATE_ENRP::where('BRANCHES.STATE_CODE',  $selected_state)
+                    ->join ('ACCOUNT_MASTER', DB::raw("TRIM(ACCOUNT_MASTER.ACCOUNT_NO)"), '=', DB::raw("TRIM(EMANDATE_ENRP.PAYREFNUM)")  )
+                    ->join ('BRANCHES', 'BRANCHES.BRANCH_CODE', '=', 'ACCOUNT_MASTER.BRANCH_CODE')
+                    ->where('EMANDATE_ENRP.SECTION', 'BLOCK1')
+                    ->get();
+        
+                /* code '00' is not malaysian */
+                $countries = BNM_STATECODES::whereNotIn('code', ['00', '99'])->orderBy('code')->get();
+                //$countries = BNM_STATECODES::orderBy('code')->get();
+                
+                return view('livewire.dashboard-filter')->with([
+                    'countries'  => $countries,
+                    'posts' => $daftar,
+                    'postspass' => $lulus,
+                    'postsfail' => $gagal,
+                
+                ]);
+            }
+            else{
+                
+                $daftar = EMANDATE_ENRP::where('BRANCHES.BRANCH_CODE',  $selected_branch)
+                ->join ('ACCOUNT_MASTER', DB::raw("TRIM(ACCOUNT_MASTER.ACCOUNT_NO)"), '=', DB::raw("TRIM(EMANDATE_ENRP.PAYREFNUM)")  )
+                ->join ('BRANCHES', 'BRANCHES.BRANCH_CODE', '=', 'ACCOUNT_MASTER.BRANCH_CODE')
+                ->get();
 
                 $lulus = EMANDATE_ENRP::where('BRANCHES.BRANCH_CODE',  $selected_branch)
                     ->join ('ACCOUNT_MASTER', DB::raw("TRIM(ACCOUNT_MASTER.ACCOUNT_NO)"), '=', DB::raw("TRIM(EMANDATE_ENRP.PAYREFNUM)")  )
@@ -56,18 +89,23 @@ class DashboardFilter extends Component
                     ->where('EMANDATE_ENRP.SECTION', 'BLOCK1')
                     ->get();
         
-            /* code '00' is not malaysian */
-            $countries = BNM_STATECODES::whereNotIn('code', ['00', '99'])->orderBy('code')->get();
-            //$countries = BNM_STATECODES::orderBy('code')->get();
-            
-            return view('livewire.dashboard-filter')->with([
-                'countries'  => $countries,
-                'posts' => $daftar,
-                'postspass' => $lulus,
-                'postsfail' => $gagal,
-             
-            ]);
-        }
+                /* code '00' is not malaysian */
+                $countries = BNM_STATECODES::whereNotIn('code', ['00', '99'])->orderBy('code')->get();
+                //$countries = BNM_STATECODES::orderBy('code')->get();
+                
+                return view('livewire.dashboard-filter')->with([
+                    'countries'  => $countries,
+                    'posts' => $daftar,
+                    'postspass' => $lulus,
+                    'postsfail' => $gagal,
+                
+                ]);
+
+            }//end if select cawangan all
+
+
+
+        } //end if branchtype = hq
         else{
                 $daftar = EMANDATE_ENRP::where('BRANCHES.BRANCH_CODE' , '=',  $branch_user )
                 ->join ('ACCOUNT_MASTER', DB::raw("TRIM(ACCOUNT_MASTER.ACCOUNT_NO)"), '=', DB::raw("TRIM(EMANDATE_ENRP.PAYREFNUM)")  )
