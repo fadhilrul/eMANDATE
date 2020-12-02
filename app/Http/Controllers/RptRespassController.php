@@ -10,6 +10,7 @@ use Illuminate\Http\Request;
 use App\Exports\ResPassExport;
 use App\Models\EMANDATE_RES;
 use Maatwebsite\Excel\Facades\Excel;
+use DateTime;
 
 class RptRespassController extends Controller
 {
@@ -27,7 +28,11 @@ class RptRespassController extends Controller
 
     public function export(Request $request) 
     {
-        return Excel::download(new ResPassExport($request->id), 'DataPassbyDate.xlsx');
+        $date = new DateTime();
+        $date_download = $date->format('dmy');
+
+        //return Excel::download(new ResPassExport($request->id), 'DataPassbyDate.xlsx');
+        return Excel::download(new ResPassExport($request->id), 'DataPassbyDate_' . $date_download . '.xlsx');
     }
 
 }

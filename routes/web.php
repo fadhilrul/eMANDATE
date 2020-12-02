@@ -68,8 +68,7 @@ Route::middleware([AuthenticatedUser::class])->group(function() {
       Route::resource('linkmainCFT','CFTController');
       Route::resource('linkcft','CFTControllerDetails');
       //Route::get('/linkmainCFT/{id}', 'CFTController@index')->name('linkcft.index');
-      
-
+    
       /* For ENRP */
       Route::get('/search_mainenrp', 'searchMainENRPController@index')->name('searchenrp.index');
       Route::resource('linkmainenrp','EmandateController');

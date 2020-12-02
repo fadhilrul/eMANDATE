@@ -8,11 +8,12 @@ use Maatwebsite\Excel\Concerns\FromQuery;
 use Maatwebsite\Excel\Concerns\WithHeadings;
 use Maatwebsite\Excel\Concerns\FromCollection;
 use Illuminate\Support\Facades\DB;
+use DateTime;
 
-class EnrpExport implements FromQuery,WithHeadings
-
+class EnrpExport implements FromQuery,WithHeadings    
 {
     
+
     protected $id;
         function __construct($id) {
         $this->idrptenrp = $id;
@@ -59,10 +60,12 @@ class EnrpExport implements FromQuery,WithHeadings
                                 ->select('seqno','hcrdate','batchid','payrefnum','idtype','idnum','buyername','buyeracct','debitamt','purpose', 'telno','email','effdate','expdate','appdate')
                                 ->where('approval','not like','%00%')
                                 ; */
-        $state_user = session('authenticatedUser')['state_code'];
+       /*  $state_user = session('authenticatedUser')['state_code'];*/
+       $branch_user = session('authenticatedUser')['branch_code'];
+       $branch_type = session('authenticatedUser')['branch_type'];
 
-        if ( $state_user == 00){
-
+        /* if ( $state_user == 00){ */
+        if ( $branch_type == 'HQ'){    
             return  DB::table('EMANDATE_ENRP')
                     ->select('hcrdate','batchid','payrefnum','idtype','idnum','buyername','buyeracct','debitamt','purpose', 'telno','email','effdate','expdate','appdate')
                     ->where('hcrdate','like', "%".$this->idrptenrp."%")
@@ -74,7 +77,7 @@ class EnrpExport implements FromQuery,WithHeadings
                     ->select('hcrdate','batchid','payrefnum','idtype','idnum','buyername','buyeracct','debitamt','purpose', 'telno','email','effdate','expdate','appdate')
                     ->join ('ACCOUNT_MASTER', DB::raw("TRIM(ACCOUNT_MASTER.ACCOUNT_NO)"), '=', DB::raw("TRIM(EMANDATE_ENRP.PAYREFNUM)")  )
                     ->join ('BRANCHES', 'BRANCHES.BRANCH_CODE', '=', 'ACCOUNT_MASTER.BRANCH_CODE')
-                    ->where('BRANCHES.STATE_CODE' , '=',  $state_user )
+                    ->where('BRANCHES.STATE_CODE' , '=',  $branch_user )
                     ->where('hcrdate','like', "%".$this->idrptenrp."%")
                     ->where('approval','not like','%00%')
                     ->orderby('seqno'); 

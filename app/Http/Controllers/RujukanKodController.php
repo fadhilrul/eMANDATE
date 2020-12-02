@@ -5,6 +5,7 @@ use App\Exports\KodRujukan;
 use Illuminate\Http\Request;
 use App\Models\EMANDATE_INFO_DESC;
 use Maatwebsite\Excel\Facades\Excel;
+use DateTime;
 
 class RujukanKodController extends Controller
 {
@@ -20,6 +21,11 @@ class RujukanKodController extends Controller
 
     public function export()
     {
-        return Excel::download(new KodRujukan, 'KodRujukan.xlsx');
+        $date = new DateTime();
+        $date_download = $date->format('dmy');
+
+        //return Excel::download(new KodRujukan, 'KodRujukan.xlsx');
+        return Excel::download(new KodRujukan, 'KodRujukan_' . $date_download . '.xlsx');
+
     }
 }

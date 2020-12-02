@@ -21,19 +21,18 @@ class Search_cft extends Component
 
        // $searchCFTTerm = ($this->searchCFTTerm != "") ? '' : '%'.$this->searchCFTTerm.'%';
        $searchCFTTerm =  "%".$this->searchCFTTerm."%";
-       $state_user = session('authenticatedUser')['state_code'];
-       //dd($state_user);
+       //$state_user = session('authenticatedUser')['state_code'];
+       $branch_user = session('authenticatedUser')['branch_code'];
+       $branch_type = session('authenticatedUser')['branch_type'];
 
-       if ( $state_user == 00)
-        { 
+       /* if ( $state_user == 00){  */
+        if ( $branch_type == 'HQ'){
 
             return view('livewire.searchcft',[
             
-                //'cftdata' => EMANDATE_CFT::where('filename','like', $searchCFTTerm)->orwhere('accno','like', $searchCFTTerm)->paginate(5)
-                //'cftdata' => EMANDATE_CFT::where('filename','like', $searchCFTTerm)->paginate(5)
                 'cftdata' => EMANDATE_CFT::select('filename','hdate')
-                            ->where('filename','like', $searchCFTTerm)
-                            ->orwhere('hdate','like', $searchCFTTerm)
+                            //->where('filename','like', $searchCFTTerm)
+                            ->where('hdate','like', $searchCFTTerm)
                             ->groupBy('filename','hdate')->get()
             
             ]);
@@ -45,9 +44,9 @@ class Search_cft extends Component
                 'cftdata' => EMANDATE_CFT::select('filename','hdate')
                             ->join ('ACCOUNT_MASTER', DB::raw("TRIM(ACCOUNT_MASTER.ACCOUNT_NO)"), '=', DB::raw("TRIM(EMANDATE_CFT.PAYREFNO)")  )
                             ->join ('BRANCHES', 'BRANCHES.BRANCH_CODE', '=', 'ACCOUNT_MASTER.BRANCH_CODE')
-                            ->where('BRANCHES.STATE_CODE' , '=',  $state_user )
-                            ->where('filename','like', $searchCFTTerm)
-                            ->orwhere('hdate','like', $searchCFTTerm)
+                            ->where('BRANCHES.BRANCH_CODE' , '=',  $branch_user )
+                            //->where('filename','like', $searchCFTTerm)
+                            ->where('hdate','like', $searchCFTTerm)
                             ->groupBy('filename','hdate')
                             ->get()
             

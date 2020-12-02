@@ -17,11 +17,13 @@ class Search extends Component
     public function render()
     {
         $searchTerm = '%'.$this->searchTerm.'%';
-        $state_user = session('authenticatedUser')['state_code'];
-        //dd($state_user);
+        //$state_user = session('authenticatedUser')['state_code'];
+        $branch_user = session('authenticatedUser')['branch_code'];
+        $branch_type = session('authenticatedUser')['branch_type'];
         
-        if ( $state_user == 00)
-        {
+       /*  if ( $state_user == 00){ */
+        if ( $branch_type == 'HQ'){
+
             return view('livewire.search',[
                /* 'EMANDATE_ENRP' => EMANDATE_ENRP::where('idnum','like', $searchTerm)
                                 ->orwhere('payrefnum','like', $searchTerm)
@@ -48,7 +50,7 @@ class Search extends Component
                                           ->orWhere('idnum', 'like', $searchTerm); })
                                     ->join ('ACCOUNT_MASTER', DB::raw("TRIM(ACCOUNT_MASTER.ACCOUNT_NO)"), '=', DB::raw("TRIM(EMANDATE_ENRP.PAYREFNUM)")  )
                                     ->join ('BRANCHES', 'BRANCHES.BRANCH_CODE', '=', 'ACCOUNT_MASTER.BRANCH_CODE')
-                                    ->where('BRANCHES.STATE_CODE' , '=',  $state_user )
+                                    ->where('BRANCHES.BRANCH_CODE' , '=',  $branch_user )
                                     ->paginate(10) 
                                 
             ]);

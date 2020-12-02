@@ -30,9 +30,9 @@
           </span>
       </div>
 
-      {{-- session()->get('authenticatedUser')['state_code'] --}}
+    {{--   {{ session()->get('authenticatedUser')['branch_type'] }} --}}
         
-      @if ( session()->get('authenticatedUser')['state_code'] == '00' )
+      @if ( session()->get('authenticatedUser')['branch_type'] == 'HQ' )
       
     <!-- for dropdown filter -->
     <table class="md:table-auto lg:table-fixed w-full ">
@@ -41,7 +41,7 @@
                 <div class = "form-group">
                     <div class = "flex-grow">
                     <div class="text-sm leading-5 text-gray-800">
-                        <label>NEGERI Baru</label>
+                        <label>NEGERI</label>
                         <select name="country" class="form-control" wire:model="country">
                             <option selected disabled>Pilih Negeri</option> 
                                 @foreach ($countries as $country)
@@ -59,7 +59,7 @@
                 <div class = "form-group">
                     <div class = "flex-grow">
                     <div class="text-sm leading-5 text-gray-800">
-                        <label>CAWANGAN Baru</label>
+                        <label>CAWANGAN</label>
                         <select name="city" class="form-control" wire:model="city">
                             <option selected disabled>Pilih Cawangan</option> 
                                 @foreach ($cities as $city)
@@ -147,7 +147,7 @@
                       <div class="flex-1 text-right md:text-center">
                           
                           <h5 class="font-bold uppercase text-gray-600">Bilangan Permohonan Daftar</h5>
-                          <h3 class="font-bold text-3xl"> {{($daftarCount->count())}} 
+                          <h3 class="font-bold text-3xl"> {{($posts->count())}} 
                           <span class="text-blue-500"><i class="fas fa-caret-up"></i></span></h3>
                       </div>
                   </div>
@@ -164,7 +164,7 @@
                       <div class="flex-1 text-right md:text-center">
                           
                           <h5 class="font-bold uppercase text-gray-600">Bilangan Permohonan Lulus</h5>
-                          <h3 class="font-bold text-3xl">{{($lulusCount->count())}} 
+                          <h3 class="font-bold text-3xl">{{($postspass->count())}} 
                           <span class="text-green-500"><i class="fas fa-exchange-alt"></i></span></h3>
                       </div>
                   </div>
@@ -181,7 +181,7 @@
                       <div class="flex-1 text-right md:text-center">
                           
                           <h5 class="font-bold uppercase text-gray-600">Bilangan Permohonan Dalam Proses</h5>
-                          <h3 class="font-bold text-3xl"> {{($gagalCount->count())}} 
+                          <h3 class="font-bold text-3xl"> {{($postsfail->count())}} 
                           <span class="text-yellow-600"><i class="fas fa-caret-up"></i></span></h3>
                       </div>
                   </div>
