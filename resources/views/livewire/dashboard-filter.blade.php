@@ -43,7 +43,7 @@
                     <div class="text-sm leading-5 text-gray-800">
                         <label>NEGERI</label>
                         <select name="country" class="form-control" wire:model="country">
-                            <option selected disabled>Pilih Negeri</option> 
+                            <option selected >Pilih Negeri</option> 
                                 @foreach ($countries as $country)
                                     <option value={{ $country->code }}>{{ $country->description }}</option>
                                 @endforeach      
@@ -61,7 +61,8 @@
                     <div class="text-sm leading-5 text-gray-800">
                         <label>CAWANGAN</label>
                         <select name="city" class="form-control" wire:model="city">
-                            <option selected disabled>Pilih Cawangan</option> 
+                            <option selected >Pilih Cawangan</option> 
+                            <option value='All'>SEMUA</option> 
                                 @foreach ($cities as $city)
                                     <option value={{ $city->branch_code }}>{{ $city->branch_name }}</option>
                                 @endforeach 
@@ -71,17 +72,7 @@
                 </div> 
             </td>
         </tr> 
-         {{-- <tr> 
-                <td class="px-4 py-4 border border-indigo-dark font-semibold">
-                <div class = "form-group">
-                    <div class = "flex-grow">
-                        <div class="text-sm leading-5 text-gray-800">
-                        <button type="submit" class="px-4 py-2 bg-blue-400 hover:bg-blue-600">Submit</button>
-                        </div>
-                        </div>
-                    </div> 
-                </td>
-            </tr>  --}}
+       
     </table> 
    
     {{-- dump($posts) --}}
