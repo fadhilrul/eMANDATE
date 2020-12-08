@@ -94,7 +94,7 @@ class EmandateInfoController extends Controller
                     NVL(P.TOT_PROFIT_EARNED,0) as TOT_PROFIT_EARNED,
                     P.COST_OUTSTANDING,
                     P.UEI_OUTSTANDING,
-                    P.BAL_OUTSTANDING,
+                    P.BAL_OUTSTANDING + owing_amt as BAL_OUTSTANDING,
                     NVL(P.REBATE_AMOUNT,0) AS REBATE_AMOUNT,
                     NVL(P.SAVINGS_BALANCE,0) AS SAVINGS_BALANCE,
                     EXCESS_PAYMENT,

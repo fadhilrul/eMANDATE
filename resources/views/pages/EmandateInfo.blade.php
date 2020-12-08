@@ -453,7 +453,7 @@
 												<td class="px-4 py-4 border border-indigo-dark">
 													<div class = "flex-grow">
 														<div class="text-sm leading-5 text-gray-800">
-															<input value = "{{ $item->lastcycle_date }}" disabled = true
+															<input value = "{{  date('d-m-Y',strtotime($item->lastcycle_date)) }}" disabled = true
 																  class="block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input"
 															/>
 														</div>
@@ -467,7 +467,7 @@
 													<td class="px-4 py-4 border border-indigo-dark">
 														<div class = "flex-grow">
 															<div class="text-sm leading-5 text-gray-800">
-																<input value = "{{ $item->nextcycle_date }}" disabled = true
+																<input value = "{{  date('d-m-Y',strtotime($item->nextcycle_date)) }}" disabled = true
 																	  class="block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input"
 																/>
 															</div>
@@ -1016,7 +1016,7 @@
 															<div class="rounded-full bg-grey inline-flex mr-3">
 															<svg class="fill-current text-white h-8 w-8 block" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 38 38"><g fill-rule="evenodd"><path d="M12.29 28.04l1.29-5.52-1.58.67.63-2.85 1.64-.68L16.52 10h5.23l-1.52 7.14 2.09-.74-.58 2.7-2.05.8-.9 4.34h8.1l-.99 3.8z"></path></g></svg>
 															</div>
-															Baki Pembiayaan
+															Baki Pembiayaan (P+C)
 														</div>
 														<div class="w-2/5 xl:w-1/4 px-6 flex items-center" style="font-size:12px">
 															<div class="bg-indigo h-2 w-2 rounded-full mr-2"></div>	
@@ -1309,7 +1309,7 @@
 										<th class="px-6 py-3 border-b-2 border-gray-300 text-left leading-4 text-blue-500 tracking-wider" style="font-size:12px">Key-In Officer</th>
 										<th class="px-6 py-3 border-b-2 border-gray-300 text-left leading-4 text-blue-500 tracking-wider" style="font-size:12px">Tarikh Transaksi</th>
 										<th class="px-6 py-3 border-b-2 border-gray-300 text-left leading-4 text-blue-500 tracking-wider" style="font-size:12px">Status Resit</th>
-										<th class="px-6 py-3 border-b-2 border-gray-300 text-left leading-4 text-blue-500 tracking-wider" style="font-size:12px">Pengesahan PTK</th>
+										<th class="px-6 py-3 border-b-2 border-gray-300 text-left leading-4 text-blue-500 tracking-wider" style="font-size:12px">Pengesahan</th>
 									</tr>
 								</thead>
 								@foreach ($resit as $item)

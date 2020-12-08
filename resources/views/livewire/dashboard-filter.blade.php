@@ -36,8 +36,8 @@
       
     <!-- for dropdown filter -->
     <table class="md:table-auto lg:table-fixed w-full ">
-        <tr>
-            <td class="px-4 py-4 border border-indigo-dark font-semibold">
+        <tr class="bg-blue-100">
+            <td class="px-2 py-2 border border-indigo-dark font-semibold">
                 <div class = "form-group">
                     <div class = "flex-grow">
                     <div class="text-sm leading-5 text-gray-800">
@@ -54,8 +54,8 @@
                 </div> 
             </td>
         </tr> 
-        <tr> 
-            <td class="px-4 py-4 border border-indigo-dark font-semibold">
+        <tr class="bg-blue-100">
+            <td class="px-2 py-2 border border-indigo-dark font-semibold">
                 <div class = "form-group">
                     <div class = "flex-grow">
                     <div class="text-sm leading-5 text-gray-800">
@@ -82,12 +82,12 @@
   <div class="flex flex-wrap">  
     <div class="w-full md:w-1/2 xl:w-1/3 p-3">
      {{--  <a href="{{ route('listlulus') }}"> --}}
-        <div class="bg-green-100 border-b-4 border-green-500 rounded-lg shadow-lg p-5">
+        <div class="bg-indigo-100 border-b-4 border-indigo-500 rounded-lg shadow-lg p-5">
             <div class="flex flex-row items-center">
                 <div class="flex-1 text-right md:text-center">
-                    <h5 class="font-bold uppercase text-gray-600">Bilangan Permohonan Lulus Kesuluruhan</h5>
+                    <h5 class="font-bold uppercase text-gray-600">Bilangan Permohonan</h5>
                     <h3 class="font-bold text-3xl">{{ ($posts->count()) }} 
-                    <span class="text-green-500"><i class="fas fa-exchange-alt"></i></span></h3>
+                    <span class="text-indigo-500"><i class="fas fa-exchange-alt"></i></span></h3>
                 </div>
             </div>
         </div>
@@ -100,7 +100,7 @@
         <div class="bg-green-100 border-b-4 border-green-500 rounded-lg shadow-lg p-5">
             <div class="flex flex-row items-center">
                 <div class="flex-1 text-right md:text-center">
-                    <h5 class="font-bold uppercase text-gray-600">Bilangan Permohonan Lulus Kesuluruhan</h5>
+                    <h5 class="font-bold uppercase text-gray-600">Bilangan Permohonan Lulus</h5>
                     <h3 class="font-bold text-3xl">{{ ($postspass->count()) }} 
                     <span class="text-green-500"><i class="fas fa-exchange-alt"></i></span></h3>
                 </div>
@@ -114,7 +114,7 @@
         <div class="bg-yellow-100 border-b-4 border-yellow-600 rounded-lg shadow-lg p-5">
             <div class="flex flex-row items-center">
                 <div class="flex-1 text-right md:text-center">
-                    <h5 class="font-bold uppercase text-gray-600">Bilangan Permohonan Dalam Proses Kesuluruhan</h5>
+                    <h5 class="font-bold uppercase text-gray-600">Bilangan Permohonan Dalam Proses</h5>
                     <h3 class="font-bold text-3xl"> {{ ($postsfail->count()) }} 
                     <span class="text-yellow-600"><i class="fas fa-caret-up"></i></span></h3>
                 </div>

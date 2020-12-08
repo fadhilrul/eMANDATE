@@ -93,4 +93,12 @@ Route::middleware([AuthenticatedUser::class])->group(function() {
      //Route::get('/emandate-dashboard', 'DashboardEmandateController@index')->name('emandate.dashboard');
       //Route::get('/emandate-dashboard', 'DashboardEmandateController@index')->name('emandate.dashboard');
       //Route::post('/emandate-dashboard', 'DashboardEmandateController@index')->name('emandate.dashboard');
+
+      //fullcalender crud
+      Route::get('/fullcalendareventmaster','FullCalendarEventMasterController@index')->name('fullcalander.index');
+      Route::post('/fullcalendareventmaster/create','FullCalendarEventMasterController@create');
+      Route::post('/fullcalendareventmaster/update','FullCalendarEventMasterController@update');
+      Route::post('/fullcalendareventmaster/delete','FullCalendarEventMasterController@destroy');
+      Route::get('api','FullCalendarEventMasterController@api');
+      Route::post('/fullcalendareventmaster', 'fullcalendareventmaster@save')->name('fullcalendareventmaster.save');
 });
