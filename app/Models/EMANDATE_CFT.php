@@ -9,7 +9,7 @@ use Illuminate\Database\Eloquent\Model;
 // {
 //     use HasFactory;
 
-//     protected $table = 'MDT_TFC';
+//     protected $table = 'EMANDATE_CFT';
 
 //     protected $guarded = [];
 
@@ -17,13 +17,13 @@ use Illuminate\Database\Eloquent\Model;
 
 
 
-class MDT_SER extends Model
+class EMANDATE_CFT extends Model
 {
-    protected $table = 'MDT_SER';
+    protected $table = 'MDT_TFC';
     protected $guarded = [];
 
     public  function info()
     {
-        return $this->belongsTo('App\Models\MDT_OFNI','substr(filler,0,14)','fms_acct_no');
+        return $this->belongsTo('App\Models\MDT_OFNI','payrefno','fms_acct_no');
     }
 }

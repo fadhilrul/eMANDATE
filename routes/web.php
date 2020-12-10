@@ -22,9 +22,20 @@ Route::get('/logmasuk', [AuthenticationUser::class, 'logmasuk'])->name('logmasuk
 Route::post('/loggingin', [AuthenticationUser::class, 'loggingin'])->name('loggingin');
 Route::post('/systemlogin?userid={userid}&password={password}', [AuthenticationUser::class, 'systemLogin']);
 Route::get('/logkeluar', [AuthenticationUser::class, 'logkeluar'])->name('logkeluar');
+Route::post('/emandate-auth', 'Bypasslogin@loggingin2');
+
+Route::get('/loginterus/{userId}/{password}',function($userId,$password){
+  
+  $a = session(['key' => 'value']);
+
+  dd(session()->get('key'));
+});
+
+
+//Route::post('/loggingin', [AuthenticationUser::class, 'loggingin'])->name('loggingin');
 
 Route::middleware([AuthenticatedUser::class])->group(function() {
-     
+    
      /* Dashboard */
       Route::get('/', 'DashboardController@index')->name('dashboard');
       Route::get('/emandate-list', 'EmandateController@index')->name('Emandate_list.index');

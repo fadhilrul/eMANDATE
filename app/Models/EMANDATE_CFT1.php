@@ -9,7 +9,7 @@ class EMANDATE_CFT1 extends Model
 {
     use HasFactory;
 
-    protected $table = 'EMANDATE_CFT1';
+    protected $table = 'MDT_TFC1';
 
     public $timestamps = false;
 

@@ -1,59 +1,19 @@
 <?php
 
 namespace App\Http\Controllers;
+use Illuminate\Support\Facades\DB;
+use App\Models\FMS_USERS;
 
 use Illuminate\Http\Request;
-use App\Models\FMS_USERS;
-use Illuminate\Support\Facades\DB;
 
-class AuthenticationUser extends Controller
+class Bypasslogin extends Controller
 {
-    public function logmasuk()
+    public function loggingin2(Request $request)
     {
-        if(session()->has('authenticatedUser')) {
-            return redirect()->route('dashboard');
-        }
-        return view('auth.login');
-    }
-
-    public function logkeluar()
-    {
-        session()->forget('authenticatedUser');
-        return redirect()->route('logmasuk');
-    }
-
-    public function systemLogin($userid, $password)
-    {
-        dump($userid);
-        dd($password);
-        $user = FMS_USERS::where('USERID',strtoupper($userid))->first();
-        if($user != null)
-        {
-            $savedpassword = $this->decrypting($user->userpassword);
-
-            if($savedpassword === $user->katalaluan) {
-                session()->put('authenticatedUser', [
-                    'userid' => $user->userid,
-                    'username' => $user->username,
-                    'status' => $user->userstatus,
-                    'idtype' => $user->idtype,
-                ]);
-
-                return redirect()->route('dashboard');
-            }
-            else {
-                return redirect()->route('logmasuk')->with('loginerror', 'Ralat pada Kata Laluan');
-            }
-        }
-        else {
-            return redirect()->route('logmasuk')->with('loginerror', 'Akaun tidak wujud atau ralat pada ID');
-        }
-    }
-
-    public function loggingin(Request $request)
-    {
-        $user = FMS_USERS::where('USERID',strtoupper($request->idpengguna))->first();
-
+        //dd($request->all());
+        $user = FMS_USERS::where('USERID',strtoupper($request->userid))->first();
+        //dd($user);
+        //die;
         if($user != null)
         {
             $savedpassword = $this->decrypting($user->userpassword);
@@ -61,18 +21,19 @@ class AuthenticationUser extends Controller
             if($savedpassword === $request->katalaluan) {
 
                 /* Join table  to get state_id */
-            $user_state = DB::table('FMS_USERS')
-             -> select('BANK_OFFICERS.BRANCH_CODE', 'BRANCHES.BRANCH_TYPE' ,'BRANCHES.STATE_CODE' ,'BRANCHES.BRANCH_NAME','BNM_STATECODES.CODE','BNM_STATECODES.DESCRIPTION') //DB::raw('UF_GET_STATE_DESC(SUBSTR(BANK_OFFICERS.BRANCH_CODE,0,2)) AS state'))
-            ->join ('BANK_OFFICERS', 'FMS_USERS.USERID', '=', 'BANK_OFFICERS.OFFICER_ID') 
-            ->join ('BRANCHES', 'BANK_OFFICERS.BRANCH_CODE', '=', 'BRANCHES.BRANCH_CODE')
-            ->join ('BNM_STATECODES','BRANCHES.STATE_CODE','=' , 'BNM_STATECODES.CODE')
-            ->where('FMS_USERS.USERID' , '=', $user->userid)
-            ->first(); 
+                $user_state = DB::table('FMS_USERS')
+                -> select('BANK_OFFICERS.BRANCH_CODE', 'BRANCHES.BRANCH_TYPE' ,'BRANCHES.STATE_CODE' ,'BRANCHES.BRANCH_NAME','BNM_STATECODES.CODE','BNM_STATECODES.DESCRIPTION') //DB::raw('UF_GET_STATE_DESC(SUBSTR(BANK_OFFICERS.BRANCH_CODE,0,2)) AS state'))
+                ->join ('BANK_OFFICERS', 'FMS_USERS.USERID', '=', 'BANK_OFFICERS.OFFICER_ID') 
+                ->join ('BRANCHES', 'BANK_OFFICERS.BRANCH_CODE', '=', 'BRANCHES.BRANCH_CODE')
+                ->join ('BNM_STATECODES','BRANCHES.STATE_CODE','=' , 'BNM_STATECODES.CODE')
+                ->where('FMS_USERS.USERID' , '=', $user->userid)
+                ->first(); 
              //dd($user_state);
 
             /* end join table to get state_id */
 
-                session()->put('authenticatedUser', [
+        
+                $a = session()->put('authenticatedUser', [
                     'userid' => $user->userid,
                     'username' => $user->username,
                     'status' => $user->userstatus,
@@ -85,9 +46,17 @@ class AuthenticationUser extends Controller
                     'state_name' => $user_state->description,
                 ]);
 
-                // dd($user_state);
-                return redirect()->route('dashboard');
+                // dd(session()->get('authenticatedUser'));
+
+                
+
+                // // dd($user_state); 
+                // //return "hkhkh";
+                // $redirect = "loginterus/$user->userid/$user->userpassword";
+                // return redirect($redirect);
+                return redirect('emandate-dashboard');
             }
+            
             else {
                 return redirect()->route('logmasuk')->with('loginerror', 'Ralat pada Kata Laluan');
             }

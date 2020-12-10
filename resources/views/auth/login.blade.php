@@ -118,9 +118,14 @@
                               <input class="w-full text-lg py-2 border-b border-gray-300 focus:outline-none focus:border-indigo-500" type="password" placeholder="*****" id="katalaluan" name="katalaluan">
                           </div>
                           <div class="mt-10">
-                              <button class="bg-indigo-500 text-gray-100 p-4 w-full rounded-full tracking-wide
+                              {{-- <button class="bg-indigo-500 text-gray-100 p-4 w-full rounded-full tracking-wide
                               font-semibold font-display focus:outline-none focus:shadow-outline hover:bg-indigo-600
                               shadow-lg">
+                                  Masuk
+                              </button> --}}
+                              <button class="bg-white text-green-400 p-4 w-full rounded-full tracking-wide
+                              border border-green-400 font-semibold font-display focus:outline-none focus:shadow-outlineshadow-lg
+                              hover:text-green-500">
                                   Masuk
                               </button>
                           </div>
@@ -131,8 +136,9 @@
                   </div>
               </div>
           </div>
-          <div class="hidden lg:flex items-center justify-center bg-indigo-100 flex-1 h-screen">
-              <div class="max-w-xs transform duration-200 hover:scale-110 cursor-pointer">
+          <div class="hidden lg:flex items-center justify-center bg-green-200 flex-1 h-screen">
+              <img src="{{asset('assets/img/knock4.gif')}}" class="w-1/2 h-1/2" >  
+              {{-- <div class="max-w-xs transform duration-200 hover:scale-110 cursor-pointer">  
                   <svg class="w-5/6 mx-auto" xmlns="http://www.w3.org/2000/svg" id="f080dbb7-9b2b-439b-a118-60b91c514f72" data-name="Layer 1" viewBox="0 0 528.71721 699.76785">
                       <title>Login</title>
                       <rect y="17.06342" width="444" height="657" fill="#535461"/>
@@ -165,7 +171,7 @@
                       <path d="M853.8586,298.93948l9,9s6,84-6,101-67,63-70,60-22-18-18-20,57.18287-57.56942,57.18287-57.56942l-4.18287-77.43058Z" transform="translate(-335.6414 -100.11607)" fill="#7f9cf5"/>
                       <path d="M786.797,157.64461s-11.5575-4.20273-27.31774,4.72807l8.40546,2.10136s-12.60819,1.05068-14.18421,17.8616h5.77875s-3.67739,14.70955,0,18.91228l2.364-4.4654,6.82943,13.65887,1.576-6.82944,3.15205,1.05069,2.10137-11.03217s5.25341,7.88012,9.45614,8.40546V195.2065s11.5575,13.13352,15.23489,12.60818l-5.25341-7.35477,7.35477,1.576-3.152-5.25341,18.91228,5.25341-4.20273-5.25341,13.13352,4.20273,6.3041,2.6267s8.9308-20.4883-3.67739-34.67251S798.61712,151.60318,786.797,157.64461Z" transform="translate(-335.6414 -100.11607)" fill="#2f2e41"/>
                   </svg>
-              </div>
+              </div> --}}
           </div>
       </div>
 

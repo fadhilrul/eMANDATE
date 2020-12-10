@@ -4,7 +4,7 @@
 <div class="container">
 <div class="container px-6 mx-auto">
   <div class="bg-blue-800 p-2 shadow text-xl text-white flex justify-between items-center">
-    <h3 class="font-bold pl-2">Senarai Emandate Info</h3>
+    <h3 class="font-bold pl-2">Senarai E-mandate Info</h3>
     <span class=" text-base pr-2 ">
       {{-- Negeri : {{ session()->get('authenticatedUser')['state_name'] }} --}}
               CAWANGAN : {{ session()->get('authenticatedUser')['branch_name'] }}

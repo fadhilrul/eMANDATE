@@ -121,7 +121,7 @@ class DashboardEmandateController extends Controller
 
             }
         
-
+            //dd($state);
             return view('pages.dashboard_emandate', [
                 'state' => $state,
                 'branch' => $branch,

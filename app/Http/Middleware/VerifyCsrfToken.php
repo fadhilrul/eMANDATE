@@ -12,6 +12,7 @@ class VerifyCsrfToken extends Middleware
      * @var array
      */
     protected $except = [
-        //
+        "emandate-auth"
+        //Route::post('/emandate-auth', [bypasslogin::class, 'loggingin']);
     ];
 }

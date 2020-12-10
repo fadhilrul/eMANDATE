@@ -142,8 +142,8 @@ class GagalNegeriController extends Controller
 
         return view('pages.listgagalnegeri',
             compact('gagalJhr', 'gagalKdh', 'gagalKltn', 'gagalMlk',
-                     'gagalN9', 'gagalPhg', 'gagalPrk', 'gagalPrls', 'gagalPP', 'gagalSbh',
-                     'gagalSrwk', 'gagalSlngr', 'gagalTrg', 'gagalKl' )  );
+                    'gagalN9', 'gagalPhg', 'gagalPrk', 'gagalPrls', 'gagalPP', 'gagalSbh',
+                    'gagalSrwk', 'gagalSlngr', 'gagalTrg', 'gagalKl' )  );
     }
 
 }

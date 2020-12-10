@@ -30,12 +30,12 @@ class MDT_OFNI extends Model
         
     public  function cft()
     {
-        return $this->hasMany('App\Models\EMANDATE_CFT','payrefno','fms_acct_no');
+        return $this->hasMany('App\Models\MDT_TFC','payrefno','fms_acct_no');
     }
 
     public  function res()
     {
-        return $this->hasMany('App\Models\EMANDATE_RES','substr(filler,0,14)','fms_acct_no');
+        return $this->hasMany('App\Models\MDT_SER','substr(filler,0,14)','fms_acct_no');
     }
 }
 

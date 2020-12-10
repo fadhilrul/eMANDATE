@@ -24,7 +24,7 @@
 <div class="main-content flex-1 bg-gray-100 mt-12 md:mt-2 pb-24 md:pb-5">
 
 	<div class="bg-blue-800 p-2 shadow text-xl text-white flex justify-between items-center">
-		<h3 class="font-bold pl-2">Info e-Mandate</h3>
+		<h3 class="font-bold pl-2">Info E-Mandate</h3>
 		<span class=" text-base pr-2 ">
 		  {{-- Negeri : {{ session()->get('authenticatedUser')['state_name'] }} --}}
 				  CAWANGAN : {{ session()->get('authenticatedUser')['branch_name'] }}
@@ -40,7 +40,7 @@
 			<td class="px-4 py-4 border border-indigo-dark font-semibold">
 				<div class = "flex-grow">
 					<div class="text-sm leading-5 text-gray-800 text-black-500">
-						Akaun No: &nbsp;&nbsp; <i><input value = "{{ $item->fms_acct_no }}" disabled = true/></i>
+						No Akaun: &nbsp;&nbsp; <i><input value = "{{ $item->fms_acct_no }}" disabled = true/></i>
 					</div>
 				</div>
 			</td>
@@ -167,7 +167,7 @@
 												  </td>
 											  </tr>
 											  <tr>
-												<td class="px-4 py-4 border border-indigo-dark font-semibold">No Akaun Bank Simpanan/Semasa</td>
+												<td class="px-4 py-4 border border-indigo-dark font-semibold">No Akaun Bank Simpanan/<br>Semasa</td>
 													<td class="px-4 py-4 border border-indigo-dark">
 														<div class = "flex-grow">
 															<div class="text-sm leading-5 text-gray-800">
@@ -477,7 +477,7 @@
 											</tr>
 
 											<tr>
-												<td class="px-4 py-4 border border-indigo-dark font-semibold">Bilangan Gagal Potongan </td>
+												<td class="px-4 py-4 border border-indigo-dark font-semibold">Bilangan Bulan <br>Gagal Potongan </td>
 													<td class="px-4 py-4 border border-indigo-dark">
 														<div class = "flex-grow">
 															<div class="text-sm leading-5 text-gray-800">
@@ -646,7 +646,7 @@
 			<table class="min-w-full">
 				<thead>
 					<tr>
-						<th class="px-6 py-3 border-b-2 border-gray-300 text-left leading-4 text-blue-500 tracking-wider">Rujukan Fail Res</th>
+						<th class="px-6 py-3 border-b-2 border-gray-300 text-left leading-4 text-blue-500 tracking-wider">Rujukan Fail RES</th>
 						<th class="px-6 py-3 border-b-2 border-gray-300 text-left leading-4 text-blue-500 tracking-wider">Mod Bayaran</th>
 						<th class="px-6 py-3 border-b-2 border-gray-300 text-left leading-4 text-blue-500 tracking-wider">Tarikh Potongan</th>
 						<th class="px-6 py-3 border-b-2 border-gray-300 text-left leading-4 text-blue-500 tracking-wider">BankID</th>

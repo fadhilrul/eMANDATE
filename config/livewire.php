@@ -43,7 +43,7 @@ return [
     */
 
     'asset_url'  => null,
-    //'asset_url'  => "http://cscapps.net.my/emandate",
+    //'asset_url'  => "http://cscapps.net.my/newemandate",
 
     /*
     |--------------------------------------------------------------------------

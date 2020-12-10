@@ -6,7 +6,7 @@
     @media (min-width: 1280px){
       .container {
       max-width: 100vw !important;
-     }
+    }
     }
 
     /*DROPDOWN CSS*/
@@ -18,6 +18,7 @@
   </style>
 
 
+{{-- {{dd(session()->get('authenticatedUser')['state_code'])}} --}}
 <div class="container px-6 mx-auto grid">
 
     <div class="main-content flex-1 bg-gray-100 mt-12 md:mt-2 pb-24 md:pb-5">
@@ -26,7 +27,7 @@
           <h3 class="font-bold pl-2">E-Mandate Dashboard</h3>
           <span class=" text-base pr-2 ">
             {{-- Negeri : {{ session()->get('authenticatedUser')['state_name'] }} --}}
-				    CAWANGAN : {{ session()->get('authenticatedUser')['branch_name'] }}
+				  CAWANGAN : {{ session()->get('authenticatedUser')['branch_name'] }}
           </span>
       </div>
 

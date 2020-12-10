@@ -267,7 +267,7 @@
                               <div class = "flex-grow">
                                     <div class="text-sm leading-5 text-gray-800">
 
-                                     <b>Tarikh mula Arahan Potongan</b>
+                                     <b>Tarikh Mula Arahan Potongan</b>
 
                                     </div>
                                 </div>
