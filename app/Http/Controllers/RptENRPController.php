@@ -7,7 +7,7 @@ ob_start(); // this for solve error format excel
 
 use Illuminate\Http\Request;
 use App\Exports\EnrpExport;
-use App\Models\EMANDATE_ENRP;
+use App\Models\MDT_PRNE;
 use Maatwebsite\Excel\Facades\Excel;
 use DateTime;
 
@@ -16,7 +16,7 @@ class RptENRPController extends Controller
 
     public function index()
     {    
-           // $rpt_enrp = EMANDATE_ENRP::whereApproval('00')->paginate(10);   
+           // $rpt_enrp = MDT_PRNE::whereApproval('00')->paginate(10);   
             return view('pages.reportenrp');
     }
 
@@ -25,12 +25,12 @@ class RptENRPController extends Controller
     {
         //dd($id);
 
-        //$test = EMANDATE_ENRP::where($id);
-        //$test =EMANDATE_ENRP::where('hcrdate','like','%'.$id.'%') ->where('approval','=','%00%');
+        //$test = MDT_PRNE::where($id);
+        //$test =MDT_PRNE::where('hcrdate','like','%'.$id.'%') ->where('approval','=','%00%');
         //dd($test);
 
-        //EMANDATE_ENRP::where('hcrdate','=',$id)->whereApproval('00')
-        //$rpt_enrp = EMANDATE_ENRP::where('hcrdate','=',$id)
+        //MDT_PRNE::where('hcrdate','=',$id)->whereApproval('00')
+        //$rpt_enrp = MDT_PRNE::where('hcrdate','=',$id)
          //   ->where('approval','not like','%00%')->paginate(10);
 
          return view('pages.reportenrp', compact('id'));

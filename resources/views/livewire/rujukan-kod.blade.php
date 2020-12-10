@@ -53,7 +53,7 @@
                   </tr>
               </thead>
               <tbody class="bg-white">
-                @foreach ($EMANDATE_INFO_DESC as $item)
+                @foreach ($MDT_OFNI_DESC as $item)
                 <tr>
     
                           <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-500">

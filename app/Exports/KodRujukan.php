@@ -3,7 +3,7 @@
 namespace App\Exports;
 
 use Illuminate\Http\Request;
-use App\Models\EMANDATE_INFO_DESC;
+use App\Models\MDT_OFNI_DESC;
 use Maatwebsite\Excel\Concerns\FromQuery;
 use Maatwebsite\Excel\Concerns\WithHeadings;
 use Maatwebsite\Excel\Concerns\FromCollection;
@@ -28,7 +28,7 @@ class KodRujukan implements FromQuery,WithHeadings
 
     public function query()
     {
-        return EMANDATE_INFO_DESC::query()
+        return MDT_OFNI_DESC::query()
             ->select('approved','approved_desc','re_code');
     }
 }

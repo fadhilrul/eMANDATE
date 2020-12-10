@@ -5,11 +5,11 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-// class EMANDATE_INFO extends Model
+// class MDT_OFNI extends Model
 // {
 //     use HasFactory;
 
-//     protected $table = 'EMANDATE_INFO';
+//     protected $table = 'MDT_OFNI';
 
 //     protected $guarded = [];
    
@@ -20,9 +20,9 @@ use Illuminate\Database\Eloquent\Model;
 // }
 
 
-class EMANDATE_INFO extends Model
+class MDT_OFNI extends Model
 {
-    protected $table = 'EMANDATE_INFO';
+    protected $table = 'MDT_OFNI';
     protected $guarded = [];
     //protected $fillable = [];
     public $timestamps = false;

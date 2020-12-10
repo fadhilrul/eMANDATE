@@ -4,9 +4,9 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class emandate_date_cft extends Model
+class MDT_DT_TFC extends Model
 {
-    protected $table = 'emandate_date_cft';
+    protected $table = 'MDT_DT_TFC';
     protected $fillable = ['id','title','starts','end'];
     public $timestamps = false;
 

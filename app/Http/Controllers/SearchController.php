@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\EMANDATE_ENRP;
+use App\Models\MDT_PRNE;
 class SearchController extends Controller
 {
     /**
@@ -45,9 +45,9 @@ class SearchController extends Controller
      */
     public function show($id)
     {
-        // $NERPS = EMANDATE_ENRP::paginate(10);
-        // $NERPS = EMANDATE_ENRP::find($id);
-        // $NERPS = EMANDATE_ENRP::where('payrefnum',$id);
+        // $NERPS = MDT_PRNE::paginate(10);
+        // $NERPS = MDT_PRNE::find($id);
+        // $NERPS = MDT_PRNE::where('payrefnum',$id);
         // return view('pages.ENRPFileListDetails');
     }
 

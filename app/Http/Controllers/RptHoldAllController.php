@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Exports\HoldallExport;
-use App\Models\EMANDATE_INFO;
+use App\Models\MDT_OFNI;
 use Maatwebsite\Excel\Facades\Excel;
 use DateTime;
 

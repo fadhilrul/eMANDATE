@@ -2,7 +2,7 @@
 
 namespace App\Http\Livewire;
 
-use App\Models\EMANDATE_ENRP;
+use App\Models\MDT_PRNE;
 use Livewire\Component;
 use Livewire\WithPagination;
 use Illuminate\Support\Facades\DB;
@@ -25,11 +25,11 @@ class Search extends Component
         if ( $branch_type == 'HQ'){
 
             return view('livewire.search',[
-               /* 'EMANDATE_ENRP' => EMANDATE_ENRP::where('idnum','like', $searchTerm)
+               /* 'MDT_PRNE' => MDT_PRNE::where('idnum','like', $searchTerm)
                                 ->orwhere('payrefnum','like', $searchTerm)
                                 ->paginate(10) */
 
-                'EMANDATE_ENRP' =>  EMANDATE_ENRP::where(function($query) use ($searchTerm) {
+                'MDT_PRNE' =>  MDT_PRNE::where(function($query) use ($searchTerm) {
                                     $query->where('payrefnum', 'like', $searchTerm)
                                           ->orWhere('idnum', 'like', $searchTerm); })
                                          ->paginate(10) 
@@ -38,17 +38,17 @@ class Search extends Component
         else{
             
             return view('livewire.search',[
-              /*  'EMANDATE_ENRP' => EMANDATE_ENRP::where('payrefnum','like', $searchTerm)
-                                ->join ('ACCOUNT_MASTER', DB::raw("TRIM(ACCOUNT_MASTER.ACCOUNT_NO)"), '=', DB::raw("TRIM(EMANDATE_ENRP.PAYREFNUM)")  )
+              /*  'MDT_PRNE' => MDT_PRNE::where('payrefnum','like', $searchTerm)
+                                ->join ('ACCOUNT_MASTER', DB::raw("TRIM(ACCOUNT_MASTER.ACCOUNT_NO)"), '=', DB::raw("TRIM(MDT_PRNE.PAYREFNUM)")  )
                                 ->join ('BRANCHES', 'BRANCHES.BRANCH_CODE', '=', 'ACCOUNT_MASTER.BRANCH_CODE')
                                 ->where('BRANCHES.STATE_CODE' , '=',  $state_user )
                                 //->orwhere('payrefnum','like', $searchTerm)
                                 ->paginate(10) */
 
-                    'EMANDATE_ENRP' => EMANDATE_ENRP:: where(function($query) use ($searchTerm){
+                    'MDT_PRNE' => MDT_PRNE:: where(function($query) use ($searchTerm){
                                     $query->where('payrefnum', 'like', $searchTerm)
                                           ->orWhere('idnum', 'like', $searchTerm); })
-                                    ->join ('ACCOUNT_MASTER', DB::raw("TRIM(ACCOUNT_MASTER.ACCOUNT_NO)"), '=', DB::raw("TRIM(EMANDATE_ENRP.PAYREFNUM)")  )
+                                    ->join ('ACCOUNT_MASTER', DB::raw("TRIM(ACCOUNT_MASTER.ACCOUNT_NO)"), '=', DB::raw("TRIM(MDT_PRNE.PAYREFNUM)")  )
                                     ->join ('BRANCHES', 'BRANCHES.BRANCH_CODE', '=', 'ACCOUNT_MASTER.BRANCH_CODE')
                                     ->where('BRANCHES.BRANCH_CODE' , '=',  $branch_user )
                                     ->paginate(10) 

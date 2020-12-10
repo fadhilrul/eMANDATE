@@ -13,7 +13,7 @@ use Mediconesystems\LivewireDatatables\Http\Livewire\LivewireDatatable;
 
 class BlockedPaymentRpt extends LivewireDatatable
 {
-    //EMANDATE_INFO::WHERE('BLOCKED_PAYMNT_STATUS','=','0')->get();
+    //MDT_OFNI::WHERE('BLOCKED_PAYMNT_STATUS','=','0')->get();
 
     public $model = Ld::class;
 

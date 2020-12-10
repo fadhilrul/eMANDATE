@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\EMANDATE_ENRP;
+use App\Models\MDT_PRNE;
 class EmandateControllerDetails extends Controller
 
 {
@@ -16,7 +16,7 @@ class EmandateControllerDetails extends Controller
     {   
         
         /* have 2 condition (just for testing later on confirm back) */
-        // $NERPS_details = EMANDATE_ENRP::where('payrefnum', '=', '66011115000785      ')
+        // $NERPS_details = MDT_PRNE::where('payrefnum', '=', '66011115000785      ')
         //                 -> where(function ($query) {
         //                     $query->where('section', '=', 'BLOCK2'); }) -> paginate(5);
         
@@ -59,7 +59,7 @@ class EmandateControllerDetails extends Controller
        
         //dd($id);
 
-        $NERPS_details = EMANDATE_ENRP::where('payrefnum','like','%'.$id.'%')->paginate(5);
+        $NERPS_details = MDT_PRNE::where('payrefnum','like','%'.$id.'%')->paginate(5);
 
         return view('pages.ENRPFileListDetails',compact('NERPS_details'));
         

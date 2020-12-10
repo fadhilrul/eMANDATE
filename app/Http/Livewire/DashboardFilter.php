@@ -1,9 +1,9 @@
 <?php
 
 namespace App\Http\Livewire;
-
+set_time_limit(0);
 use Livewire\Component;
-use App\Models\EMANDATE_ENRP;
+use App\Models\MDT_PRNE;
 use App\Models\BNM_STATECODES;
 use App\Models\BRANCHES;
 use Illuminate\Support\Facades\DB;
@@ -32,31 +32,42 @@ class DashboardFilter extends Component
                 $this->cities = DB::table('BRANCHES')
                                 ->select('branch_code', 'branch_name')
                                 ->where('state_code', $this->country)
+                                ->orderBy('branch_name')
                                 ->get();
 
             } 
 
             $selected_state = $this->country;
             $selected_branch = $this->city;
-            
+         
+
             if($selected_branch == 'All'){
-                
-                $daftar = EMANDATE_ENRP::where('BRANCHES.STATE_CODE',  $selected_state)
-                    ->join ('ACCOUNT_MASTER', DB::raw("TRIM(ACCOUNT_MASTER.ACCOUNT_NO)"), '=', DB::raw("TRIM(EMANDATE_ENRP.PAYREFNUM)")  )
-                    ->join ('BRANCHES', 'BRANCHES.BRANCH_CODE', '=', 'ACCOUNT_MASTER.BRANCH_CODE')
-                    ->get();
+              
+                $daftar = MDT_PRNE::select( 'BRANCHES.BRANCH_CODE','BRANCHES.STATE_CODE', 'BRANCHES.BRANCH_NAME', 'MDT_PRNE.HCRDATE', 'MDT_PRNE.PAYREFNUM',
+                                            'MDT_PRNE.IDNUM', 'MDT_PRNE.BUYERNAME', 'MDT_PRNE.PURPOSE', 'MDT_PRNE.EFFDATE', 'MDT_PRNE.EXPDATE',
+                                            'MDT_PRNE.APPROVAL')
+                                    ->where('BRANCHES.STATE_CODE',  $selected_state)
+                                    ->join ('ACCOUNT_MASTER', DB::raw("TRIM(ACCOUNT_MASTER.ACCOUNT_NO)"), '=', DB::raw("TRIM(MDT_PRNE.PAYREFNUM)")  )
+                                    ->join ('BRANCHES', 'BRANCHES.BRANCH_CODE', '=', 'ACCOUNT_MASTER.BRANCH_CODE')
+                                    ->get();
+                                
+                $lulus = MDT_PRNE::select( 'BRANCHES.BRANCH_CODE','BRANCHES.STATE_CODE', 'BRANCHES.BRANCH_NAME', 'MDT_PRNE.HCRDATE', 'MDT_PRNE.PAYREFNUM',
+                                    'MDT_PRNE.IDNUM', 'MDT_PRNE.BUYERNAME', 'MDT_PRNE.PURPOSE', 'MDT_PRNE.EFFDATE', 'MDT_PRNE.EXPDATE',
+                                    'MDT_PRNE.APPROVAL')
+                                    ->where('BRANCHES.STATE_CODE',  $selected_state)
+                                    ->join ('ACCOUNT_MASTER', DB::raw("TRIM(ACCOUNT_MASTER.ACCOUNT_NO)"), '=', DB::raw("TRIM(MDT_PRNE.PAYREFNUM)")  )
+                                    ->join ('BRANCHES', 'BRANCHES.BRANCH_CODE', '=', 'ACCOUNT_MASTER.BRANCH_CODE')
+                                    ->where('MDT_PRNE.SECTION', 'BLOCK2')
+                                    ->get();
 
-                $lulus = EMANDATE_ENRP::where('BRANCHES.STATE_CODE',  $selected_state)
-                    ->join ('ACCOUNT_MASTER', DB::raw("TRIM(ACCOUNT_MASTER.ACCOUNT_NO)"), '=', DB::raw("TRIM(EMANDATE_ENRP.PAYREFNUM)")  )
-                    ->join ('BRANCHES', 'BRANCHES.BRANCH_CODE', '=', 'ACCOUNT_MASTER.BRANCH_CODE')
-                    ->where('EMANDATE_ENRP.SECTION', 'BLOCK2')
-                    ->get();
-
-                $gagal = EMANDATE_ENRP::where('BRANCHES.STATE_CODE',  $selected_state)
-                    ->join ('ACCOUNT_MASTER', DB::raw("TRIM(ACCOUNT_MASTER.ACCOUNT_NO)"), '=', DB::raw("TRIM(EMANDATE_ENRP.PAYREFNUM)")  )
-                    ->join ('BRANCHES', 'BRANCHES.BRANCH_CODE', '=', 'ACCOUNT_MASTER.BRANCH_CODE')
-                    ->where('EMANDATE_ENRP.SECTION', 'BLOCK1')
-                    ->get();
+                $gagal = MDT_PRNE::select( 'BRANCHES.BRANCH_CODE','BRANCHES.STATE_CODE', 'BRANCHES.BRANCH_NAME', 'MDT_PRNE.HCRDATE', 'MDT_PRNE.PAYREFNUM',
+                                    'MDT_PRNE.IDNUM', 'MDT_PRNE.BUYERNAME', 'MDT_PRNE.PURPOSE', 'MDT_PRNE.EFFDATE', 'MDT_PRNE.EXPDATE',
+                                    'MDT_PRNE.APPROVAL')
+                                        ->where('BRANCHES.STATE_CODE',  $selected_state)
+                                        ->join ('ACCOUNT_MASTER', DB::raw("TRIM(ACCOUNT_MASTER.ACCOUNT_NO)"), '=', DB::raw("TRIM(MDT_PRNE.PAYREFNUM)")  )
+                                        ->join ('BRANCHES', 'BRANCHES.BRANCH_CODE', '=', 'ACCOUNT_MASTER.BRANCH_CODE')
+                                        ->where('MDT_PRNE.SECTION', 'BLOCK1')
+                                        ->get();
         
                 /* code '00' is not malaysian */
                 $countries = BNM_STATECODES::whereNotIn('code', ['00', '99'])->orderBy('code')->get();
@@ -72,22 +83,31 @@ class DashboardFilter extends Component
             }
             else{
                 
-                $daftar = EMANDATE_ENRP::where('BRANCHES.BRANCH_CODE',  $selected_branch)
-                ->join ('ACCOUNT_MASTER', DB::raw("TRIM(ACCOUNT_MASTER.ACCOUNT_NO)"), '=', DB::raw("TRIM(EMANDATE_ENRP.PAYREFNUM)")  )
-                ->join ('BRANCHES', 'BRANCHES.BRANCH_CODE', '=', 'ACCOUNT_MASTER.BRANCH_CODE')
-                ->get();
+                $daftar = MDT_PRNE::select( 'BRANCHES.BRANCH_CODE','BRANCHES.STATE_CODE', 'BRANCHES.BRANCH_NAME', 'MDT_PRNE.HCRDATE', 'MDT_PRNE.PAYREFNUM',
+                                    'MDT_PRNE.IDNUM', 'MDT_PRNE.BUYERNAME', 'MDT_PRNE.PURPOSE', 'MDT_PRNE.EFFDATE', 'MDT_PRNE.EXPDATE',
+                                    'MDT_PRNE.APPROVAL')
+                                    ->where('BRANCHES.BRANCH_CODE',  $selected_branch)
+                                    ->join ('ACCOUNT_MASTER', DB::raw("TRIM(ACCOUNT_MASTER.ACCOUNT_NO)"), '=', DB::raw("TRIM(MDT_PRNE.PAYREFNUM)")  )
+                                    ->join ('BRANCHES', 'BRANCHES.BRANCH_CODE', '=', 'ACCOUNT_MASTER.BRANCH_CODE')
+                                    ->get();
 
-                $lulus = EMANDATE_ENRP::where('BRANCHES.BRANCH_CODE',  $selected_branch)
-                    ->join ('ACCOUNT_MASTER', DB::raw("TRIM(ACCOUNT_MASTER.ACCOUNT_NO)"), '=', DB::raw("TRIM(EMANDATE_ENRP.PAYREFNUM)")  )
-                    ->join ('BRANCHES', 'BRANCHES.BRANCH_CODE', '=', 'ACCOUNT_MASTER.BRANCH_CODE')
-                    ->where('EMANDATE_ENRP.SECTION', 'BLOCK2')
-                    ->get();
+                $lulus = MDT_PRNE::select( 'BRANCHES.BRANCH_CODE','BRANCHES.STATE_CODE', 'BRANCHES.BRANCH_NAME', 'MDT_PRNE.HCRDATE', 'MDT_PRNE.PAYREFNUM',
+                                    'MDT_PRNE.IDNUM', 'MDT_PRNE.BUYERNAME', 'MDT_PRNE.PURPOSE', 'MDT_PRNE.EFFDATE', 'MDT_PRNE.EXPDATE',
+                                    'MDT_PRNE.APPROVAL')
+                                        ->where('BRANCHES.BRANCH_CODE',  $selected_branch)
+                                        ->join ('ACCOUNT_MASTER', DB::raw("TRIM(ACCOUNT_MASTER.ACCOUNT_NO)"), '=', DB::raw("TRIM(MDT_PRNE.PAYREFNUM)")  )
+                                        ->join ('BRANCHES', 'BRANCHES.BRANCH_CODE', '=', 'ACCOUNT_MASTER.BRANCH_CODE')
+                                        ->where('MDT_PRNE.SECTION', 'BLOCK2')
+                                        ->get();
 
-                $gagal = EMANDATE_ENRP::where('BRANCHES.BRANCH_CODE',  $selected_branch)
-                    ->join ('ACCOUNT_MASTER', DB::raw("TRIM(ACCOUNT_MASTER.ACCOUNT_NO)"), '=', DB::raw("TRIM(EMANDATE_ENRP.PAYREFNUM)")  )
-                    ->join ('BRANCHES', 'BRANCHES.BRANCH_CODE', '=', 'ACCOUNT_MASTER.BRANCH_CODE')
-                    ->where('EMANDATE_ENRP.SECTION', 'BLOCK1')
-                    ->get();
+                $gagal = MDT_PRNE::select( 'BRANCHES.BRANCH_CODE','BRANCHES.STATE_CODE', 'BRANCHES.BRANCH_NAME', 'MDT_PRNE.HCRDATE', 'MDT_PRNE.PAYREFNUM',
+                                    'MDT_PRNE.IDNUM', 'MDT_PRNE.BUYERNAME', 'MDT_PRNE.PURPOSE', 'MDT_PRNE.EFFDATE', 'MDT_PRNE.EXPDATE',
+                                    'MDT_PRNE.APPROVAL')
+                                        ->where('BRANCHES.BRANCH_CODE',  $selected_branch)
+                                        ->join ('ACCOUNT_MASTER', DB::raw("TRIM(ACCOUNT_MASTER.ACCOUNT_NO)"), '=', DB::raw("TRIM(MDT_PRNE.PAYREFNUM)")  )
+                                        ->join ('BRANCHES', 'BRANCHES.BRANCH_CODE', '=', 'ACCOUNT_MASTER.BRANCH_CODE')
+                                        ->where('MDT_PRNE.SECTION', 'BLOCK1')
+                                        ->get();
         
                 /* code '00' is not malaysian */
                 $countries = BNM_STATECODES::whereNotIn('code', ['00', '99'])->orderBy('code')->get();
@@ -107,22 +127,31 @@ class DashboardFilter extends Component
 
         } //end if branchtype = hq
         else{
-                $daftar = EMANDATE_ENRP::where('BRANCHES.BRANCH_CODE' , '=',  $branch_user )
-                ->join ('ACCOUNT_MASTER', DB::raw("TRIM(ACCOUNT_MASTER.ACCOUNT_NO)"), '=', DB::raw("TRIM(EMANDATE_ENRP.PAYREFNUM)")  )
-                ->join ('BRANCHES', 'BRANCHES.BRANCH_CODE', '=', 'ACCOUNT_MASTER.BRANCH_CODE')
-                ->get();
+                $daftar = MDT_PRNE::select( 'BRANCHES.BRANCH_CODE','BRANCHES.STATE_CODE', 'BRANCHES.BRANCH_NAME', 'MDT_PRNE.HCRDATE', 'MDT_PRNE.PAYREFNUM',
+                                    'MDT_PRNE.IDNUM', 'MDT_PRNE.BUYERNAME', 'MDT_PRNE.PURPOSE', 'MDT_PRNE.EFFDATE', 'MDT_PRNE.EXPDATE',
+                                    'MDT_PRNE.APPROVAL')
+                                    ->where('BRANCHES.BRANCH_CODE' , '=',  $branch_user )
+                                    ->join ('ACCOUNT_MASTER', DB::raw("TRIM(ACCOUNT_MASTER.ACCOUNT_NO)"), '=', DB::raw("TRIM(MDT_PRNE.PAYREFNUM)")  )
+                                    ->join ('BRANCHES', 'BRANCHES.BRANCH_CODE', '=', 'ACCOUNT_MASTER.BRANCH_CODE')
+                                    ->get();
 
-                $lulus = EMANDATE_ENRP::where('BRANCHES.BRANCH_CODE' , '=',  $branch_user )
-                    ->join ('ACCOUNT_MASTER', DB::raw("TRIM(ACCOUNT_MASTER.ACCOUNT_NO)"), '=', DB::raw("TRIM(EMANDATE_ENRP.PAYREFNUM)")  )
-                    ->join ('BRANCHES', 'BRANCHES.BRANCH_CODE', '=', 'ACCOUNT_MASTER.BRANCH_CODE')
-                    ->where('EMANDATE_ENRP.SECTION', 'BLOCK2')
-                    ->get();
+                $lulus = MDT_PRNE::select( 'BRANCHES.BRANCH_CODE','BRANCHES.STATE_CODE', 'BRANCHES.BRANCH_NAME', 'MDT_PRNE.HCRDATE', 'MDT_PRNE.PAYREFNUM',
+                                    'MDT_PRNE.IDNUM', 'MDT_PRNE.BUYERNAME', 'MDT_PRNE.PURPOSE', 'MDT_PRNE.EFFDATE', 'MDT_PRNE.EXPDATE',
+                                    'MDT_PRNE.APPROVAL')
+                                        ->where('BRANCHES.BRANCH_CODE' , '=',  $branch_user )
+                                        ->join ('ACCOUNT_MASTER', DB::raw("TRIM(ACCOUNT_MASTER.ACCOUNT_NO)"), '=', DB::raw("TRIM(MDT_PRNE.PAYREFNUM)")  )
+                                        ->join ('BRANCHES', 'BRANCHES.BRANCH_CODE', '=', 'ACCOUNT_MASTER.BRANCH_CODE')
+                                        ->where('MDT_PRNE.SECTION', 'BLOCK2')
+                                        ->get();
 
-                $gagal = EMANDATE_ENRP::where('BRANCHES.BRANCH_CODE' , '=',  $branch_user )
-                    ->join ('ACCOUNT_MASTER', DB::raw("TRIM(ACCOUNT_MASTER.ACCOUNT_NO)"), '=', DB::raw("TRIM(EMANDATE_ENRP.PAYREFNUM)")  )
-                    ->join ('BRANCHES', 'BRANCHES.BRANCH_CODE', '=', 'ACCOUNT_MASTER.BRANCH_CODE')
-                    ->where('EMANDATE_ENRP.SECTION', 'BLOCK1')
-                    ->get();
+                $gagal = MDT_PRNE::select( 'BRANCHES.BRANCH_CODE','BRANCHES.STATE_CODE', 'BRANCHES.BRANCH_NAME', 'MDT_PRNE.HCRDATE', 'MDT_PRNE.PAYREFNUM',
+                                    'MDT_PRNE.IDNUM', 'MDT_PRNE.BUYERNAME', 'MDT_PRNE.PURPOSE', 'MDT_PRNE.EFFDATE', 'MDT_PRNE.EXPDATE',
+                                    'MDT_PRNE.APPROVAL')
+                                        ->where('BRANCHES.BRANCH_CODE' , '=',  $branch_user )
+                                        ->join ('ACCOUNT_MASTER', DB::raw("TRIM(ACCOUNT_MASTER.ACCOUNT_NO)"), '=', DB::raw("TRIM(MDT_PRNE.PAYREFNUM)")  )
+                                        ->join ('BRANCHES', 'BRANCHES.BRANCH_CODE', '=', 'ACCOUNT_MASTER.BRANCH_CODE')
+                                        ->where('MDT_PRNE.SECTION', 'BLOCK1')
+                                        ->get();
 
             return view('livewire.dashboard-filter')->with([
                 'posts' => $daftar,

@@ -17,9 +17,9 @@ use Illuminate\Database\Eloquent\Model;
 
 
 
-class EMANDATE_RES extends Model
+class MDT_SER extends Model
 {
-    protected $table = 'EMANDATE_RES';
+    protected $table = 'MDT_SER';
     protected $guarded = [];
 
     public  function info()

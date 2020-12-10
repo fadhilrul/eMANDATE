@@ -2,7 +2,7 @@
 
 namespace App\Http\Livewire;
 
-use App\Models\EMANDATE_ENRP;
+use App\Models\MDT_PRNE;
 use Livewire\Component;
 use Livewire\WithPagination;
 use Illuminate\Support\Facades\DB;
@@ -28,7 +28,7 @@ class Mainrptenrp extends Component
 
             return view('livewire.mainrptenrp',[
 
-            'rpt_enrp' => DB::table('EMANDATE_ENRP')
+            'rpt_enrp' => DB::table('MDT_PRNE')
                         ->select(DB::raw('hcrdate, count(*) as bil'))
                         ->where('hcrdate', 'like', $findmainrptenrp)
                         ->where('approval', 'not like' , '%00%')
@@ -42,9 +42,9 @@ class Mainrptenrp extends Component
             
             return view('livewire.mainrptenrp',[
 
-                'rpt_enrp' => DB::table('EMANDATE_ENRP')
+                'rpt_enrp' => DB::table('MDT_PRNE')
                             ->select(DB::raw('hcrdate, count(*) as bil'))
-                            ->join ('ACCOUNT_MASTER', DB::raw("TRIM(ACCOUNT_MASTER.ACCOUNT_NO)"), '=', DB::raw("TRIM(EMANDATE_ENRP.PAYREFNUM)")  )
+                            ->join ('ACCOUNT_MASTER', DB::raw("TRIM(ACCOUNT_MASTER.ACCOUNT_NO)"), '=', DB::raw("TRIM(MDT_PRNE.PAYREFNUM)")  )
                             ->join ('BRANCHES', 'BRANCHES.BRANCH_CODE', '=', 'ACCOUNT_MASTER.BRANCH_CODE')
                             ->where('BRANCHES.BRANCH_CODE' , '=',  $branch_user )
                             ->where('hcrdate', 'like', $findmainrptenrp)

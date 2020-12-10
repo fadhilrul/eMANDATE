@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\EMANDATE_CFT;
+use App\Models\MDT_TFC;
 class CFTControllerDetails extends Controller
 
 {
@@ -50,7 +50,7 @@ class CFTControllerDetails extends Controller
     public function show($id)
     {
 
-        $CFT_details = EMANDATE_CFT::where('ic','like','%'.$id.'%')->paginate(10);  //whereStatus(00)
+        $CFT_details = MDT_TFC::where('ic','like','%'.$id.'%')->paginate(10);  //whereStatus(00)
         //   dd($CFT_details);
         
         return view('pages.CFTFileListDetails',compact('CFT_details'));

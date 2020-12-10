@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\EMANDATE_ENRP;
+use App\Models\MDT_PRNE;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -11,132 +11,132 @@ class LulusNegeriController extends Controller
     public function index()
     {
         $state_user = session('authenticatedUser')['state_code'];
-       // $lulusCount= EMANDATE_ENRP::where('section','BLOCK2')->get();  
+       // $lulusCount= MDT_PRNE::where('section','BLOCK2')->get();  
 
-        $lulusJhr = DB::table('EMANDATE_ENRP')
-        ->select(DB::raw('EMANDATE_ENRP.PAYREFNUM, count(*) as bil'))
-        ->join ('ACCOUNT_MASTER', DB::raw("TRIM(ACCOUNT_MASTER.ACCOUNT_NO)"), '=', DB::raw("TRIM(EMANDATE_ENRP.PAYREFNUM)")  )
+        $lulusJhr = DB::table('MDT_PRNE')
+        ->select(DB::raw('MDT_PRNE.PAYREFNUM, count(*) as bil'))
+        ->join ('ACCOUNT_MASTER', DB::raw("TRIM(ACCOUNT_MASTER.ACCOUNT_NO)"), '=', DB::raw("TRIM(MDT_PRNE.PAYREFNUM)")  )
         ->join ('BRANCHES', DB::raw("SUBSTR(ACCOUNT_MASTER.BRANCH_CODE,1,2)"), '=', 'BRANCHES.STATE_CODE')
         ->where('BRANCHES.STATE_CODE' , '=',  '01')
         ->where('section','BLOCK2')
-        ->groupBy('EMANDATE_ENRP.PAYREFNUM', 'EMANDATE_ENRP.FILENAME')
+        ->groupBy('MDT_PRNE.PAYREFNUM', 'MDT_PRNE.FILENAME')
         ->get();
 
-        $lulusKdh = DB::table('EMANDATE_ENRP')
-        ->select(DB::raw('EMANDATE_ENRP.PAYREFNUM, count(*) as bil'))
-        ->join ('ACCOUNT_MASTER', DB::raw("TRIM(ACCOUNT_MASTER.ACCOUNT_NO)"), '=', DB::raw("TRIM(EMANDATE_ENRP.PAYREFNUM)")  )
+        $lulusKdh = DB::table('MDT_PRNE')
+        ->select(DB::raw('MDT_PRNE.PAYREFNUM, count(*) as bil'))
+        ->join ('ACCOUNT_MASTER', DB::raw("TRIM(ACCOUNT_MASTER.ACCOUNT_NO)"), '=', DB::raw("TRIM(MDT_PRNE.PAYREFNUM)")  )
         ->join ('BRANCHES', DB::raw("SUBSTR(ACCOUNT_MASTER.BRANCH_CODE,1,2)"), '=', 'BRANCHES.STATE_CODE')
         ->where('BRANCHES.STATE_CODE' , '=',  '02')
         ->where('section','BLOCK2')
-        ->groupBy('EMANDATE_ENRP.PAYREFNUM', 'EMANDATE_ENRP.FILENAME')
+        ->groupBy('MDT_PRNE.PAYREFNUM', 'MDT_PRNE.FILENAME')
         ->get();
 
-        $lulusKltn = DB::table('EMANDATE_ENRP')
-        ->select(DB::raw('EMANDATE_ENRP.PAYREFNUM, count(*) as bil'))
-        ->join ('ACCOUNT_MASTER', DB::raw("TRIM(ACCOUNT_MASTER.ACCOUNT_NO)"), '=', DB::raw("TRIM(EMANDATE_ENRP.PAYREFNUM)")  )
+        $lulusKltn = DB::table('MDT_PRNE')
+        ->select(DB::raw('MDT_PRNE.PAYREFNUM, count(*) as bil'))
+        ->join ('ACCOUNT_MASTER', DB::raw("TRIM(ACCOUNT_MASTER.ACCOUNT_NO)"), '=', DB::raw("TRIM(MDT_PRNE.PAYREFNUM)")  )
         ->join ('BRANCHES', DB::raw("SUBSTR(ACCOUNT_MASTER.BRANCH_CODE,1,2)"), '=', 'BRANCHES.STATE_CODE')
         ->where('BRANCHES.STATE_CODE' , '=',  '03')
         ->where('section','BLOCK2')
-        ->groupBy('EMANDATE_ENRP.PAYREFNUM', 'EMANDATE_ENRP.FILENAME')
+        ->groupBy('MDT_PRNE.PAYREFNUM', 'MDT_PRNE.FILENAME')
         ->get();
 
-        $lulusMlk = DB::table('EMANDATE_ENRP')
-        ->select(DB::raw('EMANDATE_ENRP.PAYREFNUM, count(*) as bil'))
-        ->join ('ACCOUNT_MASTER', DB::raw("TRIM(ACCOUNT_MASTER.ACCOUNT_NO)"), '=', DB::raw("TRIM(EMANDATE_ENRP.PAYREFNUM)")  )
+        $lulusMlk = DB::table('MDT_PRNE')
+        ->select(DB::raw('MDT_PRNE.PAYREFNUM, count(*) as bil'))
+        ->join ('ACCOUNT_MASTER', DB::raw("TRIM(ACCOUNT_MASTER.ACCOUNT_NO)"), '=', DB::raw("TRIM(MDT_PRNE.PAYREFNUM)")  )
         ->join ('BRANCHES', DB::raw("SUBSTR(ACCOUNT_MASTER.BRANCH_CODE,1,2)"), '=', 'BRANCHES.STATE_CODE')
         ->where('BRANCHES.STATE_CODE' , '=',  '04')
         ->where('section','BLOCK2')
-        ->groupBy('EMANDATE_ENRP.PAYREFNUM', 'EMANDATE_ENRP.FILENAME')
+        ->groupBy('MDT_PRNE.PAYREFNUM', 'MDT_PRNE.FILENAME')
         ->get();
 
-        $lulusN9 = DB::table('EMANDATE_ENRP')
-        ->select(DB::raw('EMANDATE_ENRP.PAYREFNUM, count(*) as bil'))
-        ->join ('ACCOUNT_MASTER', DB::raw("TRIM(ACCOUNT_MASTER.ACCOUNT_NO)"), '=', DB::raw("TRIM(EMANDATE_ENRP.PAYREFNUM)")  )
+        $lulusN9 = DB::table('MDT_PRNE')
+        ->select(DB::raw('MDT_PRNE.PAYREFNUM, count(*) as bil'))
+        ->join ('ACCOUNT_MASTER', DB::raw("TRIM(ACCOUNT_MASTER.ACCOUNT_NO)"), '=', DB::raw("TRIM(MDT_PRNE.PAYREFNUM)")  )
         ->join ('BRANCHES', DB::raw("SUBSTR(ACCOUNT_MASTER.BRANCH_CODE,1,2)"), '=', 'BRANCHES.STATE_CODE')
         ->where('BRANCHES.STATE_CODE' , '=',  '05')
         ->where('section','BLOCK2')
-        ->groupBy('EMANDATE_ENRP.PAYREFNUM', 'EMANDATE_ENRP.FILENAME')
+        ->groupBy('MDT_PRNE.PAYREFNUM', 'MDT_PRNE.FILENAME')
         ->get();
 
-        $lulusPhg = DB::table('EMANDATE_ENRP')
-        ->select(DB::raw('EMANDATE_ENRP.PAYREFNUM, count(*) as bil'))
-        ->join ('ACCOUNT_MASTER', DB::raw("TRIM(ACCOUNT_MASTER.ACCOUNT_NO)"), '=', DB::raw("TRIM(EMANDATE_ENRP.PAYREFNUM)")  )
+        $lulusPhg = DB::table('MDT_PRNE')
+        ->select(DB::raw('MDT_PRNE.PAYREFNUM, count(*) as bil'))
+        ->join ('ACCOUNT_MASTER', DB::raw("TRIM(ACCOUNT_MASTER.ACCOUNT_NO)"), '=', DB::raw("TRIM(MDT_PRNE.PAYREFNUM)")  )
         ->join ('BRANCHES', DB::raw("SUBSTR(ACCOUNT_MASTER.BRANCH_CODE,1,2)"), '=', 'BRANCHES.STATE_CODE')
         ->where('BRANCHES.STATE_CODE' , '=',  '06')
         ->where('section','BLOCK2')
-        ->groupBy('EMANDATE_ENRP.PAYREFNUM', 'EMANDATE_ENRP.FILENAME')
+        ->groupBy('MDT_PRNE.PAYREFNUM', 'MDT_PRNE.FILENAME')
         ->get();
 
-        $lulusPrk = DB::table('EMANDATE_ENRP')
-        ->select(DB::raw('EMANDATE_ENRP.PAYREFNUM, count(*) as bil'))
-        ->join ('ACCOUNT_MASTER', DB::raw("TRIM(ACCOUNT_MASTER.ACCOUNT_NO)"), '=', DB::raw("TRIM(EMANDATE_ENRP.PAYREFNUM)")  )
+        $lulusPrk = DB::table('MDT_PRNE')
+        ->select(DB::raw('MDT_PRNE.PAYREFNUM, count(*) as bil'))
+        ->join ('ACCOUNT_MASTER', DB::raw("TRIM(ACCOUNT_MASTER.ACCOUNT_NO)"), '=', DB::raw("TRIM(MDT_PRNE.PAYREFNUM)")  )
         ->join ('BRANCHES', DB::raw("SUBSTR(ACCOUNT_MASTER.BRANCH_CODE,1,2)"), '=', 'BRANCHES.STATE_CODE')
         ->where('BRANCHES.STATE_CODE' , '=',  '07')
         ->where('section','BLOCK2')
-        ->groupBy('EMANDATE_ENRP.PAYREFNUM', 'EMANDATE_ENRP.FILENAME')
+        ->groupBy('MDT_PRNE.PAYREFNUM', 'MDT_PRNE.FILENAME')
         ->get();
 
-        $lulusPrls = DB::table('EMANDATE_ENRP')
-        ->select(DB::raw('EMANDATE_ENRP.PAYREFNUM, count(*) as bil'))
-        ->join ('ACCOUNT_MASTER', DB::raw("TRIM(ACCOUNT_MASTER.ACCOUNT_NO)"), '=', DB::raw("TRIM(EMANDATE_ENRP.PAYREFNUM)")  )
+        $lulusPrls = DB::table('MDT_PRNE')
+        ->select(DB::raw('MDT_PRNE.PAYREFNUM, count(*) as bil'))
+        ->join ('ACCOUNT_MASTER', DB::raw("TRIM(ACCOUNT_MASTER.ACCOUNT_NO)"), '=', DB::raw("TRIM(MDT_PRNE.PAYREFNUM)")  )
         ->join ('BRANCHES', DB::raw("SUBSTR(ACCOUNT_MASTER.BRANCH_CODE,1,2)"), '=', 'BRANCHES.STATE_CODE')
         ->where('BRANCHES.STATE_CODE' , '=',  '08')
         ->where('section','BLOCK2')
-        ->groupBy('EMANDATE_ENRP.PAYREFNUM', 'EMANDATE_ENRP.FILENAME')
+        ->groupBy('MDT_PRNE.PAYREFNUM', 'MDT_PRNE.FILENAME')
         ->get();
 
-        $lulusPP = DB::table('EMANDATE_ENRP')
-        ->select(DB::raw('EMANDATE_ENRP.PAYREFNUM, count(*) as bil'))
-        ->join ('ACCOUNT_MASTER', DB::raw("TRIM(ACCOUNT_MASTER.ACCOUNT_NO)"), '=', DB::raw("TRIM(EMANDATE_ENRP.PAYREFNUM)")  )
+        $lulusPP = DB::table('MDT_PRNE')
+        ->select(DB::raw('MDT_PRNE.PAYREFNUM, count(*) as bil'))
+        ->join ('ACCOUNT_MASTER', DB::raw("TRIM(ACCOUNT_MASTER.ACCOUNT_NO)"), '=', DB::raw("TRIM(MDT_PRNE.PAYREFNUM)")  )
         ->join ('BRANCHES', DB::raw("SUBSTR(ACCOUNT_MASTER.BRANCH_CODE,1,2)"), '=', 'BRANCHES.STATE_CODE')
         ->where('BRANCHES.STATE_CODE' , '=',  '09')
         ->where('section','BLOCK2')
-        ->groupBy('EMANDATE_ENRP.PAYREFNUM', 'EMANDATE_ENRP.FILENAME')
+        ->groupBy('MDT_PRNE.PAYREFNUM', 'MDT_PRNE.FILENAME')
         ->get();
 
-        $lulusSbh = DB::table('EMANDATE_ENRP')
-        ->select(DB::raw('EMANDATE_ENRP.PAYREFNUM, count(*) as bil'))
-        ->join ('ACCOUNT_MASTER', DB::raw("TRIM(ACCOUNT_MASTER.ACCOUNT_NO)"), '=', DB::raw("TRIM(EMANDATE_ENRP.PAYREFNUM)")  )
+        $lulusSbh = DB::table('MDT_PRNE')
+        ->select(DB::raw('MDT_PRNE.PAYREFNUM, count(*) as bil'))
+        ->join ('ACCOUNT_MASTER', DB::raw("TRIM(ACCOUNT_MASTER.ACCOUNT_NO)"), '=', DB::raw("TRIM(MDT_PRNE.PAYREFNUM)")  )
         ->join ('BRANCHES', DB::raw("SUBSTR(ACCOUNT_MASTER.BRANCH_CODE,1,2)"), '=', 'BRANCHES.STATE_CODE')
         ->where('BRANCHES.STATE_CODE' , '=',  '10')
         ->where('section','BLOCK2')
-        ->groupBy('EMANDATE_ENRP.PAYREFNUM', 'EMANDATE_ENRP.FILENAME')
+        ->groupBy('MDT_PRNE.PAYREFNUM', 'MDT_PRNE.FILENAME')
         ->get();
 
-        $lulusSrwk = DB::table('EMANDATE_ENRP')
-        ->select(DB::raw('EMANDATE_ENRP.PAYREFNUM, count(*) as bil'))
-        ->join ('ACCOUNT_MASTER', DB::raw("TRIM(ACCOUNT_MASTER.ACCOUNT_NO)"), '=', DB::raw("TRIM(EMANDATE_ENRP.PAYREFNUM)")  )
+        $lulusSrwk = DB::table('MDT_PRNE')
+        ->select(DB::raw('MDT_PRNE.PAYREFNUM, count(*) as bil'))
+        ->join ('ACCOUNT_MASTER', DB::raw("TRIM(ACCOUNT_MASTER.ACCOUNT_NO)"), '=', DB::raw("TRIM(MDT_PRNE.PAYREFNUM)")  )
         ->join ('BRANCHES', DB::raw("SUBSTR(ACCOUNT_MASTER.BRANCH_CODE,1,2)"), '=', 'BRANCHES.STATE_CODE')
         ->where('BRANCHES.STATE_CODE' , '=',  '11')
         ->where('section','BLOCK2')
-        ->groupBy('EMANDATE_ENRP.PAYREFNUM', 'EMANDATE_ENRP.FILENAME')
+        ->groupBy('MDT_PRNE.PAYREFNUM', 'MDT_PRNE.FILENAME')
         ->get();
 
-        $lulusSlngr = DB::table('EMANDATE_ENRP')
-        ->select(DB::raw('EMANDATE_ENRP.PAYREFNUM, count(*) as bil'))
-        ->join ('ACCOUNT_MASTER', DB::raw("TRIM(ACCOUNT_MASTER.ACCOUNT_NO)"), '=', DB::raw("TRIM(EMANDATE_ENRP.PAYREFNUM)")  )
+        $lulusSlngr = DB::table('MDT_PRNE')
+        ->select(DB::raw('MDT_PRNE.PAYREFNUM, count(*) as bil'))
+        ->join ('ACCOUNT_MASTER', DB::raw("TRIM(ACCOUNT_MASTER.ACCOUNT_NO)"), '=', DB::raw("TRIM(MDT_PRNE.PAYREFNUM)")  )
         ->join ('BRANCHES', DB::raw("SUBSTR(ACCOUNT_MASTER.BRANCH_CODE,1,2)"), '=', 'BRANCHES.STATE_CODE')
         ->whereIN('BRANCHES.STATE_CODE', ['12', '16'])
         ->where('section','BLOCK2')
-        ->groupBy('EMANDATE_ENRP.PAYREFNUM', 'EMANDATE_ENRP.FILENAME')
+        ->groupBy('MDT_PRNE.PAYREFNUM', 'MDT_PRNE.FILENAME')
         ->get();
 
-        $lulusTrg = DB::table('EMANDATE_ENRP')
-        ->select(DB::raw('EMANDATE_ENRP.PAYREFNUM, count(*) as bil'))
-        ->join ('ACCOUNT_MASTER', DB::raw("TRIM(ACCOUNT_MASTER.ACCOUNT_NO)"), '=', DB::raw("TRIM(EMANDATE_ENRP.PAYREFNUM)")  )
+        $lulusTrg = DB::table('MDT_PRNE')
+        ->select(DB::raw('MDT_PRNE.PAYREFNUM, count(*) as bil'))
+        ->join ('ACCOUNT_MASTER', DB::raw("TRIM(ACCOUNT_MASTER.ACCOUNT_NO)"), '=', DB::raw("TRIM(MDT_PRNE.PAYREFNUM)")  )
         ->join ('BRANCHES', DB::raw("SUBSTR(ACCOUNT_MASTER.BRANCH_CODE,1,2)"), '=', 'BRANCHES.STATE_CODE')
         ->where('BRANCHES.STATE_CODE' , '=',  '13')
         ->where('section','BLOCK2')
-        ->groupBy('EMANDATE_ENRP.PAYREFNUM', 'EMANDATE_ENRP.FILENAME')
+        ->groupBy('MDT_PRNE.PAYREFNUM', 'MDT_PRNE.FILENAME')
         ->get();
 
-        $lulusKl = DB::table('EMANDATE_ENRP')
-        ->select(DB::raw('EMANDATE_ENRP.PAYREFNUM, count(*) as bil'))
-        ->join ('ACCOUNT_MASTER', DB::raw("TRIM(ACCOUNT_MASTER.ACCOUNT_NO)"), '=', DB::raw("TRIM(EMANDATE_ENRP.PAYREFNUM)")  )
+        $lulusKl = DB::table('MDT_PRNE')
+        ->select(DB::raw('MDT_PRNE.PAYREFNUM, count(*) as bil'))
+        ->join ('ACCOUNT_MASTER', DB::raw("TRIM(ACCOUNT_MASTER.ACCOUNT_NO)"), '=', DB::raw("TRIM(MDT_PRNE.PAYREFNUM)")  )
         ->join ('BRANCHES', DB::raw("SUBSTR(ACCOUNT_MASTER.BRANCH_CODE,1,2)"), '=', 'BRANCHES.STATE_CODE')
         ->where('BRANCHES.STATE_CODE' , '=',  '14')
         ->where('section','BLOCK2')
-        ->groupBy('EMANDATE_ENRP.PAYREFNUM', 'EMANDATE_ENRP.FILENAME')
+        ->groupBy('MDT_PRNE.PAYREFNUM', 'MDT_PRNE.FILENAME')
         ->get();
 
 
