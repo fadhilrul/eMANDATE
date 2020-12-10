@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\EMANDATE_CFT; 
+use App\Models\MDT_TFC; 
 class SearchCFTController extends Controller
 {
     /**

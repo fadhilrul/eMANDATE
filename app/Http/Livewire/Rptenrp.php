@@ -2,7 +2,7 @@
 
 namespace App\Http\Livewire;
 
-use App\Models\EMANDATE_ENRP;
+use App\Models\MDT_PRNE;
 use Livewire\Component;
 use Livewire\WithPagination;
 use Illuminate\Support\Facades\DB;
@@ -27,7 +27,7 @@ class Rptenrp extends Component
         if ( $state_user == 00){
             return view('livewire.rptenrp',[
 
-                'rptdetails_enrp' => EMANDATE_ENRP::where('hcrdate','=', $this->idrptenrp)
+                'rptdetails_enrp' => MDT_PRNE::where('hcrdate','=', $this->idrptenrp)
                                 ->where('payrefnum','like', $findrptenrp)
                                 ->where('approval','<>', '00')
                                 ->paginate(10)
@@ -38,8 +38,8 @@ class Rptenrp extends Component
         else{
             return view('livewire.rptenrp',[
 
-                'rptdetails_enrp' => EMANDATE_ENRP::where('hcrdate','=', $this->idrptenrp)
-                                ->join ('ACCOUNT_MASTER', DB::raw("TRIM(ACCOUNT_MASTER.ACCOUNT_NO)"), '=', DB::raw("TRIM(EMANDATE_ENRP.PAYREFNUM)")  )
+                'rptdetails_enrp' => MDT_PRNE::where('hcrdate','=', $this->idrptenrp)
+                                ->join ('ACCOUNT_MASTER', DB::raw("TRIM(ACCOUNT_MASTER.ACCOUNT_NO)"), '=', DB::raw("TRIM(MDT_PRNE.PAYREFNUM)")  )
                                 ->join ('BRANCHES', 'BRANCHES.BRANCH_CODE', '=', 'ACCOUNT_MASTER.BRANCH_CODE')
                                 ->where('BRANCHES.STATE_CODE' , '=',  $state_user )
                                 ->where('payrefnum','like', $findrptenrp)

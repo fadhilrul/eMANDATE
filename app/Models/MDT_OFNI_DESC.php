@@ -5,11 +5,11 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-// class EMANDATE_INFO extends Model
+// class MDT_OFNI extends Model
 // {
 //     use HasFactory;
 
-//     protected $table = 'EMANDATE_INFO';
+//     protected $table = 'MDT_OFNI';
 
 //     protected $guarded = [];
    
@@ -20,16 +20,16 @@ use Illuminate\Database\Eloquent\Model;
 // }
 
 
-class EMANDATE_INFO_DESC extends Model
+class MDT_OFNI_DESC extends Model
 {
-    protected $table = 'EMANDATE_INFO_DESC';
+    protected $table = 'MDT_OFNI_DESC';
     protected $guarded = [];
     public $timestamps = false;
     protected $primaryKey = 'IDDESC';
         
     public  function INFO()
     {
-        return $this->belongsTo('App\Models\EMANDATE_INFO','IDDESC','fms_acct_no');
+        return $this->belongsTo('App\Models\MDT_OFNI','IDDESC','fms_acct_no');
     }
 }
 

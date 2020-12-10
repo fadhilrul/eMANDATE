@@ -3,7 +3,7 @@
 namespace App\Http\Livewire;
 
 use Livewire\Component;
-use App\Models\EMANDATE_INFO;
+use App\Models\MDT_OFNI;
 use Livewire\WithPagination;
 use Illuminate\Support\Facades\DB;
 
@@ -27,7 +27,7 @@ class Rptholdall extends Component
 
         return view('livewire.rptholdall',[
 
-            'rptdetails_holdall' => EMANDATE_INFO::where('blockpayment_date','like', $idrptholdall)
+            'rptdetails_holdall' => MDT_OFNI::where('blockpayment_date','like', $idrptholdall)
                                  ->where('fms_acct_no','like', $findrptholdall)
                                  ->where('status_desc','=', 'ON-HOLD')
                                  ->paginate(10)  

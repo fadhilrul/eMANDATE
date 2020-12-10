@@ -45,7 +45,7 @@
               </tr>
           </thead>
           <tbody class="bg-white">
-            @foreach ($EMANDATE_ENRP as $item)
+            @foreach ($MDT_PRNE as $item)
             <tr>
 
                       <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-500">
@@ -92,7 +92,7 @@
           </tbody>
       </table>
       <br>
-      {{ $EMANDATE_ENRP->links() }}
+      {{ $MDT_PRNE->links() }}
     <div class="sm:flex-1 sm:flex sm:items-center sm:justify-between mt-4 work-sans">
     </div>
   </div>
@@ -160,7 +160,7 @@
           </thead>
           <tbody
             class="bg-white divide-y dark:divide-gray-700 dark:bg-gray-800">
-          @foreach ($EMANDATE_ENRP as $item)
+          @foreach ($MDT_PRNE as $item)
          
             <tr 
         
@@ -181,7 +181,7 @@
           </tbody>
         </table>
       </div>
-      {{ $EMANDATE_ENRP->links() }}
+      {{ $MDT_PRNE->links() }}
       <div
         class="grid px-1 py-2 text-xs font-semibold tracking-wide text-gray-500 uppercase border-t dark:border-gray-700 bg-gray-50 sm:grid-cols-9 dark:text-gray-400 dark:bg-gray-800"
       >

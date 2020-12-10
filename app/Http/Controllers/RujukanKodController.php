@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 use App\Exports\KodRujukan;
 use Illuminate\Http\Request;
-use App\Models\EMANDATE_INFO_DESC;
+use App\Models\MDT_OFNI_DESC;
 use Maatwebsite\Excel\Facades\Excel;
 use DateTime;
 

@@ -2,7 +2,7 @@
 
 namespace App\Http\Livewire;
 
-use App\Models\EMANDATE_INFO_DESC;
+use App\Models\MDT_OFNI_DESC;
 use Livewire\Component;
 use Livewire\WithPagination;
 
@@ -13,7 +13,7 @@ class RujukanKod extends Component
     public function render()
     {
         return view('livewire.rujukan-kod',[
-            'EMANDATE_INFO_DESC' => EMANDATE_INFO_DESC::all()
+            'MDT_OFNI_DESC' => MDT_OFNI_DESC::all()
         ]);
     }
 }

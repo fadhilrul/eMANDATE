@@ -33,6 +33,9 @@ Route::middleware([AuthenticatedUser::class])->group(function() {
       Route::get('/emandate-gagalnegeri', 'GagalNegeriController@index')->name('listgagal');
       /* dashboard emandate use livewire */
       Route::get('/emandate-dashboard', 'HomeController@index')->name('emandate.dashboard');
+      //Route::resource('/DashboardENRPAll','dashenrpController');
+      
+
         
       /* Report */
       Route::get('/emandate-report', 'EmandateReportController@index')->name('report.dashboard');
@@ -73,7 +76,8 @@ Route::middleware([AuthenticatedUser::class])->group(function() {
       Route::get('/search_mainenrp', 'searchMainENRPController@index')->name('searchenrp.index');
       Route::resource('linkmainenrp','EmandateController');
       Route::resource('link','EmandateControllerDetails');
-
+      
+    
 
       /*TESTING SP */
       Route::get('/sp_info', 'DashboardController@sp_info')->name('dashboard.sp_info');
@@ -85,12 +89,9 @@ Route::middleware([AuthenticatedUser::class])->group(function() {
 
 
       /* TEST FOR CRUD USING Product */
-      //Route::resource('products','ProductController');
-      //Route::resource('change-status','StatusController');
       //Route::get('/cft-list', 'CFTController@index')->name('cft_list.index');
      //Route::get('/cft-listdetails', 'CFTControllerDetails@index')->name('cft_listdetails.index');
      //Route::get('/emandate-listdetails', 'EmandateControllerDetails@index')->name('Emandate_listDetails.index'); 
-     //Route::get('/emandate-dashboard', 'DashboardEmandateController@index')->name('emandate.dashboard');
       //Route::get('/emandate-dashboard', 'DashboardEmandateController@index')->name('emandate.dashboard');
       //Route::post('/emandate-dashboard', 'DashboardEmandateController@index')->name('emandate.dashboard');
 

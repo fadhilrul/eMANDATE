@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\EMANDATE_ENRP;
+use App\Models\MDT_PRNE;
 
 
 class HomeController extends Controller
@@ -14,8 +14,7 @@ class HomeController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {    
-           // $rpt_enrp = EMANDATE_ENRP::whereApproval('00')->paginate(10);   
+    {       
             return view('pages.homedashboard');
     }
 

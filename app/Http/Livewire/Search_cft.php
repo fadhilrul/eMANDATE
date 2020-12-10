@@ -2,7 +2,7 @@
 
 namespace App\Http\Livewire;
 
-use App\Models\EMANDATE_CFT;
+use App\Models\MDT_TFC;
 use Livewire\Component;
 use Livewire\WithPagination;
 use Illuminate\Support\Facades\DB;
@@ -30,7 +30,7 @@ class Search_cft extends Component
 
             return view('livewire.searchcft',[
             
-                'cftdata' => EMANDATE_CFT::select('filename','hdate')
+                'cftdata' => MDT_TFC::select('filename','hdate')
                             //->where('filename','like', $searchCFTTerm)
                             ->where('hdate','like', $searchCFTTerm)
                             ->groupBy('filename','hdate')->get()
@@ -41,8 +41,8 @@ class Search_cft extends Component
 
             return view('livewire.searchcft',[
             
-                'cftdata' => EMANDATE_CFT::select('filename','hdate')
-                            ->join ('ACCOUNT_MASTER', DB::raw("TRIM(ACCOUNT_MASTER.ACCOUNT_NO)"), '=', DB::raw("TRIM(EMANDATE_CFT.PAYREFNO)")  )
+                'cftdata' => MDT_TFC::select('filename','hdate')
+                            ->join ('ACCOUNT_MASTER', DB::raw("TRIM(ACCOUNT_MASTER.ACCOUNT_NO)"), '=', DB::raw("TRIM(MDT_TFC.PAYREFNO)")  )
                             ->join ('BRANCHES', 'BRANCHES.BRANCH_CODE', '=', 'ACCOUNT_MASTER.BRANCH_CODE')
                             ->where('BRANCHES.BRANCH_CODE' , '=',  $branch_user )
                             //->where('filename','like', $searchCFTTerm)

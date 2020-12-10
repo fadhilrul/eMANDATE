@@ -26,8 +26,28 @@
       
    {{--  {{ session()->get('authenticatedUser')['state_code'] }}  --}}
 
-            <div class="flex flex-wrap">
+      <div class="flex flex-wrap">
            
+                 {{--  <a href = "{{ url('DashboardENRPAll/'.$item->branch_code.'')}}"> --}}
+            <div class="w-full md:w-1/2 xl:w-1/3 p-3">
+                  <a href= '{{ url("search_mainenrp") }}' >
+                        <div class="flex items-center p-4 bg-white rounded-lg shadow-xs dark:bg-gray-800">
+                              <div class="p-3 mr-4 text-white-500 bg-white-100 rounded-full dark:text-white-100 dark:bg-white-500">
+                                    <img src= "#"
+                                          width="60" height="30"/>
+                              </div>
+                              <div class="flex flex-row items-center">
+                                    <div class="flex-1 text-right md:text-left">
+                                          <h5 class="font-bold uppercase text-gray-600">Keseluruhan Negeri</h5>
+                                          <h3 class="font-bold text-2xl"> {{($daftarAll->count())}} 
+                                    </div>
+                              </div>      
+                        </div>
+                  </a>
+            </div>    
+      </div>
+
+            <div class="flex flex-wrap">
                   <div class="w-full md:w-1/2 xl:w-1/3 p-3">
                         <div class="flex items-center p-4 bg-white rounded-lg shadow-xs dark:bg-gray-800">
                               <div class="p-3 mr-4 text-white-500 bg-white-100 rounded-full dark:text-white-100 dark:bg-white-500">

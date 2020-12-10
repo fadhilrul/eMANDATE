@@ -2,7 +2,7 @@
   
 namespace App\Http\Controllers;
   
-use App\Models\EMANDATE_CFT;
+use App\Models\MDT_TFC;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
   
@@ -15,8 +15,8 @@ class StatusController extends Controller
      */
     public function index()
     {
-        $status = EMANDATE_CFT::paginate(5);
-       // $status = EMANDATE_CFT::latest()->paginate(5);
+        $status = MDT_TFC::paginate(5);
+       // $status = MDT_TFC::latest()->paginate(5);
     
         return view('pages.statusindex',compact('status'))
             ->with('i', (request()->input('page', 1) - 1) * 5);
@@ -51,7 +51,7 @@ class StatusController extends Controller
      */
     public function show($id)
     {
-        $status = EMANDATE_CFT::where('buyeracc','like','%'.$id.'%')->paginate(5);
+        $status = MDT_TFC::where('buyeracc','like','%'.$id.'%')->paginate(5);
         return view('pages.statusedit',compact('status'));
 
     } 
@@ -62,13 +62,13 @@ class StatusController extends Controller
      * @param  \App\Product  $product
      * @return \Illuminate\Http\Response
      */
-    //public function edit(EMANDATE_CFT $status)
+    //public function edit(MDT_TFC $status)
     public function edit($id)
 
     {
         //return view('pages.statusedit',compact('status'));
 
-        $status = EMANDATE_CFT::where('buyeracc','like','%'.$id.'%')->paginate(5);
+        $status = MDT_TFC::where('buyeracc','like','%'.$id.'%')->paginate(5);
         return view('pages.statusedit',compact('status'));
 
     }
@@ -91,7 +91,7 @@ class StatusController extends Controller
         ]);
 
 
-        // $status = EMANDATE_CFT::where('BUYERACC','like','%'.$id.'%')->first();
+        // $status = MDT_TFC::where('BUYERACC','like','%'.$id.'%')->first();
         // //$status->update($request->all());
         // $status->status = $request->status;
         // $status->save();
@@ -101,7 +101,7 @@ class StatusController extends Controller
         //     
         // }
 
-        $change = DB::table('EMANDATE_CFT')
+        $change = DB::table('MDT_TFC')
             ->where('BUYERACC', $id)
             ->update([
                 'action' => $request->action,
@@ -123,7 +123,7 @@ class StatusController extends Controller
      * @param  \App\Product  $product
      * @return \Illuminate\Http\Response
      */
-    public function destroy(EMANDATE_CFT $status)
+    public function destroy(MDT_TFC $status)
     {
         //
     }

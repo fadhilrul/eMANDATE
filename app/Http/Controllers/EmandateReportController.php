@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\EMANDATE_INFO;
+use App\Models\MDT_OFNI;
 class EmandateReportController extends Controller
 
 {

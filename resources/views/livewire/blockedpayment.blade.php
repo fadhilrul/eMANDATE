@@ -7,7 +7,7 @@
         <h3 class="font-bold pl-2">Laporan Senarai Sekatan Pemotongan</h3>
     </div>
         <div>
-            <livewire:datatable model="App\Models\EMANDATE_INFO"/>
+            <livewire:datatable model="App\Models\MDT_OFNI"/>
         </div>
 </div>
 </div>

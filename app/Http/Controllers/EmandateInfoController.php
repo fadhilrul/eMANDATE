@@ -3,9 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\EMANDATE_INFO;
-use App\Models\EMANDATE_CFT;
-use App\Models\EMANDATE_RES;
+use App\Models\MDT_OFNI;
+use App\Models\MDT_TFC;
+use App\Models\MDT_SER;
 use Livewire\WithPagination;
 use App\User;
 use Illuminate\Support\Facades\DB;
@@ -25,10 +25,10 @@ class EmandateInfoController extends Controller
     {   
         
 
-       // $INFOS = EMANDATE_INFO::all();;
+       // $INFOS = MDT_OFNI::all();;
          //dd($INFOS);
 
-       // $INFOS = EMANDATE_INFO::where('payrefnum','like','%66011115000785%')->whereApproval('00')->paginate(5);
+       // $INFOS = MDT_OFNI::where('payrefnum','like','%66011115000785%')->whereApproval('00')->paginate(5);
         //dd($INFOS);
       // return view('pages.EmandateInfo',compact('INFOS'));
        return view('pages.EmandateInfo');  
@@ -73,8 +73,8 @@ class EmandateInfoController extends Controller
 
         //$listcft =  "%".$this->listcft."%";
 
-        $INFOS = EMANDATE_INFO::where('fms_acct_no','like','%'.$id.'%')->whereApproval('00')->paginate(5);
-        $filelist_res = EMANDATE_RES::whereRaw("substr(filler,0,14) like '%".$id."%' and posted = 'Y' ORDER BY SUBSTR(HDATE,7,10),SUBSTR(HDATE,4,5),SUBSTR(HDATE,1,2) ASC")->paginate(20);
+        $INFOS = MDT_OFNI::where('fms_acct_no','like','%'.$id.'%')->whereApproval('00')->paginate(5);
+        $filelist_res = MDT_SER::whereRaw("substr(filler,0,14) like '%".$id."%' and posted = 'Y' ORDER BY SUBSTR(HDATE,7,10),SUBSTR(HDATE,4,5),SUBSTR(HDATE,1,2) ASC")->paginate(20);
         //dd($id);
         
         //account position part
@@ -124,7 +124,7 @@ class EmandateInfoController extends Controller
                     (M.instal_amount + M.savings_instamt) AS INSTALL_AMT
                     FROM ACCOUNT_POSITION P,
                          ACCOUNT_MASTER M,
-                         EMANDATE_INFO I
+                         MDT_OFNI I
                     WHERE P.ACTID = M.ACTID
                     and   P.ACCOUNT_NO = M.ACCOUNT_NO
                     and   P.ACCOUNT_NO = I.FMS_ACCT_NO
@@ -209,7 +209,7 @@ class EmandateInfoController extends Controller
         if  ($branch_code == '0009')
         {
 
-            $info = EMANDATE_INFO::where('idnum', $request->itemid)->first();
+            $info = MDT_OFNI::where('idnum', $request->itemid)->first();
 
             if ($request->action == 0) {
                 

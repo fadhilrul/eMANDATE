@@ -3,7 +3,7 @@
 namespace App\Exports;
 
 use Illuminate\Http\Request;
-use App\Models\EMANDATE_INFO;
+use App\Models\MDT_OFNI;
 use Maatwebsite\Excel\Concerns\FromQuery;
 use Maatwebsite\Excel\Concerns\WithHeadings;
 use Maatwebsite\Excel\Concerns\FromCollection;
@@ -43,7 +43,7 @@ class HoldallExport implements FromQuery,WithHeadings
         /* if ( $state_user == 00){ */
         if ( $branch_type == 'HQ'){  
 
-            return  DB::table('EMANDATE_INFO')
+            return  DB::table('MDT_OFNI')
             ->select('blockpayment_date','fms_acct_no','idnum','recnum','lastfailed_date','lastsuccess_date','blockedby','status_desc')
             ->where('blockpayment_date','like', "%".$this->idrptholdall."%")
             ->where('status_desc','=','ON-HOLD')
@@ -51,9 +51,9 @@ class HoldallExport implements FromQuery,WithHeadings
         }  
         else{
 
-            return  DB::table('EMANDATE_INFO')
+            return  DB::table('MDT_OFNI')
             ->select('blockpayment_date','fms_acct_no','idnum','recnum','lastfailed_date','lastsuccess_date','blockedby','status_desc')
-            ->join ('ACCOUNT_MASTER', DB::raw("TRIM(ACCOUNT_MASTER.ACCOUNT_NO)"), '=', DB::raw("TRIM(EMANDATE_INFO.FMS_ACCT_NO)")  )
+            ->join ('ACCOUNT_MASTER', DB::raw("TRIM(ACCOUNT_MASTER.ACCOUNT_NO)"), '=', DB::raw("TRIM(MDT_OFNI.FMS_ACCT_NO)")  )
             ->join ('BRANCHES', 'BRANCHES.BRANCH_CODE', '=', 'ACCOUNT_MASTER.BRANCH_CODE')
             ->where('BRANCHES.STATE_CODE' , '=',  $branch_user )
             ->where('blockpayment_date','like', "%".$this->idrptholdall."%")

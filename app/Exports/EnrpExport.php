@@ -3,7 +3,7 @@
 namespace App\Exports;
 
 use Illuminate\Http\Request;
-//use App\Models\EMANDATE_ENRP;
+//use App\Models\MDT_PRNE;
 use Maatwebsite\Excel\Concerns\FromQuery;
 use Maatwebsite\Excel\Concerns\WithHeadings;
 use Maatwebsite\Excel\Concerns\FromCollection;
@@ -44,19 +44,19 @@ class EnrpExport implements FromQuery,WithHeadings
 
     public function query()
     {
-        //return EMANDATE_ENRP::query();
+        //return MDT_PRNE::query();
         /*you can use condition in query to get required result*/
         /* to select all column  
-        return EMANDATE_ENRP::query()->where('approval','not like','%00%');*/
+        return MDT_PRNE::query()->where('approval','not like','%00%');*/
 
-       /* $test = EMANDATE_ENRP::query()
+       /* $test = MDT_PRNE::query()
                             ->select('seqno','hcrdate','batchid','payrefnum','idtype','idnum','buyername','buyeracct','debitamt','purpose', 'telno','email','effdate','expdate','appdate')
                             ->where('approval','not like','%00%')
                             ->get();
         dd($test); */
 
         /* to select selected column */
-        /*return EMANDATE_ENRP::query()
+        /*return MDT_PRNE::query()
                                 ->select('seqno','hcrdate','batchid','payrefnum','idtype','idnum','buyername','buyeracct','debitamt','purpose', 'telno','email','effdate','expdate','appdate')
                                 ->where('approval','not like','%00%')
                                 ; */
@@ -66,16 +66,16 @@ class EnrpExport implements FromQuery,WithHeadings
 
         /* if ( $state_user == 00){ */
         if ( $branch_type == 'HQ'){    
-            return  DB::table('EMANDATE_ENRP')
+            return  DB::table('MDT_PRNE')
                     ->select('hcrdate','batchid','payrefnum','idtype','idnum','buyername','buyeracct','debitamt','purpose', 'telno','email','effdate','expdate','appdate')
                     ->where('hcrdate','like', "%".$this->idrptenrp."%")
                     ->where('approval','not like','%00%')
                     ->orderby('seqno');                   
         }
         else{
-            return  DB::table('EMANDATE_ENRP')
+            return  DB::table('MDT_PRNE')
                     ->select('hcrdate','batchid','payrefnum','idtype','idnum','buyername','buyeracct','debitamt','purpose', 'telno','email','effdate','expdate','appdate')
-                    ->join ('ACCOUNT_MASTER', DB::raw("TRIM(ACCOUNT_MASTER.ACCOUNT_NO)"), '=', DB::raw("TRIM(EMANDATE_ENRP.PAYREFNUM)")  )
+                    ->join ('ACCOUNT_MASTER', DB::raw("TRIM(ACCOUNT_MASTER.ACCOUNT_NO)"), '=', DB::raw("TRIM(MDT_PRNE.PAYREFNUM)")  )
                     ->join ('BRANCHES', 'BRANCHES.BRANCH_CODE', '=', 'ACCOUNT_MASTER.BRANCH_CODE')
                     ->where('BRANCHES.STATE_CODE' , '=',  $branch_user )
                     ->where('hcrdate','like', "%".$this->idrptenrp."%")

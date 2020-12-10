@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\EMANDATE_ENRP;
+use App\Models\MDT_PRNE;
 class EmandateController extends Controller
 {
     /**
@@ -47,11 +47,11 @@ class EmandateController extends Controller
     public function show($id)
     {
         //dd($id);
-      //  $test = EMANDATE_ENRP::where($id);
+      //  $test = MDT_PRNE::where($id);
         
         //dd($test);
 
-        //$NERPS = EMANDATE_ENRP::where('approval','like','%00%')->paginate(5);
+        //$NERPS = MDT_PRNE::where('approval','like','%00%')->paginate(5);
          return view('pages.searchenrpdetails',compact('id'));
 
          //return view('pages.searchenrpdetails');

@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\EMANDATE_CFT;
+use App\Models\MDT_TFC;
 class CFTController extends Controller
 {
     /**
@@ -14,7 +14,7 @@ class CFTController extends Controller
     public function index($id)
     {   
          //dd($id);
-        // $CFT_DATALIST = EMANDATE_CFT::where('filename','=',$id)->get();
+        // $CFT_DATALIST = MDT_TFC::where('filename','=',$id)->get();
          //dd($CFT_DATALIST);
          // return view('pages.searchcftdetails',compact('CFT_DATALIST'));
          return view('pages.CFTFileList');
@@ -50,7 +50,7 @@ class CFTController extends Controller
     public function show($id)
     {   
         //dd($id);
-        //$CFT_DATALIST = EMANDATE_CFT::where('filename','=',$id)->get();
+        //$CFT_DATALIST = MDT_TFC::where('filename','=',$id)->get();
         //dd($id);
          return view('pages.searchcftdetails',compact('id'));
     }

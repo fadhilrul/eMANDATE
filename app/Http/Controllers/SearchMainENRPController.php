@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\EMANDATE_ENRP; 
+use App\Models\MDT_PRNE; 
 class SearchMainENRPController extends Controller
 {
     /**

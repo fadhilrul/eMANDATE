@@ -5,11 +5,11 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-// class EMANDATE_CFT extends Model
+// class MDT_TFC extends Model
 // {
 //     use HasFactory;
 
-//     protected $table = 'EMANDATE_CFT';
+//     protected $table = 'MDT_TFC';
 
 //     protected $guarded = [];
 
@@ -17,9 +17,9 @@ use Illuminate\Database\Eloquent\Model;
 
 
 
-class EMANDATE_CFT extends Model
+class MDT_TFC extends Model
 {
-    protected $table = 'EMANDATE_CFT';
+    protected $table = 'MDT_TFC';
     protected $guarded = [];
 
     public  function info()

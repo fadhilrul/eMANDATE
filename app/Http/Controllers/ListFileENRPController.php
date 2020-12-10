@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\EMANDATE_ENRP;
+use App\Models\MDT_PRNE;
 class ListFileENRPController extends Controller
 
 
@@ -17,7 +17,7 @@ class ListFileENRPController extends Controller
     {   
 
         /* could not use for pagination because of distinct() */
-        $file_ENRP = EMANDATE_ENRP::distinct()-> get(['filename']);
+        $file_ENRP = MDT_PRNE::distinct()-> get(['filename']);
 
         //dd($file_ENRP);
         
@@ -57,15 +57,15 @@ class ListFileENRPController extends Controller
      */
     public function show($id)
     {
-        // $NERPS = EMANDATE_ENRP::paginate(10);
-        // $NERPS = EMANDATE_ENRP::find($id);
-       // $file_ENRP = EMANDATE_ENRP::where('payrefnum','like','%'.$id.'%')->whereSection('BLOCK2')->paginate(5);
-      //  $file_ENRP = EMANDATE_ENRP::distinct()-> get(['filename']) ->paginate(5);
+        // $NERPS = MDT_PRNE::paginate(10);
+        // $NERPS = MDT_PRNE::find($id);
+       // $file_ENRP = MDT_PRNE::where('payrefnum','like','%'.$id.'%')->whereSection('BLOCK2')->paginate(5);
+      //  $file_ENRP = MDT_PRNE::distinct()-> get(['filename']) ->paginate(5);
 
 
         // dd($file_ENRP);
 
-        // $file_ENRP = EMANDATE_ENRP::where('payrefnum', '=', $NERPS)->whereOr()
+        // $file_ENRP = MDT_PRNE::where('payrefnum', '=', $NERPS)->whereOr()
         //                 -> where(function ($query) {
         //                     $query->where('section', '=', 'BLOCK2'); }) -> paginate(5);
 

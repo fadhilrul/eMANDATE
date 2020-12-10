@@ -2,7 +2,7 @@
 
 namespace App\Http\Livewire;
 
-use App\Models\EMANDATE_RES;
+use App\Models\MDT_SER;
 use Livewire\Component;
 use Livewire\WithPagination;
 use Illuminate\Support\Facades\DB;
@@ -29,8 +29,8 @@ class Rptrespass extends Component
 
             return view('livewire.rptrespass',[
 
-            'rptdetails_respass' => EMANDATE_RES::where('filename','like', $idrptrespasss)
-                                 ->join ('EMANDATE_INFO_DESC', 'EMANDATE_RES.STATUS', '=', DB::raw("SUBSTR(EMANDATE_INFO_DESC.RE_CODE,2,3)"))
+            'rptdetails_respass' => MDT_SER::where('filename','like', $idrptrespasss)
+                                 ->join ('MDT_OFNI_DESC', 'MDT_SER.STATUS', '=', DB::raw("SUBSTR(MDT_OFNI_DESC.RE_CODE,2,3)"))
                                 ->where('filler','like', $findrptrespass)
                                 ->where('status','=', '00')
                                 ->paginate(10)        
@@ -40,10 +40,10 @@ class Rptrespass extends Component
         else{
             return view('livewire.rptrespass',[
 
-                'rptdetails_respass' => EMANDATE_RES::where('filename','like', $idrptrespasss)
-                                    ->join ('ACCOUNT_MASTER', DB::raw("TRIM(ACCOUNT_MASTER.ACCOUNT_NO)"), '=', DB::raw("SUBSTR(EMANDATE_RES.FILLER,1,14)")  )
+                'rptdetails_respass' => MDT_SER::where('filename','like', $idrptrespasss)
+                                    ->join ('ACCOUNT_MASTER', DB::raw("TRIM(ACCOUNT_MASTER.ACCOUNT_NO)"), '=', DB::raw("SUBSTR(MDT_SER.FILLER,1,14)")  )
                                     ->join ('BRANCHES', 'BRANCHES.BRANCH_CODE', '=', 'ACCOUNT_MASTER.BRANCH_CODE')
-                                    ->join ('EMANDATE_INFO_DESC', 'EMANDATE_RES.STATUS', '=', DB::raw("SUBSTR(EMANDATE_INFO_DESC.RE_CODE,2,3)"))
+                                    ->join ('MDT_OFNI_DESC', 'MDT_SER.STATUS', '=', DB::raw("SUBSTR(MDT_OFNI_DESC.RE_CODE,2,3)"))
                                     ->where('BRANCHES.STATE_CODE' , '=',  $state_user )
                                     ->where('filler','like', $findrptrespass)
                                     ->where('status','=', '00')

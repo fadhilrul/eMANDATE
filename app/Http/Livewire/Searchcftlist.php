@@ -2,7 +2,7 @@
 
 namespace App\Http\Livewire;
 
-use App\Models\EMANDATE_CFT;
+use App\Models\MDT_TFC;
 use Livewire\Component;
 use Livewire\WithPagination;
 use Illuminate\Support\Facades\DB;
@@ -30,11 +30,11 @@ class Searchcftlist extends Component
         { 
             return view('livewire.searchcftlist',[
 
-              /*  'filelist_CFT' => EMANDATE_CFT::where('filename','=', $this->idenrp)
+              /*  'filelist_CFT' => MDT_TFC::where('filename','=', $this->idenrp)
                                             ->where('accno','like', $listcft)
                                             ->paginate(10) */
 
-                'filelist_CFT' => EMANDATE_CFT::where(function($query) use ($listcft) {
+                'filelist_CFT' => MDT_TFC::where(function($query) use ($listcft) {
                                                 $query->where('payrefno', 'like', $listcft)
                                                       ->orWhere('ic', 'like', $listcft); })
                                                 ->where('filename','=', $this->idenrp)
@@ -45,11 +45,11 @@ class Searchcftlist extends Component
         else{
             return view('livewire.searchcftlist',[
 
-                'filelist_CFT' => EMANDATE_CFT::where(function($query) use ($listcft) {
+                'filelist_CFT' => MDT_TFC::where(function($query) use ($listcft) {
                                                 $query->where('payrefno', 'like', $listcft)
                                                 ->orWhere('ic', 'like', $listcft); })
                                                 ->where('filename','=', $this->idenrp)
-                                                ->join ('ACCOUNT_MASTER', DB::raw("TRIM(ACCOUNT_MASTER.ACCOUNT_NO)"), '=', DB::raw("TRIM(EMANDATE_CFT.PAYREFNO)")  )
+                                                ->join ('ACCOUNT_MASTER', DB::raw("TRIM(ACCOUNT_MASTER.ACCOUNT_NO)"), '=', DB::raw("TRIM(MDT_TFC.PAYREFNO)")  )
                                                 ->join ('BRANCHES', 'BRANCHES.BRANCH_CODE', '=', 'ACCOUNT_MASTER.BRANCH_CODE')
                                                 ->where('BRANCHES.STATE_CODE' , '=',  $state_user )
                                                 ->paginate(10)
