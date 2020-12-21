@@ -25,6 +25,7 @@
                         <label>NEGERI</label>  &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         <select name="country" class="form-control" wire:model="country">
                             <option selected >Pilih Negeri</option> 
+                            <option value='Malay'>SEMUA</option> 
                                 @foreach ($countries as $country)
                                     <option value={{ $country->code }}>{{ $country->description }}</option>
                                 @endforeach      
@@ -115,7 +116,7 @@
                 
         </thead>
         <tbody class="bg-white">
-          @foreach ($posts as $item)
+          @foreach ($postsdata as $item)
             <tr>
                 <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-500">
                     <div class="flex items-center">
@@ -214,13 +215,17 @@
                     </div>
                 </td> 
               
-            
             </tr>
            @endforeach
         </tbody>
-    </table>
-
+    </table>  
 </div>
+
+<br><br>
+{{ $postsdata->links() }}
+
+
+
 
 <!--  for all except staff from HQ -->      
       @else
@@ -276,6 +281,7 @@
               </div>
               <!--/Metric Card-->
           </div>
+          
           <div class="w-full md:w-1/2 xl:w-1/3 p-3">
             <a href="{{route('searchenrp.index')}}">
               <!--Metric Card-->
