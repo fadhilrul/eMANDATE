@@ -8,7 +8,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Exports\ResFailExport;
-use App\Models\EMANDATE_RES;
+use App\Models\MDT_SER;
 use Maatwebsite\Excel\Facades\Excel;
 use DateTime;
 

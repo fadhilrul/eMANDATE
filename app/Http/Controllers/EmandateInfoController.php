@@ -31,15 +31,14 @@ class EmandateInfoController extends Controller
        // $INFOS = MDT_OFNI::where('payrefnum','like','%66011115000785%')->whereApproval('00')->paginate(5);
         //dd($INFOS);
       // return view('pages.EmandateInfo',compact('INFOS'));
-       return view('pages.EmandateInfo');  
+            return view('pages.EmandateInfo');  
 
 
-        //return view('pages.EmandateInfo');  
-       
+        //return view('pages.EmandateInfo');   
         
     }
 
-  
+
 
     /**
      * Show the form for creating a new resource.
@@ -123,8 +122,8 @@ class EmandateInfoController extends Controller
                     P.LAST_MODIFIED_USER,
                     (M.instal_amount + M.savings_instamt) AS INSTALL_AMT
                     FROM ACCOUNT_POSITION P,
-                         ACCOUNT_MASTER M,
-                         MDT_OFNI I
+                        ACCOUNT_MASTER M,
+                        MDT_OFNI I
                     WHERE P.ACTID = M.ACTID
                     and   P.ACCOUNT_NO = M.ACCOUNT_NO
                     and   P.ACCOUNT_NO = I.FMS_ACCT_NO
@@ -162,9 +161,7 @@ class EmandateInfoController extends Controller
                     $resit = $resit_sql;
         // end resit part
 
-                      
         return view('pages.EmandateInfo',compact('INFOS','filelist_res','data','resit'));
-                   
         
         //account position part end
     }
@@ -206,7 +203,7 @@ class EmandateInfoController extends Controller
     public function activestatus(Request $request)
     {
         $branch_code = session('authenticatedUser')['branch_code'];
-        if  ($branch_code == '0009')
+        if  ($branch_code == '0009' || $branch_code == '0004' || $branch_code == '0016')
         {
 
             $info = MDT_OFNI::where('idnum', $request->itemid)->first();

@@ -41,7 +41,7 @@
             <body>
                 <div class="container">
                     <div class="response"></div>
-                    <i class="text-red-500">*Penting pastikan tarikh yang dipilih adalah hari bekerja!!!</i>
+                    <i class="text-red-500">*Penting pastikan tarikh yang dipilih adalah hari bekerja!!!<br></i>
                     <div id='calendar'>
 
                     </div>

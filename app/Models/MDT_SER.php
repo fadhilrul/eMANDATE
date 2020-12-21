@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-// class EMANDATE_CFT extends Model
+// class MDT_TFC extends Model
 // {
 //     use HasFactory;
 

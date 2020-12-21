@@ -1,6 +1,6 @@
 <?php
 namespace App\Http\Controllers;
-use App\Models\emandate_date_cft;
+use App\Models\MDT_DT_TFC;
 use Illuminate\Http\Request;
 use App\Http\Resources\EmandateDateCftResource;
 
@@ -8,7 +8,7 @@ use Redirect,Response;
 class FullCalendarEventMasterController extends Controller
 {
     public function api(){
-        $data = emandate_date_cft::all();
+        $data = MDT_DT_TFC::all();
         // return response()->json([
         //     [
         //         'title' => 'Event Title1',
@@ -35,7 +35,7 @@ class FullCalendarEventMasterController extends Controller
 
             }
 
-            $data = emandate_date_cft::whereDate('starts', '>=', $starts)->whereDate('end',   '<=', $end)->get(['id','title','starts', 'end']);
+            $data = MDT_DT_TFC::whereDate('starts', '>=', $starts)->whereDate('end',   '<=', $end)->get(['id','title','starts', 'end']);
             return Response::json($data);
                
         }
@@ -48,7 +48,7 @@ class FullCalendarEventMasterController extends Controller
         'end' => $request->end
         ];
 
-        $eMandate = new emandate_date_cft();
+        $eMandate = new MDT_DT_TFC();
         $eMandate->title = $request->title;
         $eMandate->starts = $request->starts;
         $eMandate->end = $request->end;
@@ -60,12 +60,12 @@ class FullCalendarEventMasterController extends Controller
     {
         $where = array('id' => $request->id);
         $updateArr = ['title' => $request->title,'starts' => $request->starts, 'end' => $request->end];
-        $event  = emandate_date_cft::where($where)->update($updateArr);
+        $event  = MDT_DT_TFC::where($where)->update($updateArr);
         return Response::json($event);
     }
     public function destroy(Request $request)
     {
-        $event = emandate_date_cft::where('id',$request->id)->delete();
+        $event = MDT_DT_TFC::where('id',$request->id)->delete();
         return Response::json($event);
     }
 }

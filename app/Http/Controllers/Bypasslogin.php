@@ -12,7 +12,7 @@ class Bypasslogin extends Controller
     {
         //dd($request->all());
         $user = FMS_USERS::where('USERID',strtoupper($request->userid))->first();
-        //dd($user);
+        //dd($request);
         //die;
         if($user != null)
         {

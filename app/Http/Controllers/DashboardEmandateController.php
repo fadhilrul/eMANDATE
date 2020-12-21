@@ -16,12 +16,11 @@ class DashboardEmandateController extends Controller
         $state_user = session('authenticatedUser')['state_code'];
         
         if  ($state_user == '00')
-        {
-         
+        { 
             //$state = DB::table('MDT_PRNE')->select('section')->distinct()->get()->pluck('section');
             //$branch = DB::table('MDT_PRNE')->select('payrefnum')->distinct()->get()->pluck('payrefnum');
 
-           /* $state =  DB::table('MDT_PRNE')
+        /* $state =  DB::table('MDT_PRNE')
                         ->select('BNM_STATECODES.description')
                         ->distinct()
                         ->join ('ACCOUNT_MASTER', DB::raw("TRIM(ACCOUNT_MASTER.ACCOUNT_NO)"), '=', DB::raw("TRIM(MDT_PRNE.PAYREFNUM)")  )
@@ -131,7 +130,6 @@ class DashboardEmandateController extends Controller
                 'postspass' => $post_pass,
                 'postsfail' => $post_fail,
             ]);
-     
     
         }
 

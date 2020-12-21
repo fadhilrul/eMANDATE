@@ -1,10 +1,6 @@
 <?php
 
 namespace App\Http\Controllers;
-
-ob_end_clean(); // this for solve error format excel
-ob_start(); // this for solve error format excel
-
 use Illuminate\Http\Request;
 use App\Exports\EnrpExport;
 use App\Models\MDT_PRNE;

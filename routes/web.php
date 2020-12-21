@@ -112,5 +112,5 @@ Route::middleware([AuthenticatedUser::class])->group(function() {
       Route::post('/fullcalendareventmaster/update','FullCalendarEventMasterController@update');
       Route::post('/fullcalendareventmaster/delete','FullCalendarEventMasterController@destroy');
       Route::get('api','FullCalendarEventMasterController@api');
-      Route::post('/fullcalendareventmaster', 'fullcalendareventmaster@save')->name('fullcalendareventmaster.save');
+      Route::post('/fullcalendareventmaster', 'FullCalendarEventMasterController@save')->name('fullcalendareventmaster.save');
 });

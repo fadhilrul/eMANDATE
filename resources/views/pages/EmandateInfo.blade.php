@@ -154,7 +154,7 @@
 											  </tr>
 
 											  <tr>
-												  <td class="px-4 py-4 border border-indigo-dark font-semibold">No Akaun Pembiayaan</td>
+												  <td class="px-4 py-4 border border-indigo-dark font-semibold">No Akaun<br>Pembiayaan</td>
 													  <td class="px-4 py-4 border border-indigo-dark">
 														  <div class = "flex-grow">
 															  <div class="text-sm leading-5 text-gray-800">
@@ -167,7 +167,7 @@
 												  </td>
 											  </tr>
 											  <tr>
-												<td class="px-4 py-4 border border-indigo-dark font-semibold">No Akaun Bank Simpanan/<br>Semasa</td>
+												<td class="px-4 py-4 border border-indigo-dark font-semibold">No Akaun Bank<br>Simpanan/Semasa</td>
 													<td class="px-4 py-4 border border-indigo-dark">
 														<div class = "flex-grow">
 															<div class="text-sm leading-5 text-gray-800">
@@ -360,7 +360,7 @@
 														<div class = "flex-grow">
 															<div class="text-sm leading-5 text-gray-800">
 																<input value = "{{ date('d-m-Y',strtotime($item->appdate)) }}" disabled = true
-																	  class="block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input"
+																	class="block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input"
 																/>
 															</div>
 														</div>
@@ -374,7 +374,7 @@
 															<div class = "flex-grow">
 																<div class="text-sm leading-5 text-gray-800">
 																	<input value = "{{ $item->recnum }}" disabled = true
-																		  class="block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input"
+																		class="block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input"
 																	/>
 																</div>
 															</div>
@@ -388,7 +388,7 @@
 															<div class = "flex-grow">
 																<div class="text-sm leading-5 text-gray-800">
 																	<input value = "{{ date('d-m-Y',strtotime($item->effdate)) }} "  disabled = true
-																		  class="block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input"
+																		class="block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input"
 																	/>
 																</div>
 															</div>
@@ -403,7 +403,7 @@
 															<div class = "flex-grow">
 																<div class="text-sm leading-5 text-gray-800">
 																	<input value = "{{ date('d-m-Y',strtotime($item->expdate)) }} "  disabled = true
-																		  class="block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input"
+																		class="block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input"
 																	/>
 																</div>
 															</div>
@@ -418,7 +418,7 @@
 															<div class = "flex-grow">
 																<div class="text-sm leading-5 text-gray-800">
 																	<input value = "RM{{ $item->instal_amt }}"  disabled = true
-																		  class="block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input"
+																		class="block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input"
 																	/>
 																</div>
 															</div>
@@ -454,7 +454,7 @@
 													<div class = "flex-grow">
 														<div class="text-sm leading-5 text-gray-800">
 															<input value = "{{  date('d-m-Y',strtotime($item->lastcycle_date)) }}" disabled = true
-																  class="block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input"
+																class="block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input"
 															/>
 														</div>
 													</div>
@@ -468,12 +468,27 @@
 														<div class = "flex-grow">
 															<div class="text-sm leading-5 text-gray-800">
 																<input value = "{{  date('d-m-Y',strtotime($item->nextcycle_date)) }}" disabled = true
-																	  class="block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input"
+																	class="block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input"
 																/>
 															</div>
 														</div>
 													</td>
 												</td>
+											</tr>
+
+											<tr>
+												<td class="px-4 py-4 border border-indigo-dark font-semibold">Amaun Potongan</td>
+													<td class="px-4 py-4 border border-indigo-dark">
+														<div class = "flex-grow">
+															<div class="text-sm leading-5 text-gray-800">
+																<input value = "RM{{ $item->instal_amt }}"  disabled = true
+																	  class="block w-70 mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input"
+																/>
+															</div>
+														</div>
+									
+													</td>
+												</td>	
 											</tr>
 
 											<tr>
@@ -490,6 +505,7 @@
 													</td>
 												</td>	
 											</tr>
+											
 										</tbody>
 									</table>
 								</div>
@@ -534,7 +550,7 @@
 																<form method="post" action="{{ route('EmandateInfo.activestatus') }}">
 																	@csrf
 																	<input type="hidden" name="itemid" value="{{ $item->idnum }}">
-																		@if (session('authenticatedUser')['branch_code'] == '0009')
+																		@if (session('authenticatedUser')['branch_code'] in ('0009','0004','0016'))
 																			@if ($item->code_blocked == '02')
 																			
 																					<select class ="form-control" id="action" name="action" disabled>

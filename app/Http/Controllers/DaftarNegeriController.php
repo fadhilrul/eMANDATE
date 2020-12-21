@@ -133,8 +133,8 @@ class DaftarNegeriController extends Controller
 
         return view('pages.listdaftarnegeri',
             compact( 'daftarAll','daftarJhr', 'daftarKdh', 'daftarKltn', 'daftarMlk',
-                     'daftarN9', 'daftarPhg', 'daftarPrk', 'daftarPrls', 'daftarPP', 'daftarSbh',
-                     'daftarSrwk', 'daftarSlngr', 'daftarTrg', 'daftarKl' )  );
+                    'daftarN9', 'daftarPhg', 'daftarPrk', 'daftarPrls', 'daftarPP', 'daftarSbh',
+                    'daftarSrwk', 'daftarSlngr', 'daftarTrg', 'daftarKl' )  );
     }
 
 

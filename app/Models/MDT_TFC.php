@@ -24,6 +24,6 @@ class MDT_TFC extends Model
 
     public  function info()
     {
-        return $this->belongsTo('App\Models\EMANDATE_INFO','payrefno','fms_acct_no');
+        return $this->belongsTo('App\Models\MDT_OFNI','payrefno','fms_acct_no');
     }
 }

@@ -1,7 +1,6 @@
 @extends('pages.layout.base')
 @section('body')
 
-
 {{-- <div class="min-h-screen flex items-center justify-center bg-green-50 py-12 px-4 sm:px-6 lg:px-8">
       <div class="max-w-md w-full">
             <div class="container mx-auto h-full flex justify-center items-center">
@@ -22,123 +21,140 @@
                         </div>
 
                               <form class="mt-8" action="{{ route('loggingin') }}" method="POST">
-                                    @if(session()->has('loginerror'))
-                                          <x-general.alert.base class="bg-red-200 border-2 border-red-300 rounded-md p-2 text-sm my-2">
-                                          <x-slot name="message">{{ session()->get('loginerror') }}</x-slot>
-                                          </x-general.alert.base>
-                                    @endif
-                                    @csrf
-                                          <div class="rounded-md shadow-sm grid grid-col-1 gap-3">
-                                                <div>
-                                                      <label for="idpengguna"class="text-sm">ID Pengguna</label>
-                                                      <input aria-label="ID Pengguna" id="idpengguna" name="idpengguna" type="text" required class="appearance-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-md focus:outline-none focus:shadow-outline-blue focus:border-blue-300 focus:z-10 sm:text-sm sm:leading-5" placeholder="ID Pengguna">
-                                                </div>
-                                                <div class="-mt-px">
-                                                      <label for="katalaluan"class="text-sm">Kata Laluan</label>
-                                                      <input aria-label="Kata Laluan" id="katalaluan" name="katalaluan" type="password" required class="appearance-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-md focus:outline-none focus:shadow-outline-blue focus:border-blue-300 focus:z-10 sm:text-sm sm:leading-5" placeholder="Kata Laluan">
-                                                </div>
-                                          </div>
-                                    <div class="mt-6">
-                                          <button type="submit" class="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm leading-5 font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-500 focus:outline-none focus:border-indigo-700 focus:shadow-outline-indigo active:bg-indigo-700 transition duration-150 ease-in-out">
-                                                <span class="absolute left-0 inset-y-0 flex items-center pl-3">
-                                                <svg class="h-5 w-5 text-indigo-500 group-hover:text-indigo-400 transition ease-in-out duration-150" fill="currentColor" viewBox="0 0 20 20">
-                                                <path fill-rule="evenodd" d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z" clip-rule="evenodd" />
-                                                </svg>
-                                                </span>
-                                                Log Masuk
-                                          </button>
-                                    </div>
-                              </form>
-                        </div>
-                  </div>
-            </div>
-      </div>
+@if(session()->has('loginerror'))
+<x-general.alert.base class="bg-red-200 border-2 border-red-300 rounded-md p-2 text-sm my-2">
+    <x-slot name="message">{{ session()->get('loginerror') }}</x-slot>
+</x-general.alert.base>
+@endif
+@csrf
+<div class="rounded-md shadow-sm grid grid-col-1 gap-3">
+    <div>
+        <label for="idpengguna" class="text-sm">ID Pengguna</label>
+        <input aria-label="ID Pengguna" id="idpengguna" name="idpengguna" type="text" required
+            class="appearance-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-md focus:outline-none focus:shadow-outline-blue focus:border-blue-300 focus:z-10 sm:text-sm sm:leading-5"
+            placeholder="ID Pengguna">
+    </div>
+    <div class="-mt-px">
+        <label for="katalaluan" class="text-sm">Kata Laluan</label>
+        <input aria-label="Kata Laluan" id="katalaluan" name="katalaluan" type="password" required
+            class="appearance-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-md focus:outline-none focus:shadow-outline-blue focus:border-blue-300 focus:z-10 sm:text-sm sm:leading-5"
+            placeholder="Kata Laluan">
+    </div>
+</div>
+<div class="mt-6">
+    <button type="submit"
+        class="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm leading-5 font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-500 focus:outline-none focus:border-indigo-700 focus:shadow-outline-indigo active:bg-indigo-700 transition duration-150 ease-in-out">
+        <span class="absolute left-0 inset-y-0 flex items-center pl-3">
+            <svg class="h-5 w-5 text-indigo-500 group-hover:text-indigo-400 transition ease-in-out duration-150"
+                fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd"
+                    d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z"
+                    clip-rule="evenodd" />
+            </svg>
+        </span>
+        Log Masuk
+    </button>
+</div>
+</form>
+</div>
+</div>
+</div>
+</div>
 </div> --}}
 
 <!-- new layout -->
 
 <head>
-      <meta charset="utf-8">
-      <meta name="viewport" content="width=device-width">
-      <title>Contact Form Template</title>
-      <link rel="stylesheet" href="/build/tailwind.css" type="text/css" media="screen" title="no title" charset="utf-8" />
-  </head>
-  <body class>
-      <div class="lg:flex">
-          <div class="lg:w-1/2 xl:max-w-screen-sm">
-              <div class="py-12 bg-indigo-100 lg:bg-white flex justify-center lg:justify-start lg:px-12">
-                  <div class="cursor-pointer flex items-center">
-                      <div>
-                          <svg class="w-10 text-indigo-500" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Layer_1" x="0px" y="0px" viewBox="0 0 225 225" style="enable-background:new 0 0 225 225;" xml:space="preserve">
-                              <style type="text/css">
-                                  .st0{fill:none;stroke:currentColor;stroke-width:20;stroke-linecap:round;stroke-miterlimit:3;}
-                              </style>
-                              {{-- <g transform="matrix( 1, 0, 0, 1, 0,0) ">
-                              <g>
-                              <path id="Layer0_0_1_STROKES" class="st0" d="M173.8,151.5l13.6-13.6 M35.4,89.9l29.1-29 M89.4,34.9v1 M137.4,187.9l-0.6-0.4     M36.6,138.7l0.2-0.2 M56.1,169.1l27.7-27.6 M63.8,111.5l74.3-74.4 M87.1,188.1L187.6,87.6 M110.8,114.5l57.8-57.8"/>
-                              </g>
-                              </g> --}}
-                          </svg>
-                      </div>
-                      {{-- <div class="text-2xl text-indigo-800 tracking-wide ml-2 font-semibold">blockify</div> --}}
-                      <!--logo-->
-                      <div class="flex font-bold justify-center mt-6">
-                        <img class="h-40 w-40"
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Contact Form Template</title>
+    <link rel="stylesheet" href="/build/tailwind.css" type="text/css" media="screen" title="no title" charset="utf-8" />
+</head>
+
+<body class>
+    <div class="lg:flex">
+        <div class="lg:w-1/2 xl:max-w-screen-sm">
+            <div class="py-12 bg-indigo-100 lg:bg-white flex justify-center lg:justify-start lg:px-12">
+                <div class="cursor-pointer flex items-center">
+                    <div>
+                        <svg class="w-10 text-indigo-500" xmlns="http://www.w3.org/2000/svg"
+                            xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Layer_1" x="0px" y="0px"
+                            viewBox="0 0 225 225" style="enable-background:new 0 0 225 225;" xml:space="preserve">
+                            <style type="text/css">
+                                .st0 {
+                                    fill: none;
+                                    stroke: currentColor;
+                                    stroke-width: 20;
+                                    stroke-linecap: round;
+                                    stroke-miterlimit: 3;
+                                }
+                            </style>
+                            {{-- <g transform="matrix( 1, 0, 0, 1, 0,0) ">
+                            <g>
+                            <path id="Layer0_0_1_STROKES" class="st0" d="M173.8,151.5l13.6-13.6 M35.4,89.9l29.1-29 M89.4,34.9v1 M137.4,187.9l-0.6-0.4     M36.6,138.7l0.2-0.2 M56.1,169.1l27.7-27.6 M63.8,111.5l74.3-74.4 M87.1,188.1L187.6,87.6 M110.8,114.5l57.8-57.8"/>
+                            </g>
+                            </g> --}}
+                        </svg>
+                    </div>
+                    {{-- <div class="text-2xl text-indigo-800 tracking-wide ml-2 font-semibold">blockify</div> --}}
+                    <!--logo-->
+                    <div class="flex font-bold justify-center mt-3">
+                        <img class="h-30 w-40"
                             src="https://static.imoney.my/articles/wp-content/uploads/2018/09/Tekun-Nasional-logo.png">
-                        </div>
-                  </div>
-              </div>
-              <div class="mt-10 px-12 sm:px-24 md:px-48 lg:px-12 lg:mt-16 xl:px-24 xl:max-w-2xl">
-                  <h2 class="text-center text-4xl text-indigo-900 font-display font-semibold lg:text-left xl:text-5xl
-                  xl:text-bold">Log Masuk <br> e-Mandate</h2>
-                  <div class="mt-12">
-                      <form class="mt-8" action="{{ route('loggingin') }}" method="POST">
+                    </div>
+                </div>
+            </div>
+            <div class="mt-10 px-12 sm:px-24 md:px-48 lg:px-12 lg:mt-16 xl:px-24 xl:max-w-2xl">
+                <h2 class="text-center text-4xl text-indigo-900 font-display font-semibold lg:text-left xl:text-5xl
+                xl:text-bold">Log Masuk<br>e-Mandate</h2>
+                <div class="mt-12">
+                    <form class="mt-8" action="{{ route('loggingin') }}" method="POST">
                         @if(session()->has('loginerror'))
                         <x-general.alert.base class="bg-red-200 border-2 border-red-300 rounded-md p-2 text-sm my-2">
-                              <x-slot name="message">{{ session()->get('loginerror') }}</x-slot>
-                              </x-general.alert.base>
+                            <x-slot name="message">{{ session()->get('loginerror') }}</x-slot>
+                        </x-general.alert.base>
                         @endif
                         @csrf
-                          <div>
-                              <div class="text-sm font-bold text-gray-700 tracking-wide">Id Pengguna</div>
-                              <input class="w-full text-lg py-2 border-b border-gray-300 focus:outline-none focus:border-indigo-500" type="" placeholder="Tekun Nasional" id="idpengguna" name="idpengguna">
-                          </div>
-                          <div class="mt-8">
-                              <div class="flex justify-between items-center">
-                                  <div class="text-sm font-bold text-gray-700 tracking-wide">
-                                      Kata Laluan
-                                  </div>
-                                  {{-- <div>
-                                      <a class="text-xs font-display font-semibold text-indigo-600 hover:text-indigo-800
-                                      cursor-pointer">
-                                          Lupa Password?
-                                      </a>
-                                  </div> --}}
-                              </div>
-                              <input class="w-full text-lg py-2 border-b border-gray-300 focus:outline-none focus:border-indigo-500" type="password" placeholder="*****" id="katalaluan" name="katalaluan">
-                          </div>
-                          <div class="mt-10">
-                              {{-- <button class="bg-indigo-500 text-gray-100 p-4 w-full rounded-full tracking-wide
-                              font-semibold font-display focus:outline-none focus:shadow-outline hover:bg-indigo-600
-                              shadow-lg">
-                                  Masuk
-                              </button> --}}
-                              <button class="bg-white text-green-400 p-4 w-full rounded-full tracking-wide
-                              border border-green-400 font-semibold font-display focus:outline-none focus:shadow-outlineshadow-lg
-                              hover:text-green-500">
-                                  Masuk
-                              </button>
-                          </div>
-                      </form>
-                      {{-- <div class="mt-12 text-sm font-display font-semibold text-gray-700 text-center">
-                          Don't have an account ? <a class="cursor-pointer text-indigo-600 hover:text-indigo-800">Sign up</a>
-                      </div> --}}
-                  </div>
-              </div>
-          </div>
-          <div class="hidden lg:flex items-center justify-center bg-green-200 flex-1 h-screen">
-              <img src="{{asset('assets/img/knock4.gif')}}" class="w-1/2 h-1/2" >  
-              {{-- <div class="max-w-xs transform duration-200 hover:scale-110 cursor-pointer">  
+                        <div>
+                            <div class="text-sm font-bold text-gray-700 tracking-wide">Id Pengguna</div>
+                            <input
+                                class="w-full text-lg py-2 border-b border-gray-300 focus:outline-none focus:border-indigo-500"
+                                type="" placeholder="Tekun Nasional" id="idpengguna" name="idpengguna">
+                        </div>
+                        <div class="mt-8">
+                            <div class="flex justify-between items-center">
+                                <div class="text-sm font-bold text-gray-700 tracking-wide">
+                                    Kata Laluan
+                                </div>
+                                {{-- <div>
+                                    <a class="text-xs font-display font-semibold text-indigo-600 hover:text-indigo-800
+                                    cursor-pointer"> Lupa Password? </a>
+                                </div> --}}
+                            </div>
+                            <input
+                                class="w-full text-lg py-2 border-b border-gray-300 focus:outline-none focus:border-indigo-500"
+                                type="password" placeholder="*****" id="katalaluan" name="katalaluan">
+                        </div>
+                        <div class="mt-10">
+                            {{-- <button class="bg-indigo-500 text-gray-100 p-4 w-full rounded-full tracking-wide
+                            font-semibold font-display focus:outline-none focus:shadow-outline hover:bg-indigo-600
+                            shadow-lg"> Masuk </button> --}}
+                            <button class="bg-white text-green-400 p-4 w-full rounded-full tracking-wide
+                            border border-green-400 font-semibold font-display focus:outline-none focus:shadow-outlineshadow-lg
+                            hover:text-green-500" id="blogin" name="buttonlogin">
+                                Masuk
+                            </button>
+                        </div>
+                    </form>
+                    {{-- <div class="mt-12 text-sm font-display font-semibold text-gray-700 text-center">
+                        Don't have an account ? <a class="cursor-pointer text-indigo-600 hover:text-indigo-800">Sign up</a>
+                    </div> --}}
+                </div>
+            </div>
+        </div>
+        <div class="hidden lg:flex items-center justify-center bg-green-200 flex-1 h-screen">
+            <img src="{{asset('assets/img/knock4.gif')}}" class="w-1/2 h-1/2">
+            {{-- <div class="max-w-xs transform duration-200 hover:scale-110 cursor-pointer">  
                   <svg class="w-5/6 mx-auto" xmlns="http://www.w3.org/2000/svg" id="f080dbb7-9b2b-439b-a118-60b91c514f72" data-name="Layer 1" viewBox="0 0 528.71721 699.76785">
                       <title>Login</title>
                       <rect y="17.06342" width="444" height="657" fill="#535461"/>
@@ -172,11 +188,8 @@
                       <path d="M786.797,157.64461s-11.5575-4.20273-27.31774,4.72807l8.40546,2.10136s-12.60819,1.05068-14.18421,17.8616h5.77875s-3.67739,14.70955,0,18.91228l2.364-4.4654,6.82943,13.65887,1.576-6.82944,3.15205,1.05069,2.10137-11.03217s5.25341,7.88012,9.45614,8.40546V195.2065s11.5575,13.13352,15.23489,12.60818l-5.25341-7.35477,7.35477,1.576-3.152-5.25341,18.91228,5.25341-4.20273-5.25341,13.13352,4.20273,6.3041,2.6267s8.9308-20.4883-3.67739-34.67251S798.61712,151.60318,786.797,157.64461Z" transform="translate(-335.6414 -100.11607)" fill="#2f2e41"/>
                   </svg>
               </div> --}}
-          </div>
-      </div>
+        </div>
+    </div>
 
-<!-- end new laywout -->
-@endsection
-
-
-
+    <!-- end new laywout -->
+    @endsection
